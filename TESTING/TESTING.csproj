@@ -54,6 +54,10 @@
       <Project>{1f1ab826-4a7c-43d2-8079-02b06744392a}</Project>
       <Name>DVLD_BusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DVLD_Global\DVLD_Global.csproj">
+      <Project>{56e5cc16-c592-4feb-b6ea-d43c9a4a92ec}</Project>
+      <Name>DVLD_Global</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

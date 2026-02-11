@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_Global;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,9 +10,16 @@ namespace DVLD_AccessLayer
     {
 
 
-        public static int AddNewPerson(string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName, DateTime DateOfBirth, short Gendor,
-            string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
+        //public static DataTable ListAllPeolpe() { 
+        
+        
+
+        //}
+        public static int AddNewPerson( clsPersonDTO personDTO )
         {
+            if (!clsnValidation.IsPersonValid(personDTO))
+                return -1;
+        
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
             string query = @"INSERT INTO [dbo].[People]
            ([NationalNo]
@@ -44,18 +52,18 @@ namespace DVLD_AccessLayer
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@NationalNo", NationalNo);
-            command.Parameters.AddWithValue("@FirstName", FirstName);
-            command.Parameters.AddWithValue("@SecondName", SecondName);
-            command.Parameters.AddWithValue("@ThirdName", clsSqlHelper.ToDBValue(ThirdName));
-            command.Parameters.AddWithValue("@LastName", LastName);
-            command.Parameters.AddWithValue("@DateOfBirh", NationalNo);
-            command.Parameters.AddWithValue("@Gendor", Gendor);
-            command.Parameters.AddWithValue("@Address", Address);
-            command.Parameters.AddWithValue("@Phone", Phone);
-            command.Parameters.AddWithValue("@Email", clsSqlHelper.ToDBValue(Email));
-            command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
-            command.Parameters.AddWithValue("@ImagePath", clsSqlHelper.ToDBValue(ImagePath));
+            command.Parameters.AddWithValue("@NationalNo", personDTO.NationalNo);
+            command.Parameters.AddWithValue("@FirstName", personDTO.FirstName);
+            command.Parameters.AddWithValue("@SecondName", personDTO.SecondName);
+            command.Parameters.AddWithValue("@ThirdName", clsSqlHelper.ToDBValue(personDTO.ThirdName));
+            command.Parameters.AddWithValue("@LastName", personDTO.LastName);
+            command.Parameters.AddWithValue("@DateOfBirth", personDTO.DateOfBirth);
+            command.Parameters.AddWithValue("@Gendor", personDTO.Gendor);
+            command.Parameters.AddWithValue("@Address", personDTO.Address);
+            command.Parameters.AddWithValue("@Phone", personDTO.Phone);
+            command.Parameters.AddWithValue("@Email", clsSqlHelper.ToDBValue(personDTO.Email));
+            command.Parameters.AddWithValue("@NationalityCountryID", personDTO.NationalityCountryID);
+            command.Parameters.AddWithValue("@ImagePath", clsSqlHelper.ToDBValue(personDTO.ImagePath));
 
 
             try
@@ -70,11 +78,12 @@ namespace DVLD_AccessLayer
                 return result != null && int.TryParse(result.ToString(), out int InseartedID) ? InseartedID : -1;
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
                 throw;
             }
+
            
 
         }

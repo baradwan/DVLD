@@ -41,13 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsPersonData.cs" />
+    <Compile Include="clsPerson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DVLD_AccessLayer\DVLD_DataAccessLayer.csproj">
       <Project>{c96b5487-02b1-4c10-99b1-42d8cb143ff8}</Project>
       <Name>DVLD_DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DVLD_Global\DVLD_Global.csproj">
+      <Project>{56e5cc16-c592-4feb-b6ea-d43c9a4a92ec}</Project>
+      <Name>DVLD_Global</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

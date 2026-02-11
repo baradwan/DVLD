@@ -8,9 +8,7 @@ namespace DVLD_AccessLayer
 {
     public class clsPersonData
     {
-        //ahmed
-
-        int Ahmed = 0;
+        
         public static DataTable GetAllPeople()
         {
 
@@ -39,10 +37,38 @@ namespace DVLD_AccessLayer
                 connection.Close();
             }
 
-return dataTable;
+        return dataTable;
 
         }
 
+        public static bool GetPersonByID(ref clsPersonDTO personDTO) { 
+        
+        SqlConnection connection =new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "select * from People where PersonID=@PersonID;";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", personDTO.PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    personDTO.NationalNo = reader["NationalNo"].ToString();
+                    personDTO.FirstName = reader["FirstName"].ToString();
+                    personDTO.SecondName = reader["SecondName"].ToString();
+                    personDTO.ThirdName = reader["ThirdName"].ToString();
+                    personDTO.LastName = reader["LastName"].ToString();
+                    personDTO.DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]);
+                    personDTO.Gendor = Convert.ToInt16(reader["Gendor"]);
+                    personDTO.Address = reader["Address"].ToString();
+                    personDTO.Phone = reader["Phone"].ToString();
+                    personDTO.Email = reader["Email"].ToString();
+                    personDTO.NationalityCountryID = (short)reader["NationalityCountryID"];
+
+        }
 
         public static int AddNewPerson( clsPersonDTO personDTO )
         {

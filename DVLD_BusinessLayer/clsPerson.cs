@@ -58,7 +58,7 @@ namespace DVLD_BusinessLayer
                 };
             }
         }
-        #endregion
+     
 
         /// <summary>
         /// Default constructor to initialize a new person object / التهيئة كائن شخص جديد Default constructor

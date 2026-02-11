@@ -1,6 +1,7 @@
 ﻿using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,6 +61,63 @@ namespace TESTING
                 Console.WriteLine("--------------------------------------------");
             }
         }
+        private static void _PrintResult(string testName, bool success)
+        {
+            // ضبط المسافة لجعل النتائج محاذية لبعضها البعض
+            Console.Write($"{testName,-40} : ");
+
+            if (success)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("PASSED ✅");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("FAILED ❌");
+            }
+
+            // إعادة لون الكونسول للوضع الافتراضي
+            Console.ResetColor();
+        }
+        public static void _testPeopleListPeople() {
+
+            Console.WriteLine("Testing: Retrieve All People...");
+
+            // 1. استدعاء الدالة من طبقة البزنس
+            DataTable dtPeople = clsPerson.ListAllPeople();
+
+            // 2. التحقق الفعال (Validation)
+            // نعتبر الاختبار ناجحاً إذا كان الجدول غير نل ويحتوي على سجلات
+            bool isPassed = (dtPeople != null && dtPeople.Rows.Count > 0);
+
+            // 3. طباعة النتيجة بالألوان
+            _PrintResult("Retrieve All People DataTable", isPassed);
+
+            if (isPassed)
+            {
+                Console.WriteLine($"[INFO] Total Records Found: {dtPeople.Rows.Count}");
+
+                // طباعة ترويسة بسيطة للبيانات للتأكد بصرياً
+                Console.WriteLine("--------------------------------------------------");
+                Console.WriteLine($"{"ID",-5} | {"National No",-15} | {"Full Name"}");
+                Console.WriteLine("--------------------------------------------------");
+
+                // عرض أول 3 سجلات فقط كمثال
+                int rowsToShow = Math.Min(dtPeople.Rows.Count, 3);
+                for (int i = 0; i < rowsToShow; i++)
+                {
+                    DataRow row = dtPeople.Rows[i];
+                    string fullName = $"{row["FirstName"]} {row["LastName"]}";
+                    Console.WriteLine($"{row["PersonID"],-5} | {row["NationalNo"],-15} | {fullName}");
+                }
+                Console.WriteLine("--------------------------------------------------");
+            }
+            else
+            {
+                Console.WriteLine("⚠️ Warning: No data found in People table or Connection error.");
+            }
+        }
     }
 
 
@@ -92,10 +150,10 @@ namespace TESTING
         static void Main(string[] args)
         {
 
-            Tester.RunTest("Add New Person ", clsTestPeople._testPeopleAddNewPerson);
-           
-          
-          
+          //  Tester.RunTest("Add New Person ", clsTestPeople._testPeopleAddNewPerson);
+           Tester.RunTest("List All People ", clsTestPeople._testPeopleListPeople);
+
+
             Console.ReadKey();
         }
     }

@@ -1,6 +1,7 @@
 ﻿using DVLD_AccessLayer;
 using DVLD_Global;
 using System;
+using System.Data;
 using System.Runtime.CompilerServices;
 
 namespace DVLD_BusinessLayer
@@ -102,6 +103,11 @@ namespace DVLD_BusinessLayer
             this.ImagePath = personDTO.ImagePath;
 
             this.Mode = enMode.UpdatePerson;
+        }
+
+        public static DataTable ListAllPeople()
+        {
+            return clsPersonData.GetAllPeople();
         }
 
         /// <summary>

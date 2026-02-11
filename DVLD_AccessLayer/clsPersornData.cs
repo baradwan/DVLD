@@ -8,13 +8,42 @@ namespace DVLD_AccessLayer
 {
     public class clsPersonData
     {
+        //ahmed
+
+        int Ahmed = 0;
+        public static DataTable GetAllPeople()
+        {
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "select * from People;";
+
+            SqlCommand command= new SqlCommand(query, connection);
+
+            DataTable dataTable=new DataTable();
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    dataTable .Load( reader);
+
+                reader.Close();
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+return dataTable;
+
+        }
 
 
-        //public static DataTable ListAllPeolpe() { 
-        
-        
-
-        //}
         public static int AddNewPerson( clsPersonDTO personDTO )
         {
             if (!clsnValidation.IsPersonValid(personDTO))

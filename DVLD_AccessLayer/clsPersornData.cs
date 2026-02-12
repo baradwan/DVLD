@@ -164,7 +164,161 @@ namespace DVLD_AccessLayer
 
         }
 
+        public static bool UpdatePerson(clsPersonDTO personDTO)
+        {
+            int rowAffected = 0;
+
+            if (!clsnValidation.IsPersonValid(personDTO))
+                return false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            string query = @"UPDATE People 
+                 SET NationalNo = @NationalNo, 
+                     FirstName = @FirstName, 
+                     SecondName = @SecondName, 
+                     ThirdName = @ThirdName, 
+                     LastName = @LastName, 
+                     DateOfBirth = @DateOfBirth, 
+                     Gendor = @Gendor, 
+                     Address = @Address, 
+                     Phone = @Phone, 
+                     Email = @Email, 
+                     NationalityCountryID = @NationalityCountryID, 
+                     ImagePath = @ImagePath
+                 WHERE PersonID = @PersonID";
+
+            SqlCommand command =new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", personDTO.PersonID);
+            command.Parameters.AddWithValue("@NationalNo", personDTO.NationalNo);
+            command.Parameters.AddWithValue("@FirstName", personDTO.FirstName);
+            command.Parameters.AddWithValue("@SecondName", personDTO.SecondName);
+            command.Parameters.AddWithValue("@ThirdName", clsSqlHelper.ToDBValue(personDTO.ThirdName)); 
+            command.Parameters.AddWithValue("@LastName", personDTO.LastName);
+            command.Parameters.AddWithValue("@DateOfBirth", personDTO.DateOfBirth);
+            command.Parameters.AddWithValue("@Gendor", personDTO.Gendor);
+            command.Parameters.AddWithValue("@Address", personDTO.Address);        
+            command.Parameters.AddWithValue("@Phone", personDTO.Phone);
+            command.Parameters.AddWithValue("@Email", clsSqlHelper.ToDBValue(personDTO.Email));
+            command.Parameters.AddWithValue("@NationalityCountryID", personDTO.NationalityCountryID);
+            command.Parameters.AddWithValue("@ImagePath", clsSqlHelper.ToDBValue(personDTO.ImagePath));
+
+            try
+            {
+
+                connection.Open();
+                rowAffected = command.ExecuteNonQuery();
 
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return false;
+                throw;
+            }
+            finally { connection.Close(); }
+
+            return rowAffected > 0;
+
+        
+    }
+        public static bool DeletePerson(int PersonID)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"Delete People 
+                                where PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                 Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                connection.Close();
+
+            }
+
+            return (rowsAffected > 0);
+
+
+        }
+
+
+        public static bool IsPersonExist(int ID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "SELECT Found=1 FROM People WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", ID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
+        public static bool IsPersonExist(string NationalNo)
+        {
+            bool isFound = false;
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            {
+            
+                string query = "SELECT Found=1 FROM People WHERE NationalNo = @NationalNo";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@NationalNo", NationalNo.Trim());
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    isFound = (result != null);
+                }
+                catch { isFound = false;
+                
+                    
+                }finally { connection.Close(); }
+            }
+            return isFound;
+        }
     }
 }
+
+

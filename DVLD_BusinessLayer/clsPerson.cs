@@ -2,6 +2,7 @@
 using DVLD_Global;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 
 namespace DVLD_BusinessLayer
@@ -55,7 +56,7 @@ namespace DVLD_BusinessLayer
         public enum enMode { AddNewPerson = 0, UpdatePerson = 1 };
         public enMode Mode = enMode.AddNewPerson;
 
-       
+
 
         public int PersonID { get; set; }
         public string NationalNo { get; set; }
@@ -96,7 +97,7 @@ namespace DVLD_BusinessLayer
                 };
             }
         }
-     
+
 
         /// <summary>
         /// Default constructor to initialize a new person object / التهيئة كائن شخص جديد Default constructor
@@ -123,7 +124,7 @@ namespace DVLD_BusinessLayer
         /// <summary>
         /// Constructor to initialize a person object from a DTO /   لتهيئة كائن شخص من خلال كائن نقل بيانات constructor
         /// </summary>
-        
+
         public clsPerson(clsPersonDTO personDTO)
         {
             this.PersonID = personDTO.PersonID;
@@ -148,9 +149,9 @@ namespace DVLD_BusinessLayer
             return clsPersonData.GetAllPeople();
         }
 
-        public static clsPerson Find(int PersonID) 
-        { 
-            clsPersonDTO PersonDTO= new clsPersonDTO{ PersonID = PersonID };
+        public static clsPerson Find(int PersonID)
+        {
+            clsPersonDTO PersonDTO = new clsPersonDTO { PersonID = PersonID };
 
 
 
@@ -159,9 +160,9 @@ namespace DVLD_BusinessLayer
             return null;
 
         }
-        
-        
-        
+
+
+
         /// <summary>
         /// Private method to call the DAL and add a new person / دالة خاصة لاستدعاء طبقة البيانات لإضافة شخص جديد
         /// </summary>
@@ -172,7 +173,25 @@ namespace DVLD_BusinessLayer
             return this.PersonID != -1;
         }
 
-        private  bool _IsValid() {
+        private bool _UpdatePerson()
+        {
+            return clsPersonData.UpdatePerson(this.PersonDTO);
+        }
+
+        public static bool _DeletePerson(int PersonID)
+        {
+            return clsPersonData.DeletePerson(PersonID);
+        }
+        public static bool  IsPersonExist(int PersonID)
+        {
+            return clsPersonData.IsPersonExist(PersonID);
+        }
+        public static bool IsExist(string NationalNo)
+        {
+            return clsPersonData.IsPersonExist(NationalNo.Trim());
+        }
+        private bool _IsValid()
+        {
 
             return clsnValidation.IsPersonValid(this.PersonDTO);
         }
@@ -200,9 +219,15 @@ namespace DVLD_BusinessLayer
                     return false;
 
                 case enMode.UpdatePerson:
-                    break;
+
+                    return _UpdatePerson();
+
+
             }
             return false;
         }
+
+
+
     }
 }

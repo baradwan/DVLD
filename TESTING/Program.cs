@@ -38,8 +38,7 @@ namespace TESTING
             clsPerson Person1 = new clsPerson();
 
             Person1 = _GetDefaultPerson();
-            Person1.FirstName = "dfg";
-            Person1.SecondName = "    ";
+           
 
 
             // 3. محاولة الحفظ
@@ -134,7 +133,71 @@ namespace TESTING
             _PrintResult("Find Person By ID (Not Found)", person == null);
         }
 
+
+        public static void Test_UpdatePerson(int ID)
+        {
+            clsPerson person = clsPerson.Find(ID);
+            if (person == null)
+            {
+                _PrintResult($"Update Test (ID {ID} Not Found)", false);
+                return;
+            }
+
+            // تغيير قيمة معينة للتجربة
+            string newPhone = "000-000-0000";
+            person.Phone = newPhone;
+
+            // استدعاء Save (ستقوم بعمل Update داخلياً لأن المود هو Update)
+            bool isSaved = person.Save();
+            _PrintResult($"Update Person ID {ID}", isSaved);
+
+            // التأكد من أن القيمة تغيرت فعلياً في قاعدة البيانات
+            if (isSaved)
+            {
+                clsPerson updatedPerson = clsPerson.Find(ID);
+                _PrintResult("Verify Update Integrity", updatedPerson.Phone == newPhone);
+            }
+        }
+
+        // 2. اختبار الحذف (Delete Test)
+        public static void Test_DeletePerson(int ID)
+        {
+            // نقوم بالحذف مباشرة
+            bool isDeleted = clsPerson._DeletePerson(ID);
+            _PrintResult($"Delete Person ID {ID}", isDeleted);
+
+            // التأكد من أن البحث عنه الآن يعود بـ null
+            if (isDeleted)
+            {
+                clsPerson person = clsPerson.Find(ID);
+                _PrintResult("Verify Deletion", person == null);
+            }
+        }
+
+
+        public static void Test_IsPersonExist(int ID)
+        {
+            // اختبار البحث عن شخص موجود
+            bool result = clsPerson.IsPersonExist(ID);
+            _PrintResult($"Check If Person ID {ID} Exists", result);
+        }
+
+        public static void Test_IsPersonNotExist()
+        {
+            // اختبار البحث عن رقم غير منطقي
+            bool result = clsPerson.IsPersonExist(-1);
+            _PrintResult("Check If Person ID -1 Exists (Should be False)", result == false);
+        }
+
+        public static void Test_IsPersonExistByNationalNo(string NationalNo)
+        {
+            // استدعاء البزنس للتحقق من الرقم الوطني
+            bool result = clsPerson.IsExist(NationalNo.Trim());
+
+            _PrintResult($"Check Existence of National No: {NationalNo}", result);
+        }
     }
+
 
 
     class Tester
@@ -158,7 +221,8 @@ namespace TESTING
 
             Console.WriteLine("--------------------------------------------");
         
-    }
+
+        }
 
     }
     internal class Program
@@ -166,12 +230,26 @@ namespace TESTING
         static void Main(string[] args)
         {
 
-            //  Tester.RunTest("Add New Person ", clsTestPeople._testPeopleAddNewPerson);
+            // Tester.RunTest("Add New Person ", clsTestPeople._testPeopleAddNewPerson);
             //Tester.RunTest("List All People ", clsTestPeople._testPeopleListPeople);
-            Tester.RunTest("Check Find With Existing Value", clsTestPeople.Test_FindPerson_Existing);
-            Tester.RunTest("Check Find With NOT Existing Value", clsTestPeople.Test_FindPerson_NotFound);
+            //Tester.RunTest("Check Find With Existing Value", clsTestPeople.Test_FindPerson_Existing);
+            //Tester.RunTest("Check Find With NOT Existing Value", clsTestPeople.Test_FindPerson_NotFound);
+            //Tester.RunTest("Update Person Logic",()=> clsTestPeople.Test_UpdatePerson(1024));
 
+            //// 4. اختبار الحذف (تنبيه: سيحذف السجل نهائياً!)'
+
+            // Tester.RunTest("Delete Person Logic", () => clsTestPeople.Test_DeletePerson(1036));
+            //Tester.RunTest("Is exist person with correct data ", ()=> clsTestPeople.Test_IsPersonExist(1024));
+            //Tester.RunTest("Is exist person with incorrect data ", () => clsTestPeople.Test_IsPersonExist(-1));
+
+            Tester.RunTest("Existence Check (By National No)", () => clsTestPeople.Test_IsPersonExistByNationalNo("N1"));
+
+            // اختبار رقم وطني غير موجود
+            Tester.RunTest("Existence Check (Not Found)", () => clsTestPeople.Test_IsPersonExistByNationalNo("XYZ-999"));
             Console.ReadKey();
+
         }
     }
 }
+
+

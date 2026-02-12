@@ -41,35 +41,56 @@ namespace DVLD_AccessLayer
 
         }
 
-        public static bool GetPersonByID(ref clsPersonDTO personDTO) { 
-        
-        SqlConnection connection =new SqlConnection(clsDataAccessSettings.connectionString);
+        public static bool GetPersonByID(ref clsPersonDTO personDTO)
+        {
+
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = "select * from People where PersonID=@PersonID;";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", personDTO.PersonID);
+            command.Parameters.AddWithValue("@PersonID", personDTO. PersonID);
 
             try
             {
+
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
+                if (reader.Read())
                 {
-                    reader.Read();
+                    isFound = true;
+                   
+                      //  personDTO.PersonID = (int)reader["PersonID"];
                     personDTO.NationalNo = reader["NationalNo"].ToString();
                     personDTO.FirstName = reader["FirstName"].ToString();
                     personDTO.SecondName = reader["SecondName"].ToString();
-                    personDTO.ThirdName = reader["ThirdName"].ToString();
+                    personDTO.ThirdName = clsSqlHelper.FillReaderAllowNull(reader, "ThirdName");
                     personDTO.LastName = reader["LastName"].ToString();
                     personDTO.DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]);
                     personDTO.Gendor = Convert.ToInt16(reader["Gendor"]);
                     personDTO.Address = reader["Address"].ToString();
                     personDTO.Phone = reader["Phone"].ToString();
-                    personDTO.Email = reader["Email"].ToString();
-                    personDTO.NationalityCountryID = (short)reader["NationalityCountryID"];
+                    personDTO.Email = clsSqlHelper.FillReaderAllowNull(reader, "Email");
+                    personDTO.NationalityCountryID = Convert.ToInt16(reader["NationalityCountryID"]);
+                    personDTO.ImagePath = clsSqlHelper.FillReaderAllowNull(reader, "ImagePath");
 
+
+
+
+
+                }
+                else
+
+                    isFound = false;
+                reader.Close();
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
         }
-
         public static int AddNewPerson( clsPersonDTO personDTO )
         {
             if (!clsnValidation.IsPersonValid(personDTO))

@@ -11,13 +11,51 @@ namespace DVLD_BusinessLayer
     /// </summary>
     public class clsPerson
     {
+
+        public void Print()
+        {
+            Console.WriteLine("\n==================================================");
+            Console.WriteLine("                PERSON FULL DETAILS               ");
+            Console.WriteLine("==================================================");
+
+            Console.WriteLine($"ID              : {this.PersonID}");
+            Console.WriteLine($"National No     : {this.NationalNo}");
+
+            // Handling ThirdName (it can be empty)
+            string fullName = $"{this.FirstName} {this.SecondName} {this.ThirdName} {this.LastName}".Replace("  ", " ");
+            Console.WriteLine($"Full Name       : {fullName}");
+
+            // Individual Name Components
+            Console.WriteLine($"First Name      : {this.FirstName}");
+            Console.WriteLine($"Second Name     : {this.SecondName}");
+            Console.WriteLine($"Third Name      : {(string.IsNullOrEmpty(this.ThirdName) ? "[None]" : this.ThirdName)}");
+            Console.WriteLine($"Last Name       : {this.LastName}");
+
+            // Formatting Date
+            Console.WriteLine($"Date Of Birth   : {this.DateOfBirth.ToShortDateString()}");
+
+            // Gender Logic (0: Male, 1: Female)
+            Console.WriteLine($"Gender          : {(this.Gendor == 0 ? "Male" : "Female")}");
+
+            Console.WriteLine($"Nationality ID  : {this.NationalityCountryID}");
+            Console.WriteLine($"Phone           : {this.Phone}");
+
+            // Handling Nullable/Optional Fields
+            Console.WriteLine($"Email           : {(string.IsNullOrEmpty(this.Email) ? "N/A" : this.Email)}");
+            Console.WriteLine($"Address         : {this.Address}");
+
+            // Image Path
+            Console.WriteLine($"Image Path      : {(string.IsNullOrEmpty(this.ImagePath) ? "No Image" : this.ImagePath)}");
+
+            Console.WriteLine("==================================================\n");
+        }
         /// <summary>
         /// Defines whether the object is for a new record or an update / يحدد ما إذا كان الكائن لسجل جديد أو لتعديل سجل موجود
         /// </summary>
         public enum enMode { AddNewPerson = 0, UpdatePerson = 1 };
         public enMode Mode = enMode.AddNewPerson;
 
-        #region Properties
+       
 
         public int PersonID { get; set; }
         public string NationalNo { get; set; }
@@ -110,6 +148,20 @@ namespace DVLD_BusinessLayer
             return clsPersonData.GetAllPeople();
         }
 
+        public static clsPerson Find(int PersonID) 
+        { 
+            clsPersonDTO PersonDTO= new clsPersonDTO{ PersonID = PersonID };
+
+
+
+            if (clsPersonData.GetPersonByID(ref PersonDTO))
+                return new clsPerson(PersonDTO);
+            return null;
+
+        }
+        
+        
+        
         /// <summary>
         /// Private method to call the DAL and add a new person / دالة خاصة لاستدعاء طبقة البيانات لإضافة شخص جديد
         /// </summary>
@@ -124,6 +176,8 @@ namespace DVLD_BusinessLayer
 
             return clsnValidation.IsPersonValid(this.PersonDTO);
         }
+
+
         /// <summary>
         /// Main method to save the record (Add or Update) / الدالة الرئيسية لحفظ السجل (إضافة أو تعديل)
         /// </summary>

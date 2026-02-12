@@ -118,6 +118,22 @@ namespace TESTING
                 Console.WriteLine("⚠️ Warning: No data found in People table or Connection error.");
             }
         }
+
+        public static void Test_FindPerson_Existing()
+        {
+            // Assuming ID 1 exists in your database
+            clsPerson person = clsPerson.Find(1024);
+            _PrintResult("Find Person By ID (Existing)", person != null);
+            person.Print();
+        }
+
+        // 2. Test finding a person that does NOT exist
+        public static void Test_FindPerson_NotFound()
+        {
+            clsPerson person = clsPerson.Find(-1); // ID -1 never exists
+            _PrintResult("Find Person By ID (Not Found)", person == null);
+        }
+
     }
 
 
@@ -150,9 +166,10 @@ namespace TESTING
         static void Main(string[] args)
         {
 
-          //  Tester.RunTest("Add New Person ", clsTestPeople._testPeopleAddNewPerson);
-           Tester.RunTest("List All People ", clsTestPeople._testPeopleListPeople);
-
+            //  Tester.RunTest("Add New Person ", clsTestPeople._testPeopleAddNewPerson);
+            //Tester.RunTest("List All People ", clsTestPeople._testPeopleListPeople);
+            Tester.RunTest("Check Find With Existing Value", clsTestPeople.Test_FindPerson_Existing);
+            Tester.RunTest("Check Find With NOT Existing Value", clsTestPeople.Test_FindPerson_NotFound);
 
             Console.ReadKey();
         }

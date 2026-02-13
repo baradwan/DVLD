@@ -169,6 +169,9 @@ namespace DVLD_BusinessLayer
         /// <returns>True if added successfully / صحيح إذا تمت الإضافة بنجاح</returns>
         private bool _AddNewPerson()
         {
+            if (IsPersonExist(this.NationalNo))
+                return false;
+
             this.PersonID = clsPersonData.AddNewPerson(this.PersonDTO);
             return this.PersonID != -1;
         }
@@ -186,9 +189,9 @@ namespace DVLD_BusinessLayer
         {
             return clsPersonData.IsPersonExist(PersonID);
         }
-        public static bool IsExist(string NationalNo)
+        public static bool IsPersonExist(string NationalNo)
         {
-            return clsPersonData.IsPersonExist(NationalNo.Trim());
+            return clsPersonData.IsPersonExist(NationalNo.Trim().ToUpper());
         }
         private bool _IsValid()
         {
@@ -211,6 +214,9 @@ namespace DVLD_BusinessLayer
             switch (Mode)
             {
                 case enMode.AddNewPerson:
+                    if (IsPersonExist(this.NationalNo))
+                        return false;
+
                     if (_AddNewPerson())
                     {
                         Mode = enMode.UpdatePerson;

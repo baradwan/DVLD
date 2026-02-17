@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class Form1
+    partial class frmPeople
     {
         /// <summary>
         /// Required designer variable.

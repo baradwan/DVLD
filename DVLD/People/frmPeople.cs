@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
-    public partial class Form1 : Form
+    public partial class frmPeople : Form
     {
-        public Form1()
+        public frmPeople()
         {
             InitializeComponent();
         }

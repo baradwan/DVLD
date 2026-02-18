@@ -51,19 +51,17 @@ namespace DVLD
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2884, 154);
+            this.panel1.Size = new System.Drawing.Size(1374, 80);
             this.panel1.TabIndex = 0;
             // 
             // btnPeopleAddPerson
             // 
             this.btnPeopleAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPeopleAddPerson.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
-            this.btnPeopleAddPerson.Location = new System.Drawing.Point(2442, 35);
-            this.btnPeopleAddPerson.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnPeopleAddPerson.Location = new System.Drawing.Point(1153, 18);
             this.btnPeopleAddPerson.Name = "btnPeopleAddPerson";
-            this.btnPeopleAddPerson.Size = new System.Drawing.Size(348, 87);
+            this.btnPeopleAddPerson.Size = new System.Drawing.Size(174, 45);
             this.btnPeopleAddPerson.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
             this.btnPeopleAddPerson.Style.ForeColor = System.Drawing.Color.White;
             this.btnPeopleAddPerson.TabIndex = 2;
@@ -74,10 +72,9 @@ namespace DVLD
             // 
             this.lblTitlePeople.AutoSize = true;
             this.lblTitlePeople.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitlePeople.Location = new System.Drawing.Point(258, 17);
-            this.lblTitlePeople.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblTitlePeople.Location = new System.Drawing.Point(129, 9);
             this.lblTitlePeople.Name = "lblTitlePeople";
-            this.lblTitlePeople.Size = new System.Drawing.Size(502, 86);
+            this.lblTitlePeople.Size = new System.Drawing.Size(252, 45);
             this.lblTitlePeople.TabIndex = 1;
             this.lblTitlePeople.Text = "Manage People";
             // 
@@ -85,10 +82,10 @@ namespace DVLD
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(16, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(200, 154);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 80);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -97,26 +94,27 @@ namespace DVLD
             // 
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 154);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Location = new System.Drawing.Point(0, 80);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(20, 23, 20, 23);
-            this.panel2.Size = new System.Drawing.Size(2884, 83);
+            this.panel2.Padding = new System.Windows.Forms.Padding(10, 12, 10, 12);
+            this.panel2.Size = new System.Drawing.Size(1374, 43);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtSearch
             // 
-            this.txtSearch.BeforeTouchSize = new System.Drawing.Size(676, 37);
+            this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtSearch.BeforeTouchSize = new System.Drawing.Size(340, 19);
             this.txtSearch.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
-            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtSearch.Location = new System.Drawing.Point(20, 23);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSearch.Location = new System.Drawing.Point(10, 12);
+            this.txtSearch.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(676, 37);
+            this.txtSearch.Size = new System.Drawing.Size(340, 19);
             this.txtSearch.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
             this.txtSearch.TabIndex = 0;
             this.txtSearch.Text = "textBoxExt1";
@@ -131,28 +129,29 @@ namespace DVLD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dvgListPeople.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.dvgListPeople.HeaderRowHeight = 45;
-            this.dvgListPeople.Location = new System.Drawing.Point(0, 237);
-            this.dvgListPeople.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dvgListPeople.Location = new System.Drawing.Point(0, 123);
             this.dvgListPeople.Name = "dvgListPeople";
             this.dvgListPeople.PreviewRowHeight = 56;
             this.dvgListPeople.RowHeaderWidth = 20D;
             this.dvgListPeople.RowHeight = 45;
-            this.dvgListPeople.Size = new System.Drawing.Size(2902, 1200);
+            this.dvgListPeople.Size = new System.Drawing.Size(1384, 809);
+            this.dvgListPeople.Style.AddNewRowStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dvgListPeople.Style.BorderColor = System.Drawing.Color.White;
             this.dvgListPeople.Style.DragPreviewRowStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dvgListPeople.Style.DragPreviewRowStyle.RowCountIndicatorTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dvgListPeople.Style.HeaderStyle.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.dvgListPeople.TabIndex = 2;
             this.dvgListPeople.Text = "sfDataGrid1";
             this.dvgListPeople.Click += new System.EventHandler(this.sfDataGrid1_Click);
             // 
             // frmPeople
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2884, 1438);
+            this.ClientSize = new System.Drawing.Size(1374, 923);
             this.Controls.Add(this.dvgListPeople);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmPeople";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

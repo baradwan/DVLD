@@ -30,15 +30,18 @@ namespace DVLD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeople));
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPeopleAddPerson = new Syncfusion.WinForms.Controls.SfButton();
             this.lblTitlePeople = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.dvgListPeople = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.label1 = new System.Windows.Forms.Label();
+            this.bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -60,13 +63,18 @@ namespace DVLD
             // btnPeopleAddPerson
             // 
             this.btnPeopleAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPeopleAddPerson.AutoEllipsis = true;
+            this.btnPeopleAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPeopleAddPerson.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
+            this.btnPeopleAddPerson.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPeopleAddPerson.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPeopleAddPerson.ImageSize = new System.Drawing.Size(40, 40);
             this.btnPeopleAddPerson.Location = new System.Drawing.Point(1153, 18);
             this.btnPeopleAddPerson.Name = "btnPeopleAddPerson";
             this.btnPeopleAddPerson.Size = new System.Drawing.Size(174, 45);
             this.btnPeopleAddPerson.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
+            this.btnPeopleAddPerson.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
+            this.btnPeopleAddPerson.Style.FocusedForeColor = System.Drawing.Color.White;
             this.btnPeopleAddPerson.Style.ForeColor = System.Drawing.Color.White;
             this.btnPeopleAddPerson.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.btnPeopleAddPerson.TabIndex = 2;
@@ -110,19 +118,39 @@ namespace DVLD
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label1.Location = new System.Drawing.Point(12, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 31);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Search : ";
+            // 
             // txtSearch
             // 
+            this.txtSearch.AccessibleDescription = "";
+            this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
+            "Email"});
             this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
+            bannerTextInfo2.Color = System.Drawing.SystemColors.ControlDarkDark;
+            bannerTextInfo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo2.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo2.Text = " Search by PersonID, NationalNo,Email,...";
+            bannerTextInfo2.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtSearch, bannerTextInfo2);
             this.txtSearch.BeforeTouchSize = new System.Drawing.Size(374, 33);
             this.txtSearch.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.CausesValidation = false;
             this.txtSearch.CornerRadius = 6;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtSearch.FarImage = ((System.Drawing.Image)(resources.GetObject("txtSearch.FarImage")));
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(130, 6);
+            this.txtSearch.Location = new System.Drawing.Point(140, 10);
             this.txtSearch.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtSearch.MinimumSize = new System.Drawing.Size(16, 12);
             this.txtSearch.Name = "txtSearch";
@@ -152,19 +180,8 @@ namespace DVLD
             this.dvgListPeople.Style.DragPreviewRowStyle.RowCountIndicatorTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dvgListPeople.Style.HeaderStyle.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.dvgListPeople.TabIndex = 2;
-            this.dvgListPeople.Text = "sfDataGrid1";
+            this.dvgListPeople.Text = " ";
             this.dvgListPeople.Click += new System.EventHandler(this.sfDataGrid1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label1.Location = new System.Drawing.Point(12, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Search : ";
             // 
             // frmPeople
             // 
@@ -198,6 +215,7 @@ namespace DVLD
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtSearch;
         private Syncfusion.WinForms.DataGrid.SfDataGrid dvgListPeople;
         private System.Windows.Forms.Label label1;
+        private Syncfusion.Windows.Forms.BannerTextProvider bannerTextProvider1;
     }
 }
 

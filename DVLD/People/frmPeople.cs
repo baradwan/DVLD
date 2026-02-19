@@ -43,5 +43,10 @@ namespace DVLD
         {
 
         }
+
+        private void lblTitlePeople_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -121,7 +121,7 @@
   <data name="resource.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACJASURBVHhe7d0J
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACJASURBVHhe7d0J
         1H11Xe/xDyCjgAKiqNiAWSoqGY4NXiutrLzawJC3611Zes1Kza5RhIZWSpSJ1tVQzFK0opHrWGhqlspQ
         TldxglK0q6JIDCpjd/3kkPDl94dnOGfvc85+vdZ6r+Vyoexnn9/+nvM8Zw8JAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPOyR5J7JHlEkicm
@@ -274,7 +274,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHzrSURBVHhe7b0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHzrSURBVHhe7b0H
         dBT3uf5vXFKd3p1iGxOKKRLIdDV6FV02iO7kOu3m7+T+bq5zc5NY2Ba9IwHCmKIKMmCDRC9CIFEFSGBR
         tCpUFYSo7jbM/8wKlX3f78zOd3ZH2vJ8znnOzc1JYjQzu8+HR7szjzwCAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -817,7 +817,7 @@
   <data name="txtSearch.FarImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADWOSURBVHhe7d15
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADWOSURBVHhe7d15
         /HXV3P/xt+Z5okJpUFKiKENRSSWhuE0hMk+lW5IiohAlGTLckoREUkJJNCpDUqYIlWYkzbPG3+/xvtvX
         3dWnz/e6vt9z9jlnrb1fz8fj/Qcu37PWPmvvtc/ea5AATNJ8klaQtLakZ0h6vqTtJO0o6X2S9pd0sKTv
         SDpJ0tmSzmnyV0kXNblM0nWz5S5J/5ntP/99tn/7+9n+xsnN3/2upEMkfaL53B0kvULSlpKeIml1SQ+V
@@ -1049,4 +1049,7 @@
         23gBz+W/StJZzeC+N0taLf6B6fr/RHcGoUoYk3cAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>209, 17</value>
+  </metadata>
 </root>

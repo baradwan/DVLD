@@ -14,7 +14,22 @@ namespace DVLD_AccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = "select * from People;";
+
+            string query =
+              @"SELECT People.PersonID, People.NationalNo,
+              People.FirstName, People.SecondName, People.ThirdName, People.LastName,
+			  People.DateOfBirth, People.Gendor,  
+				  CASE
+                  WHEN People.Gendor = 0 THEN 'Male'
+
+                  ELSE 'Female'
+
+                  END as GendorCaption ,
+			  People.Address, People.Phone, People.Email, 
+              People.NationalityCountryID, Countries.CountryName, People.ImagePath
+              FROM            People INNER JOIN
+                         Countries ON People.NationalityCountryID = Countries.CountryID
+                ORDER BY People.FirstName";
 
             SqlCommand command= new SqlCommand(query, connection);
 

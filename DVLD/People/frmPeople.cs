@@ -12,8 +12,8 @@ namespace DVLD
 {
     public partial class frmPeople : Form
     {
-        public enum enFilterOption 
-    {
+        public enum enFilterOption
+        {
             None = 0,
             PersonID = 1,
             NationalNo = 2,
@@ -34,6 +34,7 @@ namespace DVLD
         private void _setupDataGridUI() {
 
             dvgListPeople.Style.CellStyle.HorizontalAlignment = HorizontalAlignment.Left;
+
            
             }
         private void _LoadFilterOptions()
@@ -63,7 +64,7 @@ namespace DVLD
 
         private void _SearchPeopleWithFilter()
         {
-            DataView dvPeople = _dtPeople.DefaultView;
+            //DataView dvPeople = _dtPeople.DefaultView;
             ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
             string FilterColumn = "";
 
@@ -110,7 +111,7 @@ namespace DVLD
 
                 _dtPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtSearch.Text.Trim());
             }
-            dvgListPeople.DataSource = dvPeople;
+            dvgListPeople.DataSource = _dtPeople.DefaultView;
         }
           
         public frmPeople()
@@ -159,7 +160,11 @@ namespace DVLD
 
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Enable or disable the search textbox based on the selected filter option which is not None
+            // cmbFilter.SelectedIndexChanged -= cmbFilter_SelectedIndexChanged;
+
+
+            
+                        // Enable or disable the search textbox based on the selected filter option which is not None
             txtSearch.Enabled = ((enFilterOption)cmbFilter.SelectedIndex != enFilterOption.None);
            
             txtSearch.Clear(); 

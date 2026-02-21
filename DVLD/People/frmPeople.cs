@@ -35,6 +35,7 @@ namespace DVLD
 
             dvgListPeople.Style.CellStyle.HorizontalAlignment = HorizontalAlignment.Left;
 
+            
            
             }
         private void _LoadFilterOptions()
@@ -160,9 +161,9 @@ namespace DVLD
 
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // cmbFilter.SelectedIndexChanged -= cmbFilter_SelectedIndexChanged;
-
-
+            
+            
+                
             
                         // Enable or disable the search textbox based on the selected filter option which is not None
             txtSearch.Enabled = ((enFilterOption)cmbFilter.SelectedIndex != enFilterOption.None);
@@ -216,6 +217,11 @@ namespace DVLD
                 e.SuppressKeyPress = true;
                 errorProvider1.SetError(txtSearch, "Paste is disabled for this field!");
             }
+        }
+
+        private void cmbFilter_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
     }

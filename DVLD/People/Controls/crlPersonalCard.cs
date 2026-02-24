@@ -15,11 +15,39 @@ namespace DVLD.People.Controls
     public partial class crlPersonalCard : UserControl
     {
 
-        private void _ApplyPlaceholderTextes() { 
-        
-      
+       private void _SetErrorProvider(Control ctrl, string errorMessage)
+        {
+            ctrl.Leave += (s, e) =>
+             {
+                 if (string.IsNullOrWhiteSpace(ctrl.Text))
+                 {
+                     errorProvider1.SetError(ctrl, errorMessage);
+                 }
+                 else
+                 {
+                     errorProvider1.SetError(ctrl, string.Empty);
+                 }
+             };
+         
+        }
+
+        private void _SetErrorProviderWithEmail(Control ctrl, string errorMessage)
+        {
+            ctrl.Leave += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(ctrl.Text))
+                {
+                    errorProvider1.SetError(ctrl, string.Empty);
+                }
+                else
+                {
+                    errorProvider1.SetError(ctrl, errorMessage);
+                   
+                }
+            };
 
         }
+
 
         // دالة احترافية لدمج التأثير البصري
         private void LinkUnderlineWithTextBox(TextBox txt, Panel pnl)
@@ -28,15 +56,15 @@ namespace DVLD.People.Controls
             // عند الضغط داخل التيكست بوكس (Enter)
             txt.Enter += (s,  e) =>
             {
-                pnl.BackColor = Color.DodgerBlue; // اللون الأزرق الذي اخترته في تصميمك
+                pnl.BackColor = Color.DodgerBlue; 
                 pnl.Height = 2; // تسميك الخط قليلاً عند التركيز
             };
 
-            // عند ترك التيكست بوكس (Leave)
+         
             txt.Leave += (s, e) =>
             {
-                pnl.BackColor = Color.Gray; // العودة للرمادي
-                pnl.Height = 1; // تقليل السمك
+                pnl.BackColor = Color.Gray; 
+                pnl.Height = 1; 
             };
         }
         private void LinkUnderlineWithRadioButton(RadioButton rb, Panel pnl)
@@ -113,7 +141,7 @@ namespace DVLD.People.Controls
         private void crlPersonalCard_Load(object sender, EventArgs e)
         {
           _SetupUIforUnderlineEffect();
-           
+           _SetErrorProvider(txtFirstName, "First Name is required.");
         }
 
         private void gradientPanel2_Paint(object sender, PaintEventArgs e)
@@ -127,6 +155,16 @@ namespace DVLD.People.Controls
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFirstName_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
 
         }

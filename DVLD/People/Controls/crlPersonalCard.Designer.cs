@@ -429,7 +429,7 @@
             this.cmbCountry.Style.ReadOnlyEditorStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.cmbCountry.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cmbCountry.Style.TokenStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
-            this.cmbCountry.TabIndex = 29;
+            this.cmbCountry.TabIndex = 10;
             this.cmbCountry.TabStop = false;
             // 
             // label6
@@ -452,7 +452,7 @@
             this.dtDateOfBirth.Margin = new System.Windows.Forms.Padding(2);
             this.dtDateOfBirth.Name = "dtDateOfBirth";
             this.dtDateOfBirth.Size = new System.Drawing.Size(179, 40);
-            this.dtDateOfBirth.TabIndex = 31;
+            this.dtDateOfBirth.TabIndex = 11;
             this.dtDateOfBirth.ToolTipText = "";
             // 
             // txtThirdName
@@ -471,7 +471,7 @@
             this.txtThirdName.Location = new System.Drawing.Point(381, 50);
             this.txtThirdName.Name = "txtThirdName";
             this.txtThirdName.Size = new System.Drawing.Size(100, 18);
-            this.txtThirdName.TabIndex = 32;
+            this.txtThirdName.TabIndex = 3;
             // 
             // txtNationalNo
             // 
@@ -489,7 +489,7 @@
             this.txtNationalNo.Location = new System.Drawing.Point(38, 195);
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(100, 18);
-            this.txtNationalNo.TabIndex = 33;
+            this.txtNationalNo.TabIndex = 5;
             // 
             // gradientPanel2
             // 
@@ -551,7 +551,7 @@
             this.rbMale.Location = new System.Drawing.Point(3, 11);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(55, 21);
-            this.rbMale.TabIndex = 28;
+            this.rbMale.TabIndex = 8;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
@@ -564,7 +564,7 @@
             this.rbFemale.Location = new System.Drawing.Point(102, 11);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(67, 21);
-            this.rbFemale.TabIndex = 29;
+            this.rbFemale.TabIndex = 9;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
@@ -618,7 +618,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(636, 169);
             this.txtAddress.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2016Colorful;
-            this.txtAddress.TabIndex = 37;
+            this.txtAddress.TabIndex = 12;
             this.txtAddress.ThemeName = "Office2016Colorful";
             this.txtAddress.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtAddress.ThemeStyle.CornerRadius = 3;

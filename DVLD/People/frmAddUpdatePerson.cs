@@ -12,6 +12,12 @@ namespace DVLD.People
 {
     public partial class frmAddUpdatePerson : Form
     {
+        private void _AcceptButtons()
+        {
+            this.AcceptButton = btnSave;
+            this.CancelButton = btnClose;
+        }
+
         public frmAddUpdatePerson()
         {
             InitializeComponent();
@@ -24,7 +30,9 @@ namespace DVLD.People
 
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
-
+            _AcceptButtons();
         }
+
+       
     }
 }

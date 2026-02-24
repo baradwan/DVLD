@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using DVLD.People;
+
 // --- هذه هي الأسطر الناقصة التي ستزيل الخطوط الحمراء ---
 using Syncfusion.WinForms.Controls; // لاستخدام SfSkinManager
 using Syncfusion.WinForms.Themes;   // لاستخدام Office2019Theme
@@ -17,7 +19,7 @@ namespace DVLD
             // أو PerMonitorV2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPeople());
+            Application.Run(new frmAddUpdatePerson());
         }
     }
 }

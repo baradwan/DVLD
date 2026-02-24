@@ -16,5 +16,15 @@ namespace DVLD.People
         {
             InitializeComponent();
         }
+
+        private void crlPersonalCard1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmAddUpdatePerson_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

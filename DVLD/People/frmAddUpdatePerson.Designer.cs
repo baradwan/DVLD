@@ -28,30 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.crlPersonalCard1 = new DVLD.People.Controls.crlPersonalCard();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // crlPersonalCard1
+            // panel1
             // 
-            this.crlPersonalCard1.Location = new System.Drawing.Point(58, 50);
-            this.crlPersonalCard1.Name = "crlPersonalCard1";
-            this.crlPersonalCard1.Size = new System.Drawing.Size(730, 388);
-            this.crlPersonalCard1.TabIndex = 0;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Location = new System.Drawing.Point(306, 172);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 0;
             // 
             // frmAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 582);
-            this.Controls.Add(this.crlPersonalCard1);
+            this.ClientSize = new System.Drawing.Size(931, 735);
+            this.Controls.Add(this.panel1);
             this.Name = "frmAddUpdatePerson";
             this.Text = "frmAddUpdatePerson";
+            this.Load += new System.EventHandler(this.frmAddUpdatePerson_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Controls.crlPersonalCard crlPersonalCard1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

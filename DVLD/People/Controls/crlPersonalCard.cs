@@ -18,32 +18,38 @@ namespace DVLD.People.Controls
       
 
         }
+
+        // دالة احترافية لدمج التأثير البصري
+        private void LinkUnderlineWithTextBox(TextBox txt, Panel pnl)
+        {
+            // عند الضغط داخل التيكست بوكس (Enter)
+            txt.Enter += (s, e) =>
+            {
+                pnl.BackColor = Color.DodgerBlue; // اللون الأزرق الذي اخترته في تصميمك
+                pnl.Height = 2; // تسميك الخط قليلاً عند التركيز
+            };
+
+            // عند ترك التيكست بوكس (Leave)
+            txt.Leave += (s, e) =>
+            {
+                pnl.BackColor = Color.Gray; // العودة للرمادي
+                pnl.Height = 1; // تقليل السمك
+            };
+        }
         public crlPersonalCard()
         {
             InitializeComponent();
         }
 
-        private void gradientPanel2_Paint(object sender, PaintEventArgs e)
+        
+        private void crlPersonalCard_Load(object sender, EventArgs e)
         {
+            LinkUnderlineWithTextBox(txtFirstName, pnlFirstname);
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+           
         }
 
         private void textBoxExt1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -53,17 +59,7 @@ namespace DVLD.People.Controls
 
         }
 
-        private void textBoxExt3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblThirdName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxExt2_TextChanged(object sender, EventArgs e)
+        private void gradientPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -9,12 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DVLD.People.Controls
 {
     public partial class crlPersonalCard : UserControl
     {
 
+        private bool _IsEmailValis(string Email)
+        {
+           return Email.Contains('@') && Email.EndsWith(".com", StringComparison.OrdinalIgnoreCase);
+        }
        private void _SetErrorProvider(Control ctrl, string errorMessage)
         {
             ctrl.Leave += (s, e) =>
@@ -31,18 +36,30 @@ namespace DVLD.People.Controls
          
         }
 
+
         private void _SetErrorProviderWithEmail(Control ctrl, string errorMessage)
         {
             ctrl.Leave += (s, e) =>
             {
-                if (string.IsNullOrWhiteSpace(ctrl.Text))
-                {
-                    errorProvider1.SetError(ctrl, string.Empty);
-                }
-                else
-                {
-                    errorProvider1.SetError(ctrl, errorMessage);
+                //if (string.IsNullOrWhiteSpace(ctrl.Text))
+                //{
+                //    errorProvider1.SetError(ctrl, string.Empty);
+                //}
+                //else
+                //{
+
+                //    errorProvider1.SetError(ctrl, errorMessage);
                    
+                //}
+                
+                if (( ctrl.Text.Contains('@') && ctrl.Text.EndsWith(".com", StringComparison.OrdinalIgnoreCase)))
+                    {
+
+                        errorProvider1.SetError(ctrl, errorMessage);
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(ctrl, string.Empty);
                 }
             };
 
@@ -132,6 +149,16 @@ namespace DVLD.People.Controls
             LinkUnderlineWithDateTimePicker(dtDateOfBirth, pnlDate);
 
         }
+
+        private void _SetErrorProvederEffect()
+        {
+            _SetErrorProvider(txtFirstName, "First Name is required.");
+            _SetErrorProvider(txtSecName, "Second Name is required.");
+            _SetErrorProvider(txtLastName, "Last Name is required.");
+            _SetErrorProvider(txtPhone,"Phone Number is Required");
+            _SetErrorProvider(txtNationalNo, "National Number is Required");
+            _SetErrorProviderWithEmail(txtEmail, "Please enter a valid email address.");
+        }
         public crlPersonalCard()
         {
             InitializeComponent();
@@ -141,7 +168,7 @@ namespace DVLD.People.Controls
         private void crlPersonalCard_Load(object sender, EventArgs e)
         {
           _SetupUIforUnderlineEffect();
-           _SetErrorProvider(txtFirstName, "First Name is required.");
+          _SetErrorProvederEffect();
         }
 
         private void gradientPanel2_Paint(object sender, PaintEventArgs e)
@@ -165,6 +192,11 @@ namespace DVLD.People.Controls
         }
 
         private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSecName_TextChanged(object sender, EventArgs e)
         {
 
         }

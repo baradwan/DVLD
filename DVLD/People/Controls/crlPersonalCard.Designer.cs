@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo9 = new Syncfusion.Windows.Forms.BannerTextInfo();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo10 = new Syncfusion.Windows.Forms.BannerTextInfo();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo11 = new Syncfusion.Windows.Forms.BannerTextInfo();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo12 = new Syncfusion.Windows.Forms.BannerTextInfo();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo13 = new Syncfusion.Windows.Forms.BannerTextInfo();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo14 = new Syncfusion.Windows.Forms.BannerTextInfo();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo15 = new Syncfusion.Windows.Forms.BannerTextInfo();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo16 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo3 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo4 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo5 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo6 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo7 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo8 = new Syncfusion.Windows.Forms.BannerTextInfo();
             this.gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             this.lblTitlePersonalCard = new System.Windows.Forms.Label();
             this.bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(this.components);
@@ -78,8 +78,6 @@
             this.pnlDate = new System.Windows.Forms.Panel();
             this.pnlCountry = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.maskedEditBox1 = new Syncfusion.Windows.Forms.Tools.MaskedEditBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName)).BeginInit();
@@ -96,7 +94,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel2)).BeginInit();
             this.gradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maskedEditBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gradientPanel1
@@ -135,13 +132,13 @@
             // txtFirstName
             // 
             this.txtFirstName.BackColor = System.Drawing.Color.White;
-            bannerTextInfo9.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo9.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo9.Text = "Ahmed";
-            bannerTextInfo9.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtFirstName, bannerTextInfo9);
-            this.txtFirstName.BeforeTouchSize = new System.Drawing.Size(276, 31);
+            bannerTextInfo1.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo1.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo1.Text = "Ahmed";
+            bannerTextInfo1.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtFirstName, bannerTextInfo1);
+            this.txtFirstName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFirstName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -156,13 +153,13 @@
             // txtSecName
             // 
             this.txtSecName.BackColor = System.Drawing.Color.White;
-            bannerTextInfo10.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo10.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo10.Text = "Abdullah";
-            bannerTextInfo10.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtSecName, bannerTextInfo10);
-            this.txtSecName.BeforeTouchSize = new System.Drawing.Size(276, 31);
+            bannerTextInfo2.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo2.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo2.Text = "Abdullah";
+            bannerTextInfo2.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtSecName, bannerTextInfo2);
+            this.txtSecName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtSecName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSecName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSecName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -171,17 +168,18 @@
             this.txtSecName.Name = "txtSecName";
             this.txtSecName.Size = new System.Drawing.Size(200, 35);
             this.txtSecName.TabIndex = 2;
+            this.txtSecName.TextChanged += new System.EventHandler(this.txtSecName_TextChanged);
             // 
             // txtLastName
             // 
             this.txtLastName.BackColor = System.Drawing.Color.White;
-            bannerTextInfo11.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo11.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo11.Text = "Baredhwan";
-            bannerTextInfo11.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtLastName, bannerTextInfo11);
-            this.txtLastName.BeforeTouchSize = new System.Drawing.Size(276, 31);
+            bannerTextInfo3.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo3.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo3.Text = "Baredhwan";
+            bannerTextInfo3.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtLastName, bannerTextInfo3);
+            this.txtLastName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -194,13 +192,13 @@
             // txtPhone
             // 
             this.txtPhone.BackColor = System.Drawing.Color.White;
-            bannerTextInfo12.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo12.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo12.Text = "9665XXXXXXXX";
-            bannerTextInfo12.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtPhone, bannerTextInfo12);
-            this.txtPhone.BeforeTouchSize = new System.Drawing.Size(276, 31);
+            bannerTextInfo4.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo4.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo4.Text = "9665XXXXXXXX";
+            bannerTextInfo4.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtPhone, bannerTextInfo4);
+            this.txtPhone.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -213,13 +211,13 @@
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.White;
-            bannerTextInfo13.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo13.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo13.Text = "DVLD@DVLD.com";
-            bannerTextInfo13.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtEmail, bannerTextInfo13);
-            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(276, 31);
+            bannerTextInfo5.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo5.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo5.Text = "DVLD@DVLD.com";
+            bannerTextInfo5.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtEmail, bannerTextInfo5);
+            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -232,13 +230,13 @@
             // txtThirdName
             // 
             this.txtThirdName.BackColor = System.Drawing.Color.White;
-            bannerTextInfo14.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo14.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo14.Text = "Ahmed";
-            bannerTextInfo14.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtThirdName, bannerTextInfo14);
-            this.txtThirdName.BeforeTouchSize = new System.Drawing.Size(276, 31);
+            bannerTextInfo6.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo6.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo6.Text = "Ahmed";
+            bannerTextInfo6.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtThirdName, bannerTextInfo6);
+            this.txtThirdName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtThirdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtThirdName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThirdName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -251,13 +249,13 @@
             // txtNationalNo
             // 
             this.txtNationalNo.BackColor = System.Drawing.Color.White;
-            bannerTextInfo15.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo15.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo15.Text = "N0000";
-            bannerTextInfo15.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtNationalNo, bannerTextInfo15);
-            this.txtNationalNo.BeforeTouchSize = new System.Drawing.Size(276, 31);
+            bannerTextInfo7.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo7.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo7.Text = "N0000";
+            bannerTextInfo7.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtNationalNo, bannerTextInfo7);
+            this.txtNationalNo.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtNationalNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNationalNo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNationalNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -270,11 +268,11 @@
             // txtAddress
             // 
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            bannerTextInfo16.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo16.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            this.bannerTextProvider1.SetBannerText(this.txtAddress, bannerTextInfo16);
-            this.txtAddress.BeforeTouchSize = new System.Drawing.Size(276, 31);
+            bannerTextInfo8.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo8.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            this.bannerTextProvider1.SetBannerText(this.txtAddress, bannerTextInfo8);
+            this.txtAddress.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtAddress.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -597,8 +595,6 @@
             // 
             this.gradientPanel2.BackColor = System.Drawing.Color.White;
             this.gradientPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gradientPanel2.Controls.Add(this.maskedTextBox1);
-            this.gradientPanel2.Controls.Add(this.maskedEditBox1);
             this.gradientPanel2.Controls.Add(this.txtAddress);
             this.gradientPanel2.Controls.Add(this.label7);
             this.gradientPanel2.Controls.Add(this.pnlDate);
@@ -674,27 +670,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // maskedEditBox1
-            // 
-            this.maskedEditBox1.AccessibilityEnabled = true;
-            this.maskedEditBox1.BeforeTouchSize = new System.Drawing.Size(276, 31);
-            this.maskedEditBox1.Lines = new string[] {
-        "\"--@--.com\""};
-            this.maskedEditBox1.Location = new System.Drawing.Point(327, 465);
-            this.maskedEditBox1.Mask = "\"--@--.com\"";
-            this.maskedEditBox1.MaxLength = 11;
-            this.maskedEditBox1.Modified = false;
-            this.maskedEditBox1.Name = "maskedEditBox1";
-            this.maskedEditBox1.Size = new System.Drawing.Size(276, 31);
-            this.maskedEditBox1.TabIndex = 37;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(370, 728);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 31);
-            this.maskedTextBox1.TabIndex = 38;
-            // 
             // crlPersonalCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -724,7 +699,6 @@
             this.gradientPanel2.ResumeLayout(false);
             this.gradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maskedEditBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -772,7 +746,5 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtAddress;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private Syncfusion.Windows.Forms.Tools.MaskedEditBox maskedEditBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

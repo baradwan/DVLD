@@ -1,10 +1,12 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Properties;
+using DVLD_BusinessLayer;
+using Syncfusion.Data.Extensions;
 using Syncfusion.WinForms.Input;
 using Syncfusion.WinForms.ListView;
 using System;
-
+using System.Data;
 using System.Drawing;
-
+using System.IO;
 using System.Windows.Forms;
 
 
@@ -12,13 +14,14 @@ namespace DVLD.People.Controls
 {
     public partial class crlPersonalCard : UserControl
     {
+       
 
         public clsPerson Person = new clsPerson();
 
 
         private void _SetErrorProvider(Control ctrl, string errorMessage)
         {
-            ctrl.Leave += (s, e) =>
+            ctrl.Validating+= (s, e) =>
              {
                  if (string.IsNullOrWhiteSpace(ctrl.Text))
                  {
@@ -38,14 +41,14 @@ namespace DVLD.People.Controls
             dtDateOfBirth.MaxDateTime = DateTime.Now.AddYears(-18);
             dtDateOfBirth.MinDateTime = new DateTime(1900, 1, 1);
             rbMale.Checked = true;
-            //pnlMale.BackColor = Color.DodgerBlue; // اللون الأزرق الذي اخترته في تصميمك
-            //pnlMale.Height = 2;
+            cmbCountry.SelectedIndex = 175;
 
+           
 
         }
         private void _SetErrorProviderWithEmail(Control ctrl, string errorMessage)
         {
-            ctrl.Leave += (s, e) =>
+            ctrl.Validating+= (s, e) =>
             {
                 //if (string.IsNullOrWhiteSpace(ctrl.Text))
                 //{
@@ -179,43 +182,26 @@ namespace DVLD.People.Controls
 
         private void crlPersonalCard_Load(object sender, EventArgs e)
         {
+            DataTable dtCountries = clsCountry.GetAllCountries();
+            cmbCountry.DataSource = dtCountries;
+            cmbCountry.DisplayMember = "CountryName";
+           
             _SetupUIforUnderlineEffect();
             _SetErrorProvederEffect();
             _DefaultValue();
         }
 
-        private void gradientPanel2_Paint(object sender, PaintEventArgs e)
+        
+    
+
+        
+        private void txtNationalNo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFirstName_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSecName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNationalNo_Leave(object sender, EventArgs e)
-        {
+            if(string.IsNullOrWhiteSpace(txtNationalNo.Text))
+            {
+                _SetErrorProvider(txtNationalNo, "National Number is Required");
+                return;
+            }
             if (clsPerson.IsPersonExist(txtNationalNo.Text.Trim()))
             {
                 errorProvider1.SetError(txtNationalNo, "This National Number already exists.");
@@ -224,11 +210,51 @@ namespace DVLD.People.Controls
             {
                 errorProvider1.SetError(txtNationalNo, string.Empty);
             }
+
         }
 
-        private void txtNationalNo_TextChanged(object sender, EventArgs e)
+        private void cmbCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
+        }
+
+      
+
+        private void pbPersonPicture_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbMale_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbMale_Click(object sender, EventArgs e)
+        {
+            if (pbPersonPicture.ImageLocation == null)
+                pbPersonPicture.Image = Resources.Male;
+        }
+
+        private void rbFemale_Click(object sender, EventArgs e)
+        {
+           if(pbPersonPicture.ImageLocation==null)
+            pbPersonPicture.Image = Resources.Female;
+        }
+
+        private void llSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog1.Title = "Select a Profile Picture";
+
+           // pbPersonPicture.ImageLocation = (openFileDialog1.ShowDialog() == DialogResult.OK ? openFileDialog1.FileName : string.Empty);
+            
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //File.Copy(openFileDialog1.FileName, source);
+                //pbPersonPicture.ImageLocation = 
+
+            }
         }
     }
 }

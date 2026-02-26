@@ -24,16 +24,20 @@ namespace DVLD.People
             InitializeComponent();
         }
 
-        private void crlPersonalCard1_Load(object sender, EventArgs e)
-        {
-           
-        }
+     
 
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
             _AcceptButtons();
         }
 
-       
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void crlPersonalCard1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

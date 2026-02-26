@@ -131,6 +131,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
     <None Include="packages.config" />
@@ -156,6 +157,18 @@
       <Project>{56e5cc16-c592-4feb-b6ea-d43c9a4a92ec}</Project>
       <Name>DVLD_Global</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-female-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-male-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

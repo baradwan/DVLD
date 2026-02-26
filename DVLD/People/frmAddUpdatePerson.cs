@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,7 @@ namespace DVLD.People
 
         private void crlPersonalCard1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)

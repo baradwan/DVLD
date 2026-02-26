@@ -138,7 +138,7 @@
             bannerTextInfo1.Text = "Ahmed";
             bannerTextInfo1.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtFirstName, bannerTextInfo1);
-            this.txtFirstName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
+            this.txtFirstName.BeforeTouchSize = new System.Drawing.Size(744, 58);
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFirstName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -159,7 +159,7 @@
             bannerTextInfo2.Text = "Abdullah";
             bannerTextInfo2.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtSecName, bannerTextInfo2);
-            this.txtSecName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
+            this.txtSecName.BeforeTouchSize = new System.Drawing.Size(744, 58);
             this.txtSecName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSecName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSecName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -179,7 +179,7 @@
             bannerTextInfo3.Text = "Baredhwan";
             bannerTextInfo3.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtLastName, bannerTextInfo3);
-            this.txtLastName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
+            this.txtLastName.BeforeTouchSize = new System.Drawing.Size(744, 58);
             this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -198,7 +198,7 @@
             bannerTextInfo4.Text = "9665XXXXXXXX";
             bannerTextInfo4.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtPhone, bannerTextInfo4);
-            this.txtPhone.BeforeTouchSize = new System.Drawing.Size(1268, 321);
+            this.txtPhone.BeforeTouchSize = new System.Drawing.Size(744, 58);
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -217,7 +217,7 @@
             bannerTextInfo5.Text = "DVLD@DVLD.com";
             bannerTextInfo5.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtEmail, bannerTextInfo5);
-            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(1268, 321);
+            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(744, 58);
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -236,7 +236,7 @@
             bannerTextInfo6.Text = "Ahmed";
             bannerTextInfo6.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtThirdName, bannerTextInfo6);
-            this.txtThirdName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
+            this.txtThirdName.BeforeTouchSize = new System.Drawing.Size(744, 58);
             this.txtThirdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtThirdName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThirdName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -255,7 +255,7 @@
             bannerTextInfo7.Text = "N0000";
             bannerTextInfo7.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtNationalNo, bannerTextInfo7);
-            this.txtNationalNo.BeforeTouchSize = new System.Drawing.Size(1268, 321);
+            this.txtNationalNo.BeforeTouchSize = new System.Drawing.Size(744, 58);
             this.txtNationalNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNationalNo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNationalNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -264,6 +264,7 @@
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(200, 35);
             this.txtNationalNo.TabIndex = 5;
+            this.txtNationalNo.TextChanged += new System.EventHandler(this.txtNationalNo_TextChanged);
             // 
             // txtAddress
             // 
@@ -272,7 +273,7 @@
             bannerTextInfo8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             bannerTextInfo8.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
             this.bannerTextProvider1.SetBannerText(this.txtAddress, bannerTextInfo8);
-            this.txtAddress.BeforeTouchSize = new System.Drawing.Size(1268, 321);
+            this.txtAddress.BeforeTouchSize = new System.Drawing.Size(744, 58);
             this.txtAddress.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -588,6 +589,7 @@
             this.dtDateOfBirth.Margin = new System.Windows.Forms.Padding(4);
             this.dtDateOfBirth.Name = "dtDateOfBirth";
             this.dtDateOfBirth.Size = new System.Drawing.Size(358, 77);
+            this.dtDateOfBirth.Style.BorderColor = System.Drawing.Color.Transparent;
             this.dtDateOfBirth.TabIndex = 11;
             this.dtDateOfBirth.ToolTipText = "";
             // 

@@ -242,7 +242,7 @@ namespace TESTING
             //Tester.RunTest("Is exist person with correct data ", ()=> clsTestPeople.Test_IsPersonExist(1024));
             //Tester.RunTest("Is exist person with incorrect data ", () => clsTestPeople.Test_IsPersonExist(-1));
 
-           // Tester.RunTest("Existence Check (By National No)", () => clsTestPeople.Test_IsPersonExistByNationalNo("N1"));
+           //Tester.RunTest("Existence Check (By National No)", () => clsTestPeople.Test_IsPersonExistByNationalNo("N1"));
 
             //// اختبار رقم وطني غير موجود
             //\\Tester.RunTest("Existence Check (Not Found)", () => clsTestPeople.Test_IsPersonExistByNationalNo("XYZ-999"));

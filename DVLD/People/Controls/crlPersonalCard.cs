@@ -247,11 +247,11 @@ namespace DVLD.People.Controls
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
             openFileDialog1.Title = "Select a Profile Picture";
 
-           // pbPersonPicture.ImageLocation = (openFileDialog1.ShowDialog() == DialogResult.OK ? openFileDialog1.FileName : string.Empty);
+         //  pbPersonPicture.ImageLocation = (openFileDialog1.ShowDialog() == DialogResult.OK ? openFileDialog1.FileName : string.Empty);
             
             if(openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                //File.Copy(openFileDialog1.FileName, source);
+                File.Copy(openFileDialog1.FileName,);
                 //pbPersonPicture.ImageLocation = 
 
             }

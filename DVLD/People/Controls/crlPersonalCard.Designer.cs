@@ -77,9 +77,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pnlDate = new System.Windows.Forms.Panel();
             this.pnlCountry = new System.Windows.Forms.Panel();
-            this.pbPersonPicture = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pbPersonPicture = new System.Windows.Forms.PictureBox();
+            this.llRemove = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstName)).BeginInit();
@@ -94,8 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbCountry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel2)).BeginInit();
             this.gradientPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // gradientPanel1
@@ -138,10 +139,9 @@
             bannerTextInfo9.Text = "Ahmed";
             bannerTextInfo9.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtFirstName, bannerTextInfo9);
-            this.txtFirstName.BeforeTouchSize = new System.Drawing.Size(636, 169);
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFirstName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtFirstName.ForeColor = System.Drawing.Color.Black;
             this.txtFirstName.Location = new System.Drawing.Point(38, 50);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 18);
@@ -156,7 +156,6 @@
             bannerTextInfo10.Text = "Abdullah";
             bannerTextInfo10.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtSecName, bannerTextInfo10);
-            this.txtSecName.BeforeTouchSize = new System.Drawing.Size(636, 169);
             this.txtSecName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSecName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSecName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -174,7 +173,6 @@
             bannerTextInfo11.Text = "Baredhwan";
             bannerTextInfo11.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtLastName, bannerTextInfo11);
-            this.txtLastName.BeforeTouchSize = new System.Drawing.Size(636, 169);
             this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -192,7 +190,6 @@
             bannerTextInfo12.Text = "9665XXXXXXXX";
             bannerTextInfo12.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtPhone, bannerTextInfo12);
-            this.txtPhone.BeforeTouchSize = new System.Drawing.Size(636, 169);
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -210,7 +207,6 @@
             bannerTextInfo13.Text = "DVLD@DVLD.com";
             bannerTextInfo13.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtEmail, bannerTextInfo13);
-            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(636, 169);
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -228,7 +224,6 @@
             bannerTextInfo14.Text = "Ahmed";
             bannerTextInfo14.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtThirdName, bannerTextInfo14);
-            this.txtThirdName.BeforeTouchSize = new System.Drawing.Size(636, 169);
             this.txtThirdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtThirdName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThirdName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -246,7 +241,6 @@
             bannerTextInfo15.Text = "N0000";
             bannerTextInfo15.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtNationalNo, bannerTextInfo15);
-            this.txtNationalNo.BeforeTouchSize = new System.Drawing.Size(636, 169);
             this.txtNationalNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNationalNo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNationalNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -263,7 +257,6 @@
             bannerTextInfo16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             bannerTextInfo16.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
             this.bannerTextProvider1.SetBannerText(this.txtAddress, bannerTextInfo16);
-            this.txtAddress.BeforeTouchSize = new System.Drawing.Size(636, 169);
             this.txtAddress.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -557,6 +550,7 @@
             // 
             this.gradientPanel2.BackColor = System.Drawing.Color.White;
             this.gradientPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gradientPanel2.Controls.Add(this.llRemove);
             this.gradientPanel2.Controls.Add(this.llSetImage);
             this.gradientPanel2.Controls.Add(this.txtAddress);
             this.gradientPanel2.Controls.Add(this.label7);
@@ -602,7 +596,7 @@
             this.llSetImage.AutoSize = true;
             this.llSetImage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llSetImage.LinkColor = System.Drawing.Color.Teal;
-            this.llSetImage.Location = new System.Drawing.Point(586, 223);
+            this.llSetImage.Location = new System.Drawing.Point(606, 223);
             this.llSetImage.Name = "llSetImage";
             this.llSetImage.Size = new System.Drawing.Size(66, 17);
             this.llSetImage.TabIndex = 37;
@@ -637,6 +631,14 @@
             this.pnlCountry.Size = new System.Drawing.Size(156, 2);
             this.pnlCountry.TabIndex = 34;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // pbPersonPicture
             // 
             this.pbPersonPicture.Image = global::DVLD.Properties.Resources.Male;
@@ -648,13 +650,18 @@
             this.pbPersonPicture.TabStop = false;
             this.pbPersonPicture.Click += new System.EventHandler(this.pbPersonPicture_Click);
             // 
-            // errorProvider1
+            // llRemove
             // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.llRemove.AutoSize = true;
+            this.llRemove.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llRemove.LinkColor = System.Drawing.Color.Teal;
+            this.llRemove.Location = new System.Drawing.Point(545, 223);
+            this.llRemove.Name = "llRemove";
+            this.llRemove.Size = new System.Drawing.Size(55, 17);
+            this.llRemove.TabIndex = 38;
+            this.llRemove.TabStop = true;
+            this.llRemove.Text = "Remove";
+            this.llRemove.Visible = false;
             // 
             // crlPersonalCard
             // 
@@ -682,8 +689,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel2)).EndInit();
             this.gradientPanel2.ResumeLayout(false);
             this.gradientPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -733,5 +740,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.LinkLabel llSetImage;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.LinkLabel llRemove;
     }
 }

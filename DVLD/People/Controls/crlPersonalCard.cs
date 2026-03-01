@@ -18,7 +18,7 @@ namespace DVLD.People.Controls
 
         public clsPerson Person = new clsPerson();
 
-
+        public void fill() { }
         private void _SetErrorProvider(Control ctrl, string errorMessage)
         {
             ctrl.Validating+= (s, e) =>
@@ -174,6 +174,40 @@ namespace DVLD.People.Controls
            // _SetErrorProvider(txtNationalNo, "National Number is Required");
             _SetErrorProviderWithEmail(txtEmail, "Please enter a valid email address.");
         }
+
+        private void _CopyImageToProjectFolder()
+
+
+        {
+
+            if (pbPersonPicture.ImageLocation == null)
+            {
+                return;
+            }
+            string CurrentDirectory = Application.StartupPath;
+            string ProjectFolder = @"..\..\..\Resources\ProfilePictures";
+            string FullPathDes = Path.GetFullPath(Path.Combine(CurrentDirectory, ProjectFolder));
+            string SourceFilePath = string.Empty;
+
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                SourceFilePath = openFileDialog1.FileName;
+                string Extention = Path.GetExtension(SourceFilePath);
+                string UniqueFileName = $"{Guid.NewGuid().ToString()}{Extention}";
+                if (!Directory.Exists(FullPathDes))
+                {
+                    Directory.CreateDirectory(FullPathDes);
+
+
+                }
+
+                string DestinationFilePath = Path.Combine(FullPathDes, UniqueFileName);
+                File.Copy(SourceFilePath, DestinationFilePath);
+
+                pbPersonPicture.ImageLocation = DestinationFilePath;
+            }
+        }
         public crlPersonalCard()
         {
             InitializeComponent();
@@ -244,17 +278,20 @@ namespace DVLD.People.Controls
 
         private void llSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
             openFileDialog1.Title = "Select a Profile Picture";
 
-         //  pbPersonPicture.ImageLocation = (openFileDialog1.ShowDialog() == DialogResult.OK ? openFileDialog1.FileName : string.Empty);
-            
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                File.Copy(openFileDialog1.FileName,);
-                //pbPersonPicture.ImageLocation = 
+                // 1. Just SHOW the picture on the screen. Do NOT copy it yet!
+                pbPersonPicture.ImageLocation = openFileDialog1.FileName;
+                llRemove.Visible = true;
 
+            
+          
             }
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.People.Controls;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace DVLD.People
 {
     public partial class frmAddUpdatePerson : Form
     {
+     
+
         private void _AcceptButtons()
         {
             this.AcceptButton = btnSave;
@@ -31,13 +34,9 @@ namespace DVLD.People
             _AcceptButtons();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void crl1_Load(object sender, EventArgs e)
         {
-        }
-
-        private void crlPersonalCard1_Load(object sender, EventArgs e)
-        {
-
+            
         }
     }
 }

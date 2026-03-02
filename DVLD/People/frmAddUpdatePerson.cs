@@ -14,6 +14,7 @@ namespace DVLD.People
 {
     public partial class frmAddUpdatePerson : Form
     {
+
      
 
         private void _AcceptButtons()
@@ -37,6 +38,20 @@ namespace DVLD.People
         private void crl1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            clsPerson Person = crlPersonalInfo.GetPersonInfo();
+           
+            if (Person.Save())
+            {
+                MessageBox.Show("Saved Successfully", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                   MessageBox.Show("Failed to Save", "Save", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUpdatePerson));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.crlPersonalInfo = new DVLD.People.Controls.crlPersonalCard();
             this.gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             this.btnClose = new Syncfusion.WinForms.Controls.SfButton();
             this.btnSave = new Syncfusion.WinForms.Controls.SfButton();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitleAddUpdateForm = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.crlPersonalInfo = new DVLD.People.Controls.crlPersonalCard();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
@@ -65,15 +65,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(678, 637);
             this.panel2.TabIndex = 2;
-            // 
-            // crlPersonalInfo
-            // 
-            this.crlPersonalInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crlPersonalInfo.Location = new System.Drawing.Point(0, 0);
-            this.crlPersonalInfo.Name = "crlPersonalInfo";
-            this.crlPersonalInfo.Size = new System.Drawing.Size(678, 637);
-            this.crlPersonalInfo.TabIndex = 0;
-            this.crlPersonalInfo.Load += new System.EventHandler(this.crl1_Load);
             // 
             // gradientPanel1
             // 
@@ -107,6 +98,7 @@
             this.btnSave.Size = new System.Drawing.Size(126, 42);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pnlHeader
             // 
@@ -140,6 +132,15 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // crlPersonalInfo
+            // 
+            this.crlPersonalInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crlPersonalInfo.Location = new System.Drawing.Point(0, 0);
+            this.crlPersonalInfo.Name = "crlPersonalInfo";
+            this.crlPersonalInfo.Size = new System.Drawing.Size(678, 637);
+            this.crlPersonalInfo.TabIndex = 0;
+            this.crlPersonalInfo.Load += new System.EventHandler(this.crl1_Load);
             // 
             // frmAddUpdatePerson
             // 

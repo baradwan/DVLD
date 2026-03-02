@@ -14,11 +14,56 @@ namespace DVLD.People.Controls
 {
     public partial class crlPersonalCard : UserControl
     {
+
+
+        enum enMode { Add=0,Update=1}
+        enMode _Mode=enMode.Add;
+
+
        
+        public clsPerson GetPersonInfo()
+        {
+      
+            clsPerson person = new clsPerson();
 
-        public clsPerson Person = new clsPerson();
+            person.FirstName = txtFirstName.Text.Trim();
+            person.SecondName = txtSecName.Text.Trim();
+            person.ThirdName = txtThirdName.Text.Trim();
+            person.LastName = txtLastName.Text.Trim();
 
-        public void fill() { }
+            person.NationalNo = txtNationalNo.Text.Trim();
+            person.Email = txtEmail.Text.Trim();
+            person.Phone = txtPhone.Text.Trim();
+            person.Address = txtAddress.Text.Trim();
+            
+            person.Gendor = rbMale.Checked ? (short)0 : (short)1;
+
+         
+            if (dtDateOfBirth.Value != null)
+            {
+                person.DateOfBirth = (DateTime)dtDateOfBirth.Value;
+            }
+
+            if (cmbCountry.SelectedValue != null)
+            {
+                person.NationalityCountryID = (int)cmbCountry.SelectedValue;
+            }
+
+        
+            if (pbPersonPicture.ImageLocation != null)
+            {
+                person.ImagePath =Path.GetFileName( pbPersonPicture.ImageLocation);
+            }
+            else
+            {
+                person.ImagePath = ""; 
+            }
+
+           
+            return person;
+        }
+
+        
         private void _SetErrorProvider(Control ctrl, string errorMessage)
         {
             ctrl.Validating+= (s, e) =>
@@ -38,8 +83,8 @@ namespace DVLD.People.Controls
         private void _DefaultValue()
         {
 
-            dtDateOfBirth.MaxDateTime = DateTime.Now.AddYears(-18);
-            dtDateOfBirth.MinDateTime = new DateTime(1900, 1, 1);
+            dtDateOfBirth.MaxDateTime = DateTime.Now.AddYears(-18).Date;
+            dtDateOfBirth.MinDateTime = new DateTime(1900, 1, 1).Date;
             rbMale.Checked = true;
             cmbCountry.SelectedIndex = 175;
 
@@ -171,7 +216,8 @@ namespace DVLD.People.Controls
             _SetErrorProvider(txtSecName, "Second Name is required.");
             _SetErrorProvider(txtLastName, "Last Name is required.");
             _SetErrorProvider(txtPhone, "Phone Number is Required");
-           // _SetErrorProvider(txtNationalNo, "National Number is Required");
+            _SetErrorProvider(txtAddress, "Address is Required");
+            // _SetErrorProvider(txtNationalNo, "National Number is Required");
             _SetErrorProviderWithEmail(txtEmail, "Please enter a valid email address.");
         }
 
@@ -190,8 +236,8 @@ namespace DVLD.People.Controls
             string SourceFilePath = string.Empty;
 
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
+           
+            
                 SourceFilePath = openFileDialog1.FileName;
                 string Extention = Path.GetExtension(SourceFilePath);
                 string UniqueFileName = $"{Guid.NewGuid().ToString()}{Extention}";
@@ -206,7 +252,7 @@ namespace DVLD.People.Controls
                 File.Copy(SourceFilePath, DestinationFilePath);
 
                 pbPersonPicture.ImageLocation = DestinationFilePath;
-            }
+            
         }
         public crlPersonalCard()
         {
@@ -219,7 +265,7 @@ namespace DVLD.People.Controls
             DataTable dtCountries = clsCountry.GetAllCountries();
             cmbCountry.DataSource = dtCountries;
             cmbCountry.DisplayMember = "CountryName";
-           
+            cmbCountry.ValueMember = "CountryID";
             _SetupUIforUnderlineEffect();
             _SetErrorProvederEffect();
             _DefaultValue();
@@ -229,40 +275,7 @@ namespace DVLD.People.Controls
     
 
         
-        private void txtNationalNo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if(string.IsNullOrWhiteSpace(txtNationalNo.Text))
-            {
-                _SetErrorProvider(txtNationalNo, "National Number is Required");
-                return;
-            }
-            if (clsPerson.IsPersonExist(txtNationalNo.Text.Trim()))
-            {
-                errorProvider1.SetError(txtNationalNo, "This National Number already exists.");
-            }
-            else
-            {
-                errorProvider1.SetError(txtNationalNo, string.Empty);
-            }
-
-        }
-
-        private void cmbCountry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-      
-
-        private void pbPersonPicture_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbMale_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void rbMale_Click(object sender, EventArgs e)
         {
@@ -288,10 +301,59 @@ namespace DVLD.People.Controls
                 pbPersonPicture.ImageLocation = openFileDialog1.FileName;
                 llRemove.Visible = true;
 
-            
-          
+                _CopyImageToProjectFolder();
+
             }
+           
+           
+        }
+
+        private void gradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtNationalNo_TextChanged(object sender, EventArgs e)
+        
             
+        {    
+
+        }
+        
+
+        private void txtNationalNo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNationalNo.Text))
+
+            {
+
+                errorProvider1.SetError(txtNationalNo, "This National Number Reqiured.");
+                return;
+
+            }
+            if (clsPerson.IsPersonExist(txtNationalNo.Text.Trim()))
+
+            {
+                errorProvider1.SetError(txtNationalNo, "This National Number already exists.");
+            }
+            else
+
+            {
+                errorProvider1.SetError(txtNationalNo, string.Empty);
+            }
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProvider1.SetError(txtPhone, "Please enter a valid numeric value.");
+
+
+
+            }
         }
     }
 }

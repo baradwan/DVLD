@@ -46,12 +46,20 @@ namespace DVLD.People
            
             if (Person.Save())
             {
+                crlPersonalInfo.lblPersonID.Text = Person.PersonID.ToString();
                 MessageBox.Show("Saved Successfully", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                
             }
             else
             {
                    MessageBox.Show("Failed to Save", "Save", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void lblTitleAddUpdateForm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

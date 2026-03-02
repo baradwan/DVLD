@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.People;
+using DVLD_BusinessLayer;
 using DVLD_Global;
 using Syncfusion.Windows.Forms;
 using Syncfusion.WinForms.DataGrid;
@@ -29,7 +30,7 @@ namespace DVLD
 
         public enFilterOption ModeFilter=enFilterOption.None;
 
-        private  DataTable  _dtPeople=clsPerson.ListAllPeople();
+        private  DataTable  _dtPeople;
         
         private void _setupDataGridUI() {
 
@@ -60,6 +61,7 @@ namespace DVLD
       
         private void _RefreshPeopleList()
         {
+            _dtPeople= clsPerson.ListAllPeople();
             dvgListPeople.DataSource = _dtPeople;
         }
 
@@ -136,7 +138,10 @@ namespace DVLD
 
         private void btnPeopleAddPerson_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Add Person button clicked! Implement the logic to open the Add Person form here.");
+            frmAddUpdatePerson frmAddPerson = new frmAddUpdatePerson();
+            frmAddPerson.ShowDialog();
+           
+            _RefreshPeopleList();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

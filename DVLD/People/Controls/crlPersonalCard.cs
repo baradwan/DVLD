@@ -16,8 +16,7 @@ namespace DVLD.People.Controls
     {
 
 
-        enum enMode { Add=0,Update=1}
-        enMode _Mode=enMode.Add;
+       
 
 
        
@@ -64,6 +63,10 @@ namespace DVLD.People.Controls
         }
 
         
+        //public clsPerson LoadPersonData(int PersonID)
+        //{
+            
+        //}
         private void _SetErrorProvider(Control ctrl, string errorMessage)
         {
             ctrl.Validating+= (s, e) =>

@@ -16,7 +16,11 @@ namespace DVLD.People
     {
 
      
+        private int _PersonID;
 
+
+        private enum enMode { AddNew = 0, Update = 1 };
+        private enMode _Mode = enMode.AddNew;
         private void _AcceptButtons()
         {
             this.AcceptButton = btnSave;
@@ -26,13 +30,31 @@ namespace DVLD.People
         public frmAddUpdatePerson()
         {
             InitializeComponent();
+           _Mode = enMode.AddNew;
+        }
+        public frmAddUpdatePerson(int PersonID)
+        {
+            InitializeComponent();
+            _Mode = enMode.Update;
+            _PersonID =PersonID;
+         
+          
         }
 
-     
 
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
             _AcceptButtons();
+            if (_Mode==enMode.Update)
+            {              
+                lblTitleAddUpdateForm.Text = "Update Person";
+                crlPersonalInfo.PersonID = _PersonID;
+            }
+            else
+            {
+                lblTitleAddUpdateForm.Text = "Add New Person";
+            }
+
         }
 
         private void crl1_Load(object sender, EventArgs e)
@@ -42,24 +64,51 @@ namespace DVLD.People
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            clsPerson Person = crlPersonalInfo.GetPersonInfo();
-           
-            if (Person.Save())
+            if (!this.ValidateChildren())
             {
-                crlPersonalInfo.lblPersonID.Text = Person.PersonID.ToString();
-                MessageBox.Show("Saved Successfully", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please fix the errors!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
 
-                
+          
+
+            if (!crlPersonalInfo.ImageHandler())
+            { 
+
+                MessageBox.Show("Please fix the errors in image!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            clsPerson PersonToSave= crlPersonalInfo.GetPersonInfo();
+           
+
+
+            if (PersonToSave.Save())
+            {
+                lblTitleAddUpdateForm.Text = "Update Person";
+
+                _Mode = enMode.Update;
+                MessageBox.Show("Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+              
+              
             }
             else
             {
-                   MessageBox.Show("Failed to Save", "Save", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to Save", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
 
         private void lblTitleAddUpdateForm_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

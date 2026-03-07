@@ -35,10 +35,49 @@ namespace DVLD
         private void _setupDataGridUI() {
 
             dvgListPeople.Style.CellStyle.HorizontalAlignment = HorizontalAlignment.Left;
+            if (dvgListPeople.RowCount > 0)
+            {
+                // Setting Header Texts and Widths using String Keys for Safety
 
-            
-           
+                dvgListPeople.Columns["PersonID"].HeaderText = "Person ID";
+                dvgListPeople.Columns["PersonID"].Width = 110;
+
+                dvgListPeople.Columns["NationalNo"].HeaderText = "National No.";
+                dvgListPeople.Columns["NationalNo"].Width = 120;
+
+                dvgListPeople.Columns["FirstName"].HeaderText = "First Name";
+                dvgListPeople.Columns["FirstName"].Width = 120;
+
+                dvgListPeople.Columns["SecondName"].HeaderText = "Second Name";
+                dvgListPeople.Columns["SecondName"].Width = 140;
+
+                dvgListPeople.Columns["ThirdName"].HeaderText = "Third Name";
+                dvgListPeople.Columns["ThirdName"].Width = 120;
+
+                dvgListPeople.Columns["LastName"].HeaderText = "Last Name";
+                dvgListPeople.Columns["LastName"].Width = 120;
+
+                // Displaying the caption column instead of the numeric one
+                dvgListPeople.Columns["GendorCaption"].HeaderText = "Gender";
+                dvgListPeople.Columns["GendorCaption"].Width = 120;
+
+                dvgListPeople.Columns["DateOfBirth"].HeaderText = "Date Of Birth";
+                dvgListPeople.Columns["DateOfBirth"].Width = 140;
+
+                dvgListPeople.Columns["CountryName"].HeaderText = "Nationality";
+                dvgListPeople.Columns["CountryName"].Width = 120;
+
+                dvgListPeople.Columns["Phone"].HeaderText = "Phone";
+                dvgListPeople.Columns["Phone"].Width = 120;
+
+                dvgListPeople.Columns["Email"].HeaderText = "Email";
+
+                // Pro-Tip: Make the Email column fill the remaining space to avoid gray areas
+                dvgListPeople.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             }
+
+
+        }
         private void _LoadFilterOptions()
         {
             string[] FilterText = {
@@ -62,7 +101,12 @@ namespace DVLD
         private void _RefreshPeopleList()
         {
             _dtPeople= clsPerson.ListAllPeople();
+            _dtPeople= _dtPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
+                                                       "FirstName", "SecondName", "ThirdName", "LastName",
+                                                       "GendorCaption", "DateOfBirth", "CountryName",
+                                                       "Phone", "Email");
             dvgListPeople.DataSource = _dtPeople;
+            lblRecordValue.Text = _dtPeople.Rows.Count.ToString();
         }
 
         private void _SearchPeopleWithFilter()
@@ -74,7 +118,7 @@ namespace DVLD
             if (ModeFilter == enFilterOption.None || string.IsNullOrWhiteSpace(txtSearch.Text))
             {
                 _dtPeople.DefaultView.RowFilter = "";
-                _RefreshPeopleList();
+               // _RefreshPeopleList();
                 return;
             }
             switch (ModeFilter)
@@ -95,17 +139,10 @@ namespace DVLD
             {
 
 
-                try
-                {
+                
                     _dtPeople.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtSearch.Text.Trim());
 
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-
+                
 
                
 
@@ -228,6 +265,32 @@ namespace DVLD
         {
            
         }
+
+        private void contextMenuStripEx1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dvgListPeople.CurrentItem!=null)
+            {
+                DataRowView selectedRow = dvgListPeople.CurrentItem as DataRowView;
+
+                if (selectedRow != null)
+                {
+                    int personID = Convert.ToInt32(selectedRow["PersonID"]);
+                    frmShowPerson frmShowPersonDetails = new frmShowPerson(personID);
+                    frmShowPersonDetails.ShowDialog();
+                }
+            }
+        }
+        }
     }
-    }
+    
 

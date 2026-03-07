@@ -53,28 +53,26 @@
             this.panel1.Controls.Add(this.pnlHeader);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1356, 1525);
+            this.panel1.Size = new System.Drawing.Size(678, 737);
             this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.crlPersonalInfo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 163);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Location = new System.Drawing.Point(0, 85);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1356, 1225);
+            this.panel2.Size = new System.Drawing.Size(678, 581);
             this.panel2.TabIndex = 2;
             // 
             // crlPersonalInfo
             // 
             this.crlPersonalInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crlPersonalInfo.Location = new System.Drawing.Point(0, 0);
-            this.crlPersonalInfo.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.crlPersonalInfo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.crlPersonalInfo.Name = "crlPersonalInfo";
-            this.crlPersonalInfo.Size = new System.Drawing.Size(1356, 1225);
+            this.crlPersonalInfo.Size = new System.Drawing.Size(678, 581);
             this.crlPersonalInfo.TabIndex = 0;
             this.crlPersonalInfo.Load += new System.EventHandler(this.crl1_Load);
             // 
@@ -85,32 +83,30 @@
             this.gradientPanel1.Controls.Add(this.btnClose);
             this.gradientPanel1.Controls.Add(this.btnSave);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gradientPanel1.Location = new System.Drawing.Point(0, 1388);
-            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gradientPanel1.Location = new System.Drawing.Point(0, 666);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1356, 137);
+            this.gradientPanel1.Size = new System.Drawing.Size(678, 71);
             this.gradientPanel1.TabIndex = 1;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnClose.Location = new System.Drawing.Point(768, 33);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnClose.Location = new System.Drawing.Point(384, 17);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(252, 81);
+            this.btnClose.Size = new System.Drawing.Size(126, 42);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(1080, 33);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSave.Location = new System.Drawing.Point(540, 17);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(252, 81);
+            this.btnSave.Size = new System.Drawing.Size(126, 42);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -122,9 +118,8 @@
             this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1356, 163);
+            this.pnlHeader.Size = new System.Drawing.Size(678, 85);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblTitleAddUpdateForm
@@ -132,10 +127,9 @@
             this.lblTitleAddUpdateForm.AutoSize = true;
             this.lblTitleAddUpdateForm.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitleAddUpdateForm.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTitleAddUpdateForm.Location = new System.Drawing.Point(486, 40);
-            this.lblTitleAddUpdateForm.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblTitleAddUpdateForm.Location = new System.Drawing.Point(243, 21);
             this.lblTitleAddUpdateForm.Name = "lblTitleAddUpdateForm";
-            this.lblTitleAddUpdateForm.Size = new System.Drawing.Size(439, 72);
+            this.lblTitleAddUpdateForm.Size = new System.Drawing.Size(219, 37);
             this.lblTitleAddUpdateForm.TabIndex = 1;
             this.lblTitleAddUpdateForm.Text = "Add New Person";
             this.lblTitleAddUpdateForm.Click += new System.EventHandler(this.lblTitleAddUpdateForm_Click);
@@ -145,21 +139,19 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(368, 163);
+            this.pictureBox1.Size = new System.Drawing.Size(184, 85);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // frmAddUpdatePerson
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1356, 1525);
+            this.ClientSize = new System.Drawing.Size(678, 737);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddUpdatePerson";

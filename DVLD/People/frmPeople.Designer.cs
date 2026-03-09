@@ -32,18 +32,27 @@ namespace DVLD
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeople));
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPeopleAddPerson = new Syncfusion.WinForms.Controls.SfButton();
             this.lblTitlePeople = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cmbFilter = new Syncfusion.WinForms.ListView.SfComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.dvgListPeople = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.contextMenuStripEx1 = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
@@ -52,26 +61,17 @@ namespace DVLD
             this.lblRecordValue = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.btnPeopleAddPerson = new Syncfusion.WinForms.Controls.SfButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgListPeople)).BeginInit();
             this.contextMenuStripEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
             this.gradientPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -85,6 +85,27 @@ namespace DVLD
             this.panel1.Size = new System.Drawing.Size(1442, 80);
             this.panel1.TabIndex = 0;
             // 
+            // btnPeopleAddPerson
+            // 
+            this.btnPeopleAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPeopleAddPerson.AutoEllipsis = true;
+            this.btnPeopleAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPeopleAddPerson.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
+            this.btnPeopleAddPerson.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPeopleAddPerson.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPeopleAddPerson.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnPeopleAddPerson.Location = new System.Drawing.Point(1222, 18);
+            this.btnPeopleAddPerson.Name = "btnPeopleAddPerson";
+            this.btnPeopleAddPerson.Size = new System.Drawing.Size(174, 45);
+            this.btnPeopleAddPerson.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
+            this.btnPeopleAddPerson.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
+            this.btnPeopleAddPerson.Style.FocusedForeColor = System.Drawing.Color.White;
+            this.btnPeopleAddPerson.Style.ForeColor = System.Drawing.Color.White;
+            this.btnPeopleAddPerson.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.btnPeopleAddPerson.TabIndex = 2;
+            this.btnPeopleAddPerson.Text = "Add Person";
+            this.btnPeopleAddPerson.Click += new System.EventHandler(this.btnPeopleAddPerson_Click);
+            // 
             // lblTitlePeople
             // 
             this.lblTitlePeople.AutoSize = true;
@@ -96,6 +117,19 @@ namespace DVLD
             this.lblTitlePeople.TabIndex = 1;
             this.lblTitlePeople.Text = "Manage People";
             this.lblTitlePeople.Click += new System.EventHandler(this.lblTitlePeople_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -162,6 +196,40 @@ namespace DVLD
             this.label1.TabIndex = 1;
             this.label1.Text = "Search : ";
             // 
+            // txtSearch
+            // 
+            this.txtSearch.AccessibleDescription = "";
+            this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
+            "Email"});
+            this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
+            bannerTextInfo2.Color = System.Drawing.SystemColors.ControlDarkDark;
+            bannerTextInfo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo2.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo2.Text = " Search by PersonID, NationalNo,Email,...";
+            bannerTextInfo2.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtSearch, bannerTextInfo2);
+            this.txtSearch.BeforeTouchSize = new System.Drawing.Size(374, 33);
+            this.txtSearch.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.CausesValidation = false;
+            this.txtSearch.CornerRadius = 6;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtSearch.FarImage = ((System.Drawing.Image)(resources.GetObject("txtSearch.FarImage")));
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(140, 4);
+            this.txtSearch.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtSearch.MinimumSize = new System.Drawing.Size(16, 12);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(374, 33);
+            this.txtSearch.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
+            this.txtSearch.TabIndex = 0;
+            this.txtSearch.ThemeName = "Metro";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            this.txtSearch.Validating += new System.ComponentModel.CancelEventHandler(this.txtSearch_Validating);
+            // 
             // dvgListPeople
             // 
             this.dvgListPeople.AccessibleName = "Table";
@@ -203,15 +271,60 @@ namespace DVLD
             this.contextMenuStripEx1.Size = new System.Drawing.Size(188, 182);
             this.contextMenuStripEx1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripEx1_Opening);
             // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.Image = global::DVLD.Properties.Resources.ShowDetailes;
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
+            // 
+            // addNewPersonToolStripMenuItem
+            // 
+            this.addNewPersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_add_administrator_50;
+            this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.addNewPersonToolStripMenuItem.Text = "Add New Person";
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(184, 6);
             // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::DVLD.Properties.Resources.people__2_;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Image = global::DVLD.Properties.Resources.delete;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(184, 6);
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            this.sendEmailToolStripMenuItem.Image = global::DVLD.Properties.Resources.mail;
+            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.sendEmailToolStripMenuItem.Text = "Send Email";
+            // 
+            // phoneCallToolStripMenuItem
+            // 
+            this.phoneCallToolStripMenuItem.Image = global::DVLD.Properties.Resources.call;
+            this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
+            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.phoneCallToolStripMenuItem.Text = "Phone Call";
             // 
             // errorProvider1
             // 
@@ -280,117 +393,6 @@ namespace DVLD
             this.panel3.Size = new System.Drawing.Size(1442, 575);
             this.panel3.TabIndex = 5;
             // 
-            // showDetailsToolStripMenuItem
-            // 
-            this.showDetailsToolStripMenuItem.Image = global::DVLD.Properties.Resources.ShowDetailes;
-            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
-            this.showDetailsToolStripMenuItem.Text = "Show Details";
-            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
-            // 
-            // addNewPersonToolStripMenuItem
-            // 
-            this.addNewPersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_add_administrator_50;
-            this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
-            this.addNewPersonToolStripMenuItem.Text = "Add New Person";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Image = global::DVLD.Properties.Resources.people__2_;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = global::DVLD.Properties.Resources.delete;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            // 
-            // sendEmailToolStripMenuItem
-            // 
-            this.sendEmailToolStripMenuItem.Image = global::DVLD.Properties.Resources.mail;
-            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
-            this.sendEmailToolStripMenuItem.Text = "Send Email";
-            // 
-            // phoneCallToolStripMenuItem
-            // 
-            this.phoneCallToolStripMenuItem.Image = global::DVLD.Properties.Resources.call;
-            this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
-            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
-            this.phoneCallToolStripMenuItem.Text = "Phone Call";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.AccessibleDescription = "";
-            this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
-            "Email"});
-            this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
-            bannerTextInfo1.Color = System.Drawing.SystemColors.ControlDarkDark;
-            bannerTextInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo1.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo1.Text = " Search by PersonID, NationalNo,Email,...";
-            bannerTextInfo1.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtSearch, bannerTextInfo1);
-            this.txtSearch.BeforeTouchSize = new System.Drawing.Size(374, 33);
-            this.txtSearch.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
-            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearch.CausesValidation = false;
-            this.txtSearch.CornerRadius = 6;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtSearch.FarImage = ((System.Drawing.Image)(resources.GetObject("txtSearch.FarImage")));
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(140, 4);
-            this.txtSearch.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtSearch.MinimumSize = new System.Drawing.Size(16, 12);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(374, 33);
-            this.txtSearch.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
-            this.txtSearch.TabIndex = 0;
-            this.txtSearch.ThemeName = "Metro";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
-            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
-            this.txtSearch.Validating += new System.ComponentModel.CancelEventHandler(this.txtSearch_Validating);
-            // 
-            // btnPeopleAddPerson
-            // 
-            this.btnPeopleAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPeopleAddPerson.AutoEllipsis = true;
-            this.btnPeopleAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPeopleAddPerson.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
-            this.btnPeopleAddPerson.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPeopleAddPerson.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPeopleAddPerson.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnPeopleAddPerson.Location = new System.Drawing.Point(1222, 18);
-            this.btnPeopleAddPerson.Name = "btnPeopleAddPerson";
-            this.btnPeopleAddPerson.Size = new System.Drawing.Size(174, 45);
-            this.btnPeopleAddPerson.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
-            this.btnPeopleAddPerson.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
-            this.btnPeopleAddPerson.Style.FocusedForeColor = System.Drawing.Color.White;
-            this.btnPeopleAddPerson.Style.ForeColor = System.Drawing.Color.White;
-            this.btnPeopleAddPerson.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.btnPeopleAddPerson.TabIndex = 2;
-            this.btnPeopleAddPerson.Text = "Add Person";
-            this.btnPeopleAddPerson.Click += new System.EventHandler(this.btnPeopleAddPerson_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(100, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,9 +407,11 @@ namespace DVLD
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgListPeople)).EndInit();
             this.contextMenuStripEx1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -415,8 +419,6 @@ namespace DVLD
             this.gradientPanel1.ResumeLayout(false);
             this.gradientPanel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

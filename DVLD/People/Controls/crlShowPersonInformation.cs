@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace DVLD.People.Controls
         clsPerson _Person;
         int _PersonID;
 
+       
         public crlShowPersonInformation()
         {
             InitializeComponent();
@@ -36,6 +38,23 @@ namespace DVLD.People.Controls
                 return;
             }
             _PersonID = PersonID;
+            _FillPersonInformation();
+
+
+
+        }
+        public void LoadPersonInformation(clsPerson Person)
+        {
+
+
+           // _Person = clsPerson.Find(PersonID);
+            if (_Person == null)
+            {
+                MessageBox.Show("No Person with ID = " + _PersonID, "Person Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                _ResetInfo();
+                return;
+            }
+           _Person = Person;
             _FillPersonInformation();
 
 
@@ -79,7 +98,8 @@ namespace DVLD.People.Controls
             // Display the person's image if available, otherwise set a default image.
             if (!string.IsNullOrWhiteSpace(_Person.ImagePath))
             {
-                pbPersonalProfile.ImageLocation = _Person.ImagePath;
+                pbPersonalProfile.ImageLocation = Path.Combine(crlPersonalCard.ProjectFolder, _Person.ImagePath);
+
             }
             else
             {

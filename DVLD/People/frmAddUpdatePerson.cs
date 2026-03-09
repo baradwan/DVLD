@@ -17,6 +17,8 @@ namespace DVLD.People
 
      
         private int _PersonID;
+        public delegate void DataBackHandler(object sender, clsPerson Person);
+        public event DataBackHandler DataBack;
 
 
         private enum enMode { AddNew = 0, Update = 1 };
@@ -86,6 +88,7 @@ namespace DVLD.People
 
             if (PersonToSave.Save())
             {
+                DataBack?.Invoke(this, PersonToSave);
                 lblTitleAddUpdateForm.Text = "Update Person";
 
                 _Mode = enMode.Update;
@@ -98,6 +101,7 @@ namespace DVLD.People
             {
                 MessageBox.Show("Failed to Save", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
         
 

@@ -28,11 +28,12 @@ namespace DVLD
             Email = 10
         }
 
-        public enFilterOption ModeFilter=enFilterOption.None;
+        public enFilterOption ModeFilter = enFilterOption.None;
 
-        private  DataTable  _dtPeople;
-        
-        private void _setupDataGridUI() {
+        private DataTable _dtPeople;
+
+        private void _setupDataGridUI()
+        {
 
             dvgListPeople.Style.CellStyle.HorizontalAlignment = HorizontalAlignment.Left;
             if (dvgListPeople.RowCount > 0)
@@ -92,16 +93,18 @@ namespace DVLD
         "Gender",
         "Phone",
         "Email"
-    };
+                };
+
+
             cmbFilter.DataSource = FilterText;
             cmbFilter.SelectedIndex = 0;
         }
 
-      
+
         private void _RefreshPeopleList()
         {
-            _dtPeople= clsPerson.ListAllPeople();
-            _dtPeople= _dtPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
+            _dtPeople = clsPerson.ListAllPeople();
+            _dtPeople = _dtPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
                                                        "FirstName", "SecondName", "ThirdName", "LastName",
                                                        "GendorCaption", "DateOfBirth", "CountryName",
                                                        "Phone", "Email");
@@ -118,7 +121,7 @@ namespace DVLD
             if (ModeFilter == enFilterOption.None || string.IsNullOrWhiteSpace(txtSearch.Text))
             {
                 _dtPeople.DefaultView.RowFilter = "";
-               // _RefreshPeopleList();
+                // _RefreshPeopleList();
                 return;
             }
             switch (ModeFilter)
@@ -139,34 +142,35 @@ namespace DVLD
             {
 
 
-                
-                    _dtPeople.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtSearch.Text.Trim());
 
-                
+                _dtPeople.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtSearch.Text.Trim());
 
-               
+
+
+
 
             }
-            else {
+            else
+            {
 
                 _dtPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtSearch.Text.Trim());
             }
             dvgListPeople.DataSource = _dtPeople.DefaultView;
         }
-          
+
         public frmPeople()
         {
-         
+
             InitializeComponent();
         }
 
-        
-       
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             _setupDataGridUI();
             _LoadFilterOptions();
-               _RefreshPeopleList();
+            _RefreshPeopleList();
 
 
 
@@ -176,11 +180,18 @@ namespace DVLD
         private void btnPeopleAddPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frmAddPerson = new frmAddUpdatePerson();
+
+            frmAddPerson.DataBack += frmAddUpdatePerson_DataBack;
             frmAddPerson.ShowDialog();
-           
-            _RefreshPeopleList();
+
+
         }
 
+        private void frmAddUpdatePerson_DataBack(object sender, clsPerson Person)
+        {
+
+            _RefreshPeopleList();
+        }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             _SearchPeopleWithFilter();
@@ -203,34 +214,38 @@ namespace DVLD
 
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
-                
-            
-                        // Enable or disable the search textbox based on the selected filter option which is not None
+
+
+
+
+            // Enable or disable the search textbox based on the selected filter option which is not None
             txtSearch.Enabled = ((enFilterOption)cmbFilter.SelectedIndex != enFilterOption.None);
-           
-            txtSearch.Clear(); 
+
+            txtSearch.Clear();
             errorProvider1.SetError(txtSearch, "");
 
-
+            if (txtSearch.Enabled)
+            {
+                txtSearch.Focus();
+            }
 
 
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ModeFilter= (enFilterOption)cmbFilter.SelectedIndex;
+            ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
             bool isNumericFilter =
       ModeFilter == enFilterOption.PersonID ||
-     
+
       ModeFilter == enFilterOption.Phone;
 
             if (!isNumericFilter)
-            { errorProvider1.SetError(txtSearch, string.Empty);
+            {
+                errorProvider1.SetError(txtSearch, string.Empty);
                 return;
             }
-                
+
 
             errorProvider1.SetError(txtSearch, string.Empty);
 
@@ -238,24 +253,24 @@ namespace DVLD
             {
                 e.Handled = true;
                 errorProvider1.SetError(txtSearch, "Please enter a valid numeric value.");
-                  
+
 
 
             }
-                
+
         }
 
         private void txtSearch_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-           
-                
-            }
+
+
+        }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Control&&e.KeyCode==Keys.V)
+            if (e.Control && e.KeyCode == Keys.V)
             {
-                e.Handled = true; 
+                e.Handled = true;
                 e.SuppressKeyPress = true;
                 errorProvider1.SetError(txtSearch, "Paste is disabled for this field!");
             }
@@ -263,7 +278,7 @@ namespace DVLD
 
         private void cmbFilter_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void contextMenuStripEx1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -278,7 +293,7 @@ namespace DVLD
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dvgListPeople.CurrentItem!=null)
+            if (dvgListPeople.CurrentItem != null)
             {
                 DataRowView selectedRow = dvgListPeople.CurrentItem as DataRowView;
 
@@ -286,11 +301,66 @@ namespace DVLD
                 {
                     int personID = Convert.ToInt32(selectedRow["PersonID"]);
                     frmShowPerson frmShowPersonDetails = new frmShowPerson(personID);
+                    frmShowPersonDetails.OnPersonUpdated += _RefreshPeopleList;
                     frmShowPersonDetails.ShowDialog();
                 }
             }
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dvgListPeople.CurrentItem != null)
+            {
+                DataRowView selectedRow = dvgListPeople.CurrentItem as DataRowView;
+
+                if (selectedRow != null)
+                {
+                    int personID = Convert.ToInt32(selectedRow["PersonID"]);
+                    frmAddUpdatePerson frmAddUpdatePersonDetails = new frmAddUpdatePerson(personID);
+                    frmAddUpdatePersonDetails.DataBack += frmAddUpdatePerson_DataBack;
+
+                    frmAddUpdatePersonDetails.ShowDialog();
+                }
+            }
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (dvgListPeople.CurrentItem != null)
+            {
+                DataRowView selectedRow = dvgListPeople.CurrentItem as DataRowView;
+                if (selectedRow != null)
+                {
+                    int personID = Convert.ToInt32(selectedRow["PersonID"]);
+                    
+                    if (MessageBox.Show("Are you sure you want to delete this person? This action cannot be undone.",
+                        "Confirm Delete",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    {
+                        if (clsPerson.DeletePerson(personID))
+                        {
+
+                            MessageBox.Show("Person deleted successfully.", "Success",
+                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            _RefreshPeopleList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cannot delete this person because they are linked to other records in the system (e.g., Applications, Users, or Drivers).",
+                                                        "Deletion Failed",
+                                                        MessageBoxButtons.OK,
+                                                        MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
         }
     }
+}
+    
     
 

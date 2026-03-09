@@ -15,7 +15,7 @@ namespace DVLD.People.Controls
 
     public partial class crlPersonalCard : UserControl
     {
-         string ProjectFolder = @"..\..\..\Resources\ProfilePictures";
+         public static string ProjectFolder = @"..\..\..\Resources\ProfilePictures";
         enum enMode { AddNew=0, Update = 1 }
         enum enGender { Male = 0, Famale = 1 }
 

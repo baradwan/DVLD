@@ -181,7 +181,7 @@ namespace DVLD_BusinessLayer
             return clsPersonData.UpdatePerson(this.PersonDTO);
         }
 
-        public static bool _DeletePerson(int PersonID)
+        public static bool DeletePerson(int PersonID)
         {
             return clsPersonData.DeletePerson(PersonID);
         }

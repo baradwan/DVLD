@@ -1,4 +1,6 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Properties;
+using DVLD_BusinessLayer;
+using DVLD_Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +20,15 @@ namespace DVLD.People.Controls
         clsPerson _Person;
         int _PersonID;
 
-       
+        public int PersonID
+        {
+            get { return _PersonID; }
+        }
+
+        public clsPerson SelectedPersonInfo
+        {
+            get { return _Person; }
+        }
         public crlShowPersonInformation()
         {
             InitializeComponent();
@@ -37,7 +47,7 @@ namespace DVLD.People.Controls
                 _ResetInfo();
                 return;
             }
-            _PersonID = PersonID;
+           // _PersonID = PersonID;
             _FillPersonInformation();
 
 
@@ -60,6 +70,24 @@ namespace DVLD.People.Controls
 
 
         }
+
+        private void _LoadPersonImage()
+        {
+
+            if (_Person.ImagePath == null)
+                return;
+            if (_Person.Gendor == 0)
+                pbPersonalProfile.Image = Resources.Male;
+            else
+                pbPersonalProfile.Image = Resources.Female;
+
+            string ImagePath =Path.Combine(clsProjectFolderSetting.ProjectFolderPath, _Person.ImagePath);
+            if (ImagePath != "")
+                if (File.Exists(ImagePath))
+                    pbPersonalProfile.ImageLocation = ImagePath;
+               
+
+        }
         private void _ResetInfo()
         {
             // Optionally, clear the labels or show an error message if _Person is not set.
@@ -80,7 +108,8 @@ namespace DVLD.People.Controls
 
             _PersonID = _Person.PersonID;
             lblPersonIDValue.Text = _PersonID.ToString();
-            lblFullNameValue.Text = $"{_Person.FirstName} {_Person.SecondName} {_Person.ThirdName} {_Person.LastName}";
+            lblFullNameValue.Text = _Person.FullName;
+            lblShortNameUnderImage.Text = $"{_Person.FirstName} {_Person.LastName}";
             lblNationalNoValue.Text = _Person.NationalNo;
             // Format the date of birth to "dd/MM/yyyy" for consistency and readability.
             lblDateOfBirthValue.Text = _Person.DateOfBirth.ToString("dd/MM/yyyy");
@@ -96,17 +125,7 @@ namespace DVLD.People.Controls
             lblEmailValue.Text = string.IsNullOrWhiteSpace(_Person.Email) ? "[N/A]" : _Person.Email;
             lblAddressValue.Text = string.IsNullOrWhiteSpace(_Person.Address) ? "[N/A]" : _Person.Address;
             // Display the person's image if available, otherwise set a default image.
-            if (!string.IsNullOrWhiteSpace(_Person.ImagePath))
-            {
-                pbPersonalProfile.ImageLocation = Path.Combine(crlPersonalCard.ProjectFolder, _Person.ImagePath);
-
-            }
-            else
-            {
-                // Set a default image based on gender if no specific image is provided.
-                // Assuming `Properties.Resources.Male` and `Properties.Resources.Female` exist.
-                pbPersonalProfile.Image = _Person.Gendor == 0 ? Properties.Resources.Male : Properties.Resources.Female;
-            }
+            _LoadPersonImage();
         }       
 
        
@@ -169,6 +188,11 @@ namespace DVLD.People.Controls
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblShortNameUnderImage_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

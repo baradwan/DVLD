@@ -1,5 +1,6 @@
 ﻿using DVLD.Properties;
 using DVLD_BusinessLayer;
+using DVLD_Global;
 using Syncfusion.Data.Extensions;
 using Syncfusion.WinForms.Input;
 using Syncfusion.WinForms.ListView;
@@ -15,7 +16,9 @@ namespace DVLD.People.Controls
 
     public partial class crlPersonalCard : UserControl
     {
-         public static string ProjectFolder = @"..\..\..\Resources\ProfilePictures";
+         
+       // public static string ProjectFolder = @"..\..\..\Resources\ProfilePictures";
+       
         enum enMode { AddNew=0, Update = 1 }
         enum enGender { Male = 0, Famale = 1 }
 
@@ -48,14 +51,7 @@ namespace DVLD.People.Controls
             _Mode = enMode.AddNew;
             _Person = new clsPerson();
         }
-        public crlPersonalCard(int PersonID)
-        {
-            InitializeComponent();
-
-            _Mode = enMode.Update;
-            this.PersonID = PersonID;
-            MessageBox.Show("PersonID : " + PersonID);
-        }
+       
         public clsPerson GetPersonInfo()
         {
 
@@ -120,8 +116,9 @@ namespace DVLD.People.Controls
 
             dtDateOfBirth.MaxDateTime = DateTime.Now.AddYears(-18).Date;
             dtDateOfBirth.MinDateTime = new DateTime(1900, 1, 1).Date;
-            rbMale.Checked = true;
-          //  cmbCountry.SelectedItem = 175;
+            // rbMale.Checked = true;
+            pbPersonPicture.Image = rbMale.Checked ? Resources.Male :Resources.Female;
+
 
 
 
@@ -130,18 +127,9 @@ namespace DVLD.People.Controls
         {
             ctrl.Validating += (s, e) =>
             {
-                //if (string.IsNullOrWhiteSpace(ctrl.Text))
-                //{
-                //    errorProvider1.SetError(ctrl, string.Empty);
-                //}
-                //else
-                //{
+               
 
-                //    errorProvider1.SetError(ctrl, errorMessage);
-
-                //}
-
-                if ((ctrl.Text.Contains($"@") && ctrl.Text.EndsWith(".com", StringComparison.OrdinalIgnoreCase)) || string.IsNullOrWhiteSpace(ctrl.Text))
+                if (clsnValidation.IsEmailValid(ctrl.Text) || string.IsNullOrWhiteSpace(ctrl.Text))
                 {
                     errorProvider1.SetError(ctrl, string.Empty);
 
@@ -256,40 +244,7 @@ namespace DVLD.People.Controls
             _SetErrorProviderWithEmail(txtEmail, "Please enter a valid email address.");
         }
 
-        private void _CopyImageToProjectFolderHandler()
-
-
-        {
-
-            if (pbPersonPicture.ImageLocation == null)
-            {
-                return;
-            }
-            string CurrentDirectory = Application.StartupPath;
-            
-            string FullPathDes = Path.GetFullPath(Path.Combine(CurrentDirectory, ProjectFolder));
-            string SourceFilePath = string.Empty;
-
-
-
-
-            SourceFilePath = openFileDialog1.FileName;
-            string Extention = Path.GetExtension(SourceFilePath);
-            string UniqueFileName = $"{Guid.NewGuid().ToString()}{Extention}";
-            if (!Directory.Exists(FullPathDes))
-            {
-                Directory.CreateDirectory(FullPathDes);
-
-
-            }
-
-            string DestinationFilePath = Path.Combine(FullPathDes, UniqueFileName);
-            File.Copy(SourceFilePath, DestinationFilePath);
-
-            pbPersonPicture.ImageLocation = DestinationFilePath;
-            return;
-        }
-
+       
 
         public bool ImageHandler()
         {
@@ -298,14 +253,14 @@ namespace DVLD.People.Controls
                 return true;
             }
 
-            string fullPathDes = Path.GetFullPath(Path.Combine( ProjectFolder,_Person.ImagePath));
+            string fullPathOfCurrentImage = Path.GetFullPath(Path.Combine(clsProjectFolderSetting.ProjectFolderPath, _Person.ImagePath));
             if (_Person.ImagePath != pbPersonPicture.ImageLocation)
             {
                 if (_Person.ImagePath != "" )
                 {
                     try
                     {
-                        File.Delete(fullPathDes);
+                        File.Delete(fullPathOfCurrentImage);
                     }
                     catch (Exception ex)
                     {
@@ -315,15 +270,18 @@ namespace DVLD.People.Controls
 
                 if (pbPersonPicture.ImageLocation != null)
                 {
-                    _CopyImageToProjectFolderHandler();
-                    return true;
+                    string Source =pbPersonPicture.ImageLocation.ToString();
+                    if (clsUtil.CopyImageToProjectFolderPathHandler(ref Source, clsProjectFolderSetting.ProjectFolderPath))
+                    {
+                        pbPersonPicture.ImageLocation= Source;
+                        return true;
+                    }
+
                 }
-                else
-                {
-                    _Person.ImagePath = "";
-                    return true;
-                }
+               
             }
+
+            
             return true;
         }
 
@@ -355,12 +313,12 @@ namespace DVLD.People.Controls
             txtAddress.Text = _Person.Address;
             txtPhone.Text = _Person.Phone;
             txtEmail.Text = _Person.Email;
-            cmbCountry.SelectedIndex = _Person.NationalityCountryID;
+            cmbCountry.SelectedValue = _Person.NationalityCountryID;
 
 
             if (_Person.ImagePath != "")
             {
-                pbPersonPicture.ImageLocation = _Person.ImagePath;
+                pbPersonPicture.ImageLocation = Path.Combine(clsProjectFolderSetting.ProjectFolderPath, _Person.ImagePath);
 
             }
 
@@ -374,6 +332,7 @@ namespace DVLD.People.Controls
             cmbCountry.DisplayMember = "CountryName";
             cmbCountry.ValueMember = "CountryID";
            
+
             DataRow[] foundRows = dtCountries.Select("CountryName = 'Saudi Arabia'");
             if (foundRows.Length > 0)
             {
@@ -416,7 +375,7 @@ namespace DVLD.People.Controls
                 // 1. Just SHOW the picture on the screen. Do NOT copy it yet!
                 pbPersonPicture.ImageLocation = openFileDialog1.FileName;
                 llRemove.Visible = true;
-
+               
                
 
             }

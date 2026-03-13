@@ -33,7 +33,7 @@ namespace DVLD
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeople));
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPeopleAddPerson = new Syncfusion.WinForms.Controls.SfButton();
             this.lblTitlePeople = new System.Windows.Forms.Label();
@@ -202,12 +202,12 @@ namespace DVLD
             this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
             "Email"});
             this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
-            bannerTextInfo2.Color = System.Drawing.SystemColors.ControlDarkDark;
-            bannerTextInfo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo2.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo2.Text = " Search by PersonID, NationalNo,Email,...";
-            bannerTextInfo2.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtSearch, bannerTextInfo2);
+            bannerTextInfo1.Color = System.Drawing.SystemColors.ControlDarkDark;
+            bannerTextInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo1.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo1.Text = " Search by PersonID, NationalNo,Email,...";
+            bannerTextInfo1.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtSearch, bannerTextInfo1);
             this.txtSearch.BeforeTouchSize = new System.Drawing.Size(374, 33);
             this.txtSearch.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -253,6 +253,7 @@ namespace DVLD
             this.dvgListPeople.TabIndex = 2;
             this.dvgListPeople.Text = " ";
             this.dvgListPeople.Click += new System.EventHandler(this.sfDataGrid1_Click);
+            this.dvgListPeople.DoubleClick += new System.EventHandler(this.dvgListPeople_DoubleClick);
             // 
             // contextMenuStripEx1
             // 
@@ -268,7 +269,7 @@ namespace DVLD
             this.contextMenuStripEx1.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(236)))), ((int)(((byte)(249)))));
             this.contextMenuStripEx1.Name = "contextMenuStripEx1";
             this.contextMenuStripEx1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStripEx1.Size = new System.Drawing.Size(188, 182);
+            this.contextMenuStripEx1.Size = new System.Drawing.Size(188, 160);
             this.contextMenuStripEx1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripEx1_Opening);
             // 
             // showDetailsToolStripMenuItem

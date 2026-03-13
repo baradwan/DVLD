@@ -1,4 +1,5 @@
 ﻿using DVLD.People;
+using DVLD.People.Controls;
 using DVLD_BusinessLayer;
 using DVLD_Global;
 using Syncfusion.Windows.Forms;
@@ -6,8 +7,11 @@ using Syncfusion.WinForms.DataGrid;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq.Expressions;
 using System.Windows.Forms;
+
+
 
 namespace DVLD
 {
@@ -343,7 +347,9 @@ namespace DVLD
                     {
                         if (clsPerson.DeletePerson(personID))
                         {
-
+                           
+                           
+                            clsUtil.DeleteIfExists(Path.Combine(clsProjectFolderSetting.ProjectFolderPath, selectedRow["ImagePath"].ToString()));
                             MessageBox.Show("Person deleted successfully.", "Success",
                              MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _RefreshPeopleList();
@@ -358,6 +364,15 @@ namespace DVLD
                     }
                 }
             }
+        }
+
+        private void dvgListPeople_DoubleClick(object sender, EventArgs e)
+        {
+            DataRowView selectedRow = dvgListPeople.CurrentItem as DataRowView;
+            int personID = Convert.ToInt32(selectedRow["PersonID"]);
+            Form frm = new frmShowPerson(personID);
+            frm.ShowDialog();
+
         }
     }
 }

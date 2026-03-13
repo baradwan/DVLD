@@ -163,7 +163,7 @@ namespace TESTING
         public static void Test_DeletePerson(int ID)
         {
             // نقوم بالحذف مباشرة
-            bool isDeleted = clsPerson._DeletePerson(ID);
+            bool isDeleted = clsPerson.DeletePerson(ID);
             _PrintResult($"Delete Person ID {ID}", isDeleted);
 
             // التأكد من أن البحث عنه الآن يعود بـ null

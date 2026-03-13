@@ -88,6 +88,7 @@ namespace DVLD.People
 
             if (PersonToSave.Save())
             {
+                crlPersonalInfo.PersonID = PersonToSave.PersonID;
                 DataBack?.Invoke(this, PersonToSave);
                 lblTitleAddUpdateForm.Text = "Update Person";
 

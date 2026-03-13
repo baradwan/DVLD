@@ -42,7 +42,7 @@
             this.gradientPanel1.Controls.Add(this.btnClose);
             this.gradientPanel1.Controls.Add(this.btnEdit);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gradientPanel1.Location = new System.Drawing.Point(0, 401);
+            this.gradientPanel1.Location = new System.Drawing.Point(0, 433);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.Size = new System.Drawing.Size(603, 52);
             this.gradientPanel1.TabIndex = 1;
@@ -82,18 +82,19 @@
             this.crlShowPersonInformation1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crlShowPersonInformation1.Location = new System.Drawing.Point(0, 0);
             this.crlShowPersonInformation1.Name = "crlShowPersonInformation1";
-            this.crlShowPersonInformation1.Size = new System.Drawing.Size(603, 401);
+            this.crlShowPersonInformation1.Size = new System.Drawing.Size(603, 433);
             this.crlShowPersonInformation1.TabIndex = 2;
+            this.crlShowPersonInformation1.Load += new System.EventHandler(this.crlShowPersonInformation1_Load);
             // 
             // frmShowPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(603, 453);
+            this.ClientSize = new System.Drawing.Size(603, 485);
             this.Controls.Add(this.crlShowPersonInformation1);
             this.Controls.Add(this.gradientPanel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(619, 492);
+            this.MaximumSize = new System.Drawing.Size(619, 550);
             this.Name = "frmShowPerson";
             this.Text = "frmShowPerson";
             this.Load += new System.EventHandler(this.frmShowPerson_Load);

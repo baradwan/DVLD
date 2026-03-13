@@ -64,6 +64,11 @@ namespace DVLD_BusinessLayer
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
+        public string FullName
+        {
+            get { return FirstName + " " + SecondName + " " + ThirdName + " " + LastName; }
+
+        }
         public DateTime DateOfBirth { get; set; }
         public short Gendor { get; set; }
         public string Address { get; set; }
@@ -97,6 +102,7 @@ namespace DVLD_BusinessLayer
                 };
             }
         }
+        
 
 
         /// <summary>
@@ -125,7 +131,7 @@ namespace DVLD_BusinessLayer
         /// Constructor to initialize a person object from a DTO /   لتهيئة كائن شخص من خلال كائن نقل بيانات constructor
         /// </summary>
 
-        public clsPerson(clsPersonDTO personDTO)
+        public clsPerson( clsPersonDTO personDTO)
         {
             this.PersonID = personDTO.PersonID;
             this.NationalNo = personDTO.NationalNo;

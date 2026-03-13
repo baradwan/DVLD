@@ -35,6 +35,7 @@
             this.lblPersonProfile = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblShortNameUnderImage = new System.Windows.Forms.Label();
             this.pnlBackPrifilePic = new System.Windows.Forms.Panel();
             this.pbPersonalProfile = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,23 +46,24 @@
             this.lblNationalityValue = new System.Windows.Forms.Label();
             this.lblPhoneValue = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbEmail = new System.Windows.Forms.PictureBox();
             this.pbPhone = new System.Windows.Forms.PictureBox();
             this.pbNationality = new System.Windows.Forms.PictureBox();
             this.pbGender = new System.Windows.Forms.PictureBox();
             this.pbDateOfBirth = new System.Windows.Forms.PictureBox();
             this.pbNationalNo = new System.Windows.Forms.PictureBox();
             this.lblNationalNo = new System.Windows.Forms.Label();
+            this.lblEmailValue = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pbFullName = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblAddressValue = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblEmailValue = new System.Windows.Forms.Label();
-            this.pbEmail = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,14 +71,15 @@
             this.pnlBackPrifilePic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonalProfile)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNationality)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDateOfBirth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNationalNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFullName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEmail)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gradientPanel1
@@ -141,13 +144,29 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pnlBackPrifilePic);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(400, 60);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(20);
-            this.panel1.Size = new System.Drawing.Size(206, 340);
+            this.panel1.Size = new System.Drawing.Size(206, 349);
             this.panel1.TabIndex = 1;
+            // 
+            // lblShortNameUnderImage
+            // 
+            this.lblShortNameUnderImage.AllowDrop = true;
+            this.lblShortNameUnderImage.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblShortNameUnderImage.AutoEllipsis = true;
+            this.lblShortNameUnderImage.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.lblShortNameUnderImage.ForeColor = System.Drawing.Color.DimGray;
+            this.lblShortNameUnderImage.Location = new System.Drawing.Point(7, 6);
+            this.lblShortNameUnderImage.Name = "lblShortNameUnderImage";
+            this.lblShortNameUnderImage.Size = new System.Drawing.Size(157, 69);
+            this.lblShortNameUnderImage.TabIndex = 2;
+            this.lblShortNameUnderImage.Text = "--";
+            this.lblShortNameUnderImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblShortNameUnderImage.Click += new System.EventHandler(this.lblShortNameUnderImage_Click);
             // 
             // pnlBackPrifilePic
             // 
@@ -290,8 +309,31 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 340);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 349);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 305);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(47, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pbEmail
+            // 
+            this.pbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbEmail.Image = ((System.Drawing.Image)(resources.GetObject("pbEmail.Image")));
+            this.pbEmail.Location = new System.Drawing.Point(3, 256);
+            this.pbEmail.Name = "pbEmail";
+            this.pbEmail.Size = new System.Drawing.Size(47, 30);
+            this.pbEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEmail.TabIndex = 24;
+            this.pbEmail.TabStop = false;
             // 
             // pbPhone
             // 
@@ -360,6 +402,29 @@
             this.lblNationalNo.TabIndex = 2;
             this.lblNationalNo.Text = "National No : ";
             // 
+            // lblEmailValue
+            // 
+            this.lblEmailValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblEmailValue.AutoSize = true;
+            this.lblEmailValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmailValue.Location = new System.Drawing.Point(239, 261);
+            this.lblEmailValue.Name = "lblEmailValue";
+            this.lblEmailValue.Size = new System.Drawing.Size(22, 21);
+            this.lblEmailValue.TabIndex = 16;
+            this.lblEmailValue.Text = "--";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(63, 261);
+            this.label11.Margin = new System.Windows.Forms.Padding(10);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 21);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Email : ";
+            // 
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -424,7 +489,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(63, 305);
+            this.label3.Location = new System.Drawing.Point(63, 310);
             this.label3.Margin = new System.Windows.Forms.Padding(10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 21);
@@ -432,61 +497,26 @@
             this.label3.Text = "Address : ";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 301);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(47, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 26;
-            this.pictureBox2.TabStop = false;
-            // 
             // lblAddressValue
             // 
             this.lblAddressValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAddressValue.AutoSize = true;
             this.lblAddressValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressValue.Location = new System.Drawing.Point(239, 305);
+            this.lblAddressValue.Location = new System.Drawing.Point(239, 310);
             this.lblAddressValue.Name = "lblAddressValue";
             this.lblAddressValue.Size = new System.Drawing.Size(22, 21);
             this.lblAddressValue.TabIndex = 27;
             this.lblAddressValue.Text = "--";
             // 
-            // label11
+            // panel2
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(63, 261);
-            this.label11.Margin = new System.Windows.Forms.Padding(10);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 21);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Email : ";
-            // 
-            // lblEmailValue
-            // 
-            this.lblEmailValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblEmailValue.AutoSize = true;
-            this.lblEmailValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmailValue.Location = new System.Drawing.Point(239, 261);
-            this.lblEmailValue.Name = "lblEmailValue";
-            this.lblEmailValue.Size = new System.Drawing.Size(22, 21);
-            this.lblEmailValue.TabIndex = 16;
-            this.lblEmailValue.Text = "--";
-            // 
-            // pbEmail
-            // 
-            this.pbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbEmail.Image = ((System.Drawing.Image)(resources.GetObject("pbEmail.Image")));
-            this.pbEmail.Location = new System.Drawing.Point(3, 256);
-            this.pbEmail.Name = "pbEmail";
-            this.pbEmail.Size = new System.Drawing.Size(47, 30);
-            this.pbEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbEmail.TabIndex = 24;
-            this.pbEmail.TabStop = false;
+            this.panel2.AllowDrop = true;
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.lblShortNameUnderImage);
+            this.panel2.Location = new System.Drawing.Point(16, 207);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(167, 79);
+            this.panel2.TabIndex = 3;
             // 
             // crlShowPersonInformation
             // 
@@ -498,7 +528,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gradientPanel1);
             this.Name = "crlShowPersonInformation";
-            this.Size = new System.Drawing.Size(606, 400);
+            this.Size = new System.Drawing.Size(606, 409);
             this.Load += new System.EventHandler(this.crlShowPersonInformation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).EndInit();
             this.gradientPanel1.ResumeLayout(false);
@@ -510,14 +540,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonalProfile)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNationality)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGender)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDateOfBirth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNationalNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFullName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEmail)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -557,5 +588,7 @@
         private System.Windows.Forms.PictureBox pbEmail;
         private System.Windows.Forms.Label lblEmailValue;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblShortNameUnderImage;
+        private System.Windows.Forms.Panel panel2;
     }
 }

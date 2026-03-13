@@ -57,6 +57,10 @@ namespace DVLD.People
         {
             crlShowPersonInformation1.LoadPersonInformation(_PersonID);
         }
-        
+
+        private void crlShowPersonInformation1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

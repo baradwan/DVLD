@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsGlobalPersonDTO.cs" />
+    <Compile Include="clsProjectFolderSetting.cs" />
+    <Compile Include="clsUtil.cs" />
     <Compile Include="clsValidationcs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -33,7 +33,7 @@ namespace DVLD
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeople));
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPeopleAddPerson = new Syncfusion.WinForms.Controls.SfButton();
             this.lblTitlePeople = new System.Windows.Forms.Label();
@@ -82,8 +82,9 @@ namespace DVLD
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1442, 80);
+            this.panel1.Size = new System.Drawing.Size(1443, 80);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnPeopleAddPerson
             // 
@@ -94,7 +95,7 @@ namespace DVLD
             this.btnPeopleAddPerson.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPeopleAddPerson.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPeopleAddPerson.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnPeopleAddPerson.Location = new System.Drawing.Point(1222, 18);
+            this.btnPeopleAddPerson.Location = new System.Drawing.Point(1223, 18);
             this.btnPeopleAddPerson.Name = "btnPeopleAddPerson";
             this.btnPeopleAddPerson.Size = new System.Drawing.Size(174, 45);
             this.btnPeopleAddPerson.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
@@ -130,6 +131,7 @@ namespace DVLD
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel2
             // 
@@ -141,7 +143,7 @@ namespace DVLD
             this.panel2.Location = new System.Drawing.Point(0, 80);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(10, 12, 10, 12);
-            this.panel2.Size = new System.Drawing.Size(1442, 43);
+            this.panel2.Size = new System.Drawing.Size(1443, 43);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -202,12 +204,12 @@ namespace DVLD
             this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
             "Email"});
             this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
-            bannerTextInfo1.Color = System.Drawing.SystemColors.ControlDarkDark;
-            bannerTextInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo1.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo1.Text = " Search by PersonID, NationalNo,Email,...";
-            bannerTextInfo1.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtSearch, bannerTextInfo1);
+            bannerTextInfo2.Color = System.Drawing.SystemColors.ControlDarkDark;
+            bannerTextInfo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo2.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo2.Text = " Search by PersonID, NationalNo,Email,...";
+            bannerTextInfo2.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtSearch, bannerTextInfo2);
             this.txtSearch.BeforeTouchSize = new System.Drawing.Size(374, 33);
             this.txtSearch.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -244,7 +246,7 @@ namespace DVLD
             this.dvgListPeople.PreviewRowHeight = 56;
             this.dvgListPeople.RowHeaderWidth = 20D;
             this.dvgListPeople.RowHeight = 45;
-            this.dvgListPeople.Size = new System.Drawing.Size(1442, 575);
+            this.dvgListPeople.Size = new System.Drawing.Size(1443, 575);
             this.dvgListPeople.Style.AddNewRowStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dvgListPeople.Style.BorderColor = System.Drawing.Color.White;
             this.dvgListPeople.Style.DragPreviewRowStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -346,7 +348,7 @@ namespace DVLD
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 698);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1442, 48);
+            this.gradientPanel1.Size = new System.Drawing.Size(1443, 48);
             this.gradientPanel1.TabIndex = 4;
             // 
             // btnClose
@@ -354,7 +356,7 @@ namespace DVLD
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.Gainsboro;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnClose.Location = new System.Drawing.Point(1283, 3);
+            this.btnClose.Location = new System.Drawing.Point(1284, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(112, 37);
             this.btnClose.Style.BackColor = System.Drawing.Color.Gainsboro;
@@ -391,14 +393,14 @@ namespace DVLD
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 123);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1442, 575);
+            this.panel3.Size = new System.Drawing.Size(1443, 575);
             this.panel3.TabIndex = 5;
             // 
             // frmPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1442, 746);
+            this.ClientSize = new System.Drawing.Size(1443, 746);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.gradientPanel1);
             this.Controls.Add(this.panel2);

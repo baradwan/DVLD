@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TESTING;
 
 namespace TESTING
 {
@@ -225,31 +226,206 @@ namespace TESTING
         }
 
     }
-    internal class Program
+
+    class clsTestUser
+    {
+        // 1. الحصول على بيانات مستخدم افتراضية للتجربة
+        private static clsUser _GetDefaultUser()
+        {
+            return new clsUser()
+            {
+                // يجب التأكد من وجود PersonID رقم 1 في قاعدة البيانات قبل الإضافة
+                PersonID = 2084,
+                UserName = "TestUser1",
+                Password = "Password123",
+                IsActive = true
+            };
+        }
+
+        // دالة مساعدة لطباعة النتيجة بنفس تنسيقك
+        private static void _PrintResult(string testName, bool success)
+        {
+            Console.Write($"{testName,-40} : ");
+
+            if (success)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("PASSED ✅");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("FAILED ❌");
+            }
+            Console.ResetColor();
+        }
+
+        // 2. اختبار إضافة مستخدم جديد (Add New)
+        public static void Test_AddNewUser()
+        {
+            clsUser User1 = _GetDefaultUser();
+
+            // يمكنك تغيير اسم المستخدم هنا لتجنب تكرار البيانات (Unique Constraint)
+            User1.UserName = "Omar_DVLD_" + Guid.NewGuid().ToString().Substring(0, 5);
+
+            Console.WriteLine("Saving User to Database...");
+
+            if (User1.Save())
+            {
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("✅ Success: User Added Successfully!");
+                Console.WriteLine($"Generated UserID: {User1.userID}");
+                Console.WriteLine($"Associated PersonID: {User1.PersonID}");
+                Console.WriteLine($"Current Mode: {User1.Mode}");
+                Console.WriteLine("--------------------------------------------");
+            }
+            else
+            {
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("❌ Error: Failed to Add User.");
+                Console.WriteLine("Check your Database Connection or Constraints (e.g., PersonID exists, UserName is unique).");
+                Console.WriteLine("--------------------------------------------");
+            }
+        }
+
+        // 3. اختبار جلب جميع المستخدمين (List All)
+        public static void Test_ListAllUsers()
+        {
+            Console.WriteLine("Testing: Retrieve All Users...");
+
+            DataTable dtUsers = clsUser.ListAllUser(); // أو ListAllUsers() حسب المسمى في مشروعك
+
+            bool isPassed = (dtUsers != null && dtUsers.Rows.Count > 0);
+            _PrintResult("Retrieve All Users DataTable", isPassed);
+
+            if (isPassed)
+            {
+                Console.WriteLine($"[INFO] Total Users Found: {dtUsers.Rows.Count}");
+                Console.WriteLine("--------------------------------------------------");
+                Console.WriteLine($"{"UserID",-8} | {"PersonID",-10} | {"UserName"}");
+                Console.WriteLine("--------------------------------------------------");
+
+               // int rowsToShow = Math.Min(dtUsers.Rows.Count);
+                for (int i = 0; i < dtUsers.Rows.Count; i++)
+                {
+                    DataRow row = dtUsers.Rows[i];
+                    Console.WriteLine($"{row["UserID"],-8} | {row["PersonID"],-10} | {row["UserName"]}");
+                }
+                Console.WriteLine("--------------------------------------------------");
+            }
+        }
+
+        // 4. اختبار البحث عن مستخدم موجود (Find)
+        public static void Test_FindUser_Existing(int UserID)
+        {
+            clsUser user = clsUser.Find(UserID); // أو Find(UserID)
+            _PrintResult($"Find User By ID ({UserID})", user != null);
+
+            if (user != null)
+            {
+                Console.WriteLine($"Found User: {user.UserName}, Active: {user.IsActive}");
+            }
+        }
+
+        // 5. اختبار تحديث بيانات المستخدم (Update)
+        public static void Test_UpdateUser(int UserID)
+        {
+            clsUser user = clsUser.Find(UserID);
+            if (user == null)
+            {
+                _PrintResult($"Update Test (UserID {UserID} Not Found)", false);
+                return;
+            }
+
+            // تغيير حالة التفعيل أو كلمة المرور للتجربة
+            user.IsActive = !user.IsActive;
+            user.Password = "NewPass789";
+            Console.WriteLine($"DEBUG: Attempting to update User {user.userID} linked to Person {user.PersonID}");
+            
+            bool isSaved = user.Save();
+            _PrintResult($"Update User ID {UserID}", isSaved);
+        }
+
+        // 6. اختبار حذف المستخدم (Delete)
+        public static void Test_DeleteUser(int UserID)
+        {
+            bool isDeleted = clsUser.DeleteUser(UserID);
+            _PrintResult($"Delete User ID {UserID}", isDeleted);
+
+            if (isDeleted)
+            {
+                clsUser user = clsUser.Find(UserID);
+                _PrintResult("Verify Deletion (User should be null)", user == null);
+            }
+        }
+
+        // 7. اختبار التحقق من وجود المستخدم (Is Exist)
+        public static void Test_IsUserExist(int UserID)
+        {
+            bool result = clsUser.IsUserExist(UserID);
+            _PrintResult($"Check If User ID {UserID} Exists", result);
+        }
+
+        //public static void Test_IsUserExistByUserName(string UserName)
+        //{
+        //    bool result = clsUser.IsUserExist(UserName);
+        //    _PrintResult($"Check Existence of UserName: {UserName}", result);
+        //}
+    }
+}
+internal class Program
     {
         static void Main(string[] args)
         {
 
-             Tester.RunTest("Add New Person ", clsTestPeople._testPeopleAddNewPerson);
-            //Tester.RunTest("List All People ", clsTestPeople._testPeopleListPeople);
-           // Tester.RunTest("Check Find With Existing Value", ()=>clsTestPeople.Test_FindPerson_Existing(1024));
-            //Tester.RunTest("Check Find With NOT Existing Value", clsTestPeople.Test_FindPerson_NotFound);
-            //Tester.RunTest("Update Person Logic",()=> clsTestPeople.Test_UpdatePerson(1024));
+        //  Tester.RunTest("Add New Person ", clsTestPeople._testPeopleAddNewPerson);
+        //Tester.RunTest("List All People ", clsTestPeople._testPeopleListPeople);
+        // Tester.RunTest("Check Find With Existing Value", ()=>clsTestPeople.Test_FindPerson_Existing(1024));
+        //Tester.RunTest("Check Find With NOT Existing Value", clsTestPeople.Test_FindPerson_NotFound);
+        //Tester.RunTest("Update Person Logic",()=> clsTestPeople.Test_UpdatePerson(1024));
 
-            //// 4. اختبار الحذف (تنبيه: سيحذف السجل نهائياً!)'
+        //// 4. اختبار الحذف (تنبيه: سيحذف السجل نهائياً!)'
 
-            // Tester.RunTest("Delete Person Logic", () => clsTestPeople.Test_DeletePerson(1036));
-            //Tester.RunTest("Is exist person with correct data ", ()=> clsTestPeople.Test_IsPersonExist(1024));
-            //Tester.RunTest("Is exist person with incorrect data ", () => clsTestPeople.Test_IsPersonExist(-1));
+        // Tester.RunTest("Delete Person Logic", () => clsTestPeople.Test_DeletePerson(1036));
+        //Tester.RunTest("Is exist person with correct data ", ()=> clsTestPeople.Test_IsPersonExist(1024));
+        //Tester.RunTest("Is exist person with incorrect data ", () => clsTestPeople.Test_IsPersonExist(-1));
 
-           //Tester.RunTest("Existence Check (By National No)", () => clsTestPeople.Test_IsPersonExistByNationalNo("N1"));
+        //Tester.RunTest("Existence Check (By National No)", () => clsTestPeople.Test_IsPersonExistByNationalNo("N1"));
 
-            //// اختبار رقم وطني غير موجود
-            //\\Tester.RunTest("Existence Check (Not Found)", () => clsTestPeople.Test_IsPersonExistByNationalNo("XYZ-999"));
-            Console.ReadKey();
+        //// اختبار رقم وطني غير موجود
+        //\\Tester.RunTest("Existence Check (Not Found)", () => clsTestPeople.Test_IsPersonExistByNationalNo("XYZ-999"));
+
+
+
+        ///////////                                                                 /////////////////////////
+        ///                        USERS TESTS                                   ///////////////////////////////////
+        ////
+        ////
+
+
+
+
+        // اختبار إضافة مستخدم جديد
+       // Tester.RunTest("Add New User", clsTestUser.Test_AddNewUser);
+
+        // اختبار عرض المستخدمين
+        // Tester.RunTest("List All Users", clsTestUser.Test_ListAllUsers);
+
+        // اختبار البحث (ضع رقم مستخدم موجود في قاعدة بياناتك)
+        // Tester.RunTest("Find Existing User", () => clsTestUser.Test_FindUser_Existing(21));
+
+        // اختبار التحديث
+        // Tester.RunTest("Update User Logic", () => clsTestUser.Test_UpdateUser(21));
+
+        // اختبار التحقق من اسم المستخدم
+        // Tester.RunTest("Check UserName Exist", () => clsTestUser.Test_IsUserExistByUserName("Admin"));
+
+        // اختبار الحذف (تحذير: سيحذف السجل من قاعدة البيانات)
+         Tester.RunTest("Delete User Logic", () => clsTestUser.Test_DeleteUser(21));
+        Console.ReadKey();
 
         }
-    }
+    
 }
 
 

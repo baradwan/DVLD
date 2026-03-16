@@ -22,7 +22,7 @@ namespace DVLD.People.Controls
         enum enMode { AddNew=0, Update = 1 }
         enum enGender { Male = 0, Famale = 1 }
 
-        enMode _Mode;
+        enMode _Mode=enMode.AddNew;
 
         private int _PersonID = -1;
 

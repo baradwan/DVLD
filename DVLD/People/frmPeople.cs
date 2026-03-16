@@ -40,7 +40,8 @@ namespace DVLD
         {
 
             dvgListPeople.Style.CellStyle.HorizontalAlignment = HorizontalAlignment.Left;
-            if (dvgListPeople.RowCount > 0)
+            if (_dtPeople.Columns.Count == 0)
+                return;
             {
                 // Setting Header Texts and Widths using String Keys for Safety
 
@@ -172,9 +173,9 @@ namespace DVLD
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _RefreshPeopleList();
             _setupDataGridUI();
             _LoadFilterOptions();
-            _RefreshPeopleList();
 
 
 
@@ -372,6 +373,16 @@ namespace DVLD
             int personID = Convert.ToInt32(selectedRow["PersonID"]);
             Form frm = new frmShowPerson(personID);
             frm.ShowDialog();
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
         }
     }

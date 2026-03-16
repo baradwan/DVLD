@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DVLD_Global.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -28,6 +30,16 @@ namespace DVLD_Global
             return true;
         }
 
+        public static bool IsUserValid(clsUserDTO user) {
+
+            if (user == null) return false;
+            if (string.IsNullOrWhiteSpace(user.UserName)) return false;
+            if (string.IsNullOrWhiteSpace(user.Password)) return false;
+           if(user.PersonID<=0)return false;
+
+            return true;
+
+        }
         public static bool IsEmailValid(string Email)
         {
             var pattern = @"^[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$";

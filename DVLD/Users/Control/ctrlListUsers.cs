@@ -224,11 +224,8 @@ namespace DVLD.Users.Control
 
         private void cbIsActiveFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
             _ApplyFilter();
-
-
+        
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)

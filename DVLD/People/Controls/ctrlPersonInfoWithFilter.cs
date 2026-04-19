@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,14 +20,14 @@ namespace DVLD.People.Controls
         public enum enFilterOption
         {
             
-            PersonID = 1,
-            NationalNo = 2,
+            PersonID = 0,
+            NationalNo = 1,
           
         }
 
     enFilterOption ModeFilter;
 
-        DataTable _dtPerson;
+        DataTable _dtPeople;
         private void _LoadFilterOptions()
         {
             string[] FilterText = {
@@ -41,65 +42,40 @@ namespace DVLD.People.Controls
             cmbFilter.SelectedIndex = 0;
         }
 
-        private void _SearchPeopleWithFilter()
+
+        
+        private void _SearchPersonWithFilter()
         {
-            //DataView dvPeople = _dtPeople.DefaultView;
-            ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
-            string FilterColumn = "";
 
-            if ( string.IsNullOrWhiteSpace(txtSearch.Text))
+
+            if(ModeFilter==enFilterOption.PersonID)
             {
-                _drPerson.= "";
-                // _RefreshPeopleList();
-                return;
+                crlShowPersonInformation1.LoadPersonInformation(Convert.ToInt32(txtSearch.Text.Trim()));
+            }else
+                {
+                crlShowPersonInformation1.LoadPersonInformation(txtSearch.Text.Trim());
             }
-            switch (ModeFilter)
-            {
-                case enFilterOption.PersonID: FilterColumn = "PersonID"; break;
-                case enFilterOption.NationalNo: FilterColumn = "NationalNo"; break;
-               
-            }
-            if (ModeFilter == enFilterOption.PersonID)
-            {
-
-
-
-                _drPerson.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtSearch.Text.Trim());
-
-
-
-
-
-            }
-            else
-            {
-
-                _dtPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtSearch.Text.Trim());
-            }
-            dvgListPeople.DataSource = _dtPeople.DefaultView;
         }
 
 
-      /// EVENTS  /// ////////////////
-      
+
+
+        /// EVENTS  /// ////////////////
+
         private void crlShowPersonInformation1_Load(object sender, EventArgs e)
         {
             _LoadFilterOptions();
 
         }
 
-        private void pnlHeader_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+       
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
             bool isNumericFilter =
-      ModeFilter == enFilterOption.PersonID ||
+      ModeFilter == enFilterOption.PersonID; 
 
-      ModeFilter == enFilterOption.Phone;
+   
 
             if (!isNumericFilter)
             {
@@ -134,7 +110,7 @@ namespace DVLD.People.Controls
         {
 
             // Enable or disable the search textbox based on the selected filter option which is not None
-            txtSearch.Enabled = ((enFilterOption)cmbFilter.SelectedIndex != enFilterOption.None);
+            //txtSearch.Enabled = ((enFilterOption)cmbFilter.SelectedIndex != enFilterOption.None);
 
             txtSearch.Clear();
             errorProvider1.SetError(txtSearch, "");
@@ -144,6 +120,21 @@ namespace DVLD.People.Controls
                 txtSearch.Focus();
             }
 
+        }
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            Form AddNew =new frmAddUpdatePerson();
+            AddNew.ShowDialog();
+        }
+
+        private void btnFindPerson_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSearch.Text))
+            {
+                errorProvider1.SetError(txtSearch, "Please enter a value to search."); return;
+            }
+            _SearchPersonWithFilter();
         }
     }
 }

@@ -43,11 +43,28 @@ namespace DVLD.People.Controls
             _Person = clsPerson.Find(PersonID);
             if (_Person == null)
             {
-                MessageBox.Show("No Person with ID = " + _PersonID, "Person Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No Person with ID = " + PersonID, "Person Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 _ResetInfo();
                 return;
             }
            // _PersonID = PersonID;
+            _FillPersonInformation();
+
+
+
+        }
+        public void LoadPersonInformation(string NationalNo)
+        {
+
+
+            _Person = clsPerson.Find(NationalNo);
+            if (_Person == null)
+            {
+                MessageBox.Show("No Person with National No = " + NationalNo, "Person Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                _ResetInfo();
+                return;
+            }
+            // _PersonID = PersonID;
             _FillPersonInformation();
 
 

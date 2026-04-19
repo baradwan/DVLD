@@ -167,7 +167,17 @@ namespace DVLD_BusinessLayer
 
         }
 
+        public static clsPerson Find(string NationalNO)
+        {
+            clsPersonDTO PersonDTO = new clsPersonDTO { NationalNo = NationalNO };
 
+
+
+            if (clsPersonData.GetPersonByNationalNo(ref PersonDTO))
+                return new clsPerson(PersonDTO);
+            return null;
+
+        }
 
         /// <summary>
         /// Private method to call the DAL and add a new person / دالة خاصة لاستدعاء طبقة البيانات لإضافة شخص جديد

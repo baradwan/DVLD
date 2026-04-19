@@ -97,6 +97,12 @@
     <Compile Include="People\Controls\crlShowPersonInformation.Designer.cs">
       <DependentUpon>crlShowPersonInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\Controls\ctrlPersonInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ctrlPersonInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmAddUpdatePerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     <Compile Include="Users\Control\ctrlListUsers.Designer.cs">
       <DependentUpon>ctrlListUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmListUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\crlShowPersonInformation.resx">
       <DependentUpon>crlShowPersonInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ctrlPersonInfoWithFilter.resx">
+      <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddUpdatePerson.resx">
       <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
@@ -160,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Users\Control\ctrlListUsers.resx">
       <DependentUpon>ctrlListUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmListUser.resx">
       <DependentUpon>frmListUser.cs</DependentUpon>

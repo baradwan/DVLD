@@ -21,7 +21,7 @@ namespace DVLD
             // أو PerMonitorV2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAddUser ());
+            Application.Run(new frmMain ());
         }
     }
 }

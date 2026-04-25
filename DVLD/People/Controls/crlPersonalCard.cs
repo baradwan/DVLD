@@ -1,4 +1,5 @@
-﻿using DVLD.Properties;
+﻿using DVLD.Global;
+using DVLD.Properties;
 using DVLD_BusinessLayer;
 using DVLD_Global;
 using Syncfusion.Data.Extensions;
@@ -95,153 +96,48 @@ namespace DVLD.People.Controls
 
 
        
-        private void _SetErrorProvider(Control ctrl, string errorMessage)
-        {
-            ctrl.Validating += (s, e) =>
-             {
-                 if (string.IsNullOrWhiteSpace(ctrl.Text))
-                 {
-                     errorProvider1.SetError(ctrl, errorMessage);
-                 }
-                 else
-                 {
-                     errorProvider1.SetError(ctrl, string.Empty);
-                 }
-             };
-
-        }
 
         private void _DefaultValue()
         {
 
             dtDateOfBirth.MaxDateTime = DateTime.Now.AddYears(-18).Date;
             dtDateOfBirth.MinDateTime = new DateTime(1900, 1, 1).Date;
-            // rbMale.Checked = true;
+             rbMale.Checked = true;
             pbPersonPicture.Image = rbMale.Checked ? Resources.Male :Resources.Female;
 
 
 
 
         }
-        private void _SetErrorProviderWithEmail(Control ctrl, string errorMessage)
-        {
-            ctrl.Validating += (s, e) =>
-            {
-               
+     
 
-                if (clsnValidation.IsEmailValid(ctrl.Text) || string.IsNullOrWhiteSpace(ctrl.Text))
-                {
-                    errorProvider1.SetError(ctrl, string.Empty);
-
-
-                }
-                else
-                {
-                    errorProvider1.SetError(ctrl, errorMessage);
-                }
-            };
-
-        }
-
-
-        private void LinkUnderlineWithTextBox(TextBox txt, Panel pnl)
-        {
-            pnl.BackColor = Color.Gray;
-            // عند الضغط داخل التيكست بوكس (Enter)
-            txt.Enter += (s, e) =>
-            {
-                pnl.BackColor = Color.DodgerBlue;
-                pnl.Height = 2; // تسميك الخط قليلاً عند التركيز
-            };
-
-
-            txt.Leave += (s, e) =>
-            {
-                pnl.BackColor = Color.Gray;
-                pnl.Height = 1;
-            };
-        }
-        private void LinkUnderlineWithRadioButton(RadioButton rb, Panel pnl)
-        {
-
-
-            pnl.BackColor = Color.Gray;
-            // عند الضغط داخل التيكست بوكس (Enter)
-            rb.CheckedChanged += (s, e) =>
-            {
-                if (rb.Checked)
-                {
-                    pnl.BackColor = Color.DodgerBlue; // اللون الأزرق الذي اخترته في تصميمك
-                    pnl.Height = 2; // تسميك الخط قليلاً عند التركيز
-                }
-                else
-                {
-                    pnl.BackColor = Color.Gray;
-                    pnl.Height = 1;
-                }
-            };
-
-
-        }
-
-        private void LinkUnderlineWithComboBox(SfComboBox cb, Panel pnl)
-        {
-            pnl.BackColor = Color.Gray;
-            // عند الضغط داخل التيكست بوكس (Enter)
-            cb.Enter += (s, e) =>
-            {
-                pnl.BackColor = Color.DodgerBlue; // اللون الأزرق الذي اخترته في تصميمك
-                pnl.Height = 2; // تسميك الخط قليلاً عند التركيز
-            };
-            // عند ترك التيكست بوكس (Leave)
-            cb.Leave += (s, e) =>
-            {
-                pnl.BackColor = Color.Gray; // العودة للرمادي
-                pnl.Height = 1; // تقليل السمك
-            };
-        }
-        private void LinkUnderlineWithDateTimePicker(SfDateTimeEdit dtp, Panel pnl)
-        {
-            pnl.BackColor = Color.Gray;
-            // عند الضغط داخل التيكست بوكس (Enter)
-            dtp.Enter += (s, e) =>
-            {
-                pnl.BackColor = Color.DodgerBlue; // اللون الأزرق الذي اخترته في تصميمك
-                pnl.Height = 2; // تسميك الخط قليلاً عند التركيز
-            };
-            // عند ترك التيكست بوكس (Leave)
-            dtp.Leave += (s, e) =>
-            {
-                pnl.BackColor = Color.Gray; // العودة للرمادي
-                pnl.Height = 1; // تقليل السمك
-            };
-        }
         private void _SetupUIforUnderlineEffect()
         {
-            LinkUnderlineWithTextBox(txtFirstName, pnlFirstname);
-            LinkUnderlineWithTextBox(txtSecName, pnlSecondName);
-            LinkUnderlineWithTextBox(txtThirdName, pnlThirdName);
-            LinkUnderlineWithTextBox(txtLastName, pnlLastName);
-            LinkUnderlineWithTextBox(txtPhone, pnlPhone);
-            LinkUnderlineWithTextBox(txtEmail, pnlEmail);
-            LinkUnderlineWithTextBox(txtNationalNo, pnlNationalNo);
+            clsUICustomization.LinkUnderlineWithTextBox(txtFirstName, pnlFirstname);
+            clsUICustomization.LinkUnderlineWithTextBox(txtSecName, pnlSecondName);
+            clsUICustomization.LinkUnderlineWithTextBox(txtThirdName, pnlThirdName);
+            clsUICustomization.LinkUnderlineWithTextBox(txtLastName, pnlLastName);
+            clsUICustomization.LinkUnderlineWithTextBox(txtPhone, pnlPhone);
+            clsUICustomization.LinkUnderlineWithTextBox(txtEmail, pnlEmail);
+            clsUICustomization.LinkUnderlineWithTextBox(txtNationalNo, pnlNationalNo);
 
-            LinkUnderlineWithRadioButton(rbMale, pnlMale);
-            LinkUnderlineWithRadioButton(rbFemale, pnlFemale);
-            LinkUnderlineWithComboBox(cmbCountry, pnlCountry);
-            LinkUnderlineWithDateTimePicker(dtDateOfBirth, pnlDate);
+            clsUICustomization.LinkUnderlineWithRadioButton(rbMale, pnlMale);
+            clsUICustomization.LinkUnderlineWithRadioButton(rbFemale, pnlFemale);
+            clsUICustomization.LinkUnderlineWithComboBox(cmbCountry, pnlCountry);
+            clsUICustomization.LinkUnderlineWithDateTimePicker(dtDateOfBirth, pnlDate);
 
         }
 
         private void _SetErrorProvederEffect()
         {
-            _SetErrorProvider(txtFirstName, "First Name is required.");
-            _SetErrorProvider(txtSecName, "Second Name is required.");
-            _SetErrorProvider(txtLastName, "Last Name is required.");
-            _SetErrorProvider(txtPhone, "Phone Number is Required");
-            _SetErrorProvider(txtAddress, "Address is Required");
-            // _SetErrorProvider(txtNationalNo, "National Number is Required");
-            _SetErrorProviderWithEmail(txtEmail, "Please enter a valid email address.");
+            clsUICustomization.SetErrorProvider(txtFirstName, errorProvider1, "First Name is required.");
+          
+            clsUICustomization.SetErrorProvider(txtSecName, errorProvider1, "Second Name is required.");
+            clsUICustomization.SetErrorProvider(txtLastName, errorProvider1, "Last Name is required.");
+            clsUICustomization.SetErrorProvider(txtPhone, errorProvider1, "Phone Number is Required");
+            clsUICustomization.SetErrorProvider(txtAddress, errorProvider1, "Address is Required");
+            // clsUICustomization.SetErrorProvider(txtNationalNo, errorProvider1, "National Number is Required");
+            clsUICustomization.SetOptionalEmailErrorProvider(txtEmail, errorProvider1, "Please enter a valid email address.");
         }
 
        

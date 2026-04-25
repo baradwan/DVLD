@@ -20,7 +20,7 @@ namespace DVLD.People
 
             InitializeComponent();
         }
-        int _PersonID = -1;
+       private int _PersonID = -1;
         public frmShowPerson(int PersonID)
         {
 
@@ -55,6 +55,7 @@ namespace DVLD.People
 
         private void frmShowPerson_Load(object sender, EventArgs e)
         {
+            if (_PersonID>-1)
             crlShowPersonInformation1.LoadPersonInformation(_PersonID);
         }
 

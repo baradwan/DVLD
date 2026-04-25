@@ -38,8 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.crlShowPersonInformation1 = new DVLD.People.Controls.crlShowPersonInformation();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).BeginInit();
@@ -59,21 +59,21 @@
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1500, 70);
+            this.pnlHeader.Size = new System.Drawing.Size(1100, 70);
             this.pnlHeader.TabIndex = 1;
             // 
             // btnFindPerson
             // 
-            this.btnFindPerson.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFindPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFindPerson.AutoEllipsis = true;
             this.btnFindPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFindPerson.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
             this.btnFindPerson.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFindPerson.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnFindPerson.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnFindPerson.Location = new System.Drawing.Point(1134, 13);
+            this.btnFindPerson.Location = new System.Drawing.Point(923, 14);
             this.btnFindPerson.Name = "btnFindPerson";
-            this.btnFindPerson.Size = new System.Drawing.Size(83, 51);
+            this.btnFindPerson.Size = new System.Drawing.Size(74, 51);
             this.btnFindPerson.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
             this.btnFindPerson.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
             this.btnFindPerson.Style.FocusedForeColor = System.Drawing.Color.White;
@@ -84,14 +84,14 @@
             // 
             // btnAddPerson
             // 
-            this.btnAddPerson.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAddPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddPerson.AutoEllipsis = true;
             this.btnAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPerson.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
             this.btnAddPerson.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddPerson.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddPerson.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnAddPerson.Location = new System.Drawing.Point(1223, 14);
+            this.btnAddPerson.Location = new System.Drawing.Point(1003, 14);
             this.btnAddPerson.Name = "btnAddPerson";
             this.btnAddPerson.Size = new System.Drawing.Size(82, 51);
             this.btnAddPerson.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
@@ -105,6 +105,7 @@
             // cmbFilter
             // 
             this.cmbFilter.AllowDropDownResize = false;
+            this.cmbFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbFilter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbFilter.BackColor = System.Drawing.Color.Gainsboro;
             this.cmbFilter.DisplayMember = "";
@@ -156,6 +157,8 @@
             // txtSearch
             // 
             this.txtSearch.AccessibleDescription = "";
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
             "Email"});
             this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
@@ -186,39 +189,38 @@
             this.pnlContent.Location = new System.Drawing.Point(0, 70);
             this.pnlContent.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1500, 517);
+            this.pnlContent.Size = new System.Drawing.Size(1100, 417);
             this.pnlContent.TabIndex = 2;
+            // 
+            // crlShowPersonInformation1
+            // 
+            this.crlShowPersonInformation1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.crlShowPersonInformation1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crlShowPersonInformation1.Location = new System.Drawing.Point(0, 0);
+            this.crlShowPersonInformation1.Name = "crlShowPersonInformation1";
+            this.crlShowPersonInformation1.Size = new System.Drawing.Size(1100, 417);
+            this.crlShowPersonInformation1.TabIndex = 0;
+            this.crlShowPersonInformation1.Load += new System.EventHandler(this.crlShowPersonInformation1_Load);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // crlShowPersonInformation1
-            // 
-            this.crlShowPersonInformation1.AutoSize = true;
-            this.crlShowPersonInformation1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.crlShowPersonInformation1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crlShowPersonInformation1.Location = new System.Drawing.Point(0, 0);
-            this.crlShowPersonInformation1.Name = "crlShowPersonInformation1";
-            this.crlShowPersonInformation1.Size = new System.Drawing.Size(1500, 517);
-            this.crlShowPersonInformation1.TabIndex = 0;
-            this.crlShowPersonInformation1.Load += new System.EventHandler(this.crlShowPersonInformation1_Load);
-            // 
             // ctrlPersonInfoWithFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlHeader);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ctrlPersonInfoWithFilter";
-            this.Size = new System.Drawing.Size(1500, 587);
+            this.Size = new System.Drawing.Size(1100, 487);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
             this.pnlContent.ResumeLayout(false);
-            this.pnlContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 

@@ -13,6 +13,21 @@ namespace DVLD.People.Controls
 {
     public partial class ctrlPersonInfoWithFilter : UserControl
     {
+
+        public event Action<int> OnPersonSelected;
+        protected virtual void PersonSelected(int PersonID)
+        {
+            Action<int> handler = OnPersonSelected;
+            if (handler != null)
+            {
+                handler(PersonID); // Raise the event with the parameter
+            }
+        }
+
+        public int PersonID
+        {
+            get { return crlShowPersonInformation1.PersonID; }
+        }
         public ctrlPersonInfoWithFilter()
         {
             InitializeComponent();
@@ -53,8 +68,12 @@ namespace DVLD.People.Controls
                 crlShowPersonInformation1.LoadPersonInformation(Convert.ToInt32(txtSearch.Text.Trim()));
             }else
                 {
+             
                 crlShowPersonInformation1.LoadPersonInformation(txtSearch.Text.Trim());
             }
+
+            if (OnPersonSelected!=null)
+                OnPersonSelected(crlShowPersonInformation1.PersonID);
         }
 
 
@@ -124,10 +143,19 @@ namespace DVLD.People.Controls
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
-            Form AddNew =new frmAddUpdatePerson();
+            frmAddUpdatePerson AddNew =new frmAddUpdatePerson();
+            AddNew.DataBack+= DataBackEvent;
             AddNew.ShowDialog();
         }
+        private void DataBackEvent(object sender, clsPerson Person)
+        {
+            // Handle the data received
 
+
+            cmbFilter.SelectedIndex = 1;
+            txtSearch.Text = Person.PersonID.ToString();
+            crlShowPersonInformation1.LoadPersonInformation(Person);
+        }
         private void btnFindPerson_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSearch.Text))

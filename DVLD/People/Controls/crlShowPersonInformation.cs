@@ -75,9 +75,9 @@ namespace DVLD.People.Controls
 
 
            // _Person = clsPerson.Find(PersonID);
-            if (_Person == null)
+            if (Person == null)
             {
-                MessageBox.Show("No Person with ID = " + _PersonID, "Person Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No Person with ID = " + Person.PersonID, "Person Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 _ResetInfo();
                 return;
             }
@@ -116,6 +116,8 @@ namespace DVLD.People.Controls
             lblNationalityValue.Text = "[N/A]";
             lblPhoneValue.Text = "[N/A]";
             lblEmailValue.Text = "[N/A]";
+            lblShortNameUnderImage.Text = "[N/A]";
+            lblAddressValue.Text = "[N/A]";
             pbPersonalProfile.ImageLocation = null; // Clear any displayed image
         }
         private void _FillPersonInformation()

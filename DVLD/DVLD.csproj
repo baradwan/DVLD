@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global\clsUICustomization.cs" />
     <Compile Include="People\Controls\crlPersonalCard.cs">
       <SubType>UserControl</SubType>
     </Compile>

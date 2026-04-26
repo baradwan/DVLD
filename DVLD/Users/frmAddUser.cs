@@ -18,7 +18,7 @@ namespace DVLD.Users
         private enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode = enMode.AddNew;
        private int _UserID=-1;
-
+        private bool _AllowTabChange = false;
         private void _AcceptButtons()
         {
             this.AcceptButton = btnSave;
@@ -56,6 +56,14 @@ namespace DVLD.Users
             _UserID = UserID;
         }
 
+        private void _DefaultValues() { 
+        
+        btnNext.Enabled = false;
+            btnSave.Enabled = false;
+
+
+        
+        }
         private void _SetupUIforUnderlineEffect()
         {
             clsUICustomization.LinkUnderlineWithTextBox(txtUserName, pnlUserName);
@@ -87,7 +95,7 @@ namespace DVLD.Users
         {
             bool isValid = true;
 
-            isValid &= _ValidateUserName();
+             isValid &= _ValidateUserName();
             isValid &= _ValidatePassword();
             isValid &= _ValidateConfirmPassword();
 
@@ -96,11 +104,19 @@ namespace DVLD.Users
 
         private bool _ValidateUserName()
         {
-            return clsUICustomization.SetErrorProvider(
-                txtUserName,
-                errorProvider1,
-                string.IsNullOrWhiteSpace(txtUserName.Text),
-                "UserName Required");
+           bool isUserNameNotEmbpty= clsUICustomization.SetErrorProvider(txtUserName,errorProvider1,string.IsNullOrWhiteSpace(txtUserName.Text),"UserName Required");
+
+            if (!isUserNameNotEmbpty)
+            {
+                
+                return false;
+            
+            }
+
+            bool isUserNotExists = clsUICustomization.SetErrorProvider(txtUserName, errorProvider1, clsUser.IsUserExist(txtUserName.Text.Trim()), "UserName Already Exists") ;
+
+            
+            return isUserNotExists;
         }
 
         private bool _ValidatePassword()
@@ -132,16 +148,17 @@ namespace DVLD.Users
         // Events //
         private void frmAddUser_Load(object sender, EventArgs e)
         {
+            ctrlPersonInfoWithFilter1.OnPersonSelected += ctrlPersonInfoWithFilter1_OnPersonSelected;// subscribe
             _SetupUIforUnderlineEffect();
             _AcceptButtons();
-            txtUserName.Validating += txtUserName_Validating;
-            txtPassword.Validating += txtPassword_Validating;
-            txtConfirmPassword.Validating += txtConfirmPassword_Validating;
+            
+             
         }
 
         private void ctrlPersonInfoWithFilter1_Load(object sender, EventArgs e)
         {
-            setErrorProvidor();
+           // setErrorProvidor();
+            _DefaultValues();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -191,9 +208,36 @@ namespace DVLD.Users
             _ValidatePassword();
         }
 
-        private void pnlHeader_Paint(object sender, PaintEventArgs e)
+    
+
+        private void tcPersonInfo_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+                
+                   if(!_AllowTabChange)
+                 e.Cancel = true;
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            _AllowTabChange = true;
+            tcPersonInfo.SelectedIndex = 1;
+            _AllowTabChange = false;
+        }
+
+        private void ctrlPersonInfoWithFilter1_OnPersonSelected(int PersonID)
         {
 
+            if(PersonID > 0)
+            {
+                btnNext.Enabled = true;
+            }
+        }
+
+        private void btnPervoius_Click(object sender, EventArgs e)
+        {
+            _AllowTabChange = true;
+            tcPersonInfo.SelectedIndex =0;
+            _AllowTabChange = false;
         }
     }
 }

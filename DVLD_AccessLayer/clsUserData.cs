@@ -253,9 +253,41 @@ namespace DVLD_AccessLayer
 
             return isFound;
         }
+        public static bool IsUserExist(string UserName)
+        {
+            bool isFound = false;
 
-      //  public static bool IsUserExist(string NationalNo)
-        
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "SELECT Found=1 FROM Users WHERE UserName = @UserName";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@UserName", UserName);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+        //  public static bool IsUserExist(string NationalNo)
+
         //{
         //    bool isFound = false;
         //    using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))

@@ -73,7 +73,7 @@ namespace DVLD.People.Controls
             }
 
             if (OnPersonSelected!=null)
-                OnPersonSelected(crlShowPersonInformation1.PersonID);
+                OnPersonSelected?.Invoke(crlShowPersonInformation1.PersonID);
         }
 
 

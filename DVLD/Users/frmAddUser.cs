@@ -69,7 +69,7 @@ namespace DVLD.Users
 
             _User.UserName = txtUserName.Text.Trim();
             _User.Password = txtPassword.Text.Trim();
-            _User.IsActive= cbIsActive.Checked?true:false;
+            _User.IsActive= cbIsActive.Checked;
             return _User;
             
         }
@@ -77,15 +77,66 @@ namespace DVLD.Users
 
         private void setErrorProvidor() {
 
-            clsUICustomization.SetErrorProvider(txtUserName, errorProvider1, "UserName Reqiured");
-            clsUICustomization.SetErrorProvider(txtPassword, errorProvider1, "Password Required");
-            clsUICustomization.SetErrorProvider(txtConfirmPassword, errorProvider1, "Confirm Password Required");
+            bool isUserNameEmpty = string.IsNullOrWhiteSpace(txtUserName.Text);
+            clsUICustomization.SetErrorProvider(txtUserName, errorProvider1, isUserNameEmpty, "UserName Reqiured");
+            bool isPasswordEmpty = string.IsNullOrWhiteSpace(txtPassword.Text);
+            clsUICustomization.SetErrorProvider(txtPassword, errorProvider1, isPasswordEmpty, "Password Required");
+           // clsUICustomization.SetErrorProvider(txtConfirmPassword, errorProvider1, "Confirm Password Required");
+        }
+        private bool _IsValidateInput()
+        {
+            bool isValid = true;
+
+            isValid &= _ValidateUserName();
+            isValid &= _ValidatePassword();
+            isValid &= _ValidateConfirmPassword();
+
+            return isValid;
         }
 
-       // Events //
+        private bool _ValidateUserName()
+        {
+            return clsUICustomization.SetErrorProvider(
+                txtUserName,
+                errorProvider1,
+                string.IsNullOrWhiteSpace(txtUserName.Text),
+                "UserName Required");
+        }
+
+        private bool _ValidatePassword()
+        {
+            return clsUICustomization.SetErrorProvider(
+                txtPassword,
+                errorProvider1,
+                string.IsNullOrWhiteSpace(txtPassword.Text),
+                "Password Required");
+        }
+
+        private bool _ValidateConfirmPassword()
+        {
+            if (!clsUICustomization.SetErrorProvider(
+                txtConfirmPassword,
+                errorProvider1,
+                string.IsNullOrWhiteSpace(txtConfirmPassword.Text),
+                "Confirm Password Required"))
+            {
+                return false;
+            }
+
+            return clsUICustomization.SetErrorProvider(
+                txtConfirmPassword,
+                errorProvider1,
+                txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim(),
+                "Passwords do not match");
+        }
+        // Events //
         private void frmAddUser_Load(object sender, EventArgs e)
         {
             _SetupUIforUnderlineEffect();
+            _AcceptButtons();
+            txtUserName.Validating += txtUserName_Validating;
+            txtPassword.Validating += txtPassword_Validating;
+            txtConfirmPassword.Validating += txtConfirmPassword_Validating;
         }
 
         private void ctrlPersonInfoWithFilter1_Load(object sender, EventArgs e)
@@ -95,8 +146,14 @@ namespace DVLD.Users
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!ValidateChildren())
+            if (!_IsValidateInput())
+
+            {
+                MessageBox.Show("Please, fill in all required fields and ensure passwords match.");
+               
+                
                 return;
+            }
             clsUser user = GetUserInfo();
 
           
@@ -121,14 +178,21 @@ namespace DVLD.Users
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
-            if(txtPassword.Text!=txtConfirmPassword.Text)
-            {
+            _ValidateConfirmPassword();
+        }
 
+        private void txtUserName_Validating(object sender, CancelEventArgs e)
+        {
+            _ValidateUserName();
+        }
 
-                clsUICustomization.SetErrorProvider(txtConfirmPassword, errorProvider1, "Confirm Password does not match."); 
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            _ValidatePassword();
+        }
 
-
-            }
+        private void pnlHeader_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

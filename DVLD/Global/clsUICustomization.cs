@@ -85,28 +85,35 @@ namespace DVLD.Global
                 pnl.Height = 1; // تقليل السمك
             };
         }
-        public static void SetErrorProvider(  Control ctrl, ErrorProvider errorProvider, string errorMessage)
+        //public static bool SetErrorProvider(  Control ctrl, ErrorProvider errorProvider, bool Condition,string errorMessage)
+        //{
+        //   // ctrl.Validating += (s, e) =>
+        //    {
+        //        if (Condition)
+        //        {
+
+        //            errorProvider.SetError(ctrl, errorMessage);
+
+        //        }
+        //        else
+        //            errorProvider.SetError(ctrl, string.Empty);
+        //    };
+        //    return !Condition;
+        //}
+
+        public static bool SetErrorProvider( Control ctrl, ErrorProvider errorProvider, bool hasError, string errorMessage)
         {
-            ctrl.Validating += (s, e) =>
-            {
-                if (string.IsNullOrWhiteSpace(ctrl.Text))
-                {
-                    e.Cancel = true;
-                    errorProvider.SetError(ctrl, errorMessage);
-                }
-                else
-                    errorProvider.SetError(ctrl, string.Empty);
-            };
+            errorProvider.SetError(ctrl, hasError ? errorMessage : string.Empty);
+            return !hasError;
         }
-        
-      public static void SetOptionalEmailErrorProvider(Control ctrl, ErrorProvider errorProvider, string errorMessage)
+
+        public static void SetOptionalEmailErrorProvider(Control ctrl, ErrorProvider errorProvider, string errorMessage)
         {
             ctrl.Validating += (s, e) =>
             {
                 if (!string.IsNullOrWhiteSpace(ctrl.Text) &&
                     !clsnValidation.IsEmailValid(ctrl.Text))
                 {
-                    e.Cancel = true;
                     errorProvider.SetError(ctrl, errorMessage);
                 }
                 else

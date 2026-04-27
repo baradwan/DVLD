@@ -346,5 +346,10 @@ namespace DVLD.People.Controls
             }
             llRemove.Visible = false;
         }
+
+        private void cmbCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

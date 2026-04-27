@@ -45,7 +45,9 @@ namespace DVLD.Users
         private void btnPeopleAddUser_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUser();
+            
             frm.ShowDialog();
+            
         }
     }
 }

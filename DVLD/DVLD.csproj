@@ -151,6 +151,12 @@
     <Compile Include="Users\Control\ctrlListUsers.Designer.cs">
       <DependentUpon>ctrlListUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\Control\ctrlUserInfoCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\Control\ctrlUserInfoCard.Designer.cs">
+      <DependentUpon>ctrlUserInfoCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Users\Control\ctrlListUsers.resx">
       <DependentUpon>ctrlListUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\Control\ctrlUserInfoCard.resx">
+      <DependentUpon>ctrlUserInfoCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>

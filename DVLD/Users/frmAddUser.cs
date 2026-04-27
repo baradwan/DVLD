@@ -52,8 +52,12 @@ namespace DVLD.Users
         public frmAddUser(int UserID)
         {
             InitializeComponent();
-            _Mode = enMode.Update;
             _UserID = UserID;
+            if(_UserID != -1)
+            {
+                _Mode = enMode.Update;
+                _LoadData();
+            }
         }
 
         private void _DefaultValues() {
@@ -80,6 +84,13 @@ namespace DVLD.Users
         }
         private void _LoadData()
         {
+            _User = clsUser.Find(_UserID);
+
+            lblUserID.Text = _UserID.ToString();
+            txtUserName.Text=_User.UserName;
+            txtPassword.Text = _User.Password;
+            txtConfirmPassword.Text = _User.Password;
+            cbIsActive.Checked = _User.IsActive;
 
         }
         private void _SetupUIforUnderlineEffect()
@@ -188,8 +199,12 @@ namespace DVLD.Users
             if (!_IsValidateInput())
 
             {
-                MessageBox.Show("Please, fill in all required fields and ensure passwords match.");
-
+                MessageBox.Show(
+                    "Please fill in all required fields and ensure passwords match.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
 
                 return;
             }
@@ -198,14 +213,24 @@ namespace DVLD.Users
 
             if (user.Save())
             {
-                MessageBox.Show("User saved successfully.");
+                MessageBox.Show(
+                    "User saved successfully.",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
                 _UserID = user.userID;
                 lblUserID.Text = user.userID.ToString();
 
             }
             else
             {
-                MessageBox.Show("Failed to save user.");
+                MessageBox.Show(
+                    "Failed to save user.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
 
         }
@@ -245,9 +270,12 @@ namespace DVLD.Users
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            
             _AllowTabChange = true;
             tcPersonInfo.SelectedIndex = 1;
             _AllowTabChange = false;
+
+            
         }
 
         private void ctrlPersonInfoWithFilter1_OnPersonSelected(int PersonID)

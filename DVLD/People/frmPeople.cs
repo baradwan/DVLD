@@ -161,6 +161,7 @@ namespace DVLD
                 _dtPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtSearch.Text.Trim());
             }
             dvgListPeople.DataSource = _dtPeople.DefaultView;
+            
         }
 
         public frmPeople()

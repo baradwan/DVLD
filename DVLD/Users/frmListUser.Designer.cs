@@ -34,11 +34,21 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.ctrlListUsers1 = new DVLD.Users.Control.ctrlListUsers();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.btnClose = new Syncfusion.WinForms.Controls.SfButton();
             this.lblRecordValue = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlListUsers1 = new DVLD.Users.Control.ctrlListUsers();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.pnlContent.SuspendLayout();
@@ -113,17 +123,6 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(2796, 1431);
             this.pnlContent.TabIndex = 2;
-            this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
-            // 
-            // ctrlListUsers1
-            // 
-            this.ctrlListUsers1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlListUsers1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlListUsers1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.ctrlListUsers1.Name = "ctrlListUsers1";
-            this.ctrlListUsers1.Size = new System.Drawing.Size(2796, 1431);
-            this.ctrlListUsers1.TabIndex = 0;
-            this.ctrlListUsers1.Load += new System.EventHandler(this.ctrlListUsers1_Load);
             // 
             // pnlFooter
             // 
@@ -176,6 +175,79 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Records : ";
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = global::DVLD.Properties.Resources.ShowDetailes;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(297, 42);
+            this.toolStripMenuItem2.Text = "Show Details";
+            // 
+            // addNewPersonToolStripMenuItem
+            // 
+            this.addNewPersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_add_administrator_50;
+            this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(297, 42);
+            this.addNewPersonToolStripMenuItem.Text = "Add New Person";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(294, 6);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Image = global::DVLD.Properties.Resources.people__2_;
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(297, 42);
+            this.toolStripMenuItem5.Text = "Edit";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Image = global::DVLD.Properties.Resources.delete;
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(297, 42);
+            this.toolStripMenuItem6.Text = "Delete";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(294, 6);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Image = global::DVLD.Properties.Resources.mail;
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(297, 42);
+            this.toolStripMenuItem7.Text = "Send Email";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Image = global::DVLD.Properties.Resources.call;
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(297, 42);
+            this.toolStripMenuItem8.Text = "Phone Call";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(297, 42);
+            this.toolStripMenuItem3.Text = " ";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(297, 42);
+            this.toolStripMenuItem4.Text = " ";
+            // 
+            // ctrlListUsers1
+            // 
+            this.ctrlListUsers1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlListUsers1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlListUsers1.Margin = new System.Windows.Forms.Padding(6);
+            this.ctrlListUsers1.Name = "ctrlListUsers1";
+            this.ctrlListUsers1.Size = new System.Drawing.Size(2796, 1431);
+            this.ctrlListUsers1.TabIndex = 0;
+            // 
             // frmListUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -211,5 +283,15 @@
         private System.Windows.Forms.Label lblRecordValue;
         private System.Windows.Forms.Label label3;
         private Control.ctrlListUsers ctrlListUsers1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem addNewPersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
     }
 }

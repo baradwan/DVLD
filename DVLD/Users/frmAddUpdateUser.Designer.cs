@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Users
 {
-    partial class frmAddUser
+    partial class frmAddUpdateUser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUser));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUpdateUser));
             Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
             Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
             Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo3 = new Syncfusion.Windows.Forms.BannerTextInfo();
@@ -447,7 +447,7 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // frmAddUser
+            // frmAddUpdateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -456,7 +456,7 @@
             this.Controls.Add(this.pnlfooter);
             this.Controls.Add(this.pnlHeader);
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "frmAddUser";
+            this.Name = "frmAddUpdateUser";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmAddUser_Load);
             this.pnlHeader.ResumeLayout(false);

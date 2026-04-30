@@ -107,6 +107,11 @@ namespace DVLD_BusinessLayer
         {
             return clsUserData.IsUserExist(UserID);
         }
+        public static bool IsUserExistByPersonID(int PersonID)
+        {
+            return clsUserData.IsUserExistByPersonID(PersonID);
+        }
+
         public static bool IsUserExist(string UserName)
         {
             return clsUserData.IsUserExist(UserName.Trim().ToUpper());

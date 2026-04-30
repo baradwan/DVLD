@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.People;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,9 @@ namespace DVLD.Users.Control
 {
     public partial class ctrlListUsers : UserControl
     {
+        public event Action<int>CountUsersChanged;
+        public event Action<int> OnUserSelected;
+       
         private int _CountUsers = 0;
         public int CountUsers { get; private set; }
         public ctrlListUsers()
@@ -22,7 +26,6 @@ namespace DVLD.Users.Control
             
         }
 
-        public event Action<int>CountUsersChanged;
         public enum enFilterOption
         {
             None = 0,
@@ -189,8 +192,24 @@ namespace DVLD.Users.Control
 
         }
 
+        public int GetCurrentPersonID() {
+
+            if (dvgList.CurrentItem != null)
+            {
+                DataRowView selectedRow = dvgList.CurrentItem as DataRowView;
+
+                if (selectedRow != null)
+                {
+                    return Convert.ToInt32(selectedRow["PersonID"]);
+                     
+                 
+                }
+            }
+            return -1;
+        }
 
 
+        // Events // 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             _ApplyFilter();
@@ -254,6 +273,23 @@ namespace DVLD.Users.Control
 
             }
         }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dvgList.CurrentItem != null)
+            {
+                DataRowView selectedRow = dvgList.CurrentItem as DataRowView;
+
+                if (selectedRow != null)
+                {
+                    int userID = Convert.ToInt32(selectedRow["UserID"]);
+                    frmShowUserInfo frmShow = new frmShowUserInfo(userID);
+
+                    frmShow.ShowDialog();
+                }
+            }
+        }
+    }
     }
     
-}
+

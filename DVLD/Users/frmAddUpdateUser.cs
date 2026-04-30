@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace DVLD.Users
 {
-    public partial class frmAddUser : Form
+    public partial class frmAddUpdateUser : Form
     {
         private enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode = enMode.AddNew;
@@ -30,26 +30,26 @@ namespace DVLD.Users
             get { return _UserID; }
 
 
-            set
-            {
+            //set
+            //{
 
-                _UserID = value;
-                if (_UserID != -1)
-                {
-                    _Mode = enMode.Update;
-                    _LoadData();
-                }
-            }
+            //    _UserID = value;
+            //    if (_UserID != -1)
+            //    {
+            //        _Mode = enMode.Update;
+            //        _LoadData();
+            //    }
+            //}
         }
         public clsUser _User;
-        public frmAddUser()
+        public frmAddUpdateUser()
         {
             InitializeComponent();
             _Mode = enMode.AddNew;
             _User = new clsUser();
 
         }
-        public frmAddUser(int UserID)
+        public frmAddUpdateUser(int UserID)
         {
             InitializeComponent();
             _UserID = UserID;
@@ -270,10 +270,15 @@ namespace DVLD.Users
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            
+            if(clsUser.IsUserExistByPersonID(ctrlPersonInfoWithFilter1.PersonID))
+            {
+                MessageBox.Show("This person is already associated with a user account. Please select a different person.", "Duplicate User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             _AllowTabChange = true;
             tcPersonInfo.SelectedIndex = 1;
             _AllowTabChange = false;
+
 
             
         }

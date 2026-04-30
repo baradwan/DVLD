@@ -1,4 +1,5 @@
-﻿using DVLD.Users.Control;
+﻿using DVLD.People;
+using DVLD.Users.Control;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,28 +27,44 @@ namespace DVLD.Users
 
         private void frmListUser_Load(object sender, EventArgs e)
         {
-            lblRecordValue.Text = ctrlListUsers1.CountUsers.ToString();
-            ctrlListUsers1.CountUsersChanged += count =>
-            lblRecordValue.Text = count.ToString();
-
+            ctrlListUsers1.CountUsersChanged += _UpdateCountUserss;
         }
 
-        private void pnlContent_Paint(object sender, PaintEventArgs e)
+        private void _UpdateCountUserss (int Count)
         {
-
+            lblRecordValue.Text = Count.ToString();
         }
-
-        private void ctrlListUsers1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnPeopleAddUser_Click(object sender, EventArgs e)
         {
-            Form frm = new frmAddUser();
-            
+            Form frm = new frmAddUpdateUser();
+
             frm.ShowDialog();
-            
+
+        }
+
+        private void cmsUsers_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = ctrlListUsers1.GetCurrentPersonID();
+                         if (PersonID != -1)
+            {
+                Form frm = new frmAddUpdateUser(PersonID);
+                frm.ShowDialog();
+             }
+             else
+             {
+                 MessageBox.Show("Please select a user to view details.", "No User Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
+        }
+
+        private void contextMenuStripEx1_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

@@ -204,19 +204,11 @@ namespace DVLD.People.Controls
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
+      
 
-        }
-
-        private void lblShortNameUnderImage_Click(object sender, EventArgs e)
+        private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

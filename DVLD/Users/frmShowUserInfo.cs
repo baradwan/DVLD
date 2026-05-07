@@ -37,5 +37,10 @@ namespace DVLD.Users
         {
             this.Close();
         }
+
+        private void ctrlUserInfoCard1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

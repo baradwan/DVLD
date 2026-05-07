@@ -14,7 +14,7 @@ namespace DVLD.People
     public partial class frmShowPerson : Form
     {
 
-        public event Action OnPersonUpdated;
+        public event Action  OnPersonUpdated;
         public frmShowPerson()
         {
 

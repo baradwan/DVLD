@@ -54,10 +54,7 @@ namespace DVLD.Users.Control
             lblIsActive.Text = _User.IsActive ? "Yes" : "No";
         }
 
-        private void crlShowPersonInformation1_Load(object sender, EventArgs e)
-        {
-
-        }
+      
         //private void _ResetPersonInfo()
         //{
         //    lblUserID.Text = "[???]";

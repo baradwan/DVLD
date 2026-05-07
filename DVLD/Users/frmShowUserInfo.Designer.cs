@@ -43,18 +43,19 @@
             this.pnlContent.Controls.Add(this.ctrlUserInfoCard1);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
+            this.pnlContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1370, 980);
+            this.pnlContent.Size = new System.Drawing.Size(685, 510);
             this.pnlContent.TabIndex = 0;
             // 
             // ctrlUserInfoCard1
             // 
             this.ctrlUserInfoCard1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctrlUserInfoCard1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlUserInfoCard1.Margin = new System.Windows.Forms.Padding(6);
             this.ctrlUserInfoCard1.Name = "ctrlUserInfoCard1";
-            this.ctrlUserInfoCard1.Size = new System.Drawing.Size(1370, 980);
+            this.ctrlUserInfoCard1.Size = new System.Drawing.Size(685, 510);
             this.ctrlUserInfoCard1.TabIndex = 0;
+            this.ctrlUserInfoCard1.Load += new System.EventHandler(this.ctrlUserInfoCard1_Load);
             // 
             // gradientPanel1
             // 
@@ -62,10 +63,9 @@
             this.gradientPanel1.Controls.Add(this.btnClose);
             this.gradientPanel1.Controls.Add(this.btnEdit);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gradientPanel1.Location = new System.Drawing.Point(0, 975);
-            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(6);
+            this.gradientPanel1.Location = new System.Drawing.Point(0, 507);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1370, 104);
+            this.gradientPanel1.Size = new System.Drawing.Size(685, 54);
             this.gradientPanel1.TabIndex = 2;
             // 
             // btnClose
@@ -73,10 +73,9 @@
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnClose.BackColor = System.Drawing.Color.LightGray;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnClose.Location = new System.Drawing.Point(972, 14);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(6);
+            this.btnClose.Location = new System.Drawing.Point(486, 7);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(174, 72);
+            this.btnClose.Size = new System.Drawing.Size(87, 37);
             this.btnClose.Style.BackColor = System.Drawing.Color.LightGray;
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
@@ -88,10 +87,9 @@
             this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnEdit.BackColor = System.Drawing.Color.LightGray;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnEdit.Location = new System.Drawing.Point(1185, 14);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(6);
+            this.btnEdit.Location = new System.Drawing.Point(592, 7);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(170, 72);
+            this.btnEdit.Size = new System.Drawing.Size(85, 37);
             this.btnEdit.Style.BackColor = System.Drawing.Color.LightGray;
             this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "Edit";
@@ -99,11 +97,12 @@
             // 
             // frmShowUserInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 1079);
+            this.ClientSize = new System.Drawing.Size(685, 561);
             this.Controls.Add(this.gradientPanel1);
             this.Controls.Add(this.pnlContent);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmShowUserInfo";
             this.Text = "frmShowUserInfo";
             this.Load += new System.EventHandler(this.frmShowUserInfo_Load);

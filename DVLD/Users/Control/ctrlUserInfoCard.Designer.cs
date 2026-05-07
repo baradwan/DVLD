@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlPersonInfoCard = new System.Windows.Forms.Panel();
+            this.crlShowPersonInformation1 = new DVLD.People.Controls.crlShowPersonInformation();
             this.gbUserLoginInfo = new System.Windows.Forms.GroupBox();
             this.lblIsActive = new System.Windows.Forms.Label();
             this.lblIsActiveTittle = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.lblUserID = new System.Windows.Forms.Label();
             this.lblUserIDTitle = new System.Windows.Forms.Label();
             this.lblUserNameTitle = new System.Windows.Forms.Label();
-            this.crlShowPersonInformation1 = new DVLD.People.Controls.crlShowPersonInformation();
             this.pnlPersonInfoCard.SuspendLayout();
             this.gbUserLoginInfo.SuspendLayout();
             this.SuspendLayout();
@@ -45,10 +45,19 @@
             // 
             this.pnlPersonInfoCard.Controls.Add(this.crlShowPersonInformation1);
             this.pnlPersonInfoCard.Location = new System.Drawing.Point(0, 0);
-            this.pnlPersonInfoCard.Margin = new System.Windows.Forms.Padding(6);
             this.pnlPersonInfoCard.Name = "pnlPersonInfoCard";
-            this.pnlPersonInfoCard.Size = new System.Drawing.Size(1422, 790);
+            this.pnlPersonInfoCard.Size = new System.Drawing.Size(711, 411);
             this.pnlPersonInfoCard.TabIndex = 0;
+            // 
+            // crlShowPersonInformation1
+            // 
+            this.crlShowPersonInformation1.AutoSize = true;
+            this.crlShowPersonInformation1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.crlShowPersonInformation1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crlShowPersonInformation1.Location = new System.Drawing.Point(0, 0);
+            this.crlShowPersonInformation1.Name = "crlShowPersonInformation1";
+            this.crlShowPersonInformation1.Size = new System.Drawing.Size(711, 411);
+            this.crlShowPersonInformation1.TabIndex = 0;
             // 
             // gbUserLoginInfo
             // 
@@ -61,11 +70,9 @@
             this.gbUserLoginInfo.Controls.Add(this.lblUserNameTitle);
             this.gbUserLoginInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gbUserLoginInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbUserLoginInfo.Location = new System.Drawing.Point(0, 791);
-            this.gbUserLoginInfo.Margin = new System.Windows.Forms.Padding(6);
+            this.gbUserLoginInfo.Location = new System.Drawing.Point(0, 412);
             this.gbUserLoginInfo.Name = "gbUserLoginInfo";
-            this.gbUserLoginInfo.Padding = new System.Windows.Forms.Padding(6);
-            this.gbUserLoginInfo.Size = new System.Drawing.Size(1436, 191);
+            this.gbUserLoginInfo.Size = new System.Drawing.Size(718, 99);
             this.gbUserLoginInfo.TabIndex = 1;
             this.gbUserLoginInfo.TabStop = false;
             this.gbUserLoginInfo.Text = "User Login Info";
@@ -74,10 +81,10 @@
             // 
             this.lblIsActive.AutoSize = true;
             this.lblIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsActive.Location = new System.Drawing.Point(1160, 104);
-            this.lblIsActive.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblIsActive.Location = new System.Drawing.Point(580, 54);
+            this.lblIsActive.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIsActive.Name = "lblIsActive";
-            this.lblIsActive.Size = new System.Drawing.Size(71, 37);
+            this.lblIsActive.Size = new System.Drawing.Size(39, 20);
             this.lblIsActive.TabIndex = 146;
             this.lblIsActive.Text = "???";
             // 
@@ -85,10 +92,10 @@
             // 
             this.lblIsActiveTittle.AutoSize = true;
             this.lblIsActiveTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsActiveTittle.Location = new System.Drawing.Point(974, 104);
-            this.lblIsActiveTittle.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblIsActiveTittle.Location = new System.Drawing.Point(487, 54);
+            this.lblIsActiveTittle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIsActiveTittle.Name = "lblIsActiveTittle";
-            this.lblIsActiveTittle.Size = new System.Drawing.Size(175, 37);
+            this.lblIsActiveTittle.Size = new System.Drawing.Size(93, 20);
             this.lblIsActiveTittle.TabIndex = 145;
             this.lblIsActiveTittle.Text = "Is Active : ";
             // 
@@ -96,10 +103,10 @@
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(754, 104);
-            this.lblUserName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblUserName.Location = new System.Drawing.Point(377, 54);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(71, 37);
+            this.lblUserName.Size = new System.Drawing.Size(39, 20);
             this.lblUserName.TabIndex = 144;
             this.lblUserName.Text = "???";
             // 
@@ -107,10 +114,10 @@
             // 
             this.lblUserID.AutoSize = true;
             this.lblUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserID.Location = new System.Drawing.Point(362, 104);
-            this.lblUserID.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblUserID.Location = new System.Drawing.Point(181, 54);
+            this.lblUserID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(71, 37);
+            this.lblUserID.Size = new System.Drawing.Size(39, 20);
             this.lblUserID.TabIndex = 143;
             this.lblUserID.Text = "???";
             // 
@@ -118,10 +125,10 @@
             // 
             this.lblUserIDTitle.AutoSize = true;
             this.lblUserIDTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserIDTitle.Location = new System.Drawing.Point(190, 104);
-            this.lblUserIDTitle.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblUserIDTitle.Location = new System.Drawing.Point(95, 54);
+            this.lblUserIDTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserIDTitle.Name = "lblUserIDTitle";
-            this.lblUserIDTitle.Size = new System.Drawing.Size(161, 37);
+            this.lblUserIDTitle.Size = new System.Drawing.Size(86, 20);
             this.lblUserIDTitle.TabIndex = 142;
             this.lblUserIDTitle.Text = "User ID : ";
             // 
@@ -129,33 +136,21 @@
             // 
             this.lblUserNameTitle.AutoSize = true;
             this.lblUserNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserNameTitle.Location = new System.Drawing.Point(562, 104);
-            this.lblUserNameTitle.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblUserNameTitle.Location = new System.Drawing.Point(281, 54);
+            this.lblUserNameTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserNameTitle.Name = "lblUserNameTitle";
-            this.lblUserNameTitle.Size = new System.Drawing.Size(182, 37);
+            this.lblUserNameTitle.Size = new System.Drawing.Size(96, 20);
             this.lblUserNameTitle.TabIndex = 141;
             this.lblUserNameTitle.Text = "Username:";
             // 
-            // crlShowPersonInformation1
-            // 
-            this.crlShowPersonInformation1.AutoSize = true;
-            this.crlShowPersonInformation1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.crlShowPersonInformation1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crlShowPersonInformation1.Location = new System.Drawing.Point(0, 0);
-            this.crlShowPersonInformation1.Margin = new System.Windows.Forms.Padding(6);
-            this.crlShowPersonInformation1.Name = "crlShowPersonInformation1";
-            this.crlShowPersonInformation1.Size = new System.Drawing.Size(1422, 790);
-            this.crlShowPersonInformation1.TabIndex = 0;
-            // 
             // ctrlUserInfoCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbUserLoginInfo);
             this.Controls.Add(this.pnlPersonInfoCard);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ctrlUserInfoCard";
-            this.Size = new System.Drawing.Size(1436, 982);
+            this.Size = new System.Drawing.Size(718, 511);
             this.pnlPersonInfoCard.ResumeLayout(false);
             this.pnlPersonInfoCard.PerformLayout();
             this.gbUserLoginInfo.ResumeLayout(false);

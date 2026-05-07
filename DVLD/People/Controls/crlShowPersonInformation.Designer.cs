@@ -64,6 +64,7 @@
             this.pbFullName = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblAddressValue = new System.Windows.Forms.Label();
+            this.llEditPersonInfo = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,9 +93,8 @@
             this.gradientPanel1.Controls.Add(this.pictureBox1);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1212, 114);
+            this.gradientPanel1.Size = new System.Drawing.Size(606, 60);
             this.gradientPanel1.TabIndex = 0;
             // 
             // lblPersonIDValue
@@ -102,10 +102,9 @@
             this.lblPersonIDValue.AutoSize = true;
             this.lblPersonIDValue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPersonIDValue.ForeColor = System.Drawing.Color.White;
-            this.lblPersonIDValue.Location = new System.Drawing.Point(328, 50);
-            this.lblPersonIDValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblPersonIDValue.Location = new System.Drawing.Point(164, 26);
             this.lblPersonIDValue.Name = "lblPersonIDValue";
-            this.lblPersonIDValue.Size = new System.Drawing.Size(56, 45);
+            this.lblPersonIDValue.Size = new System.Drawing.Size(28, 21);
             this.lblPersonIDValue.TabIndex = 4;
             this.lblPersonIDValue.Text = "00";
             // 
@@ -114,10 +113,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(238, 50);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(119, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 45);
+            this.label1.Size = new System.Drawing.Size(39, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "ID : ";
             // 
@@ -126,10 +124,9 @@
             this.lblPersonProfile.AutoSize = true;
             this.lblPersonProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPersonProfile.ForeColor = System.Drawing.Color.White;
-            this.lblPersonProfile.Location = new System.Drawing.Point(238, 10);
-            this.lblPersonProfile.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblPersonProfile.Location = new System.Drawing.Point(119, 5);
             this.lblPersonProfile.Name = "lblPersonProfile";
-            this.lblPersonProfile.Size = new System.Drawing.Size(231, 45);
+            this.lblPersonProfile.Size = new System.Drawing.Size(117, 21);
             this.lblPersonProfile.TabIndex = 2;
             this.lblPersonProfile.Text = "Person Profile";
             // 
@@ -140,23 +137,22 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 112);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 58);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.llEditPersonInfo);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pnlBackPrifilePic);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(800, 114);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel1.Location = new System.Drawing.Point(400, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(40, 38, 40, 38);
-            this.panel1.Size = new System.Drawing.Size(412, 673);
+            this.panel1.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.panel1.Size = new System.Drawing.Size(206, 349);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -164,10 +160,9 @@
             this.panel2.AllowDrop = true;
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.lblShortNameUnderImage);
-            this.panel2.Location = new System.Drawing.Point(32, 399);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Location = new System.Drawing.Point(16, 206);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(334, 152);
+            this.panel2.Size = new System.Drawing.Size(167, 79);
             this.panel2.TabIndex = 3;
             // 
             // lblShortNameUnderImage
@@ -177,32 +172,28 @@
             this.lblShortNameUnderImage.AutoEllipsis = true;
             this.lblShortNameUnderImage.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.lblShortNameUnderImage.ForeColor = System.Drawing.Color.DimGray;
-            this.lblShortNameUnderImage.Location = new System.Drawing.Point(14, 12);
-            this.lblShortNameUnderImage.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblShortNameUnderImage.Location = new System.Drawing.Point(7, 6);
             this.lblShortNameUnderImage.Name = "lblShortNameUnderImage";
-            this.lblShortNameUnderImage.Size = new System.Drawing.Size(314, 133);
+            this.lblShortNameUnderImage.Size = new System.Drawing.Size(157, 69);
             this.lblShortNameUnderImage.TabIndex = 2;
             this.lblShortNameUnderImage.Text = "--";
             this.lblShortNameUnderImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblShortNameUnderImage.Click += new System.EventHandler(this.lblShortNameUnderImage_Click);
             // 
             // pnlBackPrifilePic
             // 
             this.pnlBackPrifilePic.BackColor = System.Drawing.Color.SteelBlue;
             this.pnlBackPrifilePic.Controls.Add(this.pbPersonalProfile);
-            this.pnlBackPrifilePic.Location = new System.Drawing.Point(32, 44);
-            this.pnlBackPrifilePic.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlBackPrifilePic.Location = new System.Drawing.Point(16, 23);
             this.pnlBackPrifilePic.Name = "pnlBackPrifilePic";
-            this.pnlBackPrifilePic.Size = new System.Drawing.Size(340, 327);
+            this.pnlBackPrifilePic.Size = new System.Drawing.Size(170, 170);
             this.pnlBackPrifilePic.TabIndex = 0;
             this.pnlBackPrifilePic.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBackPrifilePic_Paint);
             // 
             // pbPersonalProfile
             // 
-            this.pbPersonalProfile.Location = new System.Drawing.Point(14, 6);
-            this.pbPersonalProfile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbPersonalProfile.Location = new System.Drawing.Point(4, 17);
             this.pbPersonalProfile.Name = "pbPersonalProfile";
-            this.pbPersonalProfile.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbPersonalProfile.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbPersonalProfile.Size = new System.Drawing.Size(160, 160);
             this.pbPersonalProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbPersonalProfile.TabIndex = 0;
@@ -214,10 +205,10 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(126, 19);
-            this.label2.Margin = new System.Windows.Forms.Padding(20, 19, 20, 19);
+            this.label2.Location = new System.Drawing.Point(63, 10);
+            this.label2.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 45);
+            this.label2.Size = new System.Drawing.Size(90, 21);
             this.label2.TabIndex = 0;
             this.label2.Text = "Full Name :";
             // 
@@ -226,10 +217,9 @@
             this.lblFullNameValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblFullNameValue.AutoSize = true;
             this.lblFullNameValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullNameValue.Location = new System.Drawing.Point(478, 19);
-            this.lblFullNameValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblFullNameValue.Location = new System.Drawing.Point(239, 10);
             this.lblFullNameValue.Name = "lblFullNameValue";
-            this.lblFullNameValue.Size = new System.Drawing.Size(46, 45);
+            this.lblFullNameValue.Size = new System.Drawing.Size(22, 21);
             this.lblFullNameValue.TabIndex = 1;
             this.lblFullNameValue.Text = "--";
             // 
@@ -238,10 +228,9 @@
             this.lblNationalNoValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNationalNoValue.AutoSize = true;
             this.lblNationalNoValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNationalNoValue.Location = new System.Drawing.Point(478, 105);
-            this.lblNationalNoValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblNationalNoValue.Location = new System.Drawing.Point(239, 53);
             this.lblNationalNoValue.Name = "lblNationalNoValue";
-            this.lblNationalNoValue.Size = new System.Drawing.Size(46, 45);
+            this.lblNationalNoValue.Size = new System.Drawing.Size(22, 21);
             this.lblNationalNoValue.TabIndex = 11;
             this.lblNationalNoValue.Text = "--";
             // 
@@ -250,10 +239,9 @@
             this.lblDateOfBirthValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblDateOfBirthValue.AutoSize = true;
             this.lblDateOfBirthValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfBirthValue.Location = new System.Drawing.Point(478, 191);
-            this.lblDateOfBirthValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblDateOfBirthValue.Location = new System.Drawing.Point(239, 97);
             this.lblDateOfBirthValue.Name = "lblDateOfBirthValue";
-            this.lblDateOfBirthValue.Size = new System.Drawing.Size(46, 45);
+            this.lblDateOfBirthValue.Size = new System.Drawing.Size(22, 21);
             this.lblDateOfBirthValue.TabIndex = 12;
             this.lblDateOfBirthValue.Text = "--";
             // 
@@ -262,10 +250,9 @@
             this.lblGenderValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblGenderValue.AutoSize = true;
             this.lblGenderValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenderValue.Location = new System.Drawing.Point(478, 274);
-            this.lblGenderValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblGenderValue.Location = new System.Drawing.Point(239, 138);
             this.lblGenderValue.Name = "lblGenderValue";
-            this.lblGenderValue.Size = new System.Drawing.Size(46, 45);
+            this.lblGenderValue.Size = new System.Drawing.Size(22, 21);
             this.lblGenderValue.TabIndex = 13;
             this.lblGenderValue.Text = "--";
             // 
@@ -274,10 +261,9 @@
             this.lblNationalityValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNationalityValue.AutoSize = true;
             this.lblNationalityValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNationalityValue.Location = new System.Drawing.Point(478, 357);
-            this.lblNationalityValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblNationalityValue.Location = new System.Drawing.Point(239, 179);
             this.lblNationalityValue.Name = "lblNationalityValue";
-            this.lblNationalityValue.Size = new System.Drawing.Size(46, 45);
+            this.lblNationalityValue.Size = new System.Drawing.Size(22, 21);
             this.lblNationalityValue.TabIndex = 14;
             this.lblNationalityValue.Text = "--";
             // 
@@ -286,19 +272,18 @@
             this.lblPhoneValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPhoneValue.AutoSize = true;
             this.lblPhoneValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneValue.Location = new System.Drawing.Point(478, 440);
-            this.lblPhoneValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblPhoneValue.Location = new System.Drawing.Point(239, 220);
             this.lblPhoneValue.Name = "lblPhoneValue";
-            this.lblPhoneValue.Size = new System.Drawing.Size(46, 45);
+            this.lblPhoneValue.Size = new System.Drawing.Size(22, 21);
             this.lblPhoneValue.TabIndex = 15;
             this.lblPhoneValue.Text = "--";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 328F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.pbEmail, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.pbPhone, 0, 5);
@@ -324,8 +309,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblDateOfBirthValue, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblAddressValue, 2, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 114);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -335,20 +319,18 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 673);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 349);
             this.tableLayoutPanel1.TabIndex = 2;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 616);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(3, 313);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(94, 27);
+            this.pictureBox2.Size = new System.Drawing.Size(47, 14);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
@@ -357,10 +339,9 @@
             // 
             this.pbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbEmail.Image = ((System.Drawing.Image)(resources.GetObject("pbEmail.Image")));
-            this.pbEmail.Location = new System.Drawing.Point(6, 516);
-            this.pbEmail.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbEmail.Location = new System.Drawing.Point(3, 256);
             this.pbEmail.Name = "pbEmail";
-            this.pbEmail.Size = new System.Drawing.Size(94, 58);
+            this.pbEmail.Size = new System.Drawing.Size(47, 30);
             this.pbEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbEmail.TabIndex = 24;
             this.pbEmail.TabStop = false;
@@ -369,10 +350,9 @@
             // 
             this.pbPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPhone.Image = ((System.Drawing.Image)(resources.GetObject("pbPhone.Image")));
-            this.pbPhone.Location = new System.Drawing.Point(6, 429);
-            this.pbPhone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbPhone.Location = new System.Drawing.Point(3, 213);
             this.pbPhone.Name = "pbPhone";
-            this.pbPhone.Size = new System.Drawing.Size(94, 67);
+            this.pbPhone.Size = new System.Drawing.Size(47, 35);
             this.pbPhone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPhone.TabIndex = 23;
             this.pbPhone.TabStop = false;
@@ -381,10 +361,9 @@
             // 
             this.pbNationality.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbNationality.Image = ((System.Drawing.Image)(resources.GetObject("pbNationality.Image")));
-            this.pbNationality.Location = new System.Drawing.Point(6, 346);
-            this.pbNationality.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbNationality.Location = new System.Drawing.Point(3, 172);
             this.pbNationality.Name = "pbNationality";
-            this.pbNationality.Size = new System.Drawing.Size(94, 67);
+            this.pbNationality.Size = new System.Drawing.Size(47, 35);
             this.pbNationality.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbNationality.TabIndex = 22;
             this.pbNationality.TabStop = false;
@@ -393,10 +372,9 @@
             // 
             this.pbGender.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbGender.Image = ((System.Drawing.Image)(resources.GetObject("pbGender.Image")));
-            this.pbGender.Location = new System.Drawing.Point(6, 263);
-            this.pbGender.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbGender.Location = new System.Drawing.Point(3, 131);
             this.pbGender.Name = "pbGender";
-            this.pbGender.Size = new System.Drawing.Size(94, 67);
+            this.pbGender.Size = new System.Drawing.Size(47, 35);
             this.pbGender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbGender.TabIndex = 21;
             this.pbGender.TabStop = false;
@@ -405,10 +383,9 @@
             // 
             this.pbDateOfBirth.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbDateOfBirth.Image = ((System.Drawing.Image)(resources.GetObject("pbDateOfBirth.Image")));
-            this.pbDateOfBirth.Location = new System.Drawing.Point(6, 180);
-            this.pbDateOfBirth.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbDateOfBirth.Location = new System.Drawing.Point(3, 90);
             this.pbDateOfBirth.Name = "pbDateOfBirth";
-            this.pbDateOfBirth.Size = new System.Drawing.Size(94, 67);
+            this.pbDateOfBirth.Size = new System.Drawing.Size(47, 35);
             this.pbDateOfBirth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbDateOfBirth.TabIndex = 20;
             this.pbDateOfBirth.TabStop = false;
@@ -417,10 +394,9 @@
             // 
             this.pbNationalNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbNationalNo.Image = ((System.Drawing.Image)(resources.GetObject("pbNationalNo.Image")));
-            this.pbNationalNo.Location = new System.Drawing.Point(6, 89);
-            this.pbNationalNo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbNationalNo.Location = new System.Drawing.Point(3, 44);
             this.pbNationalNo.Name = "pbNationalNo";
-            this.pbNationalNo.Size = new System.Drawing.Size(94, 77);
+            this.pbNationalNo.Size = new System.Drawing.Size(47, 40);
             this.pbNationalNo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbNationalNo.TabIndex = 19;
             this.pbNationalNo.TabStop = false;
@@ -430,10 +406,10 @@
             this.lblNationalNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNationalNo.AutoSize = true;
             this.lblNationalNo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNationalNo.Location = new System.Drawing.Point(126, 105);
-            this.lblNationalNo.Margin = new System.Windows.Forms.Padding(20, 19, 20, 19);
+            this.lblNationalNo.Location = new System.Drawing.Point(63, 53);
+            this.lblNationalNo.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.lblNationalNo.Name = "lblNationalNo";
-            this.lblNationalNo.Size = new System.Drawing.Size(224, 45);
+            this.lblNationalNo.Size = new System.Drawing.Size(109, 21);
             this.lblNationalNo.TabIndex = 2;
             this.lblNationalNo.Text = "National No : ";
             // 
@@ -442,10 +418,9 @@
             this.lblEmailValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblEmailValue.AutoSize = true;
             this.lblEmailValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmailValue.Location = new System.Drawing.Point(478, 523);
-            this.lblEmailValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblEmailValue.Location = new System.Drawing.Point(239, 261);
             this.lblEmailValue.Name = "lblEmailValue";
-            this.lblEmailValue.Size = new System.Drawing.Size(46, 45);
+            this.lblEmailValue.Size = new System.Drawing.Size(22, 21);
             this.lblEmailValue.TabIndex = 16;
             this.lblEmailValue.Text = "--";
             // 
@@ -454,10 +429,10 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(126, 523);
-            this.label11.Margin = new System.Windows.Forms.Padding(20, 19, 20, 19);
+            this.label11.Location = new System.Drawing.Point(63, 261);
+            this.label11.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(124, 45);
+            this.label11.Size = new System.Drawing.Size(60, 21);
             this.label11.TabIndex = 9;
             this.label11.Text = "Email : ";
             // 
@@ -466,10 +441,10 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(126, 440);
-            this.label12.Margin = new System.Windows.Forms.Padding(20, 19, 20, 19);
+            this.label12.Location = new System.Drawing.Point(63, 220);
+            this.label12.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(130, 45);
+            this.label12.Size = new System.Drawing.Size(64, 21);
             this.label12.TabIndex = 10;
             this.label12.Text = "Phone :";
             // 
@@ -478,10 +453,10 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(126, 357);
-            this.label10.Margin = new System.Windows.Forms.Padding(20, 19, 20, 19);
+            this.label10.Location = new System.Drawing.Point(63, 179);
+            this.label10.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(207, 45);
+            this.label10.Size = new System.Drawing.Size(101, 21);
             this.label10.TabIndex = 8;
             this.label10.Text = "Nationality  :";
             // 
@@ -490,10 +465,10 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(126, 274);
-            this.label6.Margin = new System.Windows.Forms.Padding(20, 19, 20, 19);
+            this.label6.Location = new System.Drawing.Point(63, 138);
+            this.label6.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 45);
+            this.label6.Size = new System.Drawing.Size(76, 21);
             this.label6.TabIndex = 4;
             this.label6.Text = "Gender : ";
             // 
@@ -502,10 +477,10 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(126, 191);
-            this.label5.Margin = new System.Windows.Forms.Padding(20, 19, 20, 19);
+            this.label5.Location = new System.Drawing.Point(63, 97);
+            this.label5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(233, 45);
+            this.label5.Size = new System.Drawing.Size(115, 21);
             this.label5.TabIndex = 3;
             this.label5.Text = "Date of Birth : ";
             // 
@@ -513,10 +488,9 @@
             // 
             this.pbFullName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbFullName.Image = ((System.Drawing.Image)(resources.GetObject("pbFullName.Image")));
-            this.pbFullName.Location = new System.Drawing.Point(6, 12);
-            this.pbFullName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbFullName.Location = new System.Drawing.Point(3, 5);
             this.pbFullName.Name = "pbFullName";
-            this.pbFullName.Size = new System.Drawing.Size(94, 58);
+            this.pbFullName.Size = new System.Drawing.Size(47, 30);
             this.pbFullName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFullName.TabIndex = 18;
             this.pbFullName.TabStop = false;
@@ -526,44 +500,54 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(126, 607);
-            this.label3.Margin = new System.Windows.Forms.Padding(20, 19, 20, 19);
+            this.label3.Location = new System.Drawing.Point(63, 310);
+            this.label3.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 45);
+            this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 25;
             this.label3.Text = "Address : ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblAddressValue
             // 
             this.lblAddressValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAddressValue.AutoSize = true;
             this.lblAddressValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressValue.Location = new System.Drawing.Point(478, 607);
-            this.lblAddressValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblAddressValue.Location = new System.Drawing.Point(239, 310);
             this.lblAddressValue.Name = "lblAddressValue";
-            this.lblAddressValue.Size = new System.Drawing.Size(46, 45);
+            this.lblAddressValue.Size = new System.Drawing.Size(22, 21);
             this.lblAddressValue.TabIndex = 27;
             this.lblAddressValue.Text = "--";
             // 
+            // llEditPersonInfo
+            // 
+            this.llEditPersonInfo.AutoSize = true;
+            this.llEditPersonInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llEditPersonInfo.Location = new System.Drawing.Point(71, 3);
+            this.llEditPersonInfo.Name = "llEditPersonInfo";
+            this.llEditPersonInfo.Size = new System.Drawing.Size(56, 17);
+            this.llEditPersonInfo.TabIndex = 4;
+            this.llEditPersonInfo.TabStop = true;
+            this.llEditPersonInfo.Text = "Edit Info";
+            this.llEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEditPersonInfo_LinkClicked);
+            // 
             // crlShowPersonInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gradientPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "crlShowPersonInformation";
-            this.Size = new System.Drawing.Size(1212, 787);
+            this.Size = new System.Drawing.Size(606, 409);
             this.Load += new System.EventHandler(this.crlShowPersonInformation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).EndInit();
             this.gradientPanel1.ResumeLayout(false);
             this.gradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.pnlBackPrifilePic.ResumeLayout(false);
             this.pnlBackPrifilePic.PerformLayout();
@@ -619,5 +603,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblShortNameUnderImage;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.LinkLabel llEditPersonInfo;
     }
 }

@@ -144,7 +144,6 @@ namespace DVLD.People.Controls
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson AddNew =new frmAddUpdatePerson();
-            AddNew.DataBack+= DataBackEvent;
             AddNew.ShowDialog();
         }
         private void DataBackEvent(object sender, clsPerson Person)

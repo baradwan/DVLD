@@ -174,6 +174,9 @@ namespace DVLD
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            clsPersonEvents.PersonAdded += OnPersonChanged;
+            clsPersonEvents.PersonUpdated += OnPersonChanged;
+            clsPersonEvents.PersonDeleted += OnPersonChanged;
             _RefreshPeopleList();
             _setupDataGridUI();
             _LoadFilterOptions();
@@ -182,41 +185,26 @@ namespace DVLD
 
 
         }
-
+        private void OnPersonChanged(int personID)
+        {
+            _RefreshPeopleList();
+        }
         private void btnPeopleAddPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frmAddPerson = new frmAddUpdatePerson();
 
-            frmAddPerson.DataBack += frmAddUpdatePerson_DataBack;
             frmAddPerson.ShowDialog();
 
 
         }
 
-        private void frmAddUpdatePerson_DataBack(object sender, clsPerson Person)
-        {
-
-            _RefreshPeopleList();
-        }
+    
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             _SearchPeopleWithFilter();
         }
 
-        private void sfDataGrid1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblTitlePeople_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -281,7 +269,7 @@ namespace DVLD
                 errorProvider1.SetError(txtSearch, "Paste is disabled for this field!");
             }
         }
-
+ 
         private void cmbFilter_TextChanged(object sender, EventArgs e)
         {
 
@@ -307,7 +295,6 @@ namespace DVLD
                 {
                     int personID = Convert.ToInt32(selectedRow["PersonID"]);
                     frmShowPerson frmShowPersonDetails = new frmShowPerson(personID);
-                    frmShowPersonDetails.OnPersonUpdated += _RefreshPeopleList;
                     frmShowPersonDetails.ShowDialog();
                 }
             }
@@ -323,7 +310,6 @@ namespace DVLD
                 {
                     int personID = Convert.ToInt32(selectedRow["PersonID"]);
                     frmAddUpdatePerson frmAddUpdatePersonDetails = new frmAddUpdatePerson(personID);
-                    frmAddUpdatePersonDetails.DataBack += frmAddUpdatePerson_DataBack;
 
                     frmAddUpdatePersonDetails.ShowDialog();
                 }
@@ -377,14 +363,11 @@ namespace DVLD
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void frmPeople_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            clsPersonEvents.PersonAdded -= OnPersonChanged;
+            clsPersonEvents.PersonUpdated -= OnPersonChanged;
+            clsPersonEvents.PersonDeleted -= OnPersonChanged;
         }
     }
 }

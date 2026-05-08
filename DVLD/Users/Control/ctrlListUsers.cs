@@ -276,7 +276,7 @@ namespace DVLD.Users.Control
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dvgList.CurrentItem != null)
+             if (dvgList.CurrentItem != null)
             {
                 DataRowView selectedRow = dvgList.CurrentItem as DataRowView;
 

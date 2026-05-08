@@ -14,7 +14,7 @@ namespace DVLD.People
     public partial class frmShowPerson : Form
     {
 
-        public event Action  OnPersonUpdated;
+     
         public frmShowPerson()
         {
 
@@ -38,19 +38,15 @@ namespace DVLD.People
         private void btnEdit_Click(object sender, EventArgs e)
         {
            frmAddUpdatePerson frmUpdate=new frmAddUpdatePerson(_PersonID);
-
-            frmUpdate.DataBack += frmUpdate_DataBack;
+            frmUpdate.PersonSaved += FrmUpdate_PersonSaved;
             frmUpdate.ShowDialog();
            
         }
 
-        private void frmUpdate_DataBack(object sender, clsPerson Person)
+        private void FrmUpdate_PersonSaved(clsPerson person)
         {
-
-            crlShowPersonInformation1.LoadPersonInformation(Person);
-          _PersonID = Person.PersonID;
-
-            OnPersonUpdated?.Invoke();
+            crlShowPersonInformation1.LoadPersonInformation(person);
+            _PersonID = person.PersonID;
         }
 
         private void frmShowPerson_Load(object sender, EventArgs e)

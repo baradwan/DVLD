@@ -47,20 +47,20 @@ namespace DVLD.Users
 
         }
 
-        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int PersonID = ctrlListUsers1.GetCurrentPersonID();
-                         if (PersonID != -1)
-            {
-                Form frm = new frmAddUpdateUser(PersonID);
-                frm.ShowDialog();
-             }
-             else
-             {
-                 MessageBox.Show("Please select a user to view details.", "No User Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+        //private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    int PersonID = ctrlListUsers1.GetCurrentPersonID();
+        //                 if (PersonID != -1)
+        //    {
+        //        Form frm = new frmAddUpdateUser(PersonID);
+        //        frm.ShowDialog();
+        //     }
+        //     else
+        //     {
+        //         MessageBox.Show("Please select a user to view details.", "No User Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
            
-        }
+        //}
 
         private void contextMenuStripEx1_Opening(object sender, CancelEventArgs e)
         {

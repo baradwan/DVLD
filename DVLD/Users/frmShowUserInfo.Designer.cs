@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.ctrlUserInfoCard1 = new DVLD.Users.Control.ctrlUserInfoCard();
             this.gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             this.btnClose = new Syncfusion.WinForms.Controls.SfButton();
-            this.btnEdit = new Syncfusion.WinForms.Controls.SfButton();
+            this.ctrlUserInfoCard1 = new DVLD.Users.Control.ctrlUserInfoCard();
             this.pnlContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
             this.gradientPanel1.SuspendLayout();
@@ -43,25 +42,15 @@
             this.pnlContent.Controls.Add(this.ctrlUserInfoCard1);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
-            this.pnlContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlContent.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(685, 510);
             this.pnlContent.TabIndex = 0;
-            // 
-            // ctrlUserInfoCard1
-            // 
-            this.ctrlUserInfoCard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlUserInfoCard1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlUserInfoCard1.Name = "ctrlUserInfoCard1";
-            this.ctrlUserInfoCard1.Size = new System.Drawing.Size(685, 510);
-            this.ctrlUserInfoCard1.TabIndex = 0;
-            this.ctrlUserInfoCard1.Load += new System.EventHandler(this.ctrlUserInfoCard1_Load);
             // 
             // gradientPanel1
             // 
             this.gradientPanel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gradientPanel1.Controls.Add(this.btnClose);
-            this.gradientPanel1.Controls.Add(this.btnEdit);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 507);
             this.gradientPanel1.Name = "gradientPanel1";
@@ -73,27 +62,23 @@
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnClose.BackColor = System.Drawing.Color.LightGray;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnClose.Location = new System.Drawing.Point(486, 7);
+            this.btnClose.Location = new System.Drawing.Point(504, 9);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(87, 37);
+            this.btnClose.Size = new System.Drawing.Size(152, 37);
             this.btnClose.Style.BackColor = System.Drawing.Color.LightGray;
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnEdit
+            // ctrlUserInfoCard1
             // 
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnEdit.BackColor = System.Drawing.Color.LightGray;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnEdit.Location = new System.Drawing.Point(592, 7);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(85, 37);
-            this.btnEdit.Style.BackColor = System.Drawing.Color.LightGray;
-            this.btnEdit.TabIndex = 0;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = false;
+            this.ctrlUserInfoCard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlUserInfoCard1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlUserInfoCard1.Name = "ctrlUserInfoCard1";
+            this.ctrlUserInfoCard1.Size = new System.Drawing.Size(685, 510);
+            this.ctrlUserInfoCard1.TabIndex = 0;
+            this.ctrlUserInfoCard1.Load += new System.EventHandler(this.ctrlUserInfoCard1_Load);
             // 
             // frmShowUserInfo
             // 
@@ -102,7 +87,7 @@
             this.ClientSize = new System.Drawing.Size(685, 561);
             this.Controls.Add(this.gradientPanel1);
             this.Controls.Add(this.pnlContent);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmShowUserInfo";
             this.Text = "frmShowUserInfo";
             this.Load += new System.EventHandler(this.frmShowUserInfo_Load);
@@ -119,6 +104,5 @@
         private Control.ctrlUserInfoCard ctrlUserInfoCard1;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel1;
         private Syncfusion.WinForms.Controls.SfButton btnClose;
-        private Syncfusion.WinForms.Controls.SfButton btnEdit;
     }
 }

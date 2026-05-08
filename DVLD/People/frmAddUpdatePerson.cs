@@ -1,5 +1,6 @@
 ﻿using DVLD.People.Controls;
 using DVLD_BusinessLayer;
+using DVLD_Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +18,10 @@ namespace DVLD.People
 
      
         private int _PersonID;
-        public delegate void DataBackHandler(object sender, clsPerson Person);
-        public event DataBackHandler DataBack;
+        //public delegate void DataBackHandler(object sender, clsPerson Person);
+        //public event DataBackHandler DataBack;
 
+        public event Action<clsPerson> PersonSaved;
 
         private enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode = enMode.AddNew;
@@ -89,7 +91,13 @@ namespace DVLD.People
             if (PersonToSave.Save())
             {
                 crlPersonalInfo.PersonID = PersonToSave.PersonID;
-                DataBack?.Invoke(this, PersonToSave);
+
+                PersonSaved?.Invoke(PersonToSave);
+                if (_Mode == enMode.AddNew)
+                    clsPersonEvents.NotifyPersonAdded(PersonToSave.PersonID);
+                else
+                    clsPersonEvents.NotifyPersonUpdated(PersonToSave.PersonID);
+                ;
                 lblTitleAddUpdateForm.Text = "Update Person";
 
                 _Mode = enMode.Update;

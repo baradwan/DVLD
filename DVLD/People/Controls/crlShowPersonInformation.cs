@@ -208,7 +208,8 @@ namespace DVLD.People.Controls
 
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            Form frm = new frmAddUpdatePerson(PersonID);
+
         }
     }
 }

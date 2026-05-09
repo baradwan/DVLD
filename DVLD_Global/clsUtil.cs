@@ -75,8 +75,17 @@ namespace DVLD_Global
         {
             try
             {
-                if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+                if (string.IsNullOrWhiteSpace(path))
+                    return false;
+
+                if(File.Exists(path))
                     File.Delete(path);
+                //if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+                //{
+                //    File.Delete(path);
+                //    return true;
+                //}
+                //return true;
                 return true;
             }
             catch

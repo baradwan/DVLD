@@ -1,5 +1,6 @@
 ﻿using DVLD.People;
 using DVLD_BusinessLayer;
+using DVLD_Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -310,6 +311,57 @@ namespace DVLD.Users.Control
                     frmAddUpdateUser frm = new frmAddUpdateUser(userID);
                     frm.ShowDialog();
                 }
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dvgList.CurrentItem == null)
+            {
+                MessageBox.Show(
+                    "Please select a user to delete.",
+                    "No User Selected",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            DataRowView selectedRow = dvgList.CurrentItem as DataRowView;
+
+            if (selectedRow == null)
+                return;
+
+            int userID = Convert.ToInt32(selectedRow["UserID"]);
+            string userName = Convert.ToString(selectedRow["UserName"]);
+
+            DialogResult result = MessageBox.Show(
+                $"Are you sure you want to delete user '{userName}'? This action cannot be undone.",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+
+            if (result != DialogResult.Yes)
+                return;
+
+            if (clsUser.DeleteUser(userID))
+            {
+                MessageBox.Show(
+                    "User deleted successfully.",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                clsUserEvents.NotifyUserDeleted(userID);
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Cannot delete this user because they are linked to other records in the system.",
+                    "Deletion Failed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
     }

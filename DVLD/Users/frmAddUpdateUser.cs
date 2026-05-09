@@ -16,6 +16,7 @@ namespace DVLD.Users
 {
     public partial class frmAddUpdateUser : Form
     {
+
         public event Action<clsUser> UserSaved;
         private enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode = enMode.AddNew;
@@ -47,6 +48,9 @@ namespace DVLD.Users
         public frmAddUpdateUser()
         {
             InitializeComponent();
+            _DefaultValues();
+            ctrlPersonInfoWithFilter1.OnPersonSelected += ctrlPersonInfoWithFilter1_OnPersonSelected;// subscribe
+
             _Mode = enMode.AddNew;
             _User = new clsUser();
 
@@ -54,6 +58,9 @@ namespace DVLD.Users
         public frmAddUpdateUser(int UserID)
         {
             InitializeComponent();
+            _DefaultValues();
+            ctrlPersonInfoWithFilter1.OnPersonSelected += ctrlPersonInfoWithFilter1_OnPersonSelected;// subscribe
+
             _UserID = UserID;
             if(_UserID != -1)
             {
@@ -94,7 +101,7 @@ namespace DVLD.Users
             txtPassword.Text = _User.Password;
             txtConfirmPassword.Text = _User.Password;
             cbIsActive.Checked = _User.IsActive;
-            ctrlPersonInfoWithFilter1.FindPerson();
+            ctrlPersonInfoWithFilter1.LoadPersonInfo(_User.PersonID);
 
         }
         private void _SetupUIforUnderlineEffect()
@@ -184,7 +191,8 @@ namespace DVLD.Users
         // Events //
         private void frmAddUser_Load(object sender, EventArgs e)
         {
-            ctrlPersonInfoWithFilter1.OnPersonSelected += ctrlPersonInfoWithFilter1_OnPersonSelected;// subscribe
+           
+
             _SetupUIforUnderlineEffect();
             _AcceptButtons();
             txtPassword.UseSystemPasswordChar = true;
@@ -195,7 +203,7 @@ namespace DVLD.Users
         private void ctrlPersonInfoWithFilter1_Load(object sender, EventArgs e)
         {
             // setErrorProvidor();
-            _DefaultValues();
+            //_DefaultValues();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -281,11 +289,21 @@ namespace DVLD.Users
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+
             if(clsUser.IsUserExistByPersonID(ctrlPersonInfoWithFilter1.PersonID))
             {
-                MessageBox.Show("This person is already associated with a user account. Please select a different person.", "Duplicate User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (!(_Mode == enMode.Update && ctrlPersonInfoWithFilter1.PersonID == _User.PersonID))
+                {
+
+                    MessageBox.Show("This person is already associated with a user account. Please select a different person.", "Duplicate User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
                 return;
+                }
+
             }
+
+            
             _AllowTabChange = true;
             tcPersonInfo.SelectedIndex = 1;
             _AllowTabChange = false;
@@ -323,6 +341,7 @@ namespace DVLD.Users
                 txtConfirmPassword.UseSystemPasswordChar = true;
             }
         }
+        
 
         private void tpLoginInfo_Click(object sender, EventArgs e)
         {

@@ -34,6 +34,7 @@ namespace DVLD.Users
             clsUserEvents.UserAdded += OnUserChanged;
             clsUserEvents.UserUpdated += OnUserChanged;
             clsUserEvents.UserDeleted += OnUserChanged;
+            clsPersonEvents.PersonUpdated +=OnUserChanged;
 
         }
 
@@ -84,6 +85,7 @@ namespace DVLD.Users
             clsUserEvents.UserAdded -= OnUserChanged;
             clsUserEvents.UserUpdated -= OnUserChanged;
             clsUserEvents.UserDeleted -= OnUserChanged;
+            clsPersonEvents.PersonUpdated -= OnUserChanged;
         }
 
         private void ctrlListUsers1_Load(object sender, EventArgs e)

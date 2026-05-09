@@ -3,6 +3,7 @@ using DVLD_Global;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Runtime.CompilerServices;
 
 namespace DVLD_BusinessLayer
@@ -199,7 +200,24 @@ namespace DVLD_BusinessLayer
 
         public static bool DeletePerson(int PersonID)
         {
-            return clsPersonData.DeletePerson(PersonID);
+
+            string imagePath = string.Empty;
+
+            bool isDeletedFromDB = clsPersonData.DeletePerson(PersonID, out imagePath);
+
+            if (!isDeletedFromDB)
+                return false;
+
+            if (!string.IsNullOrWhiteSpace(imagePath))
+            {
+                string fullPath = Path.Combine(
+                    clsProjectFolderSetting.ProjectFolderPath,
+                    imagePath);
+
+                clsUtil.DeleteIfExists(fullPath);
+            }
+
+            return true;
         }
         public static bool  IsPersonExist(int PersonID)
         {

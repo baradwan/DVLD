@@ -56,14 +56,14 @@ namespace DVLD.People.Controls
         {
 
 
-            FindPerson();
+            _FindPerson();
 
 
             if (crlShowPersonInformation1.PersonID != -1)
                 OnPersonSelected?.Invoke(crlShowPersonInformation1.PersonID);
         }
 
-        public void FindPerson() {
+        private bool _FindPerson() {
 
             string value = txtSearch.Text.Trim();
 
@@ -74,7 +74,7 @@ namespace DVLD.People.Controls
                     errorProvider1.SetError(txtSearch,
                         "Invalid Person ID");
 
-                    return;
+                    return false;
                 }
 
                 errorProvider1.SetError(txtSearch, string.Empty);
@@ -85,6 +85,16 @@ namespace DVLD.People.Controls
 
                 crlShowPersonInformation1.LoadPersonInformation(value);
             }
+            return true;
+        }
+
+        public bool LoadPersonInfo(int PersonID)
+        {
+            if (PersonID <=0)
+                return false;
+                crlShowPersonInformation1.LoadPersonInformation(PersonID);
+            OnPersonSelected?.Invoke(PersonID);
+            return true;
 
         }
         public void VisibleSearchControls(bool Visible) { 

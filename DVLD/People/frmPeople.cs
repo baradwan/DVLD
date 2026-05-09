@@ -319,40 +319,37 @@ namespace DVLD
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (dvgListPeople.CurrentItem == null)
+                return;
+            DataRowView selectedRow = dvgListPeople.CurrentItem as DataRowView;
 
-            if (dvgListPeople.CurrentItem != null)
+            if (selectedRow == null)
+                return;
+            int personID = Convert.ToInt32(selectedRow["PersonID"]);
+            if (MessageBox.Show("Are you sure you want to delete this person? This action cannot be undone.",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                return;
+
+
+            if (clsPerson.DeletePerson(personID))
             {
-                DataRowView selectedRow = dvgListPeople.CurrentItem as DataRowView;
-                if (selectedRow != null)
-                {
-                    int personID = Convert.ToInt32(selectedRow["PersonID"]);
-                    
-                    if (MessageBox.Show("Are you sure you want to delete this person? This action cannot be undone.",
-                        "Confirm Delete",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question,
-                        MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                    {
-                        if (clsPerson.DeletePerson(personID))
-                        {
-                           
-                           
-                            clsUtil.DeleteIfExists(Path.Combine(clsProjectFolderSetting.ProjectFolderPath, selectedRow["ImagePath"].ToString()));
-                            MessageBox.Show("Person deleted successfully.", "Success",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            _RefreshPeopleList();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Cannot delete this person because they are linked to other records in the system (e.g., Applications, Users, or Drivers).",
-                                                        "Deletion Failed",
-                                                        MessageBoxButtons.OK,
-                                                        MessageBoxIcon.Error);
-                        }
-                    }
-                }
+                MessageBox.Show("Person deleted successfully.", "Success",
+                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsPersonEvents.NotifyPersonDeleted(personID);
             }
-        }
+            else
+            {
+                MessageBox.Show("Cannot delete this person because they are linked to other records in the system (e.g., Applications, Users, or Drivers).",
+                                            "Deletion Failed",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+            }
+
+               
+            }
 
         private void dvgListPeople_DoubleClick(object sender, EventArgs e)
         {
@@ -372,7 +369,26 @@ namespace DVLD
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmAddUpdatePerson frmAddPerson = new frmAddUpdatePerson();
+            frmAddPerson.ShowDialog();
+        }
 
+        private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                    "This feature is not implemented yet.",
+                    "Not Implemented",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+        }
+
+        private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+        "This feature is not implemented yet.",
+        "Not Implemented",
+        MessageBoxButtons.OK,
+        MessageBoxIcon.Information);
         }
     }
 }

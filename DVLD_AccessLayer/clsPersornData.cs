@@ -290,22 +290,37 @@ namespace DVLD_AccessLayer
 
         
     }
-        public static bool DeletePerson(int PersonID)
+        public static bool DeletePerson(int PersonID, out  string ImagePath)
         {
             int rowsAffected = 0;
-
+                        ImagePath = string.Empty;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = @"Delete People 
                                 where PersonID = @PersonID";
 
+            string queryGetImagePath = "SELECT ImagePath FROM People WHERE PersonID = @PersonID";
+
+
+
             SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand cmdGetImagePath=new SqlCommand(queryGetImagePath, connection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
+            cmdGetImagePath.Parameters.AddWithValue("@PersonID", PersonID);
 
             try
             {
                 connection.Open();
+
+                object result = cmdGetImagePath.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                    ImagePath = result.ToString();
+
+
+
+
 
                 rowsAffected = command.ExecuteNonQuery();
 

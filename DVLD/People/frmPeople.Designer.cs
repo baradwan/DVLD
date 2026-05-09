@@ -33,7 +33,7 @@ namespace DVLD
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeople));
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPeopleAddPerson = new Syncfusion.WinForms.Controls.SfButton();
             this.lblTitlePeople = new System.Windows.Forms.Label();
@@ -200,12 +200,12 @@ namespace DVLD
             this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
             "Email"});
             this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
-            bannerTextInfo1.Color = System.Drawing.SystemColors.ControlDarkDark;
-            bannerTextInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo1.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo1.Text = " Search by PersonID, NationalNo,Email,...";
-            bannerTextInfo1.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtSearch, bannerTextInfo1);
+            bannerTextInfo2.Color = System.Drawing.SystemColors.ControlDarkDark;
+            bannerTextInfo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo2.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo2.Text = " Search by PersonID, NationalNo,Email,...";
+            bannerTextInfo2.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtSearch, bannerTextInfo2);
             this.txtSearch.BeforeTouchSize = new System.Drawing.Size(374, 33);
             this.txtSearch.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -318,6 +318,7 @@ namespace DVLD
             this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
             this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(203, 38);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
+            this.sendEmailToolStripMenuItem.Click += new System.EventHandler(this.sendEmailToolStripMenuItem_Click);
             // 
             // phoneCallToolStripMenuItem
             // 
@@ -325,6 +326,7 @@ namespace DVLD
             this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
             this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(203, 38);
             this.phoneCallToolStripMenuItem.Text = "Phone Call";
+            this.phoneCallToolStripMenuItem.Click += new System.EventHandler(this.phoneCallToolStripMenuItem_Click);
             // 
             // errorProvider1
             // 

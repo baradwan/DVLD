@@ -56,22 +56,34 @@ namespace DVLD.People.Controls
         {
 
 
-            LoadPersonInfo();
+            FindPerson();
 
 
             if (crlShowPersonInformation1.PersonID != -1)
                 OnPersonSelected?.Invoke(crlShowPersonInformation1.PersonID);
         }
 
-        public void LoadPersonInfo() {
+        public void FindPerson() {
+
+            string value = txtSearch.Text.Trim();
+
             if (ModeFilter == enFilterOption.PersonID)
             {
-                crlShowPersonInformation1.LoadPersonInformation(Convert.ToInt32(txtSearch.Text.Trim()));
+                if (!int.TryParse(value, out int personID))
+                {
+                    errorProvider1.SetError(txtSearch,
+                        "Invalid Person ID");
+
+                    return;
+                }
+
+                errorProvider1.SetError(txtSearch, string.Empty);
+                crlShowPersonInformation1.LoadPersonInformation(personID);
             }
             else
             {
 
-                crlShowPersonInformation1.LoadPersonInformation(txtSearch.Text.Trim());
+                crlShowPersonInformation1.LoadPersonInformation(value);
             }
 
         }
@@ -147,15 +159,7 @@ namespace DVLD.People.Controls
             frmAddUpdatePerson AddNew =new frmAddUpdatePerson();
             AddNew.ShowDialog();
         }
-        private void DataBackEvent(object sender, clsPerson Person)
-        {
-            // Handle the data received
-
-
-            cmbFilter.SelectedIndex = 1;
-            txtSearch.Text = Person.PersonID.ToString();
-            crlShowPersonInformation1.LoadPersonInformation(Person);
-        }
+       
         private void btnFindPerson_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSearch.Text))

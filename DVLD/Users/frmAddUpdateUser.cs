@@ -58,7 +58,7 @@ namespace DVLD.Users
             if(_UserID != -1)
             {
                 _Mode = enMode.Update;
-
+                ctrlPersonInfoWithFilter1.VisibleSearchControls(false);
                 _LoadData();
             }
         }
@@ -94,7 +94,7 @@ namespace DVLD.Users
             txtPassword.Text = _User.Password;
             txtConfirmPassword.Text = _User.Password;
             cbIsActive.Checked = _User.IsActive;
-            ctrlPersonInfoWithFilter1.(_User.PersonID);
+            ctrlPersonInfoWithFilter1.FindPerson();
 
         }
         private void _SetupUIforUnderlineEffect()

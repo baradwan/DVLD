@@ -111,7 +111,7 @@ namespace DVLD.Users.Control
         }
 
 
-        private void _RefreshUsersList()
+        public void RefreshUsersList()
         {
             _dtList = clsUser.ListAllUser();
                                                
@@ -220,7 +220,7 @@ namespace DVLD.Users.Control
         private void crtlListUsers_Load(object sender, EventArgs e)
         {
             _setupDataGridUI();
-            _RefreshUsersList();
+            RefreshUsersList();
           
             _LoadFiltersOptions();
             
@@ -284,8 +284,31 @@ namespace DVLD.Users.Control
                 {
                     int userID = Convert.ToInt32(selectedRow["UserID"]);
                     frmShowUserInfo frmShow = new frmShowUserInfo(userID);
-
+                    
                     frmShow.ShowDialog();
+                }
+            }
+        }
+
+        private void AddNewUserToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateUser frm= new frmAddUpdateUser();
+            frm.ShowDialog();   
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (dvgList.CurrentItem != null)
+            {
+                DataRowView selectedRow = dvgList.CurrentItem as DataRowView;
+
+                if (selectedRow != null)
+                {
+                    int userID = Convert.ToInt32(selectedRow["UserID"]);
+
+                    frmAddUpdateUser frm = new frmAddUpdateUser(userID);
+                    frm.ShowDialog();
                 }
             }
         }

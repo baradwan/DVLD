@@ -1,6 +1,7 @@
 ﻿using DVLD.Global;
 using DVLD.People.Controls;
 using DVLD_BusinessLayer;
+using DVLD_Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace DVLD.Users
 {
     public partial class frmAddUpdateUser : Form
     {
+        public event Action<clsUser> UserSaved;
         private enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode = enMode.AddNew;
         private int _UserID = -1;
@@ -56,6 +58,7 @@ namespace DVLD.Users
             if(_UserID != -1)
             {
                 _Mode = enMode.Update;
+
                 _LoadData();
             }
         }
@@ -91,6 +94,7 @@ namespace DVLD.Users
             txtPassword.Text = _User.Password;
             txtConfirmPassword.Text = _User.Password;
             cbIsActive.Checked = _User.IsActive;
+            ctrlPersonInfoWithFilter1.(_User.PersonID);
 
         }
         private void _SetupUIforUnderlineEffect()
@@ -213,15 +217,22 @@ namespace DVLD.Users
 
             if (user.Save())
             {
+
                 MessageBox.Show(
                     "User saved successfully.",
                     "Success",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
+
+                    UserSaved?.Invoke(user);
+                if (_Mode == enMode.AddNew)
+                   clsUserEvents.NotifyUserAdded(user.userID);
+                else
+                    clsUserEvents.NotifyUserUpdated(user.userID);
                 _UserID = user.userID;
                 lblUserID.Text = user.userID.ToString();
-
+                _Mode = enMode.Update;
             }
             else
             {
@@ -263,9 +274,9 @@ namespace DVLD.Users
 
         private void tcPersonInfo_Selecting(object sender, TabControlCancelEventArgs e)
         {
-                
-                   if(!_AllowTabChange)
-                 e.Cancel = true;
+
+            if (!_AllowTabChange)
+                e.Cancel = true;
         }
 
         private void btnNext_Click(object sender, EventArgs e)

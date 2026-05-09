@@ -15,14 +15,7 @@ namespace DVLD.People.Controls
     {
 
         public event Action<int> OnPersonSelected;
-        protected virtual void PersonSelected(int PersonID)
-        {
-            Action<int> handler = OnPersonSelected;
-            if (handler != null)
-            {
-                handler(PersonID); // Raise the event with the parameter
-            }
-        }
+        
 
         public int PersonID
         {
@@ -63,21 +56,29 @@ namespace DVLD.People.Controls
         {
 
 
-            if(ModeFilter==enFilterOption.PersonID)
-            {
-                crlShowPersonInformation1.LoadPersonInformation(Convert.ToInt32(txtSearch.Text.Trim()));
-            }else
-                {
-             
-                crlShowPersonInformation1.LoadPersonInformation(txtSearch.Text.Trim());
-            }
+            LoadPersonInfo();
 
-            if (OnPersonSelected!=null)
+
+            if (crlShowPersonInformation1.PersonID != -1)
                 OnPersonSelected?.Invoke(crlShowPersonInformation1.PersonID);
         }
 
+        public void LoadPersonInfo() {
+            if (ModeFilter == enFilterOption.PersonID)
+            {
+                crlShowPersonInformation1.LoadPersonInformation(Convert.ToInt32(txtSearch.Text.Trim()));
+            }
+            else
+            {
 
+                crlShowPersonInformation1.LoadPersonInformation(txtSearch.Text.Trim());
+            }
 
+        }
+        public void VisibleSearchControls(bool Visible) { 
+        
+        pnlHeader.Visible = Visible;
+        }
 
         /// EVENTS  /// ////////////////
 

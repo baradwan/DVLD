@@ -64,10 +64,9 @@
             this.btnPeopleAddUser.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPeopleAddUser.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPeopleAddUser.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnPeopleAddUser.Location = new System.Drawing.Point(2356, 35);
-            this.btnPeopleAddUser.Margin = new System.Windows.Forms.Padding(6);
+            this.btnPeopleAddUser.Location = new System.Drawing.Point(1178, 18);
             this.btnPeopleAddUser.Name = "btnPeopleAddUser";
-            this.btnPeopleAddUser.Size = new System.Drawing.Size(348, 87);
+            this.btnPeopleAddUser.Size = new System.Drawing.Size(174, 45);
             this.btnPeopleAddUser.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
             this.btnPeopleAddUser.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
             this.btnPeopleAddUser.Style.FocusedForeColor = System.Drawing.Color.White;
@@ -82,10 +81,9 @@
             this.lblTitleUser.AutoSize = true;
             this.lblTitleUser.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitleUser.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTitleUser.Location = new System.Drawing.Point(264, 17);
-            this.lblTitleUser.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblTitleUser.Location = new System.Drawing.Point(132, 9);
             this.lblTitleUser.Name = "lblTitleUser";
-            this.lblTitleUser.Size = new System.Drawing.Size(460, 86);
+            this.lblTitleUser.Size = new System.Drawing.Size(231, 45);
             this.lblTitleUser.TabIndex = 1;
             this.lblTitleUser.Text = "Manage Users";
             // 
@@ -94,10 +92,10 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(16, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(200, 154);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 80);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -109,19 +107,17 @@
             this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(6);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(2796, 154);
+            this.pnlHeader.Size = new System.Drawing.Size(1398, 80);
             this.pnlHeader.TabIndex = 1;
             // 
             // pnlContent
             // 
             this.pnlContent.Controls.Add(this.ctrlListUsers1);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(0, 154);
-            this.pnlContent.Margin = new System.Windows.Forms.Padding(6);
+            this.pnlContent.Location = new System.Drawing.Point(0, 80);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(2796, 1431);
+            this.pnlContent.Size = new System.Drawing.Size(1398, 725);
             this.pnlContent.TabIndex = 2;
             // 
             // pnlFooter
@@ -130,10 +126,9 @@
             this.pnlFooter.Controls.Add(this.lblRecordValue);
             this.pnlFooter.Controls.Add(this.label3);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 1487);
-            this.pnlFooter.Margin = new System.Windows.Forms.Padding(6);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 754);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(2796, 98);
+            this.pnlFooter.Size = new System.Drawing.Size(1398, 51);
             this.pnlFooter.TabIndex = 3;
             // 
             // btnClose
@@ -141,10 +136,9 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.Gainsboro;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnClose.Location = new System.Drawing.Point(2548, 6);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(6);
+            this.btnClose.Location = new System.Drawing.Point(1274, 3);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(224, 71);
+            this.btnClose.Size = new System.Drawing.Size(112, 37);
             this.btnClose.Style.BackColor = System.Drawing.Color.Gainsboro;
             this.btnClose.TabIndex = 7;
             this.btnClose.Text = "Close";
@@ -156,10 +150,9 @@
             this.lblRecordValue.AutoSize = true;
             this.lblRecordValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblRecordValue.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblRecordValue.Location = new System.Drawing.Point(268, 27);
-            this.lblRecordValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblRecordValue.Location = new System.Drawing.Point(134, 14);
             this.lblRecordValue.Name = "lblRecordValue";
-            this.lblRecordValue.Size = new System.Drawing.Size(66, 51);
+            this.lblRecordValue.Size = new System.Drawing.Size(34, 25);
             this.lblRecordValue.TabIndex = 6;
             this.lblRecordValue.Text = "00";
             // 
@@ -168,10 +161,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label3.Location = new System.Drawing.Point(24, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(235, 62);
+            this.label3.Size = new System.Drawing.Size(116, 31);
             this.label3.TabIndex = 5;
             this.label3.Text = "Records : ";
             // 
@@ -243,22 +235,22 @@
             // 
             this.ctrlListUsers1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctrlListUsers1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlListUsers1.Margin = new System.Windows.Forms.Padding(6);
             this.ctrlListUsers1.Name = "ctrlListUsers1";
-            this.ctrlListUsers1.Size = new System.Drawing.Size(2796, 1431);
+            this.ctrlListUsers1.Size = new System.Drawing.Size(1398, 725);
             this.ctrlListUsers1.TabIndex = 0;
+            this.ctrlListUsers1.Load += new System.EventHandler(this.ctrlListUsers1_Load);
             // 
             // frmListUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2796, 1585);
+            this.ClientSize = new System.Drawing.Size(1398, 805);
             this.Controls.Add(this.pnlFooter);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlHeader);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmListUser";
             this.Text = "frmListUser";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmListUser_FormClosing);
             this.Load += new System.EventHandler(this.frmListUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlHeader.ResumeLayout(false);

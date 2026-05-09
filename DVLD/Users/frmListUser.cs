@@ -1,5 +1,7 @@
 ﻿using DVLD.People;
 using DVLD.Users.Control;
+using DVLD_BusinessLayer;
+using DVLD_Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +29,12 @@ namespace DVLD.Users
 
         private void frmListUser_Load(object sender, EventArgs e)
         {
+
             ctrlListUsers1.CountUsersChanged += _UpdateCountUserss;
+            clsUserEvents.UserAdded += OnUserChanged;
+            clsUserEvents.UserUpdated += OnUserChanged;
+            clsUserEvents.UserDeleted += OnUserChanged;
+
         }
 
         private void _UpdateCountUserss (int Count)
@@ -40,6 +47,11 @@ namespace DVLD.Users
 
             frm.ShowDialog();
 
+        }
+
+        private void OnUserChanged(int user)
+        {
+            ctrlListUsers1.RefreshUsersList()   ;
         }
 
         private void cmsUsers_Opening(object sender, CancelEventArgs e)
@@ -65,6 +77,18 @@ namespace DVLD.Users
         private void contextMenuStripEx1_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void frmListUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            clsUserEvents.UserAdded -= OnUserChanged;
+            clsUserEvents.UserUpdated -= OnUserChanged;
+            clsUserEvents.UserDeleted -= OnUserChanged;
+        }
+
+        private void ctrlListUsers1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

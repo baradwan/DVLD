@@ -46,7 +46,7 @@ namespace DVLD.People
         private void FrmUpdate_PersonSaved(clsPerson person)
         {
             crlShowPersonInformation1.LoadPersonInformation(person);
-            _PersonID = person.PersonID;
+          //  _PersonID = person.PersonID;
         }
 
         private void frmShowPerson_Load(object sender, EventArgs e)

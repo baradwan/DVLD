@@ -77,7 +77,10 @@ namespace DVLD.People.Controls
            // _Person = clsPerson.Find(PersonID);
             if (Person == null)
             {
-                MessageBox.Show("No Person with ID = " + Person.PersonID, "Person Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No Person data was provided.",
+                           "Person Not Found",
+                           MessageBoxButtons.OK,
+                           MessageBoxIcon.Exclamation);
                 _ResetInfo();
                 return;
             }
@@ -208,8 +211,23 @@ namespace DVLD.People.Controls
 
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form frm = new frmAddUpdatePerson(PersonID);
+            frmAddUpdatePerson frm = new frmAddUpdatePerson(PersonID);
+            frm.PersonSaved += FrmUpdate_PersonSaved;
+            frm.FormClosed += (s, args) =>
+            {
+                frm.PersonSaved -= FrmUpdate_PersonSaved;
+            };
+            frm.ShowDialog();
+        }
+      
+          
+           
+        
 
+        private void FrmUpdate_PersonSaved(clsPerson person)
+        {
+           LoadPersonInformation(person);
+            
         }
     }
 }

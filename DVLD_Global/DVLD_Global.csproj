@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsPersonEvent.cs" />
+    <Compile Include="clsUserEvents.cs" />
     <Compile Include="DTOs\clsGlobalPersonDTO.cs" />
     <Compile Include="clsProjectFolderSetting.cs" />
     <Compile Include="clsUtil.cs" />

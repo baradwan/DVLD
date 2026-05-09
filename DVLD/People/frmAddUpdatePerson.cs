@@ -97,7 +97,7 @@ namespace DVLD.People
                     clsPersonEvents.NotifyPersonAdded(PersonToSave.PersonID);
                 else
                     clsPersonEvents.NotifyPersonUpdated(PersonToSave.PersonID);
-                ;
+                
                 lblTitleAddUpdateForm.Text = "Update Person";
 
                 _Mode = enMode.Update;

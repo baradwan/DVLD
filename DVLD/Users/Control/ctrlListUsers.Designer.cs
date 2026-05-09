@@ -302,6 +302,7 @@
             this.ChangePasswordtoolstripitem1.Name = "ChangePasswordtoolstripitem1";
             this.ChangePasswordtoolstripitem1.Size = new System.Drawing.Size(213, 38);
             this.ChangePasswordtoolstripitem1.Text = " Change Password";
+            this.ChangePasswordtoolstripitem1.Click += new System.EventHandler(this.ChangePasswordtoolstripitem1_Click);
             // 
             // toolStripSeparator2
             // 

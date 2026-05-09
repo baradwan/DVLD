@@ -145,6 +145,8 @@ namespace DVLD.Users
 
         private bool _ValidateUserName()
         {
+            bool isUserExist = clsUser.IsUserExist(txtUserName.Text.Trim());
+            bool IsUserSameAsExisting =  txtUserName.Text.Trim() == _User.UserName;
             bool isUserNameNotEmbpty = clsUICustomization.SetErrorProvider(txtUserName, errorProvider1,
                 string.IsNullOrWhiteSpace(txtUserName.Text), "UserName Required");
 
@@ -152,14 +154,21 @@ namespace DVLD.Users
             {
 
                 return false;
+            }
 
+
+            if (_Mode == enMode.Update && IsUserSameAsExisting)
+            {
+                return true;
             }
 
             bool isUserNotExists = clsUICustomization.SetErrorProvider(txtUserName, errorProvider1,
-                clsUser.IsUserExist(txtUserName.Text.Trim()), "UserName Already Exists");
+               isUserExist, "UserName Already Exists");
+
+            
 
 
-            return isUserNotExists;
+            return   isUserNotExists;
         }
 
         private bool _ValidatePassword()

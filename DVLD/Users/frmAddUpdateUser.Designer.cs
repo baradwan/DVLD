@@ -372,7 +372,7 @@
             bannerTextInfo3.Color = System.Drawing.Color.DimGray;
             bannerTextInfo3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             bannerTextInfo3.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo3.Text = "DVLD@DVLD.com";
+            bannerTextInfo3.Text = "UserName";
             bannerTextInfo3.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtUserName, bannerTextInfo3);
             this.txtUserName.BeforeTouchSize = new System.Drawing.Size(336, 35);

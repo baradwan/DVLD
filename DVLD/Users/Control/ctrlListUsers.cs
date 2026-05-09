@@ -15,27 +15,28 @@ namespace DVLD.Users.Control
 {
     public partial class ctrlListUsers : UserControl
     {
-        public event Action<int>CountUsersChanged;
+        public event Action<int> CountUsersChanged;
         public event Action<int> OnUserSelected;
-       
+
+
         private int _CountUsers = 0;
         public int CountUsers { get; private set; }
         public ctrlListUsers()
         {
             InitializeComponent();
 
-            
+
         }
 
         public enum enFilterOption
         {
             None = 0,
             PersonID = 1,
-           UserID = 2,
+            UserID = 2,
             FullName = 3,
             UserName = 4
-           
-           
+
+
         }
 
         public enum enIsActiveFilterOption
@@ -56,30 +57,30 @@ namespace DVLD.Users.Control
             dvgList.Style.CellStyle.HorizontalAlignment = HorizontalAlignment.Left;
             if (dvgList.Columns.Count == 0)
                 return;
-            
-           
-                // Setting Header Texts and Widths using String Keys for Safety
 
-                dvgList.Columns["UserID"].HeaderText = "User ID";
-                dvgList.Columns["UserID"].Width = 110;
 
-                dvgList.Columns["PersonID"].HeaderText = "Person ID.";
-                dvgList.Columns["PersonID"].Width = 120;
+            // Setting Header Texts and Widths using String Keys for Safety
 
-                dvgList.Columns["FullName"].HeaderText = "Full Name";
-                dvgList.Columns["FullName"].Width = 120;
+            dvgList.Columns["UserID"].HeaderText = "User ID";
+            dvgList.Columns["UserID"].Width = 110;
 
-                dvgList.Columns["UserName"].HeaderText = "Username";
-                dvgList.Columns["UserName"].Width = 140;
+            dvgList.Columns["PersonID"].HeaderText = "Person ID.";
+            dvgList.Columns["PersonID"].Width = 120;
 
-                dvgList.Columns["IsActive"].HeaderText = "Is Active";
-                dvgList.Columns["IsActive"].Width = 120;
+            dvgList.Columns["FullName"].HeaderText = "Full Name";
+            dvgList.Columns["FullName"].Width = 120;
 
-              
+            dvgList.Columns["UserName"].HeaderText = "Username";
+            dvgList.Columns["UserName"].Width = 140;
 
-                // Pro-Tip: Make the Email column fill the remaining space to avoid gray areas
-                dvgList.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            
+            dvgList.Columns["IsActive"].HeaderText = "Is Active";
+            dvgList.Columns["IsActive"].Width = 120;
+
+
+
+            // Pro-Tip: Make the Email column fill the remaining space to avoid gray areas
+            dvgList.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+
 
 
         }
@@ -91,7 +92,7 @@ namespace DVLD.Users.Control
         "User ID",
         "Full Name",
         "Username"
-      
+
                 };
 
 
@@ -102,7 +103,7 @@ namespace DVLD.Users.Control
         "All",
         "Yes",
         "No"
-        
+
 
                 };
 
@@ -115,13 +116,13 @@ namespace DVLD.Users.Control
         public void RefreshUsersList()
         {
             _dtList = clsUser.ListAllUser();
-                                               
+
             dvgList.DataSource = _dtList;
             CountUsers = _dtList.Rows.Count;
             CountUsersChanged?.Invoke(CountUsers);
         }
 
-       
+
 
         private string _GetBuilderFilterString() {
 
@@ -129,9 +130,9 @@ namespace DVLD.Users.Control
 
             ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
             string FilterColumn = "";
-          
 
-            if (ModeFilter == enFilterOption.None  || string.IsNullOrWhiteSpace(txtSearch.Text))
+
+            if (ModeFilter == enFilterOption.None || string.IsNullOrWhiteSpace(txtSearch.Text))
             {
 
                 return "";
@@ -154,14 +155,14 @@ namespace DVLD.Users.Control
             else
             {
 
-                return   $"[{FilterColumn}] LIKE '%{txtSearch.Text.Trim()}%'";
+                return $"[{FilterColumn}] LIKE '%{txtSearch.Text.Trim()}%'";
             }
-            
+
 
         }
         private string _GetBuilderActiveFilterString()
         {
-            
+
             enIsActiveFilterOption IsActiveFilterOption = (enIsActiveFilterOption)cbIsActiveFilter.SelectedIndex;
 
 
@@ -180,7 +181,7 @@ namespace DVLD.Users.Control
         {
             if (_dtList == null) return;
             List<string> Filters = new List<string>();
-           
+
             string searchFilter = _GetBuilderFilterString();
             string ActiveFilter = _GetBuilderActiveFilterString();
             if (!string.IsNullOrEmpty(searchFilter)) Filters.Add(searchFilter);
@@ -193,7 +194,7 @@ namespace DVLD.Users.Control
 
         }
 
-        public int GetCurrentPersonID() {
+        private int GetCurrentUserID() {
 
             if (dvgList.CurrentItem != null)
             {
@@ -201,9 +202,9 @@ namespace DVLD.Users.Control
 
                 if (selectedRow != null)
                 {
-                    return Convert.ToInt32(selectedRow["PersonID"]);
-                     
-                 
+                    return Convert.ToInt32(selectedRow["UserID"]);
+
+
                 }
             }
             return -1;
@@ -222,15 +223,15 @@ namespace DVLD.Users.Control
         {
             _setupDataGridUI();
             RefreshUsersList();
-          
+
             _LoadFiltersOptions();
-            
+
         }
 
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtSearch.Enabled = ((enFilterOption)cmbFilter.SelectedIndex != enFilterOption.None);
-          
+
             txtSearch.Clear();
             errorProvider1.SetError(txtSearch, "");
 
@@ -239,13 +240,13 @@ namespace DVLD.Users.Control
                 txtSearch.Focus();
             }
 
-            
+
         }
 
         private void cbIsActiveFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             _ApplyFilter();
-        
+
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -277,19 +278,16 @@ namespace DVLD.Users.Control
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             if (dvgList.CurrentItem != null)
-            {
-                DataRowView selectedRow = dvgList.CurrentItem as DataRowView;
+            int UserID = GetCurrentUserID();
+            if (UserID == -1)
+                return;
 
-                if (selectedRow != null)
-                {
-                    int userID = Convert.ToInt32(selectedRow["UserID"]);
-                    frmShowUserInfo frmShow = new frmShowUserInfo(userID);
-                    
-                    frmShow.ShowDialog();
-                }
-            }
+            frmShowUserInfo frmShow = new frmShowUserInfo(UserID);
+
+            frmShow.ShowDialog();
         }
+     
+        
 
         private void AddNewUserToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -300,18 +298,25 @@ namespace DVLD.Users.Control
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if (dvgList.CurrentItem != null)
-            {
-                DataRowView selectedRow = dvgList.CurrentItem as DataRowView;
+            //if (dvgList.CurrentItem != null)
+            //{
+            //    DataRowView selectedRow = dvgList.CurrentItem as DataRowView;
 
-                if (selectedRow != null)
-                {
-                    int userID = Convert.ToInt32(selectedRow["UserID"]);
+            //    if (selectedRow != null)
+            //    {
+            //        int userID = Convert.ToInt32(selectedRow["UserID"]);
 
-                    frmAddUpdateUser frm = new frmAddUpdateUser(userID);
-                    frm.ShowDialog();
-                }
-            }
+            //        frmAddUpdateUser frm = new frmAddUpdateUser(userID);
+            //        frm.ShowDialog();
+            //    }
+            //}
+
+
+            int UserID = GetCurrentUserID();
+            if (UserID == -1)
+                return;
+            frmAddUpdateUser frm = new frmAddUpdateUser(UserID);
+            frm.ShowDialog();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -363,6 +368,16 @@ namespace DVLD.Users.Control
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void ChangePasswordtoolstripitem1_Click(object sender, EventArgs e)
+        {
+            int UserID = GetCurrentUserID();
+            if (UserID == -1)
+                return;
+            
+            frmChangePassword frm = new frmChangePassword(UserID);
+            frm.ShowDialog();
         }
     }
     }

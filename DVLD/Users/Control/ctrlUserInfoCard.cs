@@ -45,7 +45,18 @@ namespace DVLD.Users.Control
             _FillUserInfo();
         }
 
+        public void LoadUserInfo(clsUser User)
+        {
 
+            _User = User;
+            if (_User == null)
+            {
+
+                MessageBox.Show("No User with UserID = " + UserID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            _FillUserInfo();
+        }
         private void _FillUserInfo()
         {
             crlShowPersonInformation1.LoadPersonInformation(_User.PersonID);

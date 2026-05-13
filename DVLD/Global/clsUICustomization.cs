@@ -101,7 +101,7 @@ namespace DVLD.Global
         //    return !Condition;
         //}
 
-        public static bool SetErrorProvider( Control ctrl, ErrorProvider errorProvider, bool hasError, string errorMessage)
+        public static bool SetErrorProviderAndReturnValidity( Control ctrl, ErrorProvider errorProvider, bool hasError, string errorMessage)
         {
             errorProvider.SetError(ctrl, hasError ? errorMessage : string.Empty);
             return !hasError;

@@ -4,9 +4,7 @@ using DVLD.People;
 using DVLD.Users;
 
 
-// --- هذه هي الأسطر الناقصة التي ستزيل الخطوط الحمراء ---
-using Syncfusion.WinForms.Controls; // لاستخدام SfSkinManager
-using Syncfusion.WinForms.Themes;   // لاستخدام Office2019Theme
+
 
 namespace DVLD
 {

@@ -130,12 +130,12 @@ namespace DVLD.People.Controls
 
         private void _SetErrorProvederEffect()
         {
-            clsUICustomization.SetErrorProvider(txtFirstName, errorProvider1,string.IsNullOrWhiteSpace(txtFirstName.Text) ,"First Name is required.");
+            clsUICustomization.SetErrorProviderAndReturnValidity(txtFirstName, errorProvider1,string.IsNullOrWhiteSpace(txtFirstName.Text) ,"First Name is required.");
           
-            clsUICustomization.SetErrorProvider(txtSecName, errorProvider1, string.IsNullOrWhiteSpace(txtSecName.Text), "Second Name is required.");
-            clsUICustomization.SetErrorProvider(txtLastName, errorProvider1, string.IsNullOrWhiteSpace(txtLastName.Text), "Last Name is required.");
-            clsUICustomization.SetErrorProvider(txtPhone, errorProvider1, string.IsNullOrWhiteSpace(txtPhone.Text), "Phone Number is Required");
-            clsUICustomization.SetErrorProvider(txtAddress, errorProvider1, string.IsNullOrWhiteSpace(txtAddress.Text), "Address is Required");
+            clsUICustomization.SetErrorProviderAndReturnValidity(txtSecName, errorProvider1, string.IsNullOrWhiteSpace(txtSecName.Text), "Second Name is required.");
+            clsUICustomization.SetErrorProviderAndReturnValidity(txtLastName, errorProvider1, string.IsNullOrWhiteSpace(txtLastName.Text), "Last Name is required.");
+            clsUICustomization.SetErrorProviderAndReturnValidity(txtPhone, errorProvider1, string.IsNullOrWhiteSpace(txtPhone.Text), "Phone Number is Required");
+            clsUICustomization.SetErrorProviderAndReturnValidity(txtAddress, errorProvider1, string.IsNullOrWhiteSpace(txtAddress.Text), "Address is Required");
             // clsUICustomization.SetErrorProvider(txtNationalNo, errorProvider1, "National Number is Required");
             clsUICustomization.SetOptionalEmailErrorProvider(txtEmail, errorProvider1, "Please enter a valid email address.");
         }

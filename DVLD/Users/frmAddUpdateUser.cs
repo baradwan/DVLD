@@ -48,7 +48,7 @@ namespace DVLD.Users
         public frmAddUpdateUser()
         {
             InitializeComponent();
-            _DefaultValues();
+            _DefaultButtons();
             ctrlPersonInfoWithFilter1.OnPersonSelected += ctrlPersonInfoWithFilter1_OnPersonSelected;// subscribe
 
             _Mode = enMode.AddNew;
@@ -58,7 +58,7 @@ namespace DVLD.Users
         public frmAddUpdateUser(int UserID)
         {
             InitializeComponent();
-            _DefaultValues();
+            _DefaultButtons();
             ctrlPersonInfoWithFilter1.OnPersonSelected += ctrlPersonInfoWithFilter1_OnPersonSelected;// subscribe
 
             _UserID = UserID;
@@ -66,11 +66,12 @@ namespace DVLD.Users
             {
                 _Mode = enMode.Update;
                 ctrlPersonInfoWithFilter1.VisibleSearchControls(false);
+                lblUserFormTitle.Text="Update User";
                 _LoadData();
             }
         }
 
-        private void _DefaultValues() {
+        private void _DefaultButtons() {
 
             btnNext.Enabled = false;
             btnSave.Enabled = false;
@@ -95,6 +96,8 @@ namespace DVLD.Users
         private void _LoadData()
         {
             _User = clsUser.Find(_UserID);
+            if (_User == null)
+                return;
 
             lblUserID.Text = _UserID.ToString();
             txtUserName.Text=_User.UserName;
@@ -123,18 +126,18 @@ namespace DVLD.Users
         }
 
 
-        private void setErrorProvidor() {
+        //private void setErrorProvidor() {
 
-            bool isUserNameEmpty = string.IsNullOrWhiteSpace(txtUserName.Text);
-            clsUICustomization.SetErrorProvider(txtUserName, errorProvider1, isUserNameEmpty, "UserName Reqiured");
-            bool isPasswordEmpty = string.IsNullOrWhiteSpace(txtPassword.Text);
-            clsUICustomization.SetErrorProvider(txtPassword, errorProvider1, isPasswordEmpty, "Password Required");
-            // clsUICustomization.SetErrorProvider(txtConfirmPassword, errorProvider1, "Confirm Password Required");
-        }
+        //    bool isUserNameEmpty = string.IsNullOrWhiteSpace(txtUserName.Text);
+        //    clsUICustomization.SetErrorProvider(txtUserName, errorProvider1, isUserNameEmpty, "UserName Reqiured");
+        //    bool isPasswordEmpty = string.IsNullOrWhiteSpace(txtPassword.Text);
+        //    clsUICustomization.SetErrorProvider(txtPassword, errorProvider1, isPasswordEmpty, "Password Required");
+        //    // clsUICustomization.SetErrorProvider(txtConfirmPassword, errorProvider1, "Confirm Password Required");
+        //}
         private bool _IsValidateInput()
         {
             bool isValid = true;
-
+            
             isValid &= _ValidateUserName();
             isValid &= _ValidatePassword();
             isValid &= _ValidateConfirmPassword();
@@ -147,7 +150,7 @@ namespace DVLD.Users
         {
             bool isUserExist = clsUser.IsUserExist(txtUserName.Text.Trim());
             bool IsUserSameAsExisting =  txtUserName.Text.Trim() == _User.UserName;
-            bool isUserNameNotEmbpty = clsUICustomization.SetErrorProvider(txtUserName, errorProvider1,
+            bool isUserNameNotEmbpty = clsUICustomization.SetErrorProviderAndReturnValidity(txtUserName, errorProvider1,
                 string.IsNullOrWhiteSpace(txtUserName.Text), "UserName Required");
 
             if (!isUserNameNotEmbpty)
@@ -156,24 +159,20 @@ namespace DVLD.Users
                 return false;
             }
 
-
             if (_Mode == enMode.Update && IsUserSameAsExisting)
             {
                 return true;
             }
 
-            bool isUserNotExists = clsUICustomization.SetErrorProvider(txtUserName, errorProvider1,
+            bool isUserNotExists = clsUICustomization.SetErrorProviderAndReturnValidity(txtUserName, errorProvider1,
                isUserExist, "UserName Already Exists");
-
-            
-
 
             return   isUserNotExists;
         }
 
         private bool _ValidatePassword()
         {
-            return clsUICustomization.SetErrorProvider(
+            return clsUICustomization.SetErrorProviderAndReturnValidity(
                 txtPassword,
                 errorProvider1,
                 string.IsNullOrWhiteSpace(txtPassword.Text),
@@ -182,7 +181,7 @@ namespace DVLD.Users
 
         private bool _ValidateConfirmPassword()
         {
-            if (!clsUICustomization.SetErrorProvider(
+            if (!clsUICustomization.SetErrorProviderAndReturnValidity(
                 txtConfirmPassword,
                 errorProvider1,
                 string.IsNullOrWhiteSpace(txtConfirmPassword.Text),
@@ -191,7 +190,7 @@ namespace DVLD.Users
                 return false;
             }
 
-            return clsUICustomization.SetErrorProvider(
+            return clsUICustomization.SetErrorProviderAndReturnValidity(
                 txtConfirmPassword,
                 errorProvider1,
                 txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim(),
@@ -314,7 +313,7 @@ namespace DVLD.Users
 
             
             _AllowTabChange = true;
-            tcPersonInfo.SelectedIndex = 1;
+            tcPersonInfo.SelectedTab = tcPersonInfo.TabPages["tpLoginInfo"];
             _AllowTabChange = false;
 
 
@@ -333,7 +332,7 @@ namespace DVLD.Users
         private void btnPervoius_Click(object sender, EventArgs e)
         {
             _AllowTabChange = true;
-            tcPersonInfo.SelectedIndex =0;
+            tcPersonInfo.SelectedTab = tcPersonInfo.TabPages["tpPersonInfo"];
             _AllowTabChange = false;
         }
 

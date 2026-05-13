@@ -1,4 +1,5 @@
-﻿using DVLD.People;
+﻿using DVLD.Global;
+using DVLD.People;
 using DVLD_BusinessLayer;
 using DVLD_Global;
 using System;
@@ -21,6 +22,10 @@ namespace DVLD.Users.Control
 
         private int _CountUsers = 0;
         public int CountUsers { get; private set; }
+
+        private enFilterOption _ModeFilter = enFilterOption.None;
+
+        private DataTable _dtList;
         public ctrlListUsers()
         {
             InitializeComponent();
@@ -47,9 +52,6 @@ namespace DVLD.Users.Control
         }
 
 
-        public enFilterOption ModeFilter = enFilterOption.None;
-
-        private DataTable _dtList;
 
         private void _setupDataGridUI()
         {
@@ -128,17 +130,17 @@ namespace DVLD.Users.Control
 
 
 
-            ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
+            _ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
             string FilterColumn = "";
 
 
-            if (ModeFilter == enFilterOption.None || string.IsNullOrWhiteSpace(txtSearch.Text))
+            if (_ModeFilter == enFilterOption.None || string.IsNullOrWhiteSpace(txtSearch.Text))
             {
 
                 return "";
             }
 
-            switch (ModeFilter)
+            switch (_ModeFilter)
             {
                 case enFilterOption.PersonID: FilterColumn = "PersonID"; break;
                 case enFilterOption.UserID: FilterColumn = "UserID"; break;
@@ -147,7 +149,7 @@ namespace DVLD.Users.Control
 
                 default: FilterColumn = "None"; break;
             }
-            if (ModeFilter == enFilterOption.PersonID || ModeFilter == enFilterOption.UserID)
+            if (_ModeFilter == enFilterOption.PersonID || _ModeFilter == enFilterOption.UserID)
             {
                 return $"[{FilterColumn}]={txtSearch.Text.Trim()}";
 
@@ -173,7 +175,7 @@ namespace DVLD.Users.Control
                 return "";
             }
 
-            return $"[IsActive]={(IsActiveFilter ? 1 : 0)}";
+            return $"[IsActive]={(IsActiveFilter ? 1: 0)}";
         }
 
 
@@ -223,19 +225,20 @@ namespace DVLD.Users.Control
         {
             _setupDataGridUI();
             RefreshUsersList();
-
+            
             _LoadFiltersOptions();
 
         }
 
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtSearch.Enabled = ((enFilterOption)cmbFilter.SelectedIndex != enFilterOption.None);
+            bool isNoneFilter = (enFilterOption)cmbFilter.SelectedIndex == enFilterOption.None;
+            txtSearch.ReadOnly = isNoneFilter;
 
             txtSearch.Clear();
             errorProvider1.SetError(txtSearch, "");
 
-            if (txtSearch.Enabled)
+            if (!isNoneFilter)
             {
                 txtSearch.Focus();
             }
@@ -251,11 +254,11 @@ namespace DVLD.Users.Control
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
+            _ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
             bool isNumericFilter =
-      ModeFilter == enFilterOption.PersonID ||
+      _ModeFilter == enFilterOption.PersonID ||
 
-      ModeFilter == enFilterOption.UserID;
+      _ModeFilter == enFilterOption.UserID;
 
             if (!isNumericFilter)
             {
@@ -378,6 +381,14 @@ namespace DVLD.Users.Control
             
             frmChangePassword frm = new frmChangePassword(UserID);
             frm.ShowDialog();
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            if((enFilterOption)cmbFilter.SelectedIndex == enFilterOption.None)
+            {
+                errorProvider1.SetError(  txtSearch,"Please select a filter option first.");
+            }
         }
     }
     }

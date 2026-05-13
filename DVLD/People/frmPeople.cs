@@ -209,16 +209,13 @@ namespace DVLD
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-
-
-
-            // Enable or disable the search textbox based on the selected filter option which is not None
-            txtSearch.Enabled = ((enFilterOption)cmbFilter.SelectedIndex != enFilterOption.None);
+            bool isNoneFilter = (enFilterOption)cmbFilter.SelectedIndex == enFilterOption.None;
+            txtSearch.ReadOnly = isNoneFilter;
 
             txtSearch.Clear();
             errorProvider1.SetError(txtSearch, "");
 
-            if (txtSearch.Enabled)
+            if (!isNoneFilter)
             {
                 txtSearch.Focus();
             }
@@ -389,6 +386,14 @@ namespace DVLD
         "Not Implemented",
         MessageBoxButtons.OK,
         MessageBoxIcon.Information);
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            if ((enFilterOption)cmbFilter.SelectedIndex == enFilterOption.None)
+            {
+                errorProvider1.SetError(txtSearch, "Please select a filter option first.");
+            }
         }
     }
 }

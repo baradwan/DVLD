@@ -32,24 +32,25 @@ namespace DVLD.Users
             bool IsCurrentPasswordValid = txtCurrentPassword.Text.Trim() == _User.Password;
 
 
-            clsUICustomization.SetErrorProvider(txtCurrentPassword, errorProvider1, !IsCurrentPasswordValid, "Current password is incorrect.");
+            clsUICustomization.SetErrorProviderAndReturnValidity(txtCurrentPassword, errorProvider1, !IsCurrentPasswordValid, "Current password is incorrect.");
             return IsCurrentPasswordValid;
         }
 
         private bool _IsNewPasswordValid()
         {
             bool IsNewPasswordValid = !string.IsNullOrWhiteSpace(txtNewPassword.Text) && txtNewPassword.Text.Trim() != _User.Password;
-            clsUICustomization.SetErrorProvider(txtNewPassword, errorProvider1, !IsNewPasswordValid, "New password cannot be empty or the same as the current password.");
+            clsUICustomization.SetErrorProviderAndReturnValidity(txtNewPassword, errorProvider1, !IsNewPasswordValid, "New password cannot be empty or the same as the current password.");
             return IsNewPasswordValid;
         }
         private bool _IsConfirmPasswordValid()
         {
-            bool IsPassWordEmpty = string.IsNullOrWhiteSpace(txtConfirmPassword.Text);
+            bool IsConfirmPassWordEmpty = string.IsNullOrWhiteSpace(txtConfirmPassword.Text);
             bool IsConfirmPasswordValid = txtNewPassword.Text.Trim() == txtConfirmPassword.Text.Trim();
-            clsUICustomization.SetErrorProvider(txtConfirmPassword, errorProvider1, !IsConfirmPasswordValid, "Confirm password does not match the new password.");
-            clsUICustomization.SetErrorProvider(txtConfirmPassword, errorProvider1, IsPassWordEmpty, "Confirm password cannot be empty.");
+            if (!clsUICustomization.SetErrorProviderAndReturnValidity(txtConfirmPassword, errorProvider1, IsConfirmPassWordEmpty, "Confirm password cannot be empty."))
+                return false;
+                clsUICustomization.SetErrorProviderAndReturnValidity(txtConfirmPassword, errorProvider1, !IsConfirmPasswordValid, "Confirm password does not match the new password.");
 
-            return IsConfirmPasswordValid && !IsPassWordEmpty;
+            return IsConfirmPasswordValid && !IsConfirmPassWordEmpty;
         }
 
         private bool _IsAllPasswordsValid()
@@ -73,17 +74,17 @@ namespace DVLD.Users
 
         private void txtCurrentPassword_Validating(object sender, CancelEventArgs e)
         {
-            _IsAllPasswordsValid();
+            _IsCurrentPasswordValid();
         }
 
         private void txtNewPassword_Validating(object sender, CancelEventArgs e)
         {
-            _IsAllPasswordsValid();
+            _IsNewPasswordValid();
         }
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
-            _IsAllPasswordsValid();
+            _IsConfirmPasswordValid();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

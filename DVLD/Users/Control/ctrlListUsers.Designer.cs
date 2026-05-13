@@ -184,7 +184,7 @@
             this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
             "Email"});
             this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtSearch.BeforeTouchSize = new System.Drawing.Size(100, 18);
+            this.txtSearch.BeforeTouchSize = new System.Drawing.Size(374, 33);
             this.txtSearch.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -201,6 +201,7 @@
             this.txtSearch.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
             this.txtSearch.TabIndex = 0;
             this.txtSearch.ThemeName = "Metro";
+            this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
@@ -258,7 +259,7 @@
             this.cmsUsers.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(236)))), ((int)(((byte)(249)))));
             this.cmsUsers.Name = "contextMenuStripEx1";
             this.cmsUsers.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.cmsUsers.Size = new System.Drawing.Size(214, 380);
+            this.cmsUsers.Size = new System.Drawing.Size(214, 358);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -299,6 +300,7 @@
             // 
             // ChangePasswordtoolstripitem1
             // 
+            this.ChangePasswordtoolstripitem1.Image = ((System.Drawing.Image)(resources.GetObject("ChangePasswordtoolstripitem1.Image")));
             this.ChangePasswordtoolstripitem1.Name = "ChangePasswordtoolstripitem1";
             this.ChangePasswordtoolstripitem1.Size = new System.Drawing.Size(213, 38);
             this.ChangePasswordtoolstripitem1.Text = " Change Password";

@@ -154,6 +154,11 @@ namespace DVLD.Users
                 txtConfirmPassword.UseSystemPasswordChar = true;
             }
         }
+
+        private void pnlFooter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

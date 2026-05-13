@@ -80,6 +80,7 @@ namespace DVLD
 
                 // Pro-Tip: Make the Email column fill the remaining space to avoid gray areas
                 dvgListPeople.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+
             }
 
 

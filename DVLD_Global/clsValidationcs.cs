@@ -49,5 +49,33 @@ namespace DVLD_Global
 
         }
 
+
+        public static bool IsApplicationTypeValid(clsApplicationTypeDTO applicationType)
+        {
+            if (applicationType == null)
+                return false;
+
+            if (string.IsNullOrWhiteSpace(applicationType.Title))
+                return false;
+
+            if (applicationType.Fees < 0)
+                return false;
+
+            if (applicationType.ApplicationTypeID < 0)
+                return false;
+            return true;
+        }
+
+        public static bool IsPositiveInteger(string text)
+        {
+            return int.TryParse(text, out int result) && result >= 0;
+        }
+
+        public static bool IsPositiveDecimal(string text)
+        {
+            return decimal.TryParse(text, out decimal result) && result >= 0;
+        }
+
+        
     }
 }

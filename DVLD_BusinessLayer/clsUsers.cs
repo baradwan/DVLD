@@ -121,7 +121,15 @@ namespace DVLD_BusinessLayer
 
             return clsnValidation.IsUserValid(this.UserDTO);
         }
+        public static clsUser FindUserByUsernameAndPassword(string Username, string Password)
+        { 
+            
+            clsUserDTO UserDTO = clsUserData.GetUserByUsernameAndPassword(Username, Password);
+            if (UserDTO != null)
+                return new clsUser(UserDTO);
+            return null;
 
+        } 
 
         /// <summary>
         /// Main method to save the record (Add or Update) / الدالة الرئيسية لحفظ السجل (إضافة أو تعديل)

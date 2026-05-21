@@ -100,17 +100,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\ApplicationTypes\frmEditApplicationTypes.cs">
+    <Compile Include="Applications\Application Types\frmEditApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\ApplicationTypes\frmEditApplicationTypes.Designer.cs">
+    <Compile Include="Applications\Application Types\frmEditApplicationTypes.Designer.cs">
       <DependentUpon>frmEditApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\ApplicationTypes\frmListApplicationTypes.cs">
+    <Compile Include="Applications\Application Types\frmListApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\ApplicationTypes\frmListApplicationTypes.Designer.cs">
+    <Compile Include="Applications\Application Types\frmListApplicationTypes.Designer.cs">
       <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\Test Types\frmEditTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\Test Types\frmEditTestTypes.Designer.cs">
+      <DependentUpon>frmEditTestTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\Test Types\frmListManageTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\Test Types\frmListManageTestTypes.Designer.cs">
+      <DependentUpon>frmListManageTestTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\clsUICustomization.cs" />
     <Compile Include="People\Controls\crlPersonalCard.cs">
@@ -193,11 +211,14 @@
     <Compile Include="Users\frmShowUserInfo.Designer.cs">
       <DependentUpon>frmShowUserInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Applications\ApplicationTypes\frmEditApplicationTypes.resx">
+    <EmbeddedResource Include="Applications\Application Types\frmEditApplicationTypes.resx">
       <DependentUpon>frmEditApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\ApplicationTypes\frmListApplicationTypes.resx">
+    <EmbeddedResource Include="Applications\Application Types\frmListApplicationTypes.resx">
       <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\crlPersonalCard.resx">
       <DependentUpon>crlPersonalCard.cs</DependentUpon>
@@ -224,6 +245,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Test Types\frmEditTestTypes.resx">
+      <DependentUpon>frmEditTestTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Test Types\frmListManageTestTypes.resx">
+      <DependentUpon>frmListManageTestTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\Control\ctrlListUsers.resx">
       <DependentUpon>ctrlListUsers.cs</DependentUpon>

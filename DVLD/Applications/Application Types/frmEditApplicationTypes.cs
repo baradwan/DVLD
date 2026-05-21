@@ -53,8 +53,8 @@ namespace DVLD.Applications.ApplicationTypes
         bool isTitleEmpty = string.IsNullOrWhiteSpace(txtAppTypeTitle.Text);
           
 
-            clsUICustomization.SetErrorProviderAndReturnValidity(txtAppTypeTitle, errorProvider1,
-                isTitleEmpty, "Application Type Title is required.");
+            //clsUICustomization.SetErrorProviderAndReturnValidity(txtAppTypeTitle, errorProvider1,
+            //    isTitleEmpty, "Application Type Title is required.");
 
                        
             return !isTitleEmpty && _IsFeesValid();

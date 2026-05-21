@@ -1,4 +1,5 @@
 ﻿using DVLD_BusinessLayer;
+using DVLD_Global.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -421,9 +422,20 @@ internal class Program
         // Tester.RunTest("Check UserName Exist", () => clsTestUser.Test_IsUserExistByUserName("Admin"));
 
         // اختبار الحذف (تحذير: سيحذف السجل من قاعدة البيانات)
-         Tester.RunTest("Delete User Logic", () => clsTestUser.Test_DeleteUser(21));
-        Console.ReadKey();
+        // Tester.RunTest("Delete User Logic", () => clsTestUser.Test_DeleteUser(21));
+       // Console.ReadKey();
 
+
+        clsUserDTO user22 = new clsUserDTO();
+        user22.UserName = "Ahmed210";
+        user22.Password = "A1234";
+        clsUser user01 = clsUser.FindUserByUsernameAndPassword(user22);
+
+        Console.WriteLine("UserName: " + user01.UserName);
+        Console.WriteLine("Password : "+user01.Password);
+        Console.WriteLine("UserID: " + user01.userID);
+        Console.WriteLine("Person ID: " + user01.PersonID);
+        Console.WriteLine("IS Active: " + user01.IsActive);
         }
     
 }

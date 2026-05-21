@@ -41,13 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsPersonEvent.cs" />
-    <Compile Include="clsUserEvents.cs" />
+    <Compile Include="Events\clsPersonEvent.cs" />
+    <Compile Include="Events\clsUserEvents.cs" />
     <Compile Include="DTOs\clsApplicationTypeDTO.cs" />
     <Compile Include="DTOs\clsGlobalPersonDTO.cs" />
     <Compile Include="clsProjectFolderSetting.cs" />
     <Compile Include="clsUtil.cs" />
     <Compile Include="clsValidationcs.cs" />
+    <Compile Include="DTOs\clsTestTypesDTO.cs" />
     <Compile Include="DTOs\clsUserDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -52,7 +52,7 @@ namespace DVLD_AccessLayer
             bool isFound = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = "select * from Users where UserID=@UserID;";
+            string query = @"select * from Users where UserID=@UserID;";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@UserID", UserDTO.UserID);
 
@@ -226,7 +226,7 @@ namespace DVLD_AccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = "SELECT Found=1 FROM Users WHERE UserID = @UserID";
+            string query = @"SELECT Found=1 FROM Users WHERE UserID = @UserID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -259,7 +259,7 @@ namespace DVLD_AccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = "SELECT Found=1 FROM Users WHERE PersonID = @PersonID";
+            string query = @"SELECT Found=1 FROM Users WHERE PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -292,7 +292,7 @@ namespace DVLD_AccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = "SELECT Found=1 FROM Users WHERE UserName = @UserName";
+            string query = @"SELECT Found=1 FROM Users WHERE UserName = @UserName";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -346,6 +346,58 @@ namespace DVLD_AccessLayer
         //    }
         //    return isFound;
         //}
+
+
+        public static clsUserDTO GetUserByUsernameAndPassword(string Username, string Password)
+        {
+            clsUserDTO user = null;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT UserID, PersonID, IsActive
+                     FROM Users
+                     WHERE UserName = @UserName
+                     AND Password = @Password";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@UserName",  Username);
+            command.Parameters.AddWithValue("@Password",  Password);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+
+
+                if (reader.Read())
+                {
+                    
+
+                    user.UserID = (int)reader["UserID"];
+                    user.PersonID = (int)reader["PersonID"];
+                    user.UserName = Username;
+                    user.Password = Password;
+                    user.IsActive = (bool)reader["IsActive"];
+
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                user = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return user;
+
+
+        }
     }
 }
 

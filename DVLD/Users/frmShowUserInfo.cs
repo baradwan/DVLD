@@ -13,10 +13,7 @@ namespace DVLD.Users
     public partial class frmShowUserInfo : Form
     {
         int _UserID = -1;
-        public frmShowUserInfo()
-        {
-            InitializeComponent();
-        }
+      
 
         public frmShowUserInfo(int UserID)
         {

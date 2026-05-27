@@ -99,12 +99,16 @@ namespace DVLD
             }
         }
 
-       
+
+        private void _HideAllSubMenus()
+        {
+            pnlAppDrivingLicenseContainer.Visible = false;
+        }
 
 
 
-
-
+        // EVENTS ////
+        /////////////
         private void btnPeople_Click(object sender, EventArgs e)
         {
             Form frm= new frmPeople();
@@ -143,7 +147,20 @@ namespace DVLD
 
         private void btnDrivingLicensesServices_Click(object sender, EventArgs e)
         {
+            _HideAllSubMenus();
             pnlAppDrivingLicenseContainer.Visible = true;
+        }
+
+        private void btnManageApp_Click(object sender, EventArgs e)
+        {
+            _HideAllSubMenus();
+
+        }
+
+        private void btnAccountSetting_Click(object sender, EventArgs e)
+        {
+            _HideAllSubMenus();
+            pnlAccountSetting.Visible = true;   
         }
     }
 }

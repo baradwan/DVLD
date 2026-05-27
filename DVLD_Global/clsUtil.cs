@@ -11,6 +11,7 @@ namespace DVLD_Global
 {
     public class clsUtil
     {
+       private static string file = @"..\..\..\data.txt";
         public static string GenerateGUID() { 
         
             return Guid.NewGuid().ToString();
@@ -71,6 +72,7 @@ namespace DVLD_Global
             return true;
         }
 
+        
         public static bool  DeleteIfExists(string path)
         {
             try
@@ -94,5 +96,52 @@ namespace DVLD_Global
             }
         }
 
+        private static string _DataRow(string UserName,string Password,string Seperator="#//#") {
+            List<string> data = new List<string>();
+            if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(Password))
+                return null;
+            data.Add(UserName);
+            data.Add(Password);
+           
+               return string.Join(Seperator, data);
+           
+           
+        
+        }
+        public static void RememberMe(string username,string password) {
+
+           
+            
+            string LoginInfoDataRow = _DataRow(username, password);
+            File.WriteAllText(file, LoginInfoDataRow);
+          
+
+        }
+
+        public static bool rememberMeWithInfo(ref string username, ref string password, string Seperator = "#//#") {
+
+            if (!File.Exists(file))
+                return false;
+
+            string[] RowsContent = File.ReadAllLines(file);
+
+            if (RowsContent.Length <= 0)
+                return false;
+
+          
+           
+                string[] parts = RowsContent[0].Split(new string[] { Seperator }, StringSplitOptions.None);
+                if (parts.Length >= 2)
+                {
+                    username = parts[0];
+                    password = parts[1];
+
+                  
+
+                }
+            
+            return true;
+
+            }
     }
 }

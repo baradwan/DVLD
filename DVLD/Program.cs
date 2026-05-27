@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using DVLD.Applications.ApplicationTypes;
 using DVLD.Applications.Manage_Test_Types;
+using DVLD.Login;
 using DVLD.People;
 using DVLD.Users;
 
@@ -21,7 +22,7 @@ namespace DVLD
             // أو PerMonitorV2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain ());
+            Application.Run(new frmLogin());
         }
     }
 }

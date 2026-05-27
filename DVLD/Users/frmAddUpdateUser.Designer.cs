@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUpdateUser));
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo4 = new Syncfusion.Windows.Forms.BannerTextInfo();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo5 = new Syncfusion.Windows.Forms.BannerTextInfo();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo6 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo3 = new Syncfusion.Windows.Forms.BannerTextInfo();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblUserFormTitle = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
@@ -176,7 +176,7 @@
             this.tpPersonInfo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpPersonInfo.Location = new System.Drawing.Point(4, 22);
             this.tpPersonInfo.Name = "tpPersonInfo";
-            this.tpPersonInfo.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpPersonInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tpPersonInfo.Size = new System.Drawing.Size(1323, 604);
             this.tpPersonInfo.TabIndex = 0;
             this.tpPersonInfo.Text = "Person Info";
@@ -187,7 +187,7 @@
             this.ctrlPersonInfoWithFilter1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ctrlPersonInfoWithFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPersonInfoWithFilter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ctrlPersonInfoWithFilter1.Margin = new System.Windows.Forms.Padding(4);
             this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
             this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(1317, 549);
             this.ctrlPersonInfoWithFilter1.TabIndex = 1;
@@ -238,7 +238,7 @@
             this.tpLoginInfo.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpLoginInfo.Location = new System.Drawing.Point(4, 22);
             this.tpLoginInfo.Name = "tpLoginInfo";
-            this.tpLoginInfo.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpLoginInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tpLoginInfo.Size = new System.Drawing.Size(1323, 604);
             this.tpLoginInfo.TabIndex = 1;
             this.tpLoginInfo.Text = "Login Info";
@@ -293,12 +293,12 @@
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.BackColor = System.Drawing.Color.White;
-            bannerTextInfo4.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo4.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo4.Text = "Confirm Password ";
-            bannerTextInfo4.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtConfirmPassword, bannerTextInfo4);
+            bannerTextInfo1.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo1.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo1.Text = "Confirm Password ";
+            bannerTextInfo1.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtConfirmPassword, bannerTextInfo1);
             this.txtConfirmPassword.BeforeTouchSize = new System.Drawing.Size(168, 18);
             this.txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -321,12 +321,12 @@
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.White;
-            bannerTextInfo5.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo5.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo5.Text = "Password ";
-            bannerTextInfo5.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtPassword, bannerTextInfo5);
+            bannerTextInfo2.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo2.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo2.Text = "Password ";
+            bannerTextInfo2.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtPassword, bannerTextInfo2);
             this.txtPassword.BeforeTouchSize = new System.Drawing.Size(168, 18);
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -349,12 +349,12 @@
             // txtUserName
             // 
             this.txtUserName.BackColor = System.Drawing.Color.White;
-            bannerTextInfo6.Color = System.Drawing.Color.DimGray;
-            bannerTextInfo6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            bannerTextInfo6.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
-            bannerTextInfo6.Text = "UserName";
-            bannerTextInfo6.Visible = true;
-            this.bannerTextProvider1.SetBannerText(this.txtUserName, bannerTextInfo6);
+            bannerTextInfo3.Color = System.Drawing.Color.DimGray;
+            bannerTextInfo3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            bannerTextInfo3.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
+            bannerTextInfo3.Text = "UserName";
+            bannerTextInfo3.Visible = true;
+            this.bannerTextProvider1.SetBannerText(this.txtUserName, bannerTextInfo3);
             this.txtUserName.BeforeTouchSize = new System.Drawing.Size(168, 18);
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

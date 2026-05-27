@@ -11,22 +11,33 @@ using System.Windows.Forms;
 
 namespace DVLD.Global
 {
-    public  static class clsUICustomization
+    public static class clsUICustomization
     {
+
         public static void LinkUnderlineWithTextBox(TextBox txt, Panel pnl)
         {
-            pnl.BackColor = Color.Gray;
+
+            LinkUnderlineWithTextBox(txt, pnl, Color.DodgerBlue, Color.Gray);
+        }
+        public static void LinkUnderlineWithTextBox(TextBox txt, Panel pnl, Color EnterColor)
+        {
+
+            LinkUnderlineWithTextBox(txt, pnl, EnterColor, Color.Gray);
+        }
+        public static void LinkUnderlineWithTextBox(TextBox txt, Panel pnl, Color EnterColor, Color LeaveColor)
+        {
+            pnl.BackColor = LeaveColor;
             // عند الضغط داخل التيكست بوكس (Enter)
             txt.Enter += (s, e) =>
             {
-                pnl.BackColor = Color.DodgerBlue;
+                pnl.BackColor = EnterColor;
                 pnl.Height = 2; // تسميك الخط قليلاً عند التركيز
             };
 
 
             txt.Leave += (s, e) =>
             {
-                pnl.BackColor = Color.Gray;
+                pnl.BackColor = LeaveColor;
                 pnl.Height = 1;
             };
         }
@@ -101,7 +112,7 @@ namespace DVLD.Global
         //    return !Condition;
         //}
 
-        public static bool SetErrorProviderAndReturnValidity( Control ctrl, ErrorProvider errorProvider, bool hasError, string errorMessage)
+        public static bool SetErrorProviderAndReturnValidity(Control ctrl, ErrorProvider errorProvider, bool hasError, string errorMessage)
         {
             errorProvider.SetError(ctrl, hasError ? errorMessage : string.Empty);
             return !hasError;
@@ -123,5 +134,133 @@ namespace DVLD.Global
             };
         }
 
+
+        public static int GetFullHeightOfControls(Control control)
+        {
+            int fullHeight = 10;
+            foreach (Control ctrl in control.Controls)
+            {
+                fullHeight += ctrl.Height;
+            }
+            return fullHeight;
+        }
+        public static int GetFullWidthOfControls(Control control)
+        {
+            int fullWidth = 10;
+            foreach (Control ctrl in control.Controls)
+            {
+                fullWidth += ctrl.Width;
+            }
+            return fullWidth;
+        }
+
+        public static void SetupButtonsHoverEffect(Control container, Color defaultColor, Color hoverColor)
+        {
+            // تعريف الألوان للنصوص (اختياري)
+            Color textColor = Color.White;
+
+            // المرور على جميع العناصر داخل الحاوية
+            foreach (Control ctrl in container.Controls)
+            {
+                if (ctrl is Button btn) // تأكد من أن العنصر هو زر
+                {
+                    // ضبط الخصائص الأساسية
+                    btn.BackColor = defaultColor;
+                    btn.ForeColor = textColor;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderSize = 0; // إزالة الحواف الافتراضية
+                    btn.Cursor = Cursors.Hand;        // تغيير شكل الفأرة
+
+                    // ربط الأحداث (Events)
+                    btn.MouseEnter += (s, e) => btn.BackColor = hoverColor;
+                    btn.MouseLeave += (s, e) => btn.BackColor = defaultColor;
+                }
+            }
+        }
+
+        public static void ToggleAnimation(Control target, int fullSize, int NormalSize, int step, bool isVertical, Action onFinished)
+        {
+            Timer timer = new Timer { Interval = 10 };
+            bool isExpanding;
+
+            if (isVertical)
+                isExpanding = target.Height <= NormalSize;
+            else
+                isExpanding = target.Width <= NormalSize;
+
+            timer.Tick += (s, e) =>
+            {
+                if (isVertical)
+                {
+                    // ===== EXPAND =====
+                    if (isExpanding)
+                    {
+                        target.Height += step;
+
+                        if (target.Height >= fullSize)
+                        {
+                            target.Height = fullSize;
+
+                            timer.Stop();
+                            timer.Dispose();
+
+                            onFinished?.Invoke();
+                        }
+                    }
+
+                    // ===== COLLAPSE =====
+                    else
+                    {
+                        target.Height -= step;
+
+                        if (target.Height <= NormalSize)
+                        {
+                            target.Height = NormalSize;
+
+                            timer.Stop();
+                            timer.Dispose();
+
+                            onFinished?.Invoke();
+                        }
+                    }
+                }
+                else
+                {
+                    // ===== EXPAND =====
+                    if (isExpanding)
+                    {
+                        target.Width += step;
+
+                        if (target.Width >= fullSize)
+                        {
+                            target.Width = fullSize;
+
+                            timer.Stop();
+                            timer.Dispose();
+
+                            onFinished?.Invoke();
+                        }
+                    }
+
+                    // ===== COLLAPSE =====
+                    else
+                    {
+                        target.Width -= step;
+
+                        if (target.Width <= NormalSize)
+                        {
+                            target.Width = NormalSize;
+
+                            timer.Stop();
+                            timer.Dispose();
+
+                            onFinished?.Invoke();
+                        }
+                    }
+                }
+            };
+
+            timer.Start();
+        }
     }
 }

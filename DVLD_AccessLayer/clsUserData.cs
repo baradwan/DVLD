@@ -372,13 +372,16 @@ namespace DVLD_AccessLayer
 
                 if (reader.Read())
                 {
-                    
 
-                    user.UserID = (int)reader["UserID"];
-                    user.PersonID = (int)reader["PersonID"];
-                    user.UserName = Username;
-                    user.Password = Password;
-                    user.IsActive = (bool)reader["IsActive"];
+                    user = new clsUserDTO
+                    {
+
+                        UserID = Convert.ToInt32(reader["UserID"]),
+                        PersonID = Convert.ToInt32(reader["PersonID"]),
+                        UserName = Username,
+                        Password = Password,
+                        IsActive = Convert.ToBoolean(reader["IsActive"])
+                    };
 
                 }
 

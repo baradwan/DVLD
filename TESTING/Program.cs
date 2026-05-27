@@ -429,7 +429,7 @@ internal class Program
         clsUserDTO user22 = new clsUserDTO();
         user22.UserName = "Ahmed210";
         user22.Password = "A1234";
-        clsUser user01 = clsUser.FindUserByUsernameAndPassword(user22);
+        clsUser user01 = clsUser.FindUserByUsernameAndPassword(user22.UserName, user22.Password);
 
         Console.WriteLine("UserName: " + user01.UserName);
         Console.WriteLine("Password : "+user01.Password);

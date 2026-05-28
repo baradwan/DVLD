@@ -99,7 +99,7 @@ namespace DVLD_Global
         private static string _DataRow(string UserName,string Password,string Seperator="#//#") {
             List<string> data = new List<string>();
             if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(Password))
-                return null;
+                return string.Empty;
             data.Add(UserName);
             data.Add(Password);
            
@@ -113,9 +113,15 @@ namespace DVLD_Global
            
             
             string LoginInfoDataRow = _DataRow(username, password);
+            if (string.IsNullOrWhiteSpace(LoginInfoDataRow))
+                return;
             File.WriteAllText(file, LoginInfoDataRow);
           
 
+        }
+        public static void ClearRememberMe()
+        {
+            DeleteIfExists(file);
         }
 
         public static bool rememberMeWithInfo(ref string username, ref string password, string Seperator = "#//#") {
@@ -123,25 +129,30 @@ namespace DVLD_Global
             if (!File.Exists(file))
                 return false;
 
+
             string[] RowsContent = File.ReadAllLines(file);
 
             if (RowsContent.Length <= 0)
                 return false;
 
-          
-           
-                string[] parts = RowsContent[0].Split(new string[] { Seperator }, StringSplitOptions.None);
+            if (string.IsNullOrWhiteSpace(RowsContent[0]))
+                return false;
+
+
+            string[] parts = RowsContent[0].Split(new string[] { Seperator }, StringSplitOptions.None);
+
+            if (string.IsNullOrWhiteSpace(parts[0]) || string.IsNullOrWhiteSpace(parts[1]))
+                return false;
+
                 if (parts.Length >= 2)
                 {
                     username = parts[0];
                     password = parts[1];
 
-                  
-
-                }
-            
             return true;
+                }
 
-            }
+            return false;
+        }
     }
 }

@@ -14,43 +14,43 @@ namespace DVLD_BusinessLayer
     public class clsPerson
     {
 
-        public void Print()
-        {
-            Console.WriteLine("\n==================================================");
-            Console.WriteLine("                PERSON FULL DETAILS               ");
-            Console.WriteLine("==================================================");
+        //public void Print()
+        //{
+        //    Console.WriteLine("\n==================================================");
+        //    Console.WriteLine("                PERSON FULL DETAILS               ");
+        //    Console.WriteLine("==================================================");
 
-            Console.WriteLine($"ID              : {this.PersonID}");
-            Console.WriteLine($"National No     : {this.NationalNo}");
+        //    Console.WriteLine($"ID              : {this.PersonID}");
+        //    Console.WriteLine($"National No     : {this.NationalNo}");
 
-            // Handling ThirdName (it can be empty)
-            string fullName = $"{this.FirstName} {this.SecondName} {this.ThirdName} {this.LastName}".Replace("  ", " ");
-            Console.WriteLine($"Full Name       : {fullName}");
+        //    // Handling ThirdName (it can be empty)
+        //    string fullName = $"{this.FirstName} {this.SecondName} {this.ThirdName} {this.LastName}".Replace("  ", " ");
+        //    Console.WriteLine($"Full Name       : {fullName}");
 
-            // Individual Name Components
-            Console.WriteLine($"First Name      : {this.FirstName}");
-            Console.WriteLine($"Second Name     : {this.SecondName}");
-            Console.WriteLine($"Third Name      : {(string.IsNullOrEmpty(this.ThirdName) ? "[None]" : this.ThirdName)}");
-            Console.WriteLine($"Last Name       : {this.LastName}");
+        //    // Individual Name Components
+        //    Console.WriteLine($"First Name      : {this.FirstName}");
+        //    Console.WriteLine($"Second Name     : {this.SecondName}");
+        //    Console.WriteLine($"Third Name      : {(string.IsNullOrEmpty(this.ThirdName) ? "[None]" : this.ThirdName)}");
+        //    Console.WriteLine($"Last Name       : {this.LastName}");
 
-            // Formatting Date
-            Console.WriteLine($"Date Of Birth   : {this.DateOfBirth.ToShortDateString()}");
+        //    // Formatting Date
+        //    Console.WriteLine($"Date Of Birth   : {this.DateOfBirth.ToShortDateString()}");
 
-            // Gender Logic (0: Male, 1: Female)
-            Console.WriteLine($"Gender          : {(this.Gendor == 0 ? "Male" : "Female")}");
+        //    // Gender Logic (0: Male, 1: Female)
+        //    Console.WriteLine($"Gender          : {(this.Gendor == 0 ? "Male" : "Female")}");
 
-            Console.WriteLine($"Nationality ID  : {this.NationalityCountryID}");
-            Console.WriteLine($"Phone           : {this.Phone}");
+        //    Console.WriteLine($"Nationality ID  : {this.NationalityCountryID}");
+        //    Console.WriteLine($"Phone           : {this.Phone}");
 
-            // Handling Nullable/Optional Fields
-            Console.WriteLine($"Email           : {(string.IsNullOrEmpty(this.Email) ? "N/A" : this.Email)}");
-            Console.WriteLine($"Address         : {this.Address}");
+        //    // Handling Nullable/Optional Fields
+        //    Console.WriteLine($"Email           : {(string.IsNullOrEmpty(this.Email) ? "N/A" : this.Email)}");
+        //    Console.WriteLine($"Address         : {this.Address}");
 
-            // Image Path
-            Console.WriteLine($"Image Path      : {(string.IsNullOrEmpty(this.ImagePath) ? "No Image" : this.ImagePath)}");
+        //    // Image Path
+        //    Console.WriteLine($"Image Path      : {(string.IsNullOrEmpty(this.ImagePath) ? "No Image" : this.ImagePath)}");
 
-            Console.WriteLine("==================================================\n");
-        }
+        //    Console.WriteLine("==================================================\n");
+        //}
         /// <summary>
         /// Defines whether the object is for a new record or an update / يحدد ما إذا كان الكائن لسجل جديد أو لتعديل سجل موجود
         /// </summary>

@@ -14,6 +14,10 @@ namespace DVLD.Main.Controls
 {
     public partial class ctrlAccountSetting : UserControl
     {
+
+        public  event Action OnUserSignOut;
+
+
         public ctrlAccountSetting()
         {
             InitializeComponent();
@@ -34,8 +38,8 @@ namespace DVLD.Main.Controls
 
         private void btnSignOut_Click(object sender, EventArgs e)
         {
-            Application.Restart();
-           
+            CurrentUser.User = null;
+            OnUserSignOut?.Invoke();
         }
     }
 }

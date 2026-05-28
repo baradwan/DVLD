@@ -46,7 +46,12 @@
             this.pnlSperator = new System.Windows.Forms.Panel();
             this.btnApplication = new Syncfusion.WinForms.Controls.SfButton();
             this.pnlMainView = new System.Windows.Forms.Panel();
+            this.pnlAccountSetting = new System.Windows.Forms.Panel();
+            this.ctrlAccountSetting1 = new DVLD.Main.Controls.ctrlAccountSetting();
+            this.pnlAccountSettingHeader = new System.Windows.Forms.Panel();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlAppDrivingLicenseContainer = new System.Windows.Forms.Panel();
+            this.ctrlAppDrivingLicenseService = new DVLD.Main.ctrlAppDrivingLicenseService();
             this.pnlAppDrivingLicenseHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlList = new System.Windows.Forms.Panel();
@@ -72,15 +77,13 @@
             this.btnAddPerson = new Syncfusion.WinForms.Controls.SfButton();
             this.lblheaderTitle = new System.Windows.Forms.Label();
             this.timerDropdown = new System.Windows.Forms.Timer(this.components);
-            this.ctrlAppDrivingLicenseService = new DVLD.Main.ctrlAppDrivingLicenseService();
-            this.pnlAccountSetting = new System.Windows.Forms.Panel();
-            this.pnlAccountSettingHeader = new System.Windows.Forms.Panel();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.ctrlAccountSetting1 = new DVLD.Main.Controls.ctrlAccountSetting();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlSlider.SuspendLayout();
             this.pnlAppContainer.SuspendLayout();
             this.pnlMainView.SuspendLayout();
+            this.pnlAccountSetting.SuspendLayout();
+            this.pnlAccountSettingHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlAppDrivingLicenseContainer.SuspendLayout();
             this.pnlAppDrivingLicenseHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,9 +95,6 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnlHeader.SuspendLayout();
-            this.pnlAccountSetting.SuspendLayout();
-            this.pnlAccountSettingHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -345,6 +345,45 @@
             this.pnlMainView.Size = new System.Drawing.Size(920, 572);
             this.pnlMainView.TabIndex = 1;
             // 
+            // pnlAccountSetting
+            // 
+            this.pnlAccountSetting.Controls.Add(this.ctrlAccountSetting1);
+            this.pnlAccountSetting.Controls.Add(this.pnlAccountSettingHeader);
+            this.pnlAccountSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAccountSetting.Location = new System.Drawing.Point(0, 138);
+            this.pnlAccountSetting.Name = "pnlAccountSetting";
+            this.pnlAccountSetting.Size = new System.Drawing.Size(920, 434);
+            this.pnlAccountSetting.TabIndex = 3;
+            this.pnlAccountSetting.Visible = false;
+            // 
+            // ctrlAccountSetting1
+            // 
+            this.ctrlAccountSetting1.Location = new System.Drawing.Point(0, 296);
+            this.ctrlAccountSetting1.Name = "ctrlAccountSetting1";
+            this.ctrlAccountSetting1.Size = new System.Drawing.Size(430, 130);
+            this.ctrlAccountSetting1.TabIndex = 2;
+            this.ctrlAccountSetting1.Load += new System.EventHandler(this.ctrlAccountSetting1_Load);
+            // 
+            // pnlAccountSettingHeader
+            // 
+            this.pnlAccountSettingHeader.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pnlAccountSettingHeader.Controls.Add(this.pbLogo);
+            this.pnlAccountSettingHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAccountSettingHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlAccountSettingHeader.Name = "pnlAccountSettingHeader";
+            this.pnlAccountSettingHeader.Size = new System.Drawing.Size(920, 207);
+            this.pnlAccountSettingHeader.TabIndex = 1;
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(3, -3);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(201, 187);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
+            // 
             // pnlAppDrivingLicenseContainer
             // 
             this.pnlAppDrivingLicenseContainer.Controls.Add(this.ctrlAppDrivingLicenseService);
@@ -355,6 +394,14 @@
             this.pnlAppDrivingLicenseContainer.Size = new System.Drawing.Size(920, 434);
             this.pnlAppDrivingLicenseContainer.TabIndex = 2;
             this.pnlAppDrivingLicenseContainer.Visible = false;
+            // 
+            // ctrlAppDrivingLicenseService
+            // 
+            this.ctrlAppDrivingLicenseService.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlAppDrivingLicenseService.Location = new System.Drawing.Point(0, 207);
+            this.ctrlAppDrivingLicenseService.Name = "ctrlAppDrivingLicenseService";
+            this.ctrlAppDrivingLicenseService.Size = new System.Drawing.Size(920, 227);
+            this.ctrlAppDrivingLicenseService.TabIndex = 2;
             // 
             // pnlAppDrivingLicenseHeader
             // 
@@ -645,52 +692,6 @@
             this.lblheaderTitle.TabIndex = 2;
             this.lblheaderTitle.Text = "System Overview";
             // 
-            // ctrlAppDrivingLicenseService
-            // 
-            this.ctrlAppDrivingLicenseService.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlAppDrivingLicenseService.Location = new System.Drawing.Point(0, 207);
-            this.ctrlAppDrivingLicenseService.Name = "ctrlAppDrivingLicenseService";
-            this.ctrlAppDrivingLicenseService.Size = new System.Drawing.Size(920, 227);
-            this.ctrlAppDrivingLicenseService.TabIndex = 2;
-            // 
-            // pnlAccountSetting
-            // 
-            this.pnlAccountSetting.Controls.Add(this.ctrlAccountSetting1);
-            this.pnlAccountSetting.Controls.Add(this.pnlAccountSettingHeader);
-            this.pnlAccountSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlAccountSetting.Location = new System.Drawing.Point(0, 138);
-            this.pnlAccountSetting.Name = "pnlAccountSetting";
-            this.pnlAccountSetting.Size = new System.Drawing.Size(920, 434);
-            this.pnlAccountSetting.TabIndex = 3;
-            this.pnlAccountSetting.Visible = false;
-            // 
-            // pnlAccountSettingHeader
-            // 
-            this.pnlAccountSettingHeader.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.pnlAccountSettingHeader.Controls.Add(this.pbLogo);
-            this.pnlAccountSettingHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlAccountSettingHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlAccountSettingHeader.Name = "pnlAccountSettingHeader";
-            this.pnlAccountSettingHeader.Size = new System.Drawing.Size(920, 207);
-            this.pnlAccountSettingHeader.TabIndex = 1;
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(3, -3);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(201, 187);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
-            // 
-            // ctrlAccountSetting1
-            // 
-            this.ctrlAccountSetting1.Location = new System.Drawing.Point(0, 296);
-            this.ctrlAccountSetting1.Name = "ctrlAccountSetting1";
-            this.ctrlAccountSetting1.Size = new System.Drawing.Size(430, 130);
-            this.ctrlAccountSetting1.TabIndex = 2;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -706,6 +707,9 @@
             this.pnlSlider.ResumeLayout(false);
             this.pnlAppContainer.ResumeLayout(false);
             this.pnlMainView.ResumeLayout(false);
+            this.pnlAccountSetting.ResumeLayout(false);
+            this.pnlAccountSettingHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.pnlAppDrivingLicenseContainer.ResumeLayout(false);
             this.pnlAppDrivingLicenseHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -722,9 +726,6 @@
             this.panel4.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            this.pnlAccountSetting.ResumeLayout(false);
-            this.pnlAccountSettingHeader.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

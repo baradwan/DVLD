@@ -66,6 +66,7 @@ namespace DVLD.Login
         {
             if (!_CheckLogin())
             {
+                txtUsername.Focus();
                 MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -82,13 +83,13 @@ namespace DVLD.Login
 
             }else
             {
-                clsUtil.RememberMe(string.Empty, string.Empty);
+                clsUtil.ClearRememberMe();
             }
 
             CurrentUser.User = _User;
 
-            Form frm =new frmMain();
-           this.Hide();
+            this.Hide();
+            Form frm =new frmMain(this);
             frm.ShowDialog();
         }
     }

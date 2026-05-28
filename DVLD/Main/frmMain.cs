@@ -1,4 +1,11 @@
-﻿using System;
+﻿using DVLD.Global;
+using DVLD.Login;
+using DVLD.Users;
+using DVLD_BusinessLayer;
+using Syncfusion.WinForms.Controls;
+using Syncfusion.WinForms.Core;
+using Syncfusion.WinForms.Themes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +14,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Syncfusion.WinForms.Controls;
-
-
-using Syncfusion.WinForms.Themes;
-using Syncfusion.WinForms.Core;
-using DVLD.Users;
-using DVLD_BusinessLayer;
-using DVLD.Global;
 
 
 namespace DVLD
@@ -27,8 +26,10 @@ namespace DVLD
         private const int AnimationStep = 20;
         private  int NormalSize =0;
            int fullHeight=0;
+
+        frmLogin _frmLogin;
         clsUser _User = new clsUser();
-        public frmMain()
+        public frmMain(frmLogin frm)
 
         {
             
@@ -39,7 +40,7 @@ namespace DVLD
             Syncfusion.WinForms.Controls.SfSkinManager.LoadAssembly(typeof(Syncfusion.WinForms.Themes.Office2019Theme).Assembly);
             Syncfusion.WinForms.Controls.SfSkinManager.SetTheme(this, "Office2019Colorful");
 
-
+            _frmLogin = frm;
 
 
         }
@@ -109,8 +110,39 @@ namespace DVLD
 
         // EVENTS ////
         /////////////
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+           
+
+            Color primaryBlue = Color.FromArgb(2, 132, 199);
+            Color hoverBlue = Color.FromArgb(3, 105, 161);
+
+            clsUICustomization.SetupButtonsHoverEffect(pnlAppContainer, primaryBlue, hoverBlue);
+            fullHeight = clsUICustomization.GetFullHeightOfControls(pnlAppContainer);
+            NormalSize = pnlAppContainer.Height;
+
+            //OptimizeSidebarButtons();
+            //EnableDoubleBuffering();
+            ctrlAccountSetting1.OnUserSignOut += AccountSeeting_Signout;
+        }
+
+        private void AccountSeeting_Signout()
+        {
+            DialogResult result = MessageBox.Show(
+       "Are you sure you want to sign out?",
+       "Confirm Sign Out",
+       MessageBoxButtons.YesNo,
+       MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+                return;
+            _frmLogin.Show();
+            this.Close();
+        }
+
         private void btnPeople_Click(object sender, EventArgs e)
         {
+
             Form frm= new frmPeople();
             frm.ShowDialog();
         }
@@ -130,19 +162,6 @@ namespace DVLD
         }
 
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            Color primaryBlue = Color.FromArgb(2, 132, 199);
-            Color hoverBlue = Color.FromArgb(3, 105, 161);
-
-            clsUICustomization.SetupButtonsHoverEffect(pnlAppContainer, primaryBlue, hoverBlue);
-            fullHeight = clsUICustomization.GetFullHeightOfControls(pnlAppContainer);
-            NormalSize = pnlAppContainer.Height;
-
-            //OptimizeSidebarButtons();
-            //EnableDoubleBuffering();
-        }
-
        
 
         private void btnDrivingLicensesServices_Click(object sender, EventArgs e)
@@ -161,6 +180,11 @@ namespace DVLD
         {
             _HideAllSubMenus();
             pnlAccountSetting.Visible = true;   
+        }
+
+        private void ctrlAccountSetting1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

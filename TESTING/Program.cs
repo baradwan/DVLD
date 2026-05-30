@@ -125,7 +125,7 @@ namespace TESTING
             // Assuming ID 1 exists in your database
             clsPerson person = clsPerson.Find(ID);
             _PrintResult("Find Person By ID (Existing)", person != null);
-            person.Print();
+           // person.Print();
         }
 
         // 2. Test finding a person that does NOT exist
@@ -426,16 +426,21 @@ internal class Program
        // Console.ReadKey();
 
 
-        clsUserDTO user22 = new clsUserDTO();
-        user22.UserName = "Ahmed210";
-        user22.Password = "A1234";
-        clsUser user01 = clsUser.FindUserByUsernameAndPassword(user22.UserName, user22.Password);
+        //clsUserDTO user22 = new clsUserDTO();
+        //user22.UserName = "Ahmed210";
+        //user22.Password = "A1234";
+        //clsUser user01 = clsUser.FindUserByUsernameAndPassword(user22.UserName, user22.Password);
 
-        Console.WriteLine("UserName: " + user01.UserName);
-        Console.WriteLine("Password : "+user01.Password);
-        Console.WriteLine("UserID: " + user01.userID);
-        Console.WriteLine("Person ID: " + user01.PersonID);
-        Console.WriteLine("IS Active: " + user01.IsActive);
+        //Console.WriteLine("UserName: " + user01.UserName);
+        //Console.WriteLine("Password : "+user01.Password);
+        //Console.WriteLine("UserID: " + user01.userID);
+        //Console.WriteLine("Person ID: " + user01.PersonID);
+        //Console.WriteLine("IS Active: " + user01.IsActive);
+
+        decimal Amount=312.78m;
+
+        Console.WriteLine(Amount.ToString("C"));
+
         }
     
 }

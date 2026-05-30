@@ -87,8 +87,8 @@ namespace DVLD_BusinessLayer
         /// <returns>True if added successfully / صحيح إذا تمت الإضافة بنجاح</returns>
         private bool _AddNewUser()
         {
-            if (IsUserExist(this.userID))
-                return false;
+            //if (IsUserExist(this.userID))
+            //    return false;
 
             this.userID = clsUserData.AddNewUser(this.UserDTO);
             return this.userID != -1;
@@ -145,8 +145,7 @@ namespace DVLD_BusinessLayer
             switch (Mode)
             {
                 case enMode.AddNewUser:
-                    if (IsUserExist(this.userID))
-                        return false;
+                      
 
                     if (_AddNewUser())
                     {

@@ -20,7 +20,7 @@ namespace DVLD.Users.Control
         public event Action<int> OnUserSelected;
 
 
-        private int _CountUsers = 0;
+        //private int _CountUsers = 0;
         public int CountUsers { get; private set; }
 
         private enFilterOption _ModeFilter = enFilterOption.None;

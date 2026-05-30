@@ -136,7 +136,7 @@
             this.btnAccountSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccountSetting.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnAccountSetting.ForeColor = System.Drawing.Color.White;
-            this.btnAccountSetting.Location = new System.Drawing.Point(0, 202);
+            this.btnAccountSetting.Location = new System.Drawing.Point(0, 447);
             this.btnAccountSetting.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccountSetting.Name = "btnAccountSetting";
             this.btnAccountSetting.Size = new System.Drawing.Size(126, 52);
@@ -154,7 +154,7 @@
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUser.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnUser.ForeColor = System.Drawing.Color.White;
-            this.btnUser.Location = new System.Drawing.Point(0, 152);
+            this.btnUser.Location = new System.Drawing.Point(0, 397);
             this.btnUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(126, 50);
@@ -172,7 +172,7 @@
             this.btnDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDriver.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnDriver.ForeColor = System.Drawing.Color.White;
-            this.btnDriver.Location = new System.Drawing.Point(0, 102);
+            this.btnDriver.Location = new System.Drawing.Point(0, 347);
             this.btnDriver.Margin = new System.Windows.Forms.Padding(2);
             this.btnDriver.Name = "btnDriver";
             this.btnDriver.Size = new System.Drawing.Size(126, 50);
@@ -189,7 +189,7 @@
             this.btnPeople.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPeople.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnPeople.ForeColor = System.Drawing.Color.White;
-            this.btnPeople.Location = new System.Drawing.Point(0, 52);
+            this.btnPeople.Location = new System.Drawing.Point(0, 297);
             this.btnPeople.Margin = new System.Windows.Forms.Padding(2);
             this.btnPeople.Name = "btnPeople";
             this.btnPeople.Size = new System.Drawing.Size(126, 50);
@@ -212,7 +212,7 @@
             this.pnlAppContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAppContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlAppContainer.Name = "pnlAppContainer";
-            this.pnlAppContainer.Size = new System.Drawing.Size(126, 52);
+            this.pnlAppContainer.Size = new System.Drawing.Size(126, 297);
             this.pnlAppContainer.TabIndex = 1;
             // 
             // btnManageTestTypes
@@ -248,6 +248,7 @@
             this.btnManageAppTypes.TabIndex = 7;
             this.btnManageAppTypes.Text = "Manage App Types";
             this.btnManageAppTypes.UseVisualStyleBackColor = false;
+            this.btnManageAppTypes.Click += new System.EventHandler(this.btnManageAppTypes_Click);
             // 
             // btnDetainLicenses
             // 
@@ -309,7 +310,7 @@
             this.pnlSperator.ForeColor = System.Drawing.Color.DimGray;
             this.pnlSperator.Location = new System.Drawing.Point(0, 52);
             this.pnlSperator.Name = "pnlSperator";
-            this.pnlSperator.Size = new System.Drawing.Size(10, 0);
+            this.pnlSperator.Size = new System.Drawing.Size(10, 245);
             this.pnlSperator.TabIndex = 3;
             // 
             // btnApplication

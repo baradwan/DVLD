@@ -22,11 +22,6 @@ namespace DVLD.Users
         private enMode _Mode = enMode.AddNew;
         private int _UserID = -1;
         private bool _AllowTabChange = false;
-        private void _AcceptButtons()
-        {
-            this.AcceptButton = btnSave;
-            this.CancelButton = btnClose;
-        }
         public int UserID
         {
 
@@ -54,6 +49,11 @@ namespace DVLD.Users
             _Mode = enMode.AddNew;
             _User = new clsUser();
 
+        }
+        private void _AcceptButtons()
+        {
+            this.AcceptButton = btnSave;
+            this.CancelButton = btnClose;
         }
         public frmAddUpdateUser(int UserID)
         {

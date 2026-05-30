@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\clsApplicationDTO.cs" />
+    <Compile Include="DTOs\clsLicenseClassDTO.cs" />
+    <Compile Include="DTOs\clsLocalDrivingLicenseApplicationDTO.cs" />
     <Compile Include="Events\clsPersonEvent.cs" />
     <Compile Include="Events\clsUserEvents.cs" />
     <Compile Include="DTOs\clsApplicationTypeDTO.cs" />

@@ -186,5 +186,10 @@ namespace DVLD
         {
 
         }
+
+        private void btnManageAppTypes_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

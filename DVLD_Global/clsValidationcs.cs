@@ -40,6 +40,12 @@ namespace DVLD_Global
             return true;
 
         }
+        public static bool IsLocalDrivingLicenseApplicationValid(clsLocalDrivingLicenseApplicationDTO application)
+        {
+            if (application == null) return false;
+            if (application.LicenseClassID <= 0) return false;
+            return true;
+        }
         public static bool IsEmailValid(string Email)
         {
             var pattern = @"^[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$";
@@ -66,6 +72,34 @@ namespace DVLD_Global
             return true;
         }
 
+        public static bool IsApplicationValid(clsApplicationDTO application)
+        {
+            if (application == null) return false;
+            
+            if (application.PersonID <= 0) return false;
+            if (application.ApplicationDate == DateTime.MinValue) return false;
+            if (application.ApplicationTypeID <= 0) return false;
+            if (application.ApplicationStatus < 0) return false;
+            if(application.LastStatusDate == DateTime.MinValue) return false;
+            if(application.PaidFees<0) return false;
+            if(application.CreatorID<=0) return false;
+
+
+            if (application.PaidFees < 0) return false;
+            return true;
+        }
+
+        public static bool IsLicenseClassValid(clsLicenseClassDTO licenseClass)
+        {
+            if (licenseClass == null) return false;
+            if (string.IsNullOrWhiteSpace(licenseClass.ClassName)) return false;
+            if(string.IsNullOrWhiteSpace(licenseClass.ClassDescription)) return false;
+
+            if (licenseClass.MinAllowedAge <= 0) return false;
+            if (licenseClass.DefaultValidatyLength <= 0) return false;
+            if (licenseClass.ClassFees < 0) return false;
+            return true;
+        }
         public static bool IsPositiveInteger(string text)
         {
             return int.TryParse(text, out int result) && result >= 0;

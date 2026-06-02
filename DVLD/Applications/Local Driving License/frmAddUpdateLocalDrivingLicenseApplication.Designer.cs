@@ -31,18 +31,19 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUpdateLocalDrivingLicenseApplication));
             this.bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(this.components);
-            this.btnNext = new Syncfusion.WinForms.Controls.SfButton();
-            this.ctrlPersonInfoWithFilter1 = new DVLD.People.Controls.ctrlPersonInfoWithFilter();
             this.pnlTCContentFooter = new System.Windows.Forms.Panel();
             this.tpPersonInfo = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnNext = new Syncfusion.WinForms.Controls.SfButton();
             this.tcApplicationInfo = new System.Windows.Forms.TabControl();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
-            this.cbLicenseClass = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrevious = new Syncfusion.WinForms.Controls.SfButton();
+            this.cmbLicenseClass = new Syncfusion.WinForms.ListView.SfComboBox();
             this.lblAppDateValue = new System.Windows.Forms.Label();
             this.lblAppFeesValue = new System.Windows.Forms.Label();
             this.lblCreadtedByUserValue = new System.Windows.Forms.Label();
             this.lblAppFees = new System.Windows.Forms.Label();
-            this.btnPervoius = new Syncfusion.WinForms.Controls.SfButton();
             this.lblCrearedByUser = new System.Windows.Forms.Label();
             this.lblDLAppIDValue = new System.Windows.Forms.Label();
             this.lblAppDate = new System.Windows.Forms.Label();
@@ -56,10 +57,13 @@
             this.btnClose = new Syncfusion.WinForms.Controls.SfButton();
             this.btnSave = new Syncfusion.WinForms.Controls.SfButton();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.pnlTCContentFooter.SuspendLayout();
+            this.ctrlPersonInfoWithFilter1 = new DVLD.People.Controls.ctrlPersonInfoWithFilter();
             this.tpPersonInfo.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tcApplicationInfo.SuspendLayout();
             this.tpApplicationInfo.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLicenseClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.pnlContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
@@ -67,51 +71,49 @@
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
+            // pnlTCContentFooter
+            // 
+            this.pnlTCContentFooter.Location = new System.Drawing.Point(0, 0);
+            this.pnlTCContentFooter.Name = "pnlTCContentFooter";
+            this.pnlTCContentFooter.Size = new System.Drawing.Size(200, 100);
+            this.pnlTCContentFooter.TabIndex = 0;
+            // 
+            // tpPersonInfo
+            // 
+            this.tpPersonInfo.Controls.Add(this.ctrlPersonInfoWithFilter1);
+            this.tpPersonInfo.Controls.Add(this.panel2);
+            this.tpPersonInfo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpPersonInfo.Location = new System.Drawing.Point(4, 22);
+            this.tpPersonInfo.Name = "tpPersonInfo";
+            this.tpPersonInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPersonInfo.Size = new System.Drawing.Size(1232, 557);
+            this.tpPersonInfo.TabIndex = 0;
+            this.tpPersonInfo.Text = "Person Info";
+            this.tpPersonInfo.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnNext);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(3, 497);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1226, 57);
+            this.panel2.TabIndex = 1;
+            // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.BackColor = System.Drawing.Color.LightGray;
             this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(1029, 4);
+            this.btnNext.Location = new System.Drawing.Point(1028, 5);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(193, 42);
             this.btnNext.Style.BackColor = System.Drawing.Color.LightGray;
             this.btnNext.TabIndex = 6;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
-            // 
-            // ctrlPersonInfoWithFilter1
-            // 
-            this.ctrlPersonInfoWithFilter1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ctrlPersonInfoWithFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPersonInfoWithFilter1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
-            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(1226, 479);
-            this.ctrlPersonInfoWithFilter1.TabIndex = 1;
-            // 
-            // pnlTCContentFooter
-            // 
-            this.pnlTCContentFooter.Controls.Add(this.btnNext);
-            this.pnlTCContentFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlTCContentFooter.Location = new System.Drawing.Point(3, 482);
-            this.pnlTCContentFooter.Name = "pnlTCContentFooter";
-            this.pnlTCContentFooter.Size = new System.Drawing.Size(1226, 42);
-            this.pnlTCContentFooter.TabIndex = 0;
-            // 
-            // tpPersonInfo
-            // 
-            this.tpPersonInfo.Controls.Add(this.ctrlPersonInfoWithFilter1);
-            this.tpPersonInfo.Controls.Add(this.pnlTCContentFooter);
-            this.tpPersonInfo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tpPersonInfo.Location = new System.Drawing.Point(4, 22);
-            this.tpPersonInfo.Name = "tpPersonInfo";
-            this.tpPersonInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPersonInfo.Size = new System.Drawing.Size(1232, 527);
-            this.tpPersonInfo.TabIndex = 0;
-            this.tpPersonInfo.Text = "Person Info";
-            this.tpPersonInfo.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click_1);
             // 
             // tcApplicationInfo
             // 
@@ -121,18 +123,21 @@
             this.tcApplicationInfo.Location = new System.Drawing.Point(0, 0);
             this.tcApplicationInfo.Name = "tcApplicationInfo";
             this.tcApplicationInfo.SelectedIndex = 0;
-            this.tcApplicationInfo.Size = new System.Drawing.Size(1240, 553);
+            this.tcApplicationInfo.Size = new System.Drawing.Size(1240, 583);
             this.tcApplicationInfo.TabIndex = 0;
+            this.tcApplicationInfo.SelectedIndexChanged += new System.EventHandler(this.tcApplicationInfo_SelectedIndexChanged);
+            this.tcApplicationInfo.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcApplicationInfo_Selecting);
+            this.tcApplicationInfo.TabIndexChanged += new System.EventHandler(this.tcApplicationInfo_TabIndexChanged);
             // 
             // tpApplicationInfo
             // 
             this.tpApplicationInfo.BackColor = System.Drawing.Color.White;
-            this.tpApplicationInfo.Controls.Add(this.cbLicenseClass);
+            this.tpApplicationInfo.Controls.Add(this.panel1);
+            this.tpApplicationInfo.Controls.Add(this.cmbLicenseClass);
             this.tpApplicationInfo.Controls.Add(this.lblAppDateValue);
             this.tpApplicationInfo.Controls.Add(this.lblAppFeesValue);
             this.tpApplicationInfo.Controls.Add(this.lblCreadtedByUserValue);
             this.tpApplicationInfo.Controls.Add(this.lblAppFees);
-            this.tpApplicationInfo.Controls.Add(this.btnPervoius);
             this.tpApplicationInfo.Controls.Add(this.lblCrearedByUser);
             this.tpApplicationInfo.Controls.Add(this.lblDLAppIDValue);
             this.tpApplicationInfo.Controls.Add(this.lblAppDate);
@@ -142,18 +147,62 @@
             this.tpApplicationInfo.Location = new System.Drawing.Point(4, 22);
             this.tpApplicationInfo.Name = "tpApplicationInfo";
             this.tpApplicationInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpApplicationInfo.Size = new System.Drawing.Size(1232, 527);
+            this.tpApplicationInfo.Size = new System.Drawing.Size(1232, 557);
             this.tpApplicationInfo.TabIndex = 1;
-            this.tpApplicationInfo.Text = "Login Info";
+            this.tpApplicationInfo.Text = "Application Info";
             // 
-            // cbLicenseClass
+            // panel1
             // 
-            this.cbLicenseClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLicenseClass.FormattingEnabled = true;
-            this.cbLicenseClass.Location = new System.Drawing.Point(346, 180);
-            this.cbLicenseClass.Name = "cbLicenseClass";
-            this.cbLicenseClass.Size = new System.Drawing.Size(270, 21);
-            this.cbLicenseClass.TabIndex = 135;
+            this.panel1.Controls.Add(this.btnPrevious);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 497);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1226, 57);
+            this.panel1.TabIndex = 137;
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrevious.BackColor = System.Drawing.Color.LightGray;
+            this.btnPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrevious.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrevious.Location = new System.Drawing.Point(1033, 8);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(193, 46);
+            this.btnPrevious.Style.BackColor = System.Drawing.Color.LightGray;
+            this.btnPrevious.TabIndex = 6;
+            this.btnPrevious.Text = "Previous";
+            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // cmbLicenseClass
+            // 
+            this.cmbLicenseClass.AllowDropDownResize = false;
+            this.cmbLicenseClass.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbLicenseClass.BackColor = System.Drawing.Color.Gainsboro;
+            this.cmbLicenseClass.DisplayMember = "";
+            this.cmbLicenseClass.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cmbLicenseClass.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.cmbLicenseClass.ForeColor = System.Drawing.Color.Black;
+            this.cmbLicenseClass.Location = new System.Drawing.Point(338, 175);
+            this.cmbLicenseClass.Name = "cmbLicenseClass";
+            this.cmbLicenseClass.Size = new System.Drawing.Size(274, 26);
+            this.cmbLicenseClass.Style.DropDownButtonStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.cmbLicenseClass.Style.DropDownButtonStyle.FocusedBackColor = System.Drawing.Color.Transparent;
+            this.cmbLicenseClass.Style.DropDownButtonStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cmbLicenseClass.Style.DropDownButtonStyle.ImageForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cmbLicenseClass.Style.DropDownButtonStyle.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cmbLicenseClass.Style.DropDownStyle.BorderColor = System.Drawing.Color.LightGray;
+            this.cmbLicenseClass.Style.EditorStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.cmbLicenseClass.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
+            this.cmbLicenseClass.Style.EditorStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.cmbLicenseClass.Style.EditorStyle.ForeColor = System.Drawing.Color.Black;
+            this.cmbLicenseClass.Style.ReadOnlyEditorStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.cmbLicenseClass.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbLicenseClass.Style.TokenStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.cmbLicenseClass.TabIndex = 136;
+            this.cmbLicenseClass.TabStop = false;
+            this.cmbLicenseClass.SelectedIndexChanged += new System.EventHandler(this.cmbLicenseClass_SelectedIndexChanged);
             // 
             // lblAppDateValue
             // 
@@ -165,7 +214,6 @@
             this.lblAppDateValue.Size = new System.Drawing.Size(37, 30);
             this.lblAppDateValue.TabIndex = 33;
             this.lblAppDateValue.Text = "---";
-            this.lblAppDateValue.Click += new System.EventHandler(this.lblAppDateValue_Click);
             // 
             // lblAppFeesValue
             // 
@@ -188,7 +236,6 @@
             this.lblCreadtedByUserValue.Size = new System.Drawing.Size(37, 30);
             this.lblCreadtedByUserValue.TabIndex = 31;
             this.lblCreadtedByUserValue.Text = "---";
-            this.lblCreadtedByUserValue.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblAppFees
             // 
@@ -199,20 +246,6 @@
             this.lblAppFees.Size = new System.Drawing.Size(181, 30);
             this.lblAppFees.TabIndex = 29;
             this.lblAppFees.Text = "Application Fees:";
-            // 
-            // btnPervoius
-            // 
-            this.btnPervoius.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPervoius.BackColor = System.Drawing.Color.LightGray;
-            this.btnPervoius.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPervoius.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPervoius.Location = new System.Drawing.Point(1052, 556);
-            this.btnPervoius.Name = "btnPervoius";
-            this.btnPervoius.Size = new System.Drawing.Size(172, 42);
-            this.btnPervoius.Style.BackColor = System.Drawing.Color.LightGray;
-            this.btnPervoius.TabIndex = 11;
-            this.btnPervoius.Text = "Pervoius";
-            this.btnPervoius.UseVisualStyleBackColor = false;
             // 
             // lblCrearedByUser
             // 
@@ -275,7 +308,7 @@
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(0, 70);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1240, 553);
+            this.pnlContent.Size = new System.Drawing.Size(1240, 583);
             this.pnlContent.TabIndex = 5;
             // 
             // lblFormTitle
@@ -305,7 +338,7 @@
             this.pnlfooter.Controls.Add(this.btnClose);
             this.pnlfooter.Controls.Add(this.btnSave);
             this.pnlfooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlfooter.Location = new System.Drawing.Point(0, 623);
+            this.pnlfooter.Location = new System.Drawing.Point(0, 653);
             this.pnlfooter.Name = "pnlfooter";
             this.pnlfooter.Size = new System.Drawing.Size(1240, 53);
             this.pnlfooter.TabIndex = 4;
@@ -337,6 +370,7 @@
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pnlHeader
             // 
@@ -348,21 +382,34 @@
             this.pnlHeader.Size = new System.Drawing.Size(1240, 70);
             this.pnlHeader.TabIndex = 3;
             // 
+            // ctrlPersonInfoWithFilter1
+            // 
+            this.ctrlPersonInfoWithFilter1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ctrlPersonInfoWithFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlPersonInfoWithFilter1.Margin = new System.Windows.Forms.Padding(2);
+            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
+            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(1226, 494);
+            this.ctrlPersonInfoWithFilter1.TabIndex = 0;
+            // 
             // frmAddUpdateLocalDrivingLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 676);
+            this.ClientSize = new System.Drawing.Size(1240, 706);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlfooter);
             this.Controls.Add(this.pnlHeader);
             this.Name = "frmAddUpdateLocalDrivingLicenseApplication";
             this.Text = "frmLocalNewDrivingLicenseApplication";
-            this.pnlTCContentFooter.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.frmAddUpdateLocalDrivingLicenseApplication_Load);
             this.tpPersonInfo.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.tcApplicationInfo.ResumeLayout(false);
             this.tpApplicationInfo.ResumeLayout(false);
             this.tpApplicationInfo.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLicenseClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.pnlContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
@@ -376,13 +423,11 @@
         #endregion
 
         private Syncfusion.Windows.Forms.BannerTextProvider bannerTextProvider1;
-        private Syncfusion.WinForms.Controls.SfButton btnNext;
-        private People.Controls.ctrlPersonInfoWithFilter ctrlPersonInfoWithFilter1;
+
         private System.Windows.Forms.Panel pnlTCContentFooter;
         private System.Windows.Forms.TabPage tpPersonInfo;
         private System.Windows.Forms.TabControl tcApplicationInfo;
         private System.Windows.Forms.TabPage tpApplicationInfo;
-        private Syncfusion.WinForms.Controls.SfButton btnPervoius;
         private System.Windows.Forms.Label lblCrearedByUser;
         private System.Windows.Forms.Label lblDLAppIDValue;
         private System.Windows.Forms.Label lblAppDate;
@@ -400,6 +445,11 @@
         private System.Windows.Forms.Label lblAppFeesValue;
         private System.Windows.Forms.Label lblCreadtedByUserValue;
         private System.Windows.Forms.Label lblAppFees;
-        private System.Windows.Forms.ComboBox cbLicenseClass;
+        private Syncfusion.WinForms.ListView.SfComboBox cmbLicenseClass;
+        private System.Windows.Forms.Panel panel1;
+        private Syncfusion.WinForms.Controls.SfButton btnPrevious;
+        private People.Controls.ctrlPersonInfoWithFilter ctrlPersonInfoWithFilter1;
+        private System.Windows.Forms.Panel panel2;
+        private Syncfusion.WinForms.Controls.SfButton btnNext;
     }
 }

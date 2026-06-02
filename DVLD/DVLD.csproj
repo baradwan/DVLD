@@ -151,6 +151,12 @@
     <Compile Include="Main\Controls\ctrlAppDrivingLicenseService.Designer.cs">
       <DependentUpon>ctrlAppDrivingLicenseService.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\Controls\ctrlManageApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Controls\ctrlManageApplication.Designer.cs">
+      <DependentUpon>ctrlManageApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tests\Test Types\frmEditTestTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Controls\ctrlAppDrivingLicenseService.resx">
       <DependentUpon>ctrlAppDrivingLicenseService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Controls\ctrlManageApplication.resx">
+      <DependentUpon>ctrlManageApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\crlPersonalCard.resx">
       <DependentUpon>crlPersonalCard.cs</DependentUpon>

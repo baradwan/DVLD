@@ -63,7 +63,7 @@
             this.pnlNewDrivingLicenceSubButtons.Controls.Add(this.btnNewDrivingLicense);
             this.pnlNewDrivingLicenceSubButtons.Location = new System.Drawing.Point(0, 3);
             this.pnlNewDrivingLicenceSubButtons.Name = "pnlNewDrivingLicenceSubButtons";
-            this.pnlNewDrivingLicenceSubButtons.Size = new System.Drawing.Size(181, 69);
+            this.pnlNewDrivingLicenceSubButtons.Size = new System.Drawing.Size(183, 69);
             this.pnlNewDrivingLicenceSubButtons.TabIndex = 1;
             // 
             // panel1
@@ -97,6 +97,7 @@
             this.btnLocalLicense.TabIndex = 2;
             this.btnLocalLicense.Text = "Local Licence";
             this.btnLocalLicense.UseVisualStyleBackColor = false;
+            this.btnLocalLicense.Click += new System.EventHandler(this.btnLocalLicense_Click);
             // 
             // btnRenewDrivingLicense
             // 

@@ -28,24 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlListLocalDriving));
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbIsActiveFilter = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.lblStatusTitle = new System.Windows.Forms.Label();
+            this.cbStatusFilter = new Syncfusion.WinForms.ListView.SfComboBox();
             this.cmbFilter = new Syncfusion.WinForms.ListView.SfComboBox();
             this.lblFilterTitle = new System.Windows.Forms.Label();
             this.lblSearchTitle = new System.Windows.Forms.Label();
             this.txtSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.dvgList = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbIsActiveFilter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbStatusFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).BeginInit();
+            this.pnlContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
             // 
-            this.pnlHeader.Controls.Add(this.label1);
-            this.pnlHeader.Controls.Add(this.cbIsActiveFilter);
+            this.pnlHeader.Controls.Add(this.lblStatusTitle);
+            this.pnlHeader.Controls.Add(this.cbStatusFilter);
             this.pnlHeader.Controls.Add(this.cmbFilter);
             this.pnlHeader.Controls.Add(this.lblFilterTitle);
             this.pnlHeader.Controls.Add(this.lblSearchTitle);
@@ -54,48 +61,49 @@
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Padding = new System.Windows.Forms.Padding(10, 12, 10, 12);
-            this.pnlHeader.Size = new System.Drawing.Size(1171, 43);
+            this.pnlHeader.Size = new System.Drawing.Size(1217, 43);
             this.pnlHeader.TabIndex = 4;
             // 
-            // label1
+            // lblStatusTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label1.Location = new System.Drawing.Point(983, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 31);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Active : ";
+            this.lblStatusTitle.AutoSize = true;
+            this.lblStatusTitle.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold);
+            this.lblStatusTitle.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lblStatusTitle.Location = new System.Drawing.Point(991, 4);
+            this.lblStatusTitle.Name = "lblStatusTitle";
+            this.lblStatusTitle.Size = new System.Drawing.Size(98, 31);
+            this.lblStatusTitle.TabIndex = 7;
+            this.lblStatusTitle.Text = "Status : ";
             // 
-            // cbIsActiveFilter
+            // cbStatusFilter
             // 
-            this.cbIsActiveFilter.AllowDropDownResize = false;
-            this.cbIsActiveFilter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbIsActiveFilter.BackColor = System.Drawing.Color.Gainsboro;
-            this.cbIsActiveFilter.CausesValidation = false;
-            this.cbIsActiveFilter.DisplayMember = "";
-            this.cbIsActiveFilter.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbIsActiveFilter.Font = new System.Drawing.Font("Segoe UI", 10.25F);
-            this.cbIsActiveFilter.ForeColor = System.Drawing.Color.Black;
-            this.cbIsActiveFilter.Location = new System.Drawing.Point(1083, 6);
-            this.cbIsActiveFilter.Name = "cbIsActiveFilter";
-            this.cbIsActiveFilter.Size = new System.Drawing.Size(86, 26);
-            this.cbIsActiveFilter.Style.DropDownButtonStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.cbIsActiveFilter.Style.DropDownButtonStyle.FocusedBackColor = System.Drawing.Color.Transparent;
-            this.cbIsActiveFilter.Style.DropDownButtonStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cbIsActiveFilter.Style.DropDownButtonStyle.ImageForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cbIsActiveFilter.Style.DropDownButtonStyle.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cbIsActiveFilter.Style.DropDownStyle.BorderColor = System.Drawing.Color.LightGray;
-            this.cbIsActiveFilter.Style.EditorStyle.BackColor = System.Drawing.Color.Gainsboro;
-            this.cbIsActiveFilter.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
-            this.cbIsActiveFilter.Style.EditorStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
-            this.cbIsActiveFilter.Style.EditorStyle.ForeColor = System.Drawing.Color.Black;
-            this.cbIsActiveFilter.Style.ReadOnlyEditorStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
-            this.cbIsActiveFilter.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbIsActiveFilter.Style.TokenStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
-            this.cbIsActiveFilter.TabIndex = 4;
-            this.cbIsActiveFilter.TabStop = false;
+            this.cbStatusFilter.AllowDropDownResize = false;
+            this.cbStatusFilter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbStatusFilter.BackColor = System.Drawing.Color.Gainsboro;
+            this.cbStatusFilter.CausesValidation = false;
+            this.cbStatusFilter.DisplayMember = "";
+            this.cbStatusFilter.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbStatusFilter.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.cbStatusFilter.ForeColor = System.Drawing.Color.Black;
+            this.cbStatusFilter.Location = new System.Drawing.Point(1096, 9);
+            this.cbStatusFilter.Name = "cbStatusFilter";
+            this.cbStatusFilter.Size = new System.Drawing.Size(108, 26);
+            this.cbStatusFilter.Style.DropDownButtonStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.cbStatusFilter.Style.DropDownButtonStyle.FocusedBackColor = System.Drawing.Color.Transparent;
+            this.cbStatusFilter.Style.DropDownButtonStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cbStatusFilter.Style.DropDownButtonStyle.ImageForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cbStatusFilter.Style.DropDownButtonStyle.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cbStatusFilter.Style.DropDownStyle.BorderColor = System.Drawing.Color.LightGray;
+            this.cbStatusFilter.Style.EditorStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.cbStatusFilter.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
+            this.cbStatusFilter.Style.EditorStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.cbStatusFilter.Style.EditorStyle.ForeColor = System.Drawing.Color.Black;
+            this.cbStatusFilter.Style.ReadOnlyEditorStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.cbStatusFilter.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbStatusFilter.Style.TokenStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.cbStatusFilter.TabIndex = 6;
+            this.cbStatusFilter.TabStop = false;
+            this.cbStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cbStatusFilter_SelectedIndexChanged);
             // 
             // cmbFilter
             // 
@@ -124,6 +132,7 @@
             this.cmbFilter.Style.TokenStyle.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.cmbFilter.TabIndex = 3;
             this.cmbFilter.TabStop = false;
+            this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
             // 
             // lblFilterTitle
             // 
@@ -170,19 +179,61 @@
             this.txtSearch.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
             this.txtSearch.TabIndex = 0;
             this.txtSearch.ThemeName = "Metro";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.Controls.Add(this.dvgList);
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(0, 43);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(1217, 479);
+            this.pnlContent.TabIndex = 5;
+            // 
+            // dvgList
+            // 
+            this.dvgList.AccessibleName = "Table";
+            this.dvgList.AllowEditing = false;
+            this.dvgList.AllowGrouping = false;
+            this.dvgList.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.dvgList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvgList.HeaderRowHeight = 45;
+            this.dvgList.Location = new System.Drawing.Point(0, 0);
+            this.dvgList.Name = "dvgList";
+            this.dvgList.PreviewRowHeight = 56;
+            this.dvgList.RowHeaderWidth = 20D;
+            this.dvgList.RowHeight = 45;
+            this.dvgList.Size = new System.Drawing.Size(1217, 479);
+            this.dvgList.Style.AddNewRowStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dvgList.Style.BorderColor = System.Drawing.Color.White;
+            this.dvgList.Style.DragPreviewRowStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dvgList.Style.DragPreviewRowStyle.RowCountIndicatorTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dvgList.Style.HeaderStyle.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dvgList.TabIndex = 4;
+            this.dvgList.Text = " ";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // ctrlListLocalDriving
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlHeader);
             this.Name = "ctrlListLocalDriving";
-            this.Size = new System.Drawing.Size(1171, 522);
+            this.Size = new System.Drawing.Size(1217, 522);
+            this.Load += new System.EventHandler(this.ctrlListLocalDriving_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbIsActiveFilter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbStatusFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
+            this.pnlContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dvgList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -190,11 +241,14 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.Label label1;
-        private Syncfusion.WinForms.ListView.SfComboBox cbIsActiveFilter;
         private Syncfusion.WinForms.ListView.SfComboBox cmbFilter;
         private System.Windows.Forms.Label lblFilterTitle;
         private System.Windows.Forms.Label lblSearchTitle;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtSearch;
+        private System.Windows.Forms.Panel pnlContent;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid dvgList;
+        private System.Windows.Forms.Label lblStatusTitle;
+        private Syncfusion.WinForms.ListView.SfComboBox cbStatusFilter;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

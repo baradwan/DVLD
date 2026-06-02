@@ -71,7 +71,7 @@ namespace DVLD_AccessLayer
                         ClassName = reader["ClassName"].ToString(),
                         ClassDescription = reader["ClassDescription"].ToString(),
                         MinAllowedAge = Convert.ToByte(reader["MinAllowedAge"]),
-                        DefaultValidatyLength = Convert.ToByte(reader["DefaultValidatyLength"]),
+                        DefaultValidityLength = Convert.ToByte(reader["DefaultValidatyLength"]),
                         ClassFees = Convert.ToDecimal(reader["ClassFees"])
 
                     };
@@ -117,7 +117,7 @@ namespace DVLD_AccessLayer
             command.Parameters.AddWithValue("@ClassName", LicenseClassDTO.ClassName);
             command.Parameters.AddWithValue("@ClassDescription", LicenseClassDTO.ClassDescription);
             command.Parameters.AddWithValue("@MinAllowedAge", LicenseClassDTO.MinAllowedAge);
-            command.Parameters.AddWithValue("@DefaultValidatyLength", LicenseClassDTO.DefaultValidatyLength);
+            command.Parameters.AddWithValue("@DefaultValidatyLength", LicenseClassDTO.DefaultValidityLength);
             command.Parameters.AddWithValue("@ClassFees", LicenseClassDTO.ClassFees);
 
 
@@ -167,7 +167,7 @@ namespace DVLD_AccessLayer
             command.Parameters.AddWithValue("@ClassName", LicenseClassDTO.ClassName);
             command.Parameters.AddWithValue("@ClassDescription", LicenseClassDTO.ClassDescription);
             command.Parameters.AddWithValue("@MinAllowedAge", LicenseClassDTO.MinAllowedAge);
-            command.Parameters.AddWithValue("@DefaultValidatyLength", LicenseClassDTO.DefaultValidatyLength);
+            command.Parameters.AddWithValue("@DefaultValidatyLength", LicenseClassDTO.DefaultValidityLength);
             command.Parameters.AddWithValue("@ClassFees", LicenseClassDTO.ClassFees);
 
 

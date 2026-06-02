@@ -35,10 +35,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.btnAddLDAPP = new Syncfusion.WinForms.Controls.SfButton();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnAddLDAPP = new Syncfusion.WinForms.Controls.SfButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ctrlListLocalDriving1 = new DVLD.Applications.Local_Driving_License.ctrlListLocalDriving();
             this.pnlFooter.SuspendLayout();
+            this.pnlContent.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,9 +51,9 @@
             this.pnlFooter.Controls.Add(this.lblRecordValue);
             this.pnlFooter.Controls.Add(this.label3);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 735);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 829);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1557, 51);
+            this.pnlFooter.Size = new System.Drawing.Size(1447, 51);
             this.pnlFooter.TabIndex = 6;
             // 
             // btnClose
@@ -59,13 +61,14 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.Gainsboro;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnClose.Location = new System.Drawing.Point(1433, 3);
+            this.btnClose.Location = new System.Drawing.Point(1323, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(112, 37);
             this.btnClose.Style.BackColor = System.Drawing.Color.Gainsboro;
             this.btnClose.TabIndex = 7;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
             // lblRecordValue
             // 
@@ -91,10 +94,11 @@
             // 
             // pnlContent
             // 
+            this.pnlContent.Controls.Add(this.ctrlListLocalDriving1);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(0, 94);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1557, 692);
+            this.pnlContent.Size = new System.Drawing.Size(1447, 786);
             this.pnlContent.TabIndex = 5;
             // 
             // pnlHeader
@@ -105,28 +109,8 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1557, 94);
+            this.pnlHeader.Size = new System.Drawing.Size(1447, 94);
             this.pnlHeader.TabIndex = 4;
-            // 
-            // btnAddLDAPP
-            // 
-            this.btnAddLDAPP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddLDAPP.AutoEllipsis = true;
-            this.btnAddLDAPP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddLDAPP.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
-            this.btnAddLDAPP.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddLDAPP.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddLDAPP.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnAddLDAPP.Location = new System.Drawing.Point(1306, 18);
-            this.btnAddLDAPP.Name = "btnAddLDAPP";
-            this.btnAddLDAPP.Size = new System.Drawing.Size(205, 45);
-            this.btnAddLDAPP.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
-            this.btnAddLDAPP.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
-            this.btnAddLDAPP.Style.FocusedForeColor = System.Drawing.Color.White;
-            this.btnAddLDAPP.Style.ForeColor = System.Drawing.Color.White;
-            this.btnAddLDAPP.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.btnAddLDAPP.TabIndex = 2;
-            this.btnAddLDAPP.Text = "Add Application";
             // 
             // lblTitle
             // 
@@ -138,6 +122,27 @@
             this.lblTitle.Size = new System.Drawing.Size(515, 45);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Local Driving License Application";
+            // 
+            // btnAddLDAPP
+            // 
+            this.btnAddLDAPP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddLDAPP.AutoEllipsis = true;
+            this.btnAddLDAPP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddLDAPP.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
+            this.btnAddLDAPP.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddLDAPP.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddLDAPP.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnAddLDAPP.Location = new System.Drawing.Point(1196, 18);
+            this.btnAddLDAPP.Name = "btnAddLDAPP";
+            this.btnAddLDAPP.Size = new System.Drawing.Size(205, 45);
+            this.btnAddLDAPP.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
+            this.btnAddLDAPP.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(150)))), ((int)(((byte)(249)))));
+            this.btnAddLDAPP.Style.FocusedForeColor = System.Drawing.Color.White;
+            this.btnAddLDAPP.Style.ForeColor = System.Drawing.Color.White;
+            this.btnAddLDAPP.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.btnAddLDAPP.TabIndex = 2;
+            this.btnAddLDAPP.Text = "Add Application";
+            this.btnAddLDAPP.Click += new System.EventHandler(this.btnAddLDAPP_Click);
             // 
             // pictureBox1
             // 
@@ -152,18 +157,29 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // ctrlListLocalDriving1
+            // 
+            this.ctrlListLocalDriving1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlListLocalDriving1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlListLocalDriving1.Name = "ctrlListLocalDriving1";
+            this.ctrlListLocalDriving1.Size = new System.Drawing.Size(1447, 786);
+            this.ctrlListLocalDriving1.TabIndex = 0;
+            // 
             // frmListDrivingLicenseApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 786);
+            this.ClientSize = new System.Drawing.Size(1447, 880);
             this.Controls.Add(this.pnlFooter);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlHeader);
             this.Name = "frmListDrivingLicenseApp";
             this.Text = "frmListDrivingLicenseApp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmListDrivingLicenseApp_FormClosing);
+            this.Load += new System.EventHandler(this.frmListDrivingLicenseApp_Load);
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooter.PerformLayout();
+            this.pnlContent.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -182,5 +198,6 @@
         private Syncfusion.WinForms.Controls.SfButton btnAddLDAPP;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private ctrlListLocalDriving ctrlListLocalDriving1;
     }
 }

@@ -43,7 +43,8 @@ namespace DVLD_Global
         public static bool IsLocalDrivingLicenseApplicationValid(clsLocalDrivingLicenseApplicationDTO application)
         {
             if (application == null) return false;
-            if (application.LicenseClassID <= 0) return false;
+            if(application.ApplicationID<=0)return false;
+          if (application.LicenseClassID <= 0) return false;
             return true;
         }
         public static bool IsEmailValid(string Email)
@@ -82,7 +83,7 @@ namespace DVLD_Global
             if (application.ApplicationStatus < 0) return false;
             if(application.LastStatusDate == DateTime.MinValue) return false;
             if(application.PaidFees<0) return false;
-            if(application.CreatorID<=0) return false;
+            if(application.CreatedByUserID<=0) return false;
 
 
             if (application.PaidFees < 0) return false;
@@ -96,7 +97,7 @@ namespace DVLD_Global
             if(string.IsNullOrWhiteSpace(licenseClass.ClassDescription)) return false;
 
             if (licenseClass.MinAllowedAge <= 0) return false;
-            if (licenseClass.DefaultValidatyLength <= 0) return false;
+            if (licenseClass.DefaultValidityLength <= 0) return false;
             if (licenseClass.ClassFees < 0) return false;
             return true;
         }

@@ -12,7 +12,7 @@ namespace DVLD_Global.DTOs
         public string ClassName { get; set; }
         public string ClassDescription { get; set; }
         public byte MinAllowedAge { get; set; }
-        public byte DefaultValidatyLength { get; set; }
+        public byte DefaultValidityLength { get; set; }
         public decimal ClassFees { get; set; }
     }
 }

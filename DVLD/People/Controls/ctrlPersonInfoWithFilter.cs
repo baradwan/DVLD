@@ -15,11 +15,11 @@ namespace DVLD.People.Controls
     {
 
         public event Action<int> OnPersonSelected;
-        
 
+        private int _PersonID;
         public int PersonID
         {
-            get { return crlShowPersonInformation1.PersonID; }
+            get { return _PersonID; }
         }
         public ctrlPersonInfoWithFilter()
         {
@@ -58,9 +58,9 @@ namespace DVLD.People.Controls
 
             _FindPerson();
 
-
-            if (crlShowPersonInformation1.PersonID != -1)
-                OnPersonSelected?.Invoke(crlShowPersonInformation1.PersonID);
+            _PersonID = crlShowPersonInformation1.PersonID;
+            if (_PersonID != -1)
+                OnPersonSelected?.Invoke(_PersonID);
         }
 
         private bool _FindPerson() {

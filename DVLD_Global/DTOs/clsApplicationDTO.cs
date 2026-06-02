@@ -17,7 +17,7 @@ namespace DVLD_Global.DTOs
         public DateTime LastStatusDate { get; set; }
 
         public decimal PaidFees { get; set; }
-        public int CreatorID { get; set; }
+        public int CreatedByUserID { get; set; }
 
     }
 }

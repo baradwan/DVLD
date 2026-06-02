@@ -93,22 +93,22 @@ namespace DVLD_AccessLayer
 
         }
 
-        public static bool UpdateLocalDrivingLicenseApplication(clsLocalDrivingLicenseApplicationDTO ApplicationDTO)
+        public static bool UpdateLocalDrivingLicenseApplication(clsLocalDrivingLicenseApplicationDTO LDLApplication)
         {
             int rowAffected = 0;
 
-            if (!clsnValidation.IsLocalDrivingLicenseApplicationValid(ApplicationDTO))
+            if (!clsnValidation.IsLocalDrivingLicenseApplicationValid(LDLApplication))
                 return false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
             string query = @"Update LocalDrivingLicenseApplications
                             set LicenseClassID = @LicenseClassID
-                            where ApplicationID = @ApplicationID";
+                            where LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID";
 
             SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@ApplicationID", ApplicationDTO.ApplicationID);
-            command.Parameters.AddWithValue("@LicenseClassID", ApplicationDTO.LicenseClassID);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LDLApplication.LocalDrivingLicenseApplicationID);
+            command.Parameters.AddWithValue("@ApplicationID", LDLApplication.ApplicationID);
+            command.Parameters.AddWithValue("@LicenseClassID", LDLApplication.LicenseClassID);
 
 
 
@@ -132,6 +132,79 @@ namespace DVLD_AccessLayer
             return rowAffected > 0;
 
 
+        }
+        public static clsLocalDrivingLicenseApplicationDTO GetLocalDrivingLicenseApplicationByID( int LocalDrivingLicenseApplicationID)
+        {
+            SqlConnection connection =new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"
+        SELECT * 
+        FROM LocalDrivingLicenseApplications
+        WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new clsLocalDrivingLicenseApplicationDTO
+                    {
+                        LocalDrivingLicenseApplicationID =Convert.ToInt32(reader["LocalDrivingLicenseApplicationID"]),
+
+                        ApplicationID =  Convert.ToInt32(reader["ApplicationID"]),
+
+                        LicenseClassID = Convert.ToInt32(reader["LicenseClassID"])
+                    };
+                }
+                else
+                {
+                    reader.Close();
+                    return null;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+           // return null;
+        }
+
+        public static bool DeleteLocalDrivingLicenseApplication(
+    int LocalDrivingLicenseApplicationID)
+        {
+            int RowsAffected = 0;
+
+            SqlConnection connection =new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"
+        DELETE FROM LocalDrivingLicenseApplications
+        WHERE LocalDrivingLicenseApplicationID =
+        @LocalDrivingLicenseApplicationID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue( "@LocalDrivingLicenseApplicationID",LocalDrivingLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+
+                RowsAffected = command.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return RowsAffected > 0;
         }
 
     }

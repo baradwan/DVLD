@@ -42,7 +42,6 @@
             this.pnlContent = new System.Windows.Forms.Panel();
             this.tcPersonInfo = new System.Windows.Forms.TabControl();
             this.tpPersonInfo = new System.Windows.Forms.TabPage();
-            this.ctrlPersonInfoWithFilter1 = new DVLD.People.Controls.ctrlPersonInfoWithFilter();
             this.pnlTCContentFooter = new System.Windows.Forms.Panel();
             this.btnNext = new Syncfusion.WinForms.Controls.SfButton();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
@@ -62,6 +61,7 @@
             this.lblUserIDTitle = new System.Windows.Forms.Label();
             this.bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ctrlPersonInfoWithFilter1 = new DVLD.People.Controls.ctrlPersonInfoWithFilter();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlfooter.SuspendLayout();
@@ -182,18 +182,6 @@
             this.tpPersonInfo.Text = "Person Info";
             this.tpPersonInfo.UseVisualStyleBackColor = true;
             // 
-            // ctrlPersonInfoWithFilter1
-            // 
-            this.ctrlPersonInfoWithFilter1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ctrlPersonInfoWithFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPersonInfoWithFilter1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
-            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(1317, 549);
-            this.ctrlPersonInfoWithFilter1.TabIndex = 1;
-            this.ctrlPersonInfoWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonInfoWithFilter1_OnPersonSelected);
-            this.ctrlPersonInfoWithFilter1.Load += new System.EventHandler(this.ctrlPersonInfoWithFilter1_Load);
-            // 
             // pnlTCContentFooter
             // 
             this.pnlTCContentFooter.Controls.Add(this.btnNext);
@@ -299,7 +287,7 @@
             bannerTextInfo1.Text = "Confirm Password ";
             bannerTextInfo1.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtConfirmPassword, bannerTextInfo1);
-            this.txtConfirmPassword.BeforeTouchSize = new System.Drawing.Size(168, 18);
+            this.txtConfirmPassword.BeforeTouchSize = new System.Drawing.Size(374, 33);
             this.txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -327,7 +315,7 @@
             bannerTextInfo2.Text = "Password ";
             bannerTextInfo2.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtPassword, bannerTextInfo2);
-            this.txtPassword.BeforeTouchSize = new System.Drawing.Size(168, 18);
+            this.txtPassword.BeforeTouchSize = new System.Drawing.Size(374, 33);
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -355,7 +343,7 @@
             bannerTextInfo3.Text = "UserName";
             bannerTextInfo3.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtUserName, bannerTextInfo3);
-            this.txtUserName.BeforeTouchSize = new System.Drawing.Size(168, 18);
+            this.txtUserName.BeforeTouchSize = new System.Drawing.Size(374, 33);
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -420,6 +408,18 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // ctrlPersonInfoWithFilter1
+            // 
+            this.ctrlPersonInfoWithFilter1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ctrlPersonInfoWithFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlPersonInfoWithFilter1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
+            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(1317, 549);
+            this.ctrlPersonInfoWithFilter1.TabIndex = 1;
+            this.ctrlPersonInfoWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonInfoWithFilter1_OnPersonSelected);
+            this.ctrlPersonInfoWithFilter1.Load += new System.EventHandler(this.ctrlPersonInfoWithFilter1_Load);
             // 
             // frmAddUpdateUser
             // 

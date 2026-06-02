@@ -1,4 +1,5 @@
-﻿using DVLD.Global;
+﻿using DVLD.Applications.Local_Driving_License;
+using DVLD.Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -67,6 +68,12 @@ namespace DVLD.Main
         {
            clsUICustomization.ToggleAnimation(pnlNewDrivingLicenceSubButtons, fullWidth, normalWidth, 10, false, () => { isCollapsed = false; });
 
+        }
+
+        private void btnLocalLicense_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateLocalDrivingLicenseApplication frm = new frmAddUpdateLocalDrivingLicenseApplication();
+            frm.ShowDialog();
         }
     }
 }

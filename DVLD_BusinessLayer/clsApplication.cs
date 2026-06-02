@@ -15,17 +15,26 @@ namespace DVLD_BusinessLayer
     public class clsApplication
     {
         enum enMode { AddNew = 0, Update = 1 }
+        public enum enApplicationStatus : byte
+        {
+            New = 1,
+            Cancelled = 2,
+            Completed = 3
+        }
 
         enMode _Mode = enMode.AddNew;
+
+
         public int ApplicationID { get; set; }
         public int PersonID { get; set; }
 
         public DateTime ApplicationDate { get; set; }
         public int ApplicationTypeID { get; set; }
-        public byte Status { get; set; }
+        public enApplicationStatus Status { get; set; }
         public DateTime LastStatusDate { get; set; }
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
+
 
 
         public clsApplicationDTO ApplicationDTO
@@ -38,10 +47,10 @@ namespace DVLD_BusinessLayer
                     PersonID = this.PersonID,
                     ApplicationDate = this.ApplicationDate,
                     ApplicationTypeID = this.ApplicationTypeID,
-                    ApplicationStatus = this.Status,
+                    ApplicationStatus = (byte)this.Status,
                     LastStatusDate = this.LastStatusDate,
                     PaidFees = this.PaidFees,
-                    CreatorID = this.CreatedByUserID
+                    CreatedByUserID = this.CreatedByUserID
                 };
             }
         }
@@ -67,13 +76,26 @@ namespace DVLD_BusinessLayer
             this.PersonID = ApplicationDTO.PersonID;
             this.ApplicationDate = ApplicationDTO.ApplicationDate;
             this.ApplicationTypeID = ApplicationDTO.ApplicationTypeID;
-            this.Status = ApplicationDTO.ApplicationStatus;
+            this.Status = (enApplicationStatus)ApplicationDTO.ApplicationStatus;
             this.LastStatusDate = ApplicationDTO.LastStatusDate;
             this.PaidFees = ApplicationDTO.PaidFees;
-            this.CreatedByUserID = ApplicationDTO.CreatorID;
+            this.CreatedByUserID = ApplicationDTO.CreatedByUserID;
             _Mode = enMode.Update;
         }
+        public void PrepareApplication(  int personID, int applicationTypeID, int createdByUserID)
+        {
+            PersonID = personID;
+            ApplicationDate = DateTime.Now;
+            ApplicationTypeID = applicationTypeID;
 
+            Status = enApplicationStatus.New;
+
+            LastStatusDate = DateTime.Now;
+
+            PaidFees =clsApplicationType.Find(ApplicationTypeID).ApplicationFees;
+
+            CreatedByUserID = createdByUserID;
+        }
         public static DataTable ListAllAppliations()
         {
 

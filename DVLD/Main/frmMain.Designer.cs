@@ -46,6 +46,10 @@
             this.pnlSperator = new System.Windows.Forms.Panel();
             this.btnApplication = new Syncfusion.WinForms.Controls.SfButton();
             this.pnlMainView = new System.Windows.Forms.Panel();
+            this.pnlMainViewHeader = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pnlMainViewContent = new System.Windows.Forms.Panel();
             this.pnlAccountSetting = new System.Windows.Forms.Panel();
             this.ctrlAccountSetting1 = new DVLD.Main.Controls.ctrlAccountSetting();
             this.pnlAccountSettingHeader = new System.Windows.Forms.Panel();
@@ -81,6 +85,8 @@
             this.pnlSlider.SuspendLayout();
             this.pnlAppContainer.SuspendLayout();
             this.pnlMainView.SuspendLayout();
+            this.pnlMainViewHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlAccountSetting.SuspendLayout();
             this.pnlAccountSettingHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -136,7 +142,7 @@
             this.btnAccountSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccountSetting.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnAccountSetting.ForeColor = System.Drawing.Color.White;
-            this.btnAccountSetting.Location = new System.Drawing.Point(0, 447);
+            this.btnAccountSetting.Location = new System.Drawing.Point(0, 448);
             this.btnAccountSetting.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccountSetting.Name = "btnAccountSetting";
             this.btnAccountSetting.Size = new System.Drawing.Size(126, 52);
@@ -154,7 +160,7 @@
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUser.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnUser.ForeColor = System.Drawing.Color.White;
-            this.btnUser.Location = new System.Drawing.Point(0, 397);
+            this.btnUser.Location = new System.Drawing.Point(0, 398);
             this.btnUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(126, 50);
@@ -172,7 +178,7 @@
             this.btnDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDriver.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnDriver.ForeColor = System.Drawing.Color.White;
-            this.btnDriver.Location = new System.Drawing.Point(0, 347);
+            this.btnDriver.Location = new System.Drawing.Point(0, 348);
             this.btnDriver.Margin = new System.Windows.Forms.Padding(2);
             this.btnDriver.Name = "btnDriver";
             this.btnDriver.Size = new System.Drawing.Size(126, 50);
@@ -189,7 +195,7 @@
             this.btnPeople.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPeople.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnPeople.ForeColor = System.Drawing.Color.White;
-            this.btnPeople.Location = new System.Drawing.Point(0, 297);
+            this.btnPeople.Location = new System.Drawing.Point(0, 298);
             this.btnPeople.Margin = new System.Windows.Forms.Padding(2);
             this.btnPeople.Name = "btnPeople";
             this.btnPeople.Size = new System.Drawing.Size(126, 50);
@@ -212,7 +218,7 @@
             this.pnlAppContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAppContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlAppContainer.Name = "pnlAppContainer";
-            this.pnlAppContainer.Size = new System.Drawing.Size(126, 297);
+            this.pnlAppContainer.Size = new System.Drawing.Size(126, 298);
             this.pnlAppContainer.TabIndex = 1;
             // 
             // btnManageTestTypes
@@ -310,7 +316,7 @@
             this.pnlSperator.ForeColor = System.Drawing.Color.DimGray;
             this.pnlSperator.Location = new System.Drawing.Point(0, 52);
             this.pnlSperator.Name = "pnlSperator";
-            this.pnlSperator.Size = new System.Drawing.Size(10, 245);
+            this.pnlSperator.Size = new System.Drawing.Size(10, 246);
             this.pnlSperator.TabIndex = 3;
             // 
             // btnApplication
@@ -334,6 +340,8 @@
             // pnlMainView
             // 
             this.pnlMainView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
+            this.pnlMainView.Controls.Add(this.pnlMainViewHeader);
+            this.pnlMainView.Controls.Add(this.pnlMainViewContent);
             this.pnlMainView.Controls.Add(this.pnlAccountSetting);
             this.pnlMainView.Controls.Add(this.pnlAppDrivingLicenseContainer);
             this.pnlMainView.Controls.Add(this.pnlList);
@@ -346,20 +354,62 @@
             this.pnlMainView.Size = new System.Drawing.Size(920, 572);
             this.pnlMainView.TabIndex = 1;
             // 
+            // pnlMainViewHeader
+            // 
+            this.pnlMainViewHeader.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pnlMainViewHeader.Controls.Add(this.lblTitle);
+            this.pnlMainViewHeader.Controls.Add(this.pictureBox2);
+            this.pnlMainViewHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMainViewHeader.Location = new System.Drawing.Point(0, 152);
+            this.pnlMainViewHeader.Name = "pnlMainViewHeader";
+            this.pnlMainViewHeader.Size = new System.Drawing.Size(920, 226);
+            this.pnlMainViewHeader.TabIndex = 2;
+            this.pnlMainViewHeader.Visible = false;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Brown;
+            this.lblTitle.Location = new System.Drawing.Point(435, 50);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(75, 37);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Title";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, -3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(201, 187);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pnlMainViewContent
+            // 
+            this.pnlMainViewContent.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlMainViewContent.Location = new System.Drawing.Point(0, 378);
+            this.pnlMainViewContent.Name = "pnlMainViewContent";
+            this.pnlMainViewContent.Size = new System.Drawing.Size(920, 194);
+            this.pnlMainViewContent.TabIndex = 3;
+            this.pnlMainViewContent.Visible = false;
+            // 
             // pnlAccountSetting
             // 
             this.pnlAccountSetting.Controls.Add(this.ctrlAccountSetting1);
             this.pnlAccountSetting.Controls.Add(this.pnlAccountSettingHeader);
             this.pnlAccountSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlAccountSetting.Location = new System.Drawing.Point(0, 138);
+            this.pnlAccountSetting.Location = new System.Drawing.Point(0, 152);
             this.pnlAccountSetting.Name = "pnlAccountSetting";
-            this.pnlAccountSetting.Size = new System.Drawing.Size(920, 434);
+            this.pnlAccountSetting.Size = new System.Drawing.Size(920, 420);
             this.pnlAccountSetting.TabIndex = 3;
             this.pnlAccountSetting.Visible = false;
             // 
             // ctrlAccountSetting1
             // 
-            this.ctrlAccountSetting1.Location = new System.Drawing.Point(0, 296);
+            this.ctrlAccountSetting1.Location = new System.Drawing.Point(0, 282);
             this.ctrlAccountSetting1.Name = "ctrlAccountSetting1";
             this.ctrlAccountSetting1.Size = new System.Drawing.Size(430, 130);
             this.ctrlAccountSetting1.TabIndex = 2;
@@ -372,7 +422,7 @@
             this.pnlAccountSettingHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAccountSettingHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlAccountSettingHeader.Name = "pnlAccountSettingHeader";
-            this.pnlAccountSettingHeader.Size = new System.Drawing.Size(920, 207);
+            this.pnlAccountSettingHeader.Size = new System.Drawing.Size(920, 226);
             this.pnlAccountSettingHeader.TabIndex = 1;
             // 
             // pbLogo
@@ -390,9 +440,9 @@
             this.pnlAppDrivingLicenseContainer.Controls.Add(this.ctrlAppDrivingLicenseService);
             this.pnlAppDrivingLicenseContainer.Controls.Add(this.pnlAppDrivingLicenseHeader);
             this.pnlAppDrivingLicenseContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlAppDrivingLicenseContainer.Location = new System.Drawing.Point(0, 138);
+            this.pnlAppDrivingLicenseContainer.Location = new System.Drawing.Point(0, 152);
             this.pnlAppDrivingLicenseContainer.Name = "pnlAppDrivingLicenseContainer";
-            this.pnlAppDrivingLicenseContainer.Size = new System.Drawing.Size(920, 434);
+            this.pnlAppDrivingLicenseContainer.Size = new System.Drawing.Size(920, 420);
             this.pnlAppDrivingLicenseContainer.TabIndex = 2;
             this.pnlAppDrivingLicenseContainer.Visible = false;
             // 
@@ -401,7 +451,7 @@
             this.ctrlAppDrivingLicenseService.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctrlAppDrivingLicenseService.Location = new System.Drawing.Point(0, 207);
             this.ctrlAppDrivingLicenseService.Name = "ctrlAppDrivingLicenseService";
-            this.ctrlAppDrivingLicenseService.Size = new System.Drawing.Size(920, 227);
+            this.ctrlAppDrivingLicenseService.Size = new System.Drawing.Size(920, 213);
             this.ctrlAppDrivingLicenseService.TabIndex = 2;
             // 
             // pnlAppDrivingLicenseHeader
@@ -428,11 +478,11 @@
             // 
             this.pnlList.Controls.Add(this.dvgRecentApplication);
             this.pnlList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlList.Location = new System.Drawing.Point(0, 138);
+            this.pnlList.Location = new System.Drawing.Point(0, 152);
             this.pnlList.Margin = new System.Windows.Forms.Padding(2);
             this.pnlList.Name = "pnlList";
             this.pnlList.Padding = new System.Windows.Forms.Padding(5);
-            this.pnlList.Size = new System.Drawing.Size(920, 434);
+            this.pnlList.Size = new System.Drawing.Size(920, 420);
             this.pnlList.TabIndex = 2;
             // 
             // dvgRecentApplication
@@ -443,7 +493,7 @@
             this.dvgRecentApplication.Margin = new System.Windows.Forms.Padding(2);
             this.dvgRecentApplication.Name = "dvgRecentApplication";
             this.dvgRecentApplication.PreviewRowHeight = 56;
-            this.dvgRecentApplication.Size = new System.Drawing.Size(910, 424);
+            this.dvgRecentApplication.Size = new System.Drawing.Size(910, 410);
             this.dvgRecentApplication.Style.DragPreviewRowStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dvgRecentApplication.Style.DragPreviewRowStyle.RowCountIndicatorTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dvgRecentApplication.TabIndex = 0;
@@ -468,7 +518,7 @@
             this.tlpContainerRecentValues.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.tlpContainerRecentValues.RowCount = 1;
             this.tlpContainerRecentValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpContainerRecentValues.Size = new System.Drawing.Size(920, 86);
+            this.tlpContainerRecentValues.Size = new System.Drawing.Size(920, 100);
             this.tlpContainerRecentValues.TabIndex = 0;
             // 
             // panel10
@@ -480,7 +530,7 @@
             this.panel10.Location = new System.Drawing.Point(695, 10);
             this.panel10.Margin = new System.Windows.Forms.Padding(5);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(220, 66);
+            this.panel10.Size = new System.Drawing.Size(220, 80);
             this.panel10.TabIndex = 3;
             // 
             // label5
@@ -526,7 +576,7 @@
             this.panel8.Location = new System.Drawing.Point(465, 10);
             this.panel8.Margin = new System.Windows.Forms.Padding(5);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(220, 66);
+            this.panel8.Size = new System.Drawing.Size(220, 80);
             this.panel8.TabIndex = 2;
             // 
             // label3
@@ -572,7 +622,7 @@
             this.panel6.Location = new System.Drawing.Point(235, 10);
             this.panel6.Margin = new System.Windows.Forms.Padding(5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(220, 66);
+            this.panel6.Size = new System.Drawing.Size(220, 80);
             this.panel6.TabIndex = 1;
             // 
             // label1
@@ -618,7 +668,7 @@
             this.panel4.Location = new System.Drawing.Point(5, 10);
             this.panel4.Margin = new System.Windows.Forms.Padding(5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(220, 66);
+            this.panel4.Size = new System.Drawing.Size(220, 80);
             this.panel4.TabIndex = 0;
             // 
             // lblNumOfFirstCard
@@ -708,6 +758,9 @@
             this.pnlSlider.ResumeLayout(false);
             this.pnlAppContainer.ResumeLayout(false);
             this.pnlMainView.ResumeLayout(false);
+            this.pnlMainViewHeader.ResumeLayout(false);
+            this.pnlMainViewHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlAccountSetting.ResumeLayout(false);
             this.pnlAccountSettingHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
@@ -780,5 +833,9 @@
         private Main.Controls.ctrlAccountSetting ctrlAccountSetting1;
         private System.Windows.Forms.Panel pnlAccountSettingHeader;
         private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.Panel pnlMainViewHeader;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel pnlMainViewContent;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

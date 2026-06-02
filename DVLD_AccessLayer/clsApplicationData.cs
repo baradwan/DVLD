@@ -66,13 +66,14 @@ namespace DVLD_AccessLayer
                     //  ApplicationDTO.ApplicationID = (int)reader["ApplicationID"];
                     return new clsApplicationDTO
                     {
-                        PersonID = Convert.ToInt32(reader["PersonID"]),
+                        ApplicationID = Convert.ToInt32(reader["ApplicationID"]),
+                        PersonID = Convert.ToInt32(reader["ApplicantPersonID"]),
                         ApplicationDate = Convert.ToDateTime(reader["ApplicationDate"]),
                         ApplicationTypeID = Convert.ToInt32(reader["ApplicationTypeID"]),
                         ApplicationStatus = Convert.ToByte(reader["ApplicationStatus"]),
                         LastStatusDate = Convert.ToDateTime(reader["LastStatusDate"]),
                         PaidFees = Convert.ToDecimal(reader["PaidFees"]),
-                        CreatorID = Convert.ToInt32(reader["CreatorID"])
+                        CreatedByUserID = Convert.ToInt32(reader["CreatedByUserID"])
                     };
 
                 }
@@ -96,34 +97,34 @@ namespace DVLD_AccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
             string query = @"INSERT INTO [dbo].[Applications]
-           ([PersonID]
+           ([ApplicantPersonID]
            ,[ApplicationDate]
            ,[ApplicationTypeID]
            ,[ApplicationStatus]
            ,[LastStatusDate]
            ,[PaidFees]
-           ,[CreatorID])
+           ,[CreatedByUserID])
      VALUES
-           (@PersonID
+           (@ApplicantPersonID
            ,@ApplicationDate
            ,@ApplicationTypeID
            ,@ApplicationStatus
            ,@LastStatusDate
            ,@PaidFees
-           ,@CreatorID);
+           ,@CreatedByUserID);
           
      SELECT SCOPE_IDENTITY();";
 
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@PersonID", ApplicationDTO.PersonID);
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicationDTO.PersonID);
             command.Parameters.AddWithValue("@ApplicationDate", ApplicationDTO.ApplicationDate);
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationDTO.ApplicationTypeID);
             command.Parameters.AddWithValue("@ApplicationStatus", ApplicationDTO.ApplicationStatus);
             command.Parameters.AddWithValue("@LastStatusDate", ApplicationDTO.LastStatusDate);
             command.Parameters.AddWithValue("@PaidFees", ApplicationDTO.PaidFees);
-            command.Parameters.AddWithValue("@CreatorID", ApplicationDTO.CreatorID);
+            command.Parameters.AddWithValue("@CreatedByUserID", ApplicationDTO.CreatedByUserID);
 
 
 
@@ -176,7 +177,7 @@ namespace DVLD_AccessLayer
             command.Parameters.AddWithValue("@ApplicationStatus", ApplicationDTO.ApplicationStatus);
             command.Parameters.AddWithValue("@LastStatusDate", ApplicationDTO.LastStatusDate);
             command.Parameters.AddWithValue("@PaidFees", ApplicationDTO.PaidFees);
-            command.Parameters.AddWithValue("@CreatorID", ApplicationDTO.CreatorID);
+            command.Parameters.AddWithValue("@CreatorID", ApplicationDTO.CreatedByUserID);
 
 
 

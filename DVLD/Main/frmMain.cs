@@ -1,5 +1,8 @@
-﻿using DVLD.Global;
+﻿using DVLD.Applications.Local_Driving_License;
+using DVLD.Global;
 using DVLD.Login;
+using DVLD.Main;
+using DVLD.Main.Controls;
 using DVLD.Users;
 using DVLD_BusinessLayer;
 using Syncfusion.WinForms.Controls;
@@ -10,11 +13,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace DVLD
 {
@@ -23,12 +26,15 @@ namespace DVLD
         private object tableLayoutPanel;
         bool isCollapsed = true;
         
-        private const int AnimationStep = 20;
+        private const int AnimationStep = 10;
         private  int NormalSize =0;
            int fullHeight=0;
 
+        private ctrlAccountSetting _ctrlAccountSetting;
+        private ctrlAppDrivingLicenseService _ctrlDrivingLicenseService;
+        private ctrlManageApplication _ctrlManageApplications;
         frmLogin _frmLogin;
-        clsUser _User = new clsUser();
+        
         public frmMain(frmLogin frm)
 
         {
@@ -105,9 +111,68 @@ namespace DVLD
         {
             pnlAppDrivingLicenseContainer.Visible = false;
         }
+        private void _LoadView(UserControl control, string title, Image image)
+        {
+            if (control == null)
+                return;
 
+            lblTitle.Text = title;
+            pictureBox2.Image = image;
 
+            if (pnlMainViewContent.Controls.Count > 0 &&
+                pnlMainViewContent.Controls[0] == control)
+            {
+                return;
+            }
 
+            pnlMainViewContent.Controls.Clear();
+
+            if (control.Parent != null)
+                control.Parent.Controls.Remove(control);
+
+            control.Dock = DockStyle.Fill;
+            pnlMainViewContent.Controls.Add(control);
+
+            pnlMainViewHeader.Visible = true;
+            pnlMainViewContent.Visible = true;
+        }
+
+        private Image GetIcon(string fileName)
+        {
+            string projectPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+
+            string iconPath = Path.Combine(projectPath,"Resources","Icons",fileName);
+
+            return Image.FromFile(iconPath);
+        }
+
+        private ctrlAccountSetting _GetAccountSettingControl()
+        {
+            if (_ctrlAccountSetting == null)
+            {
+                _ctrlAccountSetting = new ctrlAccountSetting();
+                _ctrlAccountSetting.OnUserSignOut +=AccountSeeting_Signout;
+            }
+
+            return _ctrlAccountSetting;
+        }
+        private ctrlManageApplication _GetManageApplicationsControl()
+        {
+            if (_ctrlManageApplications == null)
+                _ctrlManageApplications = new ctrlManageApplication();
+
+            return _ctrlManageApplications;
+        }
+
+        private ctrlAppDrivingLicenseService _GetDrivingLicenseServiceControl()
+        {
+            if (_ctrlDrivingLicenseService == null)
+            {
+                _ctrlDrivingLicenseService = new ctrlAppDrivingLicenseService();
+            }
+
+            return _ctrlDrivingLicenseService;
+        }
         // EVENTS ////
         /////////////
         private void frmMain_Load(object sender, EventArgs e)
@@ -123,7 +188,6 @@ namespace DVLD
 
             //OptimizeSidebarButtons();
             //EnableDoubleBuffering();
-            ctrlAccountSetting1.OnUserSignOut += AccountSeeting_Signout;
         }
 
         private void AccountSeeting_Signout()
@@ -157,7 +221,7 @@ namespace DVLD
 
         private void btnApplication_Click(object sender, EventArgs e)
         {
-           clsUICustomization.ToggleAnimation(pnlAppContainer, fullHeight, NormalSize, 10, true, () => { isCollapsed = false; });
+           clsUICustomization.ToggleAnimation(pnlAppContainer, fullHeight, NormalSize, AnimationStep, true, () => { isCollapsed = false; });
 
         }
 
@@ -167,23 +231,34 @@ namespace DVLD
         private void btnDrivingLicensesServices_Click(object sender, EventArgs e)
         {
             _HideAllSubMenus();
-            pnlAppDrivingLicenseContainer.Visible = true;
+
+            _LoadView(_GetDrivingLicenseServiceControl(), "Driving License Services", GetIcon("driving-license.png"));
+
+            //pnlAppDrivingLicenseContainer.Visible = true;
+            //ctrlAppDrivingLicenseService.Visible = true;
+
         }
 
         private void btnManageApp_Click(object sender, EventArgs e)
         {
             _HideAllSubMenus();
 
+            _LoadView(_GetManageApplicationsControl(), "Manage Applications", GetIcon("talent.png"));
+
         }
 
         private void btnAccountSetting_Click(object sender, EventArgs e)
         {
-            _HideAllSubMenus();
-            pnlAccountSetting.Visible = true;   
+
+            _HideAllSubMenus();     
+            _LoadView(_GetAccountSettingControl(), "Account Settings", GetIcon("AccountSetting.png"));
+
+            //  pnlAccountSetting.Visible = true;   
         }
 
         private void ctrlAccountSetting1_Load(object sender, EventArgs e)
         {
+
 
         }
 

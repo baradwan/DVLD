@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
   <Project Path="DVLD/DVLD.csproj" Id="78ceeedf-103d-445a-98ae-b39e0c0ab433" />
   <Project Path="DVLD_AccessLayer/DVLD_DataAccessLayer.csproj" Id="c96b5487-02b1-4c10-99b1-42d8cb143ff8" />
   <Project Path="DVLD_BusinessLayer/DVLD_BusinessLayer.csproj" Id="1f1ab826-4a7c-43d2-8079-02b06744392a" />

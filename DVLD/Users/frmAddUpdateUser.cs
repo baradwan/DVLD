@@ -21,6 +21,7 @@ namespace DVLD.Users
         private enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode = enMode.AddNew;
         private int _UserID = -1;
+      
         private bool _AllowTabChange = false;
         public int UserID
         {

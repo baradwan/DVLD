@@ -159,25 +159,25 @@ namespace DVLD_AccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
             string query = @"Update Applications
-                            set PersonID = @PersonID,
+                            set ApplicantPersonID = @ApplicantPersonID,
                                 ApplicationDate = @ApplicationDate,
                                 ApplicationTypeID = @ApplicationTypeID,
                                 ApplicationStatus = @ApplicationStatus,
                                 LastStatusDate = @LastStatusDate,
                                 PaidFees = @PaidFees,
-                                CreatorID = @CreatorID
+                                CreatedByUserID = @CreatedByUserID
                                 where ApplicationID = @ApplicationID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@ApplicationID", ApplicationDTO.ApplicationID);
-            command.Parameters.AddWithValue("@PersonID", ApplicationDTO.PersonID);
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicationDTO.PersonID);
             command.Parameters.AddWithValue("@ApplicationDate", ApplicationDTO.ApplicationDate);
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationDTO.ApplicationTypeID);
             command.Parameters.AddWithValue("@ApplicationStatus", ApplicationDTO.ApplicationStatus);
             command.Parameters.AddWithValue("@LastStatusDate", ApplicationDTO.LastStatusDate);
             command.Parameters.AddWithValue("@PaidFees", ApplicationDTO.PaidFees);
-            command.Parameters.AddWithValue("@CreatorID", ApplicationDTO.CreatedByUserID);
+            command.Parameters.AddWithValue("@CreatedByUserID", ApplicationDTO.CreatedByUserID);
 
 
 
@@ -239,7 +239,49 @@ namespace DVLD_AccessLayer
         }
 
 
-          
+        public static int GetActiveApplicationIDForLicenseClass(int PersonID, int ApplicationTypeID, int LicenseClassID)
+        {
+            int ActiveApplicationID = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT ActiveApplicationID=Applications.ApplicationID  
+                            From
+                            Applications INNER JOIN
+                            LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+                            WHERE ApplicantPersonID = @ApplicantPersonID 
+                            and ApplicationTypeID=@ApplicationTypeID 
+							and LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
+                            and ApplicationStatus=1";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicantPersonID", PersonID);
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+
+                if (result != null && int.TryParse(result.ToString(), out int AppID))
+                {
+                    ActiveApplicationID = AppID;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return ActiveApplicationID;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return ActiveApplicationID;
+        }
 
     }
 }

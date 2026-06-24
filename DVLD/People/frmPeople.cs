@@ -323,12 +323,9 @@ namespace DVLD
 
             if (selectedRow == null)
                 return;
-            int personID = Convert.ToInt32(selectedRow["PersonID"]);
-            if (MessageBox.Show("Are you sure you want to delete this person? This action cannot be undone.",
-                "Confirm Delete",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            int personID = Convert.ToInt32(selectedRow["PersonID"]);      
+            if (MessageBox.Show("Are you sure you want to delete this person? This action cannot be undone.","Confirm Delete",
+                MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                 return;
 
 

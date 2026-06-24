@@ -1,4 +1,5 @@
 ﻿using DVLD_BusinessLayer;
+using DVLD_Global.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -180,6 +181,7 @@ namespace DVLD.Applications.Local_Driving_License
         /////////////////////// EVENTS /////////////////
         private void ctrlListLocalDriving_Load(object sender, EventArgs e)
         {
+
             _SetupDataGridUI();
             RefreshList();
             _LoadFiltersOptions();
@@ -234,5 +236,47 @@ namespace DVLD.Applications.Local_Driving_License
             }
         }
 
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmAddUpdateLocalDrivingLicenseApplication frm = new frmAddUpdateLocalDrivingLicenseApplication(GetCurrentLocalDrivingLicenseApplicationID());
+            frm.ShowDialog();
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLocalDrivingLicenseApplicationInfo frm = new frmLocalDrivingLicenseApplicationInfo(GetCurrentLocalDrivingLicenseApplicationID());
+
+            frm.ShowDialog();
+        }
+
+        private void DeleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Are you sure do want to delete this application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            int LocalDrivingLicenseApplicationID = GetCurrentLocalDrivingLicenseApplicationID();
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplication.Find(LocalDrivingLicenseApplicationID);
+
+            if (LocalDrivingLicenseApplication == null)
+            {                MessageBox.Show("Application was not found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+                return;
+            }
+                if (LocalDrivingLicenseApplication.DeleteLocalDrivingLicenseApplication())
+                {
+                clsLDLApplicationEvents.NotifyLocalDrivingLicenseApplicationDeleted(LocalDrivingLicenseApplicationID);
+                    MessageBox.Show("Application Deleted Successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    
+                }
+                else
+                {                MessageBox.Show("Could not delete application. Other data may depend on it.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            
+            }
+        }
     }
 }

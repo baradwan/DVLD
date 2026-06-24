@@ -125,7 +125,7 @@ namespace DVLD.People.Controls
         }
         private void _FillPersonInformation()
         {
-            // Check if the _Person object is null before accessing its properties.
+           
            
 
             _PersonID = _Person.PersonID;
@@ -133,20 +133,19 @@ namespace DVLD.People.Controls
             lblFullNameValue.Text = _Person.FullName;
             lblShortNameUnderImage.Text = $"{_Person.FirstName} {_Person.LastName}";
             lblNationalNoValue.Text = _Person.NationalNo;
-            // Format the date of birth to "dd/MM/yyyy" for consistency and readability.
+           
             lblDateOfBirthValue.Text = _Person.DateOfBirth.ToString("dd/MM/yyyy");
-            // Use a conditional (ternary) operator for gender display.
+       
             lblGenderValue.Text = _Person.Gendor == 0 ? "Male" : "Female";
 
-            // Retrieve and display the country name based on NationalityCountryID.
-            // Add null-conditional operator to prevent potential NullReferenceException if Find returns null.
+            
             lblNationalityValue.Text = clsCountry.Find(_Person.NationalityCountryID)?.CountryName ?? "[N/A]";
 
-            // Display phone and email, handling potential null or empty strings gracefully.
+         
             lblPhoneValue.Text = string.IsNullOrWhiteSpace(_Person.Phone) ? "[N/A]" : _Person.Phone;
             lblEmailValue.Text = string.IsNullOrWhiteSpace(_Person.Email) ? "[N/A]" : _Person.Email;
             lblAddressValue.Text = string.IsNullOrWhiteSpace(_Person.Address) ? "[N/A]" : _Person.Address;
-            // Display the person's image if available, otherwise set a default image.
+           
             _LoadPersonImage();
         }       
 
@@ -211,7 +210,7 @@ namespace DVLD.People.Controls
 
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmAddUpdatePerson frm = new frmAddUpdatePerson(PersonID);
+            frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);
             frm.PersonSaved += FrmUpdate_PersonSaved;
             frm.FormClosed += (s, args) =>
             {

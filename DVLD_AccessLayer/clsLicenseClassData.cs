@@ -70,8 +70,8 @@ namespace DVLD_AccessLayer
 
                         ClassName = reader["ClassName"].ToString(),
                         ClassDescription = reader["ClassDescription"].ToString(),
-                        MinAllowedAge = Convert.ToByte(reader["MinAllowedAge"]),
-                        DefaultValidityLength = Convert.ToByte(reader["DefaultValidatyLength"]),
+                        MinAllowedAge = Convert.ToByte(reader["MinimumAllowedAge"]),
+                        DefaultValidityLength = Convert.ToByte(reader["DefaultValidityLength"]),
                         ClassFees = Convert.ToDecimal(reader["ClassFees"])
 
                     };
@@ -99,8 +99,8 @@ namespace DVLD_AccessLayer
             string query = @"INSERT INTO [dbo].[LicenseClasses]
            ([ClassName]
            ,[ClassDescription]
-           ,[MinAllowedAge]
-           ,[DefaultValidatyLength]
+           ,[MinimumAllowedAge]
+           ,[DefaultValidityLength]
            ,[ClassFees])
      VALUES
            (@ClassName
@@ -155,8 +155,8 @@ namespace DVLD_AccessLayer
             string query = @"Update LicenseClasses
                             set ClassName = @ClassName,
                                 ClassDescription = @ClassDescription,
-                                MinAllowedAge = @MinAllowedAge,
-                                DefaultValidatyLength = @DefaultValidatyLength,
+                                MinimumAllowedAge = @MinimumAllowedAge,
+                                DefaultValidityLength = @DefaultValidityLength,
                                 ClassFees = @ClassFees
                                 where LicenseClassID = @LicenseClassID";
 
@@ -166,8 +166,8 @@ namespace DVLD_AccessLayer
             command.Parameters.AddWithValue("@LicenseClassID", LicenseClassDTO.LicenseClassID);
             command.Parameters.AddWithValue("@ClassName", LicenseClassDTO.ClassName);
             command.Parameters.AddWithValue("@ClassDescription", LicenseClassDTO.ClassDescription);
-            command.Parameters.AddWithValue("@MinAllowedAge", LicenseClassDTO.MinAllowedAge);
-            command.Parameters.AddWithValue("@DefaultValidatyLength", LicenseClassDTO.DefaultValidityLength);
+            command.Parameters.AddWithValue("@MinimumAllowedAge", LicenseClassDTO.MinAllowedAge);
+            command.Parameters.AddWithValue("@DefaultValidityLength", LicenseClassDTO.DefaultValidityLength);
             command.Parameters.AddWithValue("@ClassFees", LicenseClassDTO.ClassFees);
 
 

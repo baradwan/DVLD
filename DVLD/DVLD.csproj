@@ -114,10 +114,22 @@
     <Compile Include="Applications\Application Types\frmListApplicationTypes.Designer.cs">
       <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License\ctrlListLocalDriving.cs">
+    <Compile Include="Applications\Contol\ctrlAppBasicInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\ctrlListLocalDriving.Designer.cs">
+    <Compile Include="Applications\Contol\ctrlAppBasicInfo.Designer.cs">
+      <DependentUpon>ctrlAppBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Control\ctrlDrivingLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Control\ctrlDrivingLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlDrivingLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Control\ctrlListLocalDriving.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Control\ctrlListLocalDriving.Designer.cs">
       <DependentUpon>ctrlListLocalDriving.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Local Driving License\frmAddUpdateLocalDrivingLicenseApplication.cs">
@@ -131,6 +143,12 @@
     </Compile>
     <Compile Include="Applications\Local Driving License\frmListDrivingLicenseApp.Designer.cs">
       <DependentUpon>frmListDrivingLicenseApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationInfo.Designer.cs">
+      <DependentUpon>frmLocalDrivingLicenseApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\CurrentUser.cs" />
     <Compile Include="Login\frmLogin.cs">
@@ -256,7 +274,13 @@
     <EmbeddedResource Include="Applications\Application Types\frmListApplicationTypes.resx">
       <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\ctrlListLocalDriving.resx">
+    <EmbeddedResource Include="Applications\Contol\ctrlAppBasicInfo.resx">
+      <DependentUpon>ctrlAppBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\Control\ctrlDrivingLicenseInfo.resx">
+      <DependentUpon>ctrlDrivingLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\Control\ctrlListLocalDriving.resx">
       <DependentUpon>ctrlListLocalDriving.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\frmAddUpdateLocalDrivingLicenseApplication.resx">
@@ -264,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\frmListDrivingLicenseApp.resx">
       <DependentUpon>frmListDrivingLicenseApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationInfo.resx">
+      <DependentUpon>frmLocalDrivingLicenseApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

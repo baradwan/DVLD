@@ -14,7 +14,15 @@ namespace DVLD_BusinessLayer
 {
     public class clsApplication
     {
+        private clsPerson _PersonInfo;
+        private clsUser _CreatedByUserInfo;
+        private clsApplicationType _ApplicationTypeInfo;
         enum enMode { AddNew = 0, Update = 1 }
+        public enum enApplicationType
+        {
+            NewDrivingLicense = 1, RenewDrivingLicense = 2, ReplaceLostDrivingLicense = 3,
+            ReplaceDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6, RetakeTest = 7
+        };
         public enum enApplicationStatus : byte
         {
             New = 1,
@@ -82,6 +90,66 @@ namespace DVLD_BusinessLayer
             this.CreatedByUserID = ApplicationDTO.CreatedByUserID;
             _Mode = enMode.Update;
         }
+
+      
+        public clsPerson PersonInfo
+        {
+            get
+            {
+                if (_PersonInfo == null && PersonID > 0)
+                    _PersonInfo = clsPerson.Find(PersonID);
+
+                return _PersonInfo;
+            }
+        }
+
+        public string PersonName
+        {
+            get
+            {
+                return PersonInfo.FullName ;
+            }
+        }
+
+
+        public clsUser CreatedByUserInfo
+        {
+            get
+            {
+                if (_CreatedByUserInfo == null && CreatedByUserID > 0)
+                    _CreatedByUserInfo = clsUser.Find(CreatedByUserID);
+
+                return _CreatedByUserInfo;
+            }
+        }
+
+        public string CreatedByUserName
+        {
+            get
+            {
+                return CreatedByUserInfo.UserName;
+            }
+        }
+
+        
+        public clsApplicationType ApplicationTypeInfo
+        {
+            get
+            {
+                if (_ApplicationTypeInfo == null && ApplicationTypeID > 0)
+                    _ApplicationTypeInfo = clsApplicationType.Find(ApplicationTypeID);
+
+                return _ApplicationTypeInfo;
+            }
+        }
+
+        public string ApplicationTypeTitle
+        {
+            get
+            {
+                return ApplicationTypeInfo.ApplicationTypeTitle;
+            }
+        }
         public void PrepareApplication(  int personID, int applicationTypeID, int createdByUserID)
         {
             PersonID = personID;
@@ -123,11 +191,16 @@ namespace DVLD_BusinessLayer
         {
             return clsApplicationData.UpdateApplication(this.ApplicationDTO);
         }
-        public static bool DeleteApplication(int ApplicationID)
+        public  bool DeleteApplication()
         {
-            return clsApplicationData.DeleteApplication(ApplicationID);
+            return clsApplicationData.DeleteApplication(this.ApplicationID);
         }
 
+
+        public static int GetActiveAppAppID(int PersonID, clsApplication.enApplicationType ApplicationTypeID) {
+            return clsApplicationData.GET(PersonID, (int)ApplicationTypeID);
+
+        }
         private bool _IsValid()
         {
 

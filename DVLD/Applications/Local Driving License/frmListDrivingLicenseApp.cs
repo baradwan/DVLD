@@ -31,7 +31,13 @@ namespace DVLD.Applications.Local_Driving_License
             clsLDLApplicationEvents.LocalDrivingLicenseApplicationAdded += OnLocalApplicationChanged;
             clsLDLApplicationEvents.LocalDrivingLicenseApplicationUpdated += OnLocalApplicationChanged;
             clsLDLApplicationEvents.LocalDrivingLicenseApplicationDeleted += OnLocalApplicationChanged;
+            clsPersonEvents.PersonUpdated += OnPersonUpdated;
 
+        }
+
+        private void OnPersonUpdated(int personID)
+        {
+            ctrlListLocalDriving1.RefreshList();
         }
         private void _UpdateCount(int count)
         {
@@ -48,6 +54,7 @@ namespace DVLD.Applications.Local_Driving_License
             clsLDLApplicationEvents.LocalDrivingLicenseApplicationAdded -= OnLocalApplicationChanged;
             clsLDLApplicationEvents.LocalDrivingLicenseApplicationUpdated -= OnLocalApplicationChanged;
             clsLDLApplicationEvents.LocalDrivingLicenseApplicationDeleted -= OnLocalApplicationChanged;
+            clsPersonEvents.PersonUpdated -= OnPersonUpdated;
         }
 
         private void btnAddLDAPP_Click(object sender, EventArgs e)

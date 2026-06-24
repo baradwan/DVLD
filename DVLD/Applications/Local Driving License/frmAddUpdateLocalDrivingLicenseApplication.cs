@@ -168,6 +168,13 @@ namespace DVLD.Applications.Local_Driving_License
 
         }
 
+        private bool IsHasSameLicenseClass()
+        {
+           
+             
+            return _LDLApplication.LicenseClassID == _GetSelectedLicenseClassID();
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
 

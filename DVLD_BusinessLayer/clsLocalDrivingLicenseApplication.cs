@@ -77,13 +77,20 @@ namespace DVLD_BusinessLayer
 
         private bool _UpdateLocalDrivingLicenseApplication()
         {
-            return clsLocalDrivingLicenseApplicationData.UpdateLocalDrivingLicenseApplication(
-                this.LDLApplicationDTO);
+            return clsLocalDrivingLicenseApplicationData.UpdateLocalDrivingLicenseApplication(this.LDLApplicationDTO);
         }
 
-        public static bool DeleteLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID)
+        public  bool DeleteLocalDrivingLicenseApplication()
         {
-            return clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplication( LocalDrivingLicenseApplicationID);
+            bool IsLocalDrivingApplicationDeleted = false;
+            bool IsBaseApplicationDeleted = false;
+            IsLocalDrivingApplicationDeleted =clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplication(this.LocalDrivingLicenseApplicationID);
+            if (!IsLocalDrivingApplicationDeleted)
+                return false;
+
+            IsBaseApplicationDeleted = Application.DeleteApplication();
+
+            return IsBaseApplicationDeleted;
         }
 
         private bool _IsValid()
@@ -119,6 +126,7 @@ namespace DVLD_BusinessLayer
 
                     if (!_AddNewLocalDrivingLicenseApplication())
                         return false;
+
 
                     _Mode = enMode.Update;
                         return true;

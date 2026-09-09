@@ -278,5 +278,15 @@ namespace DVLD.Applications.Local_Driving_License
             
             }
         }
+
+        private void CancelApplicaitonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

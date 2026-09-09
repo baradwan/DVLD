@@ -197,10 +197,10 @@ namespace DVLD_BusinessLayer
         }
 
 
-        public static int GetActiveAppAppID(int PersonID, clsApplication.enApplicationType ApplicationTypeID) {
-            return clsApplicationData.GET(PersonID, (int)ApplicationTypeID);
+        //public static int GetActiveAppAppID(int PersonID, clsApplication.enApplicationType ApplicationTypeID) {
+        //    return clsApplicationData.GetActiveApplicationIDForLicenseClass(PersonID, (int)ApplicationTypeID,);
 
-        }
+        //}
         private bool _IsValid()
         {
 

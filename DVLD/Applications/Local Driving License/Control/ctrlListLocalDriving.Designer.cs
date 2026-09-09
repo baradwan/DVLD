@@ -78,9 +78,10 @@
             this.pnlHeader.Controls.Add(this.txtSearch);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Padding = new System.Windows.Forms.Padding(10, 12, 10, 12);
-            this.pnlHeader.Size = new System.Drawing.Size(1217, 43);
+            this.pnlHeader.Padding = new System.Windows.Forms.Padding(20, 23, 20, 23);
+            this.pnlHeader.Size = new System.Drawing.Size(2434, 83);
             this.pnlHeader.TabIndex = 4;
             // 
             // lblStatusTitle
@@ -88,9 +89,10 @@
             this.lblStatusTitle.AutoSize = true;
             this.lblStatusTitle.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold);
             this.lblStatusTitle.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblStatusTitle.Location = new System.Drawing.Point(991, 4);
+            this.lblStatusTitle.Location = new System.Drawing.Point(1982, 8);
+            this.lblStatusTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblStatusTitle.Name = "lblStatusTitle";
-            this.lblStatusTitle.Size = new System.Drawing.Size(98, 31);
+            this.lblStatusTitle.Size = new System.Drawing.Size(199, 62);
             this.lblStatusTitle.TabIndex = 7;
             this.lblStatusTitle.Text = "Status : ";
             // 
@@ -104,9 +106,11 @@
             this.cbStatusFilter.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
             this.cbStatusFilter.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.cbStatusFilter.ForeColor = System.Drawing.Color.Black;
-            this.cbStatusFilter.Location = new System.Drawing.Point(1096, 9);
+            this.cbStatusFilter.Location = new System.Drawing.Point(2192, 17);
+            this.cbStatusFilter.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbStatusFilter.Name = "cbStatusFilter";
-            this.cbStatusFilter.Size = new System.Drawing.Size(108, 26);
+            this.cbStatusFilter.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.cbStatusFilter.Size = new System.Drawing.Size(216, 50);
             this.cbStatusFilter.Style.DropDownButtonStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.cbStatusFilter.Style.DropDownButtonStyle.FocusedBackColor = System.Drawing.Color.Transparent;
             this.cbStatusFilter.Style.DropDownButtonStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -133,9 +137,11 @@
             this.cmbFilter.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
             this.cmbFilter.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.cmbFilter.ForeColor = System.Drawing.Color.Black;
-            this.cmbFilter.Location = new System.Drawing.Point(705, 6);
+            this.cmbFilter.Location = new System.Drawing.Point(1410, 12);
+            this.cmbFilter.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(226, 26);
+            this.cmbFilter.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.cmbFilter.Size = new System.Drawing.Size(452, 50);
             this.cmbFilter.Style.DropDownButtonStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.cmbFilter.Style.DropDownButtonStyle.FocusedBackColor = System.Drawing.Color.Transparent;
             this.cmbFilter.Style.DropDownButtonStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -158,9 +164,10 @@
             this.lblFilterTitle.AutoSize = true;
             this.lblFilterTitle.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold);
             this.lblFilterTitle.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblFilterTitle.Location = new System.Drawing.Point(542, 1);
+            this.lblFilterTitle.Location = new System.Drawing.Point(1084, 2);
+            this.lblFilterTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFilterTitle.Name = "lblFilterTitle";
-            this.lblFilterTitle.Size = new System.Drawing.Size(114, 31);
+            this.lblFilterTitle.Size = new System.Drawing.Size(230, 62);
             this.lblFilterTitle.TabIndex = 2;
             this.lblFilterTitle.Text = "Filter by :";
             // 
@@ -169,9 +176,10 @@
             this.lblSearchTitle.AutoSize = true;
             this.lblSearchTitle.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold);
             this.lblSearchTitle.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblSearchTitle.Location = new System.Drawing.Point(13, 1);
+            this.lblSearchTitle.Location = new System.Drawing.Point(26, 2);
+            this.lblSearchTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblSearchTitle.Name = "lblSearchTitle";
-            this.lblSearchTitle.Size = new System.Drawing.Size(103, 31);
+            this.lblSearchTitle.Size = new System.Drawing.Size(209, 62);
             this.lblSearchTitle.TabIndex = 1;
             this.lblSearchTitle.Text = "Search : ";
             // 
@@ -181,7 +189,7 @@
             this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
             "Email"});
             this.txtSearch.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtSearch.BeforeTouchSize = new System.Drawing.Size(374, 33);
+            this.txtSearch.BeforeTouchSize = new System.Drawing.Size(744, 58);
             this.txtSearch.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -190,11 +198,12 @@
             this.txtSearch.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtSearch.FarImage = ((System.Drawing.Image)(resources.GetObject("txtSearch.FarImage")));
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(140, 4);
+            this.txtSearch.Location = new System.Drawing.Point(280, 8);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtSearch.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtSearch.MinimumSize = new System.Drawing.Size(16, 12);
+            this.txtSearch.MinimumSize = new System.Drawing.Size(28, 12);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(374, 33);
+            this.txtSearch.Size = new System.Drawing.Size(744, 58);
             this.txtSearch.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
             this.txtSearch.TabIndex = 0;
             this.txtSearch.ThemeName = "Metro";
@@ -205,9 +214,10 @@
             // 
             this.pnlContent.Controls.Add(this.dvgList);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(0, 43);
+            this.pnlContent.Location = new System.Drawing.Point(0, 83);
+            this.pnlContent.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1217, 479);
+            this.pnlContent.Size = new System.Drawing.Size(2434, 921);
             this.pnlContent.TabIndex = 5;
             // 
             // dvgList
@@ -220,11 +230,12 @@
             this.dvgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dvgList.HeaderRowHeight = 45;
             this.dvgList.Location = new System.Drawing.Point(0, 0);
+            this.dvgList.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dvgList.Name = "dvgList";
             this.dvgList.PreviewRowHeight = 56;
             this.dvgList.RowHeaderWidth = 20D;
             this.dvgList.RowHeight = 45;
-            this.dvgList.Size = new System.Drawing.Size(1217, 479);
+            this.dvgList.Size = new System.Drawing.Size(2434, 921);
             this.dvgList.Style.AddNewRowStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dvgList.Style.BorderColor = System.Drawing.Color.White;
             this.dvgList.Style.DragPreviewRowStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -236,6 +247,7 @@
             // cmsApplications
             // 
             this.cmsApplications.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.cmsApplications.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.cmsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetailsToolStripMenuItem,
             this.toolStripSeparator2,
@@ -252,28 +264,28 @@
             this.toolStripSeparator6,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsApplications.Name = "contextMenuStrip1";
-            this.cmsApplications.Size = new System.Drawing.Size(301, 302);
+            this.cmsApplications.Size = new System.Drawing.Size(533, 468);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetailsToolStripMenuItem.Image")));
             this.showDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(532, 48);
             this.showDetailsToolStripMenuItem.Text = "&Show Application Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(297, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(529, 6);
             // 
             // DeleteApplicationToolStripMenuItem
             // 
             this.DeleteApplicationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("DeleteApplicationToolStripMenuItem.Image")));
             this.DeleteApplicationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DeleteApplicationToolStripMenuItem.Name = "DeleteApplicationToolStripMenuItem";
-            this.DeleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
+            this.DeleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(532, 48);
             this.DeleteApplicationToolStripMenuItem.Text = "&Delete Application";
             this.DeleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.DeleteApplicationToolStripMenuItem_Click);
             // 
@@ -282,15 +294,16 @@
             this.CancelApplicaitonToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("CancelApplicaitonToolStripMenuItem.Image")));
             this.CancelApplicaitonToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CancelApplicaitonToolStripMenuItem.Name = "CancelApplicaitonToolStripMenuItem";
-            this.CancelApplicaitonToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
+            this.CancelApplicaitonToolStripMenuItem.Size = new System.Drawing.Size(532, 48);
             this.CancelApplicaitonToolStripMenuItem.Text = "&Cancel Application";
+            this.CancelApplicaitonToolStripMenuItem.Click += new System.EventHandler(this.CancelApplicaitonToolStripMenuItem_Click);
             // 
             // issueDrivingLicenseFirstTimeToolStripMenuItem
             // 
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("issueDrivingLicenseFirstTimeToolStripMenuItem.Image")));
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Name = "issueDrivingLicenseFirstTimeToolStripMenuItem";
-            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Size = new System.Drawing.Size(532, 48);
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Text = "&Issue Driving License (First Time)";
             // 
             // editToolStripMenuItem
@@ -298,19 +311,19 @@
             this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
             this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(532, 48);
             this.editToolStripMenuItem.Text = "&Edit Application";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(297, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(529, 6);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(297, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(529, 6);
             // 
             // ScheduleTestsMenue
             // 
@@ -321,7 +334,7 @@
             this.ScheduleTestsMenue.Image = ((System.Drawing.Image)(resources.GetObject("ScheduleTestsMenue.Image")));
             this.ScheduleTestsMenue.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ScheduleTestsMenue.Name = "ScheduleTestsMenue";
-            this.ScheduleTestsMenue.Size = new System.Drawing.Size(300, 30);
+            this.ScheduleTestsMenue.Size = new System.Drawing.Size(532, 48);
             this.ScheduleTestsMenue.Text = "Sechdule &Tests";
             // 
             // scheduleVisionTestToolStripMenuItem
@@ -329,7 +342,7 @@
             this.scheduleVisionTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("scheduleVisionTestToolStripMenuItem.Image")));
             this.scheduleVisionTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.scheduleVisionTestToolStripMenuItem.Name = "scheduleVisionTestToolStripMenuItem";
-            this.scheduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
+            this.scheduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(442, 50);
             this.scheduleVisionTestToolStripMenuItem.Text = "Schedule Vision Test";
             // 
             // scheduleWrittenTestToolStripMenuItem
@@ -337,7 +350,7 @@
             this.scheduleWrittenTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("scheduleWrittenTestToolStripMenuItem.Image")));
             this.scheduleWrittenTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.scheduleWrittenTestToolStripMenuItem.Name = "scheduleWrittenTestToolStripMenuItem";
-            this.scheduleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
+            this.scheduleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(442, 50);
             this.scheduleWrittenTestToolStripMenuItem.Text = "Schedule Written Test";
             // 
             // scheduleStreetTestToolStripMenuItem
@@ -345,38 +358,39 @@
             this.scheduleStreetTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("scheduleStreetTestToolStripMenuItem.Image")));
             this.scheduleStreetTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.scheduleStreetTestToolStripMenuItem.Name = "scheduleStreetTestToolStripMenuItem";
-            this.scheduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
+            this.scheduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(442, 50);
             this.scheduleStreetTestToolStripMenuItem.Text = "Schedule Street Test";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(297, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(529, 6);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(297, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(529, 6);
             // 
             // showLicenseToolStripMenuItem
             // 
             this.showLicenseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showLicenseToolStripMenuItem.Image")));
             this.showLicenseToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
-            this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
+            this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(532, 48);
             this.showLicenseToolStripMenuItem.Text = "Show &License";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(297, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(529, 6);
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
             this.showPersonLicenseHistoryToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showPersonLicenseHistoryToolStripMenuItem.Image")));
             this.showPersonLicenseHistoryToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
-            this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
+            this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(532, 48);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
             // 
             // errorProvider1
@@ -385,12 +399,13 @@
             // 
             // ctrlListLocalDriving
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlHeader);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "ctrlListLocalDriving";
-            this.Size = new System.Drawing.Size(1217, 522);
+            this.Size = new System.Drawing.Size(2434, 1004);
             this.Load += new System.EventHandler(this.ctrlListLocalDriving_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();

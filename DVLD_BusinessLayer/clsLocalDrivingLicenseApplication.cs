@@ -52,7 +52,6 @@ namespace DVLD_BusinessLayer
         }
 
 
-
         public static DataTable ListAllLocalDrivingLicenseApplications()
         {
             return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplications();

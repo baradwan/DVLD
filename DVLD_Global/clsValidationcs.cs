@@ -101,6 +101,29 @@ namespace DVLD_Global
             if (licenseClass.ClassFees < 0) return false;
             return true;
         }
+
+        public static bool IsTestAppointmentValid(clsTestAppointmentDTO testAppointment)
+        {
+            if (testAppointment == null) return false;
+
+            if (testAppointment.TestTypeID <= 0) return false;
+
+            if (testAppointment.LocalDrivingLicenseApplicationID <= 0)
+                return false;
+
+            if (testAppointment.AppointmentDate == DateTime.MinValue)
+                return false;
+
+            if (testAppointment.PaidFees < 0) return false;
+
+            if (testAppointment.CreatedByUserID <= 0) return false;
+
+            if (testAppointment.RetakeTestApplicationID == 0 ||
+                testAppointment.RetakeTestApplicationID < -1)
+                return false;
+
+            return true;
+        }
         public static bool IsPositiveInteger(string text)
         {
             return int.TryParse(text, out int result) && result >= 0;

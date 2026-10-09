@@ -18,6 +18,7 @@ namespace DVLD_BusinessLayer
         private clsUser _CreatedByUserInfo;
         private clsApplicationType _ApplicationTypeInfo;
         enum enMode { AddNew = 0, Update = 1 }
+        
         public enum enApplicationType
         {
             NewDrivingLicense = 1, RenewDrivingLicense = 2, ReplaceLostDrivingLicense = 3,

@@ -1,4 +1,5 @@
-﻿using Syncfusion.WinForms.DataGrid.Enums;
+﻿using DVLD_BusinessLayer;
+using Syncfusion.WinForms.DataGrid.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DVLD_BusinessLayer.clsTestTypes;
+using static DVLD_BusinessLayer.clsTestType;
 
 namespace DVLD.Applications.Manage_Test_Types
 {

@@ -64,7 +64,7 @@ namespace DVLD_AccessLayer
 
             string query = "select * from People where PersonID=@PersonID;";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", personDTO. PersonID);
+            command.Parameters.AddWithValue("@PersonID", personDTO.PersonID);
 
             try
             {

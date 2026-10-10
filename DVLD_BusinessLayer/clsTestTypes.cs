@@ -1,5 +1,6 @@
 ﻿using DVLD_AccessLayer;
 using DVLD_Global.DTOs;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace DVLD_BusinessLayer
 {
-    public class clsTestTypes
-    {
+  
         public class clsTestType
         {
-            public enum enMode { AddNew = 0, Update = 1 }
+            private enum enMode { AddNew = 0, Update = 1 }
+            public enum enTestType { VisionTest = 1, WrittenTest = 2, StreetTest = 3 };
 
-            public enMode Mode = enMode.AddNew;
+            private enMode Mode = enMode.AddNew;
 
-            public int TestTypeID { get; set; }
+            public clsTestType.enTestType ID { set; get; }
             public string TestTypeTitle { get; set; }
             public string TestTypeDescription { get; set; }
             public decimal TestTypeFees { get; set; }
@@ -28,7 +29,7 @@ namespace DVLD_BusinessLayer
                 {
                     return new clsTestTypesDTO
                     {
-                        TestTypeID = this.TestTypeID,
+                        TestTypeID = (int)this.ID,
                         Title = this.TestTypeTitle,
                         Description = this.TestTypeDescription,
                         Fees = this.TestTypeFees
@@ -38,7 +39,7 @@ namespace DVLD_BusinessLayer
 
             public clsTestType()
             {
-                TestTypeID = -1;
+                ID = clsTestType.enTestType.VisionTest;
                 TestTypeTitle = string.Empty;
                 TestTypeDescription = string.Empty;
                 TestTypeFees = 0;
@@ -47,7 +48,7 @@ namespace DVLD_BusinessLayer
 
             public clsTestType(clsTestTypesDTO testTypeDTO)
             {
-                this.TestTypeID = testTypeDTO.TestTypeID;
+                this.ID = (clsTestType.enTestType)testTypeDTO.TestTypeID;
                 this.TestTypeTitle = testTypeDTO.Title;
                 this.TestTypeDescription = testTypeDTO.Description;
                 this.TestTypeFees = testTypeDTO.Fees;
@@ -73,12 +74,12 @@ namespace DVLD_BusinessLayer
                 return null;
             }
 
-            private bool _AddNewTestType()
-            {
-                this.TestTypeID = clsTestTypesData.AddNewTestType(this.TestTypeDTO);
+            //private bool _AddNewTestType()
+            //{
+            //    this.ID = (clsTestType.enTestType)clsTestTypesData.AddNewTestType(this.TestTypeDTO);
 
-                return this.TestTypeID != -1;
-            }
+            //    return this.TestTypeTitle != string.Empty;
+            //}
 
             private bool _UpdateTestType()
             {
@@ -97,23 +98,24 @@ namespace DVLD_BusinessLayer
                 if (!_IsValid())
                     return false;
 
-                switch (Mode)
-                {
-                    case enMode.AddNew:
-                        if (_AddNewTestType())
-                        {
-                            Mode = enMode.Update;
-                            return true;
-                        }
+                //switch (Mode)
+                //{
+                //    case enMode.AddNew:
+                //        if (_AddNewTestType())
+                //        {
+                //            Mode = enMode.Update;
+                //            return true;
+                //        }
 
-                        return false;
+                //        return false;
 
-                    case enMode.Update:
-                        return _UpdateTestType();
-                }
+                //    case enMode.Update:
+                //        return _UpdateTestType();
+                //}
 
-                return false;
+                if (Mode==enMode.Update)
+                return _UpdateTestType();
+            return false;
             }
         }
     }
-}

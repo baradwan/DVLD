@@ -9,8 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DVLD_BusinessLayer.clsTestTypes;
-
+using DVLD_BusinessLayer;
 namespace DVLD.Applications.Manage_Test_Types
 {
     public partial class frmEditTestTypes : Form

@@ -5,6 +5,7 @@ using DVLD.Applications.Local_Driving_License;
 using DVLD.Applications.Manage_Test_Types;
 using DVLD.Login;
 using DVLD.People;
+using DVLD.Tests.Test_Appointment;
 using DVLD.Users;
 
 
@@ -24,6 +25,9 @@ namespace DVLD
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogin());
+
+
+
         }
     }
 }

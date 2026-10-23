@@ -27,7 +27,7 @@ namespace DVLD.Applications
             InitializeComponent();
         }
        
-        public void LoadApplicationInfo(int AppID)
+        public void  LoadApplicationInfo(int AppID)
         {
             _App = clsApplication.Find(AppID);
             if (_App == null)

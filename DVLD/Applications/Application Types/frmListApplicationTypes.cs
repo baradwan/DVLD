@@ -1,4 +1,5 @@
 ﻿using DVLD_BusinessLayer;
+using Syncfusion.Collections;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,6 +60,12 @@ namespace DVLD.Applications.ApplicationTypes
         private void _LoadList()
         {
             _dvgList = clsApplicationType.ListAllApplicationTypes();
+            _dvgList = _dvgList .DefaultView.ToTable(
+    false,
+    "ApplicationTypeID",
+    "ApplicationTypeTitle",
+    "ApplicationFees"
+);
             dvgList.DataSource = _dvgList;
             lblRecordCount.Text = _dvgList.Rows.Count.ToString();
         }

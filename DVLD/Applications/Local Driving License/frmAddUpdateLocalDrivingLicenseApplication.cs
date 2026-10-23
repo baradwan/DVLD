@@ -101,7 +101,7 @@ namespace DVLD.Applications.Local_Driving_License
 
             lblAppDateValue.Text = _LDLApplication.Application.ApplicationDate.ToShortDateString();
             lblAppFeesValue.Text = _LDLApplication.Application.PaidFees.ToString("C");
-            lblCreadtedByUserValue.Text = CurrentUser.User.UserName;
+            lblCreadtedByUserValue.Text = clsCurrentUser.User.UserName;
         }
         private void _LoadData()
         {
@@ -150,7 +150,7 @@ namespace DVLD.Applications.Local_Driving_License
 
             if (_Mode == enMode.AddNew)
             {
-                _LDLApplication.PrepareNewLocalDrivingLicenseApplication(PersonID, _GetSelectedLicenseClassID(), CurrentUser.User.userID);
+                _LDLApplication.PrepareNewLocalDrivingLicenseApplication(PersonID, _GetSelectedLicenseClassID(), clsCurrentUser.User.userID);
 
 
                 _LoadDataToTheForm();
@@ -244,6 +244,11 @@ namespace DVLD.Applications.Local_Driving_License
         {
             if (!_AllowTabChange)
                 e.Cancel = true;
+        }
+
+        private void ctrlPersonInfoWithFilter1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -74,14 +74,27 @@ namespace DVLD_BusinessLayer
                 return null;
             }
 
-            //private bool _AddNewTestType()
-            //{
-            //    this.ID = (clsTestType.enTestType)clsTestTypesData.AddNewTestType(this.TestTypeDTO);
+        public static clsTestType Find(enTestType testType)
+        {
+            clsTestTypesDTO testTypeDTO = new clsTestTypesDTO
+            {
+                TestTypeID = (int)testType
+            };
 
-            //    return this.TestTypeTitle != string.Empty;
-            //}
+            if (clsTestTypesData.GetTestTypeByID(testTypeDTO))
+                return new clsTestType(testTypeDTO);
 
-            private bool _UpdateTestType()
+            return null;
+        }
+
+        //private bool _AddNewTestType()
+        //{
+        //    this.ID = (clsTestType.enTestType)clsTestTypesData.AddNewTestType(this.TestTypeDTO);
+
+        //    return this.TestTypeTitle != string.Empty;
+        //}
+
+        private bool _UpdateTestType()
             {
                 return clsTestTypesData.UpdateTestType(this.TestTypeDTO);
             }

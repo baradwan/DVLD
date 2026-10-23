@@ -46,6 +46,7 @@
     <Compile Include="DTOs\clsLicenseDTO.cs" />
     <Compile Include="DTOs\clsLocalDrivingLicenseApplicationDTO.cs" />
     <Compile Include="DTOs\clsTestAppointmentDTO.cs" />
+    <Compile Include="DTOs\clsTestDTO.cs" />
     <Compile Include="Events\clsLDLApplicationEvents.cs" />
     <Compile Include="Events\clsPersonEvent.cs" />
     <Compile Include="Events\clsUserEvents.cs" />

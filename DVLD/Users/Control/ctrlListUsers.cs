@@ -120,6 +120,17 @@ namespace DVLD.Users.Control
             _dtList = clsUser.ListAllUser();
 
             dvgList.DataSource = _dtList;
+           
+
+            _dtList = _dtList.DefaultView.ToTable(
+                false,
+                "UserID",
+                "PersonID",
+                "FullName",
+                "UserName",
+                "IsActive" );
+
+            dvgList.DataSource = _dtList;
             CountUsers = _dtList.Rows.Count;
             CountUsersChanged?.Invoke(CountUsers);
         }

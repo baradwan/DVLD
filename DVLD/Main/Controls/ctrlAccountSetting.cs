@@ -25,20 +25,20 @@ namespace DVLD.Main.Controls
 
         private void btnCurrentUserInfo_Click(object sender, EventArgs e)
         {
-            frmShowUserInfo frm = new frmShowUserInfo(CurrentUser.User.userID);
+            frmShowUserInfo frm = new frmShowUserInfo(clsCurrentUser.User.userID);
             frm.ShowDialog();
 
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword(CurrentUser.User.userID);
+            frmChangePassword frm = new frmChangePassword(clsCurrentUser.User.userID);
             frm.ShowDialog();
         }
 
         private void btnSignOut_Click(object sender, EventArgs e)
         {
-            CurrentUser.User = null;
+            clsCurrentUser.User = null;
             OnUserSignOut?.Invoke();
         }
     }

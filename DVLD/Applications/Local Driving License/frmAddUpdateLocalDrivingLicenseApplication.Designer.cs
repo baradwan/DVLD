@@ -33,6 +33,7 @@
             this.bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(this.components);
             this.pnlTCContentFooter = new System.Windows.Forms.Panel();
             this.tpPersonInfo = new System.Windows.Forms.TabPage();
+            this.ctrlPersonInfoWithFilter1 = new DVLD.People.Controls.ctrlPersonInfoWithFilter();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNext = new Syncfusion.WinForms.Controls.SfButton();
             this.tcApplicationInfo = new System.Windows.Forms.TabControl();
@@ -57,7 +58,6 @@
             this.btnClose = new Syncfusion.WinForms.Controls.SfButton();
             this.btnSave = new Syncfusion.WinForms.Controls.SfButton();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.ctrlPersonInfoWithFilter1 = new DVLD.People.Controls.ctrlPersonInfoWithFilter();
             this.tpPersonInfo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tcApplicationInfo.SuspendLayout();
@@ -90,6 +90,17 @@
             this.tpPersonInfo.TabIndex = 0;
             this.tpPersonInfo.Text = "Person Info";
             this.tpPersonInfo.UseVisualStyleBackColor = true;
+            // 
+            // ctrlPersonInfoWithFilter1
+            // 
+            this.ctrlPersonInfoWithFilter1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ctrlPersonInfoWithFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlPersonInfoWithFilter1.Margin = new System.Windows.Forms.Padding(2);
+            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
+            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(1226, 494);
+            this.ctrlPersonInfoWithFilter1.TabIndex = 0;
+            this.ctrlPersonInfoWithFilter1.Load += new System.EventHandler(this.ctrlPersonInfoWithFilter1_Load);
             // 
             // panel2
             // 
@@ -381,16 +392,6 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(1240, 70);
             this.pnlHeader.TabIndex = 3;
-            // 
-            // ctrlPersonInfoWithFilter1
-            // 
-            this.ctrlPersonInfoWithFilter1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ctrlPersonInfoWithFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPersonInfoWithFilter1.Margin = new System.Windows.Forms.Padding(2);
-            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
-            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(1226, 494);
-            this.ctrlPersonInfoWithFilter1.TabIndex = 0;
             // 
             // frmAddUpdateLocalDrivingLicenseApplication
             // 

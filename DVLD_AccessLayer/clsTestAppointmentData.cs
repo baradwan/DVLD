@@ -12,7 +12,7 @@ namespace DVLD_AccessLayer
 {
     public class clsTestAppointmentData
     {
-        public static clsTestAppointmentDTO GetTestAppointmentID(int TestAppointmentID)
+        public static clsTestAppointmentDTO GetTestAppointmentByID(int TestAppointmentID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
@@ -51,7 +51,7 @@ namespace DVLD_AccessLayer
         Convert.ToDecimal(reader["PaidFees"]),
 
                         CreatedByUserID =
-        Convert.ToInt32(reader["CreatedByUser"]),
+        Convert.ToInt32(reader["CreatedByUserID"]),
 
                         IsLocked =
         Convert.ToBoolean(reader["IsLocked"]),
@@ -337,6 +337,51 @@ namespace DVLD_AccessLayer
             }
 
             return rowAffected > 0;
+        }
+
+        public static DataTable GetApplicationTestAppointmentsPerTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"SELECT TestAppointmentID, AppointmentDate,PaidFees, IsLocked
+                        FROM TestAppointments
+                        WHERE  
+                        (TestTypeID = @TestTypeID) 
+                        AND (LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID)
+                        order by TestAppointmentID desc;";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+
+            try
+            {
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    dt.Load(reader);
+                }
+               
+
+            }
+
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+
         }
     }
     

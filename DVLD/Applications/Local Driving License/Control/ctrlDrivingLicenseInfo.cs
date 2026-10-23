@@ -37,11 +37,24 @@ namespace DVLD.Applications.Local_Driving_License.Control
             }
             _FillLDLApplicationInformation();
         }
+
+        public void LoadLocalDrivingLicenseAppInfo(int LDLAppID)
+        {
+            _LDLApp = clsLocalDrivingLicenseApplication.Find(LDLAppID);
+
+            if (_LDLApp == null)
+            {
+                _ResetLocalDrivingLicenseApplicationInfo();
+                MessageBox.Show("No Application with ID = " + LDLAppID, "Local Driving License Application Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            _FillLDLApplicationInformation();
+        }
         private void _FillLDLApplicationInformation()
         {
             lblLocalDrivingLicenseApplicationID.Text = _LDLApp.LocalDrivingLicenseApplicationID.ToString();
             lblAppliedFor.Text =clsLicenseClass.Find(_LDLApp.LicenseClassID).ClassName;
-            lblPassedTest .Text= "";
+           lblPassedTest .Text= clsTest.GetPassedTestCount(_LDLApp.LocalDrivingLicenseApplicationID).ToString();
 
 
         }
@@ -49,10 +62,9 @@ namespace DVLD.Applications.Local_Driving_License.Control
         private void _ResetLocalDrivingLicenseApplicationInfo()
         {
             
-            
+         
             lblLocalDrivingLicenseApplicationID.Text = "--";
             lblAppliedFor.Text = "---";
-
 
         }
     }

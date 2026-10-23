@@ -1,14 +1,19 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Tests.Test_Appointment;
+using DVLD_BusinessLayer;
 using DVLD_Global.Events;
+using Syncfusion.WinForms.DataGrid.Interactivity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Syncfusion.WinForms.DataGrid.Events;
+using Syncfusion.WinForms.DataGrid.Interactivity;
 
 namespace DVLD.Applications.Local_Driving_License
 {
@@ -22,6 +27,13 @@ namespace DVLD.Applications.Local_Driving_License
         public ctrlListLocalDriving()
         {
             InitializeComponent();
+
+
+           // cmsApplications.Opening -= cmsApplications_Opening;
+
+            dvgList.ContextMenuStrip = null;
+            dvgList.RecordContextMenu = cmsApplications;
+            dvgList.ContextMenuOpening += dvgList_ContextMenuOpening;
         }
 
         public enum enFilterOption
@@ -71,7 +83,38 @@ namespace DVLD.Applications.Local_Driving_License
             cmbFilter.DataSource = FilterText;
             cmbFilter.SelectedIndex = 0;
         }
+        private void dvgList_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
+        {
+            ////////////////////
+            var row = SelectionHelper.GetRecordAtRowIndex(
+                dvgList, e.RowIndex) as DataRowView;
 
+            if (row == null)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            dvgList.CurrentItem = row;
+
+            int id = Convert.ToInt32(
+                row["LocalDrivingLicenseApplicationID"]);
+
+
+            //////////////////
+            clsLocalDrivingLicenseApplication application =
+                clsLocalDrivingLicenseApplication.Find(id);
+
+
+
+            if (application == null)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            _UpdateScheduleTestMenuState(application);
+        }
         private void _LoadStatusFilterOptions()
         {
             string[] StatusFilterText =
@@ -160,8 +203,16 @@ namespace DVLD.Applications.Local_Driving_License
 
                 if (selectedRow != null)
                 {
-                    return Convert.ToInt32(
-                        selectedRow["LocalDrivingLicenseApplicationID"]);
+                    //return Convert.ToInt32(
+                    //    selectedRow["LocalDrivingLicenseApplicationID"]);
+
+                    int id = Convert.ToInt32(
+            selectedRow["LocalDrivingLicenseApplicationID"]);
+
+                    System.Diagnostics.Debug.WriteLine(
+                        $"Current Application from GET ID: {id}");
+
+                    return id;
                 }
             }
 
@@ -171,11 +222,73 @@ namespace DVLD.Applications.Local_Driving_License
         {
             _dtList = clsLocalDrivingLicenseApplication.ListAllLocalDrivingLicenseApplications();
 
+            _dtList = _dtList.DefaultView.ToTable(
+    false,
+    "LocalDrivingLicenseApplicationID",
+    "ClassName",
+    "NationalNo",
+    "FullName",
+    "ApplicationDate",
+    "PassedTestCount",
+    "Status");
             dvgList.DataSource = _dtList;
             CountApplications = _dtList.Rows.Count;
             CountApplicationsChanged?.Invoke(CountApplications);
         }
 
+        private void _UpdateScheduleTestMenuState(clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication) {
+
+            if (LocalDrivingLicenseApplication == null)
+                return;
+
+            bool passedVision = LocalDrivingLicenseApplication.DoesPassTestType(
+        clsTestType.enTestType.VisionTest);
+
+            bool passedWritten = LocalDrivingLicenseApplication.DoesPassTestType(
+                clsTestType.enTestType.WrittenTest);
+
+            bool passedStreet = LocalDrivingLicenseApplication.DoesPassTestType(
+                clsTestType.enTestType.StreetTest);
+
+            bool isActiveApplication =
+                LocalDrivingLicenseApplication.Application.Status ==
+                clsApplication.enApplicationStatus.New;
+
+            // Determine which tests can be scheduled.
+            bool canScheduleVision = isActiveApplication && !passedVision;
+
+            bool canScheduleWritten =
+                isActiveApplication && passedVision && !passedWritten;
+
+            bool canScheduleStreet =
+                isActiveApplication && passedVision && passedWritten && !passedStreet;
+            
+            ScheduleTestsMenue.Enabled =
+                canScheduleVision || canScheduleWritten || canScheduleStreet;
+
+
+            if (ScheduleTestsMenue.Enabled)
+            {
+                // Update menu items.
+                scheduleVisionTestToolStripMenuItem.Enabled = canScheduleVision;
+                scheduleWrittenTestToolStripMenuItem.Enabled = canScheduleWritten;
+                scheduleStreetTestToolStripMenuItem.Enabled = canScheduleStreet;
+
+                // Enable the parent menu if at least one test can be scheduled.
+            }
+
+
+        }
+        private void _ScheduleTest(clsTestType.enTestType TestTypeID)
+        {
+            int LocalDrivingLicenseApplicationID = GetCurrentLocalDrivingLicenseApplicationID();
+
+            if (LocalDrivingLicenseApplicationID == -1)
+                return;
+            frmListTestAppointment frm = new frmListTestAppointment( LocalDrivingLicenseApplicationID, TestTypeID);
+
+            frm.ShowDialog();
+        }
 
 
         /////////////////////// EVENTS /////////////////
@@ -288,5 +401,54 @@ namespace DVLD.Applications.Local_Driving_License
         {
 
         }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestType.enTestType.VisionTest);
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestType.enTestType.WrittenTest);
+        }
+
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestType.enTestType.StreetTest);
+         
+        }
+
+        //private void cmsApplications_Opening(object sender, CancelEventArgs e)
+        //{
+
+        //    //clsLocalDrivingLicenseApplication LDLApp = clsLocalDrivingLicenseApplication.Find(GetCurrentLocalDrivingLicenseApplicationID());
+        //    //            _UpdateScheduleTestMenuState(LDLApp);
+
+
+        //    var row = SelectionHelper.GetRecordAtRowIndex(
+        // dvgList, e.RowIndex) as DataRowView;
+
+        //    if (row == null)
+        //    {
+        //        e.Cancel = true;
+        //        return;
+        //    }
+
+        //    dvgList.CurrentItem = row;
+
+        //    int id = Convert.ToInt32(
+        //        row["LocalDrivingLicenseApplicationID"]);
+
+        //    var application =
+        //        clsLocalDrivingLicenseApplication.Find(id);
+
+        //    if (application == null)
+        //    {
+        //        e.Cancel = true;
+        //        return;
+        //    }
+
+        //    _UpdateScheduleTestMenuState(application);
+        //}
     }
 }

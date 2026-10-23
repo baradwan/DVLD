@@ -7,7 +7,7 @@ using DVLD_BusinessLayer;
 
 namespace DVLD
 {
-    public static class CurrentUser
+    public static class clsCurrentUser
     {
         public static clsUser User { get; set; }
     }

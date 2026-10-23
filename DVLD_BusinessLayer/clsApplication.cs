@@ -207,7 +207,33 @@ namespace DVLD_BusinessLayer
 
             return clsnValidation.IsApplicationValid(this.ApplicationDTO);
         }
+        public bool ChangeStatus(enApplicationStatus newStatus)
+        {
+            // Prevent changing the status of an unsaved application.
+            if (_Mode != enMode.Update)
+                return false;
 
+            // No actual status change.
+            if (Status == newStatus)
+                return true;
+
+            // Keep the original values.
+            enApplicationStatus oldStatus = Status;
+            DateTime oldStatusDate = LastStatusDate;
+
+            // Change status and its date.
+            Status = newStatus;
+            LastStatusDate = DateTime.Now;
+
+            if (Save())
+                return true;
+
+            // Restore object values if saving fails.
+            Status = oldStatus;
+            LastStatusDate = oldStatusDate;
+
+            return false;
+        }
         public bool Save()
 
         {

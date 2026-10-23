@@ -15,8 +15,10 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
+
     public partial class frmPeople : Form
     {
+    private DataTable _dtPeople;
         public enum enFilterOption
         {
             None = 0,
@@ -34,7 +36,7 @@ namespace DVLD
 
         public enFilterOption ModeFilter = enFilterOption.None;
 
-        private DataTable _dtPeople;
+       
 
         private void _setupDataGridUI()
         {

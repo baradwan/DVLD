@@ -86,7 +86,7 @@ namespace DVLD.Login
                 clsUtil.ClearRememberMe();
             }
 
-            CurrentUser.User = _User;
+            clsCurrentUser.User = _User;
 
             this.Hide();
             Form frm =new frmMain(this);

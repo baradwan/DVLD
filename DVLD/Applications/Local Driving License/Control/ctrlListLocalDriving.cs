@@ -13,7 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Syncfusion.WinForms.DataGrid.Events;
-using Syncfusion.WinForms.DataGrid.Interactivity;
+
+using DVLD.Licenses.Local_License;
 
 namespace DVLD.Applications.Local_Driving_License
 {
@@ -399,8 +400,7 @@ namespace DVLD.Applications.Local_Driving_License
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
+         }
 
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -416,6 +416,12 @@ namespace DVLD.Applications.Local_Driving_License
         {
             _ScheduleTest(clsTestType.enTestType.StreetTest);
          
+        }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIssueDriverLicenseFirstTime frm = new frmIssueDriverLicenseFirstTime(GetCurrentLocalDrivingLicenseApplicationID());
+            frm.ShowDialog();
         }
 
         //private void cmsApplications_Opening(object sender, CancelEventArgs e)

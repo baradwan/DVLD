@@ -78,7 +78,14 @@ namespace DVLD_BusinessLayer
         {
             return clsLocalDrivingLicenseApplicationData.UpdateLocalDrivingLicenseApplication(this.LDLApplicationDTO);
         }
-
+        public bool PassedAllTests()
+        {
+            return clsTest.PassedAllTests(this.LocalDrivingLicenseApplicationID);
+        }
+        public int GetActiveLicenseID()
+        {//this will get the license id that belongs to this application
+            return clsLicense.GetActiveLicenseIDByPersonID(Application.PersonID, this.LicenseClassID);
+        }
         public  bool DeleteLocalDrivingLicenseApplication()
         {
             bool IsLocalDrivingApplicationDeleted = false;
@@ -126,6 +133,17 @@ namespace DVLD_BusinessLayer
         {
             return clsLocalDrivingLicenseApplicationData.DoesPassTestType(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
+        public static bool DoesPassTestType(int LocalDrivingLicenseApplicationID, clsTestType.enTestType TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesPassTestType(LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
+        private bool _SetComplete()
+
+        {
+            return clsApplicationData.UpdateStatus(Application.ApplicationID, 3);
+        }
+
+
         public void PrepareNewLocalDrivingLicenseApplication(int personID,int licenseClassID,int createdByUserID)        
         {
             Application = new clsApplication();
@@ -135,6 +153,56 @@ namespace DVLD_BusinessLayer
             LicenseClassID = licenseClassID;
         }
 
+
+        private clsDriver _CreateDriver(int createdByUserID) { 
+        
+        clsDriver Driver = clsDriver.FindByPersonID(Application.PersonID);
+            
+            if (Driver != null)
+                          return Driver ;
+
+            Driver = new clsDriver();
+
+            Driver.PersonID = Application.PersonID;
+            Driver.CreatedByUserID = createdByUserID;
+            Driver.CreateDate = DateTime.Now;
+
+            if (!Driver.Save())
+                return null;
+
+            _SetComplete();
+            return Driver;
+
+        }
+        private clsLicense _CreateLicense(string Notes,int DriverID,int CurrentUserID)
+        {
+
+          
+            clsLicense License = new clsLicense();
+            License.ApplicationID = this.Application.ApplicationID;
+            License.DriverID = DriverID;
+            License.LicenseClass = this.LicenseClassID;
+            License.IssueDate = DateTime.Now;
+            License.ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.Find(this.LicenseClassID).DefaultValidityLength);
+            License.Notes = Notes;
+            License.PaidFees = this.Application.PaidFees;
+            License.IsActive = true;
+            License.IssueReason = clsLicense.enIssueReason.FirstTime;
+            License.CreatedByUserID = this.Application.CreatedByUserID;
+            if (!License.Save())
+                return null;
+            return License;
+        }
+
+        public int IssuedLicenseFirstTime(string Notes, int CurrentUserID)
+        {
+
+            clsDriver Driver = _CreateDriver(CurrentUserID);
+            clsLicense License = _CreateLicense(Notes, Driver.DriverID, CurrentUserID);
+            return License != null ? License.LicenseID : -1;
+        }
+
+        
         public bool Save()
         {
 

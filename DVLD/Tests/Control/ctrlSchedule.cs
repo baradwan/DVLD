@@ -87,6 +87,7 @@ namespace DVLD.Tests.Control
             pnlWarning.Visible = true;
             lblSubTitleWarning.Text = message;
             dateTimePicker1.Enabled = false;
+
         }
 
         private void _ResetWarningUI()

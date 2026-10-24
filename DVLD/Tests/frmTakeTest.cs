@@ -1,4 +1,5 @@
 ﻿using DVLD_BusinessLayer;
+using DVLD_Global.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,8 +37,17 @@ namespace DVLD.Tests
 
             _Test = clsTest.Find(_TestID);
 
-            MessageBox.Show("Test:"+ _TestID);
-            if(_Test.TestResult)
+            if (_Test == null)
+            {
+                MessageBox.Show("Test not found.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                btnSave.Enabled = false;
+                pnlTakeTest.Enabled = false;
+                return;
+            }
+
+            if (_Test.TestResult)
                 rbPass.Checked = true;
             else
                 rbFail.Checked = true;
@@ -50,36 +60,32 @@ namespace DVLD.Tests
         }
         private void frmTakeTest_Load(object sender, EventArgs e)
         {
+
             ctrlScheduledTest1.TestTypeID = _testTypeID;
             ctrlScheduledTest1.LoadInfo(_testAppointmentID);
             _TestID = ctrlScheduledTest1.TestID;
             _LoadTakeTest();
         }
 
-        private void _Save() {
-
-            if (MessageBox.Show("Are you sure you want to save? After that you cannot change the Pass/Fail results after you save?.",
-                        "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No )
-           
-                return;
+        private bool _Save() {
 
             if (_TestID != -1)
-                return;
-
+                return false;
 
             _Test.TestAppointmentID = _testAppointmentID;
             _Test.TestResult = rbPass.Checked;
             _Test.Notes = txtNotes.Text.Trim();
             _Test.CreatedByUserID = clsCurrentUser.User.userID;
 
-            if (_Test.Save())
-            {
-                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnSave.Enabled = false;
+            if (!_Test.Save())
+                return false;
 
-            }
-            else
-                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            _TestID = _Test.TestID;
+            clsTestEvents.NotifyTestSaved(ctrlScheduledTest1.LocalDrivingLicenseAppID);
+                
+            return true;
+
+            
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -88,7 +94,22 @@ namespace DVLD.Tests
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _Save();
+
+
+            if (MessageBox.Show("Are you sure you want to save? After that you cannot change the Pass/Fail results after you save?.",
+                        "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                return;
+
+            if (_Save())
+            {
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ctrlScheduledTest1.UpdateTestID(_TestID);
+                pnlTakeTest.Enabled = false;
+                btnSave.Enabled = false;
+
+            }
+            else
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

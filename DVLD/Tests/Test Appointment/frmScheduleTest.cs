@@ -41,8 +41,10 @@ namespace DVLD.Tests.Test_Appointment
         {
             if (!ctrlSchedule1.Save())
                 return;
-            AppointmentSaved?.Invoke(_LocalDrivingLicenseApplicationID);
             this.DialogResult = DialogResult.OK;
+            AppointmentSaved?.Invoke(_LocalDrivingLicenseApplicationID);
+            btnSave.Enabled = false;
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

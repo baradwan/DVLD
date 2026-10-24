@@ -1,5 +1,6 @@
 ﻿using DVLD.Properties;
 using DVLD_BusinessLayer;
+using DVLD_Global.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -125,10 +126,28 @@ namespace DVLD.Tests.Test_Appointment
             _RefreshList();
             _UpdateTestTypeUI();
 
+            clsTestEvents.TestSaved += OnTestSaved;
+        }
 
+        private void OnTestSaved(int LocalDrivingLicenseApplicationID)
+        {
+            if (_LocalDrivingLicenseApplicationID != LocalDrivingLicenseApplicationID)
+                return;
+
+            _RefreshList();
+
+            ctrlDrivingLicenseInfo1.LoadLocalDrivingLicenseAppInfo(_LocalDrivingLicenseApplicationID);
         }
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
+
+            if (clsLocalDrivingLicenseApplication.DoesPassTestType(  _LocalDrivingLicenseApplicationID, _TestTypeID))
+            {           
+                MessageBox.Show( "This applicant has already passed this test.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
             frmScheduleTest frm = new frmScheduleTest(_LocalDrivingLicenseApplicationID, _TestTypeID);
             frm.AppointmentSaved += OnAppointmentSaved;
             frm.ShowDialog();
@@ -161,6 +180,11 @@ namespace DVLD.Tests.Test_Appointment
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmListTestAppointment_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            clsTestEvents.TestSaved -= OnTestSaved;
         }
     }
 }

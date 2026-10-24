@@ -142,7 +142,7 @@
             this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
             this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(194, 36);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(151, 36);
             this.editToolStripMenuItem.Text = "&Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -283,6 +283,7 @@
             this.Controls.Add(this.pnlHeader);
             this.Name = "frmListTestAppointment";
             this.Text = "frmListTestAppointment";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmListTestAppointment_FormClosed);
             this.Load += new System.EventHandler(this.frmListTestAppointment_Load);
             this.pnlDrivingLicenseInfo.ResumeLayout(false);
             this.pnlAppInfo.ResumeLayout(false);

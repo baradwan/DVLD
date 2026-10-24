@@ -45,6 +45,22 @@ namespace DVLD.Tests.Control
            
         }
 
+        public int LocalDrivingLicenseAppID
+        {
+            get
+            {
+                return _LocalDrivingLicenseAppID;
+            }
+        }
+
+        public void UpdateTestID(int TestID)
+        {
+            if (TestID <= 0)
+                return;
+
+            _TestID = TestID;
+            lblTestID.Text = TestID.ToString();
+        }
         private void _UpdateTestTypeUI()
         {
             switch (_TestTypeID)

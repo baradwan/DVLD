@@ -207,6 +207,11 @@ namespace DVLD_BusinessLayer
 
             return clsnValidation.IsApplicationValid(this.ApplicationDTO);
         }
+
+        public bool IsCanceled()
+        {
+            return this.Status == enApplicationStatus.Cancelled;
+        }
         public bool ChangeStatus(enApplicationStatus newStatus)
         {
             // Prevent changing the status of an unsaved application.

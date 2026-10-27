@@ -56,6 +56,11 @@ namespace DVLD.Applications.Local_Driving_License
         {
             clsPersonEvents.PersonUpdated -= OnPersonUpdated;
         }
+
+        private void ctrlAppBasicInfo1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

@@ -22,6 +22,8 @@ namespace DVLD_BusinessLayer
             ReplacementForLost = 4
         }
 
+
+
         private enMode _Mode = enMode.AddNew;
 
         public int LicenseID { get; set; }
@@ -34,6 +36,12 @@ namespace DVLD_BusinessLayer
         public decimal PaidFees { get; set; }
         public bool IsActive { get; set; }
         public enIssueReason IssueReason { get; set; }
+       public string IssueReasonText {
+            get
+            { 
+            return _IssueReasonDescription(this.IssueReason);
+            }
+        }
         public int CreatedByUserID { get; set; }
 
         public clsLicenseDTO LicenseDTO
@@ -132,7 +140,24 @@ namespace DVLD_BusinessLayer
             }
         }
 
-
+        private string _IssueReasonDescription(enIssueReason reason )
+        {
+           
+                switch (reason)
+                {
+                    case enIssueReason.FirstTime:
+                        return "First Time";
+                    case enIssueReason.Renew:
+                        return "Renew";
+                    case enIssueReason.ReplacementForDamaged:
+                        return "Replacement for Damaged";
+                    case enIssueReason.ReplacementForLost:
+                        return "Replacement for Lost";
+                    default:
+                        return "Unknown";
+                
+            }
+        }
 
         public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
         {

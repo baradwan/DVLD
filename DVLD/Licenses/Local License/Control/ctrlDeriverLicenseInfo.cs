@@ -15,21 +15,19 @@ namespace DVLD.Licenses.Local_License.Control
 {
     public partial class ctrlDeriverLicenseInfo : UserControl
     {
-        private int _personID = -1;
-        private clsPerson _Person;
-        clsLocalDrivingLicenseApplication _LDLApp;
-        public ctrlDeriverLicenseInfo(clsLocalDrivingLicenseApplication LDLApplication)
+  
+        clsLicense _License;
+        public ctrlDeriverLicenseInfo()
         {
             InitializeComponent();
-            _LDLApp = LDLApplication;
-            _personID = _LDLApp.Application.PersonID;
-            _Person = clsPerson.Find(_personID);
+           
+           
 
 
 
         }
 
-        public bool ImageHandler()
+        private bool _ImageHandler()
         {
             if (_Person.ImagePath == Path.GetFileName(pbPersonPicture.ImageLocation))
             {
@@ -66,6 +64,38 @@ namespace DVLD.Licenses.Local_License.Control
 
 
             return true;
+        }
+
+        private void _LoadPersonInfo() {
+
+            lblName.Text = _License.DriverInfo.PersonInfo.FullName;
+            lblNationalNo.Text = _License.DriverInfo.PersonInfo.NationalNo;
+            lblDateOfBirth.Text= _License.DriverInfo.PersonInfo.DateOfBirth.ToString("dd/MM/yyyy");
+            lblGender.Text = _License.DriverInfo.PersonInfo.Gendor==0 ? "Male" : "Female";
+
+        }
+
+        private void _LoadLicenseInfo() {
+
+           
+            lblClass.Text = clsLicenseClass.Find(_License.LicenseClass).ClassName;
+            lblLicenseID.Text = _License.LicenseID.ToString();
+            lblIssueDate.Text=_License.IssueDate.ToString("dd/MM/yyyy");
+            lblIssueReason.Text=_License.IssueReasonText;
+            lblIsActive.Text = _License.IsActive ? "Yes" : "No";
+           // lblIsDetained.Text = _License.is ? "Yes" : "No";
+           lblExpirationDate.Text = _License.ExpirationDate.ToString("dd/MM/yyyy");
+            lblDriverID.Text = _License.DriverID.ToString();
+            lblNotes.Text= _License.Notes;
+            lblCreatedUser.Text = _License.CreatedByUserName;
+
+        }
+        public void LoadInfo(int LicenseID) {
+            _License = clsLicense.Find(LicenseID);
+            _ImageHandler();
+            _LoadPersonInfo();
+            _LoadLicenseInfo();
+
         }
 
 

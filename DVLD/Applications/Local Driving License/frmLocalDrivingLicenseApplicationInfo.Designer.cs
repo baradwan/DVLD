@@ -36,26 +36,30 @@
             // 
             this.ctrlAppBasicInfo1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ctrlAppBasicInfo1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlAppBasicInfo1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.ctrlAppBasicInfo1.Name = "ctrlAppBasicInfo1";
-            this.ctrlAppBasicInfo1.Size = new System.Drawing.Size(935, 213);
+            this.ctrlAppBasicInfo1.Size = new System.Drawing.Size(1870, 410);
             this.ctrlAppBasicInfo1.TabIndex = 0;
+            this.ctrlAppBasicInfo1.Load += new System.EventHandler(this.ctrlAppBasicInfo1_Load);
             // 
             // ctrlDrivingLicenseInfo1
             // 
             this.ctrlDrivingLicenseInfo1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ctrlDrivingLicenseInfo1.Location = new System.Drawing.Point(0, 230);
+            this.ctrlDrivingLicenseInfo1.Location = new System.Drawing.Point(0, 442);
+            this.ctrlDrivingLicenseInfo1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.ctrlDrivingLicenseInfo1.Name = "ctrlDrivingLicenseInfo1";
-            this.ctrlDrivingLicenseInfo1.Size = new System.Drawing.Size(935, 220);
+            this.ctrlDrivingLicenseInfo1.Size = new System.Drawing.Size(1870, 423);
             this.ctrlDrivingLicenseInfo1.TabIndex = 1;
             this.ctrlDrivingLicenseInfo1.Load += new System.EventHandler(this.ctrlDrivingLicenseInfo1_Load);
             // 
             // frmLocalDrivingLicenseApplicationInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 450);
+            this.ClientSize = new System.Drawing.Size(1870, 865);
             this.Controls.Add(this.ctrlDrivingLicenseInfo1);
             this.Controls.Add(this.ctrlAppBasicInfo1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmLocalDrivingLicenseApplicationInfo";
             this.Text = "frmLocalDrivingLicenseApplicationInfo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLocalDrivingLicenseApplicationInfo_FormClosing);

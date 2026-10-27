@@ -116,7 +116,7 @@
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.gradientPanel1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.Size = new System.Drawing.Size(1400, 85);
             this.gradientPanel1.TabIndex = 0;
@@ -170,12 +170,12 @@
             bannerTextInfo1.Text = "Ahmed";
             bannerTextInfo1.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtFirstName, bannerTextInfo1);
-            this.txtFirstName.BeforeTouchSize = new System.Drawing.Size(200, 35);
+            this.txtFirstName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFirstName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.ForeColor = System.Drawing.Color.Black;
             this.txtFirstName.Location = new System.Drawing.Point(76, 96);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(6);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(200, 35);
             this.txtFirstName.TabIndex = 1;
@@ -189,12 +189,12 @@
             bannerTextInfo2.Text = "Abdullah";
             bannerTextInfo2.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtSecName, bannerTextInfo2);
-            this.txtSecName.BeforeTouchSize = new System.Drawing.Size(200, 35);
+            this.txtSecName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtSecName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSecName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSecName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtSecName.Location = new System.Drawing.Point(420, 96);
-            this.txtSecName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSecName.Margin = new System.Windows.Forms.Padding(6);
             this.txtSecName.Name = "txtSecName";
             this.txtSecName.Size = new System.Drawing.Size(200, 35);
             this.txtSecName.TabIndex = 2;
@@ -208,12 +208,12 @@
             bannerTextInfo3.Text = "Baredhwan";
             bannerTextInfo3.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtLastName, bannerTextInfo3);
-            this.txtLastName.BeforeTouchSize = new System.Drawing.Size(200, 35);
+            this.txtLastName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtLastName.Location = new System.Drawing.Point(1104, 96);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(6);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 35);
             this.txtLastName.TabIndex = 4;
@@ -227,12 +227,12 @@
             bannerTextInfo4.Text = "9665XXXXXXXX";
             bannerTextInfo4.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtPhone, bannerTextInfo4);
-            this.txtPhone.BeforeTouchSize = new System.Drawing.Size(200, 35);
+            this.txtPhone.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtPhone.Location = new System.Drawing.Point(420, 375);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(6);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 35);
             this.txtPhone.TabIndex = 6;
@@ -247,12 +247,12 @@
             bannerTextInfo5.Text = "DVLD@DVLD.com";
             bannerTextInfo5.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtEmail, bannerTextInfo5);
-            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(200, 35);
+            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtEmail.Location = new System.Drawing.Point(730, 373);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(6);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(336, 35);
             this.txtEmail.TabIndex = 7;
@@ -266,12 +266,12 @@
             bannerTextInfo6.Text = "Ahmed";
             bannerTextInfo6.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtThirdName, bannerTextInfo6);
-            this.txtThirdName.BeforeTouchSize = new System.Drawing.Size(200, 35);
+            this.txtThirdName.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtThirdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtThirdName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThirdName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtThirdName.Location = new System.Drawing.Point(762, 96);
-            this.txtThirdName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtThirdName.Margin = new System.Windows.Forms.Padding(6);
             this.txtThirdName.Name = "txtThirdName";
             this.txtThirdName.Size = new System.Drawing.Size(200, 35);
             this.txtThirdName.TabIndex = 3;
@@ -285,12 +285,12 @@
             bannerTextInfo7.Text = "N0000";
             bannerTextInfo7.Visible = true;
             this.bannerTextProvider1.SetBannerText(this.txtNationalNo, bannerTextInfo7);
-            this.txtNationalNo.BeforeTouchSize = new System.Drawing.Size(200, 35);
+            this.txtNationalNo.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtNationalNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNationalNo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNationalNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNationalNo.Location = new System.Drawing.Point(76, 375);
-            this.txtNationalNo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtNationalNo.Margin = new System.Windows.Forms.Padding(6);
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(200, 35);
             this.txtNationalNo.TabIndex = 5;
@@ -304,7 +304,7 @@
             bannerTextInfo8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             bannerTextInfo8.Mode = Syncfusion.Windows.Forms.BannerTextMode.EditMode;
             this.bannerTextProvider1.SetBannerText(this.txtAddress, bannerTextInfo8);
-            this.txtAddress.BeforeTouchSize = new System.Drawing.Size(200, 35);
+            this.txtAddress.BeforeTouchSize = new System.Drawing.Size(1268, 321);
             this.txtAddress.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.txtAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -313,7 +313,7 @@
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 14.75F);
             this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.txtAddress.Location = new System.Drawing.Point(42, 785);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(6);
             this.txtAddress.MinimumSize = new System.Drawing.Size(16, 8);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
@@ -323,6 +323,7 @@
             this.txtAddress.ThemeName = "Office2016Colorful";
             this.txtAddress.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtAddress.ThemeStyle.CornerRadius = 3;
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // lblFirstName
             // 
@@ -376,7 +377,7 @@
             // 
             this.pnlLastName.BackColor = System.Drawing.Color.Blue;
             this.pnlLastName.Location = new System.Drawing.Point(1104, 142);
-            this.pnlLastName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlLastName.Margin = new System.Windows.Forms.Padding(6);
             this.pnlLastName.Name = "pnlLastName";
             this.pnlLastName.Size = new System.Drawing.Size(200, 2);
             this.pnlLastName.TabIndex = 12;
@@ -385,7 +386,7 @@
             // 
             this.pnlSecondName.BackColor = System.Drawing.Color.Blue;
             this.pnlSecondName.Location = new System.Drawing.Point(420, 142);
-            this.pnlSecondName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlSecondName.Margin = new System.Windows.Forms.Padding(6);
             this.pnlSecondName.Name = "pnlSecondName";
             this.pnlSecondName.Size = new System.Drawing.Size(200, 2);
             this.pnlSecondName.TabIndex = 14;
@@ -394,7 +395,7 @@
             // 
             this.pnlThirdName.BackColor = System.Drawing.Color.Blue;
             this.pnlThirdName.Location = new System.Drawing.Point(762, 142);
-            this.pnlThirdName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlThirdName.Margin = new System.Windows.Forms.Padding(6);
             this.pnlThirdName.Name = "pnlThirdName";
             this.pnlThirdName.Size = new System.Drawing.Size(200, 2);
             this.pnlThirdName.TabIndex = 16;
@@ -403,7 +404,7 @@
             // 
             this.pnlFirstname.BackColor = System.Drawing.Color.Blue;
             this.pnlFirstname.Location = new System.Drawing.Point(76, 142);
-            this.pnlFirstname.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlFirstname.Margin = new System.Windows.Forms.Padding(6);
             this.pnlFirstname.Name = "pnlFirstname";
             this.pnlFirstname.Size = new System.Drawing.Size(200, 2);
             this.pnlFirstname.TabIndex = 17;
@@ -448,7 +449,7 @@
             // 
             this.pnlPhone.BackColor = System.Drawing.Color.Blue;
             this.pnlPhone.Location = new System.Drawing.Point(420, 421);
-            this.pnlPhone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlPhone.Margin = new System.Windows.Forms.Padding(6);
             this.pnlPhone.Name = "pnlPhone";
             this.pnlPhone.Size = new System.Drawing.Size(200, 2);
             this.pnlPhone.TabIndex = 24;
@@ -457,7 +458,7 @@
             // 
             this.pnlEmail.BackColor = System.Drawing.Color.Blue;
             this.pnlEmail.Location = new System.Drawing.Point(732, 421);
-            this.pnlEmail.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlEmail.Margin = new System.Windows.Forms.Padding(6);
             this.pnlEmail.Name = "pnlEmail";
             this.pnlEmail.Size = new System.Drawing.Size(336, 2);
             this.pnlEmail.TabIndex = 25;
@@ -466,7 +467,7 @@
             // 
             this.pnlNationalNo.BackColor = System.Drawing.Color.Blue;
             this.pnlNationalNo.Location = new System.Drawing.Point(76, 421);
-            this.pnlNationalNo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlNationalNo.Margin = new System.Windows.Forms.Padding(6);
             this.pnlNationalNo.Name = "pnlNationalNo";
             this.pnlNationalNo.Size = new System.Drawing.Size(200, 2);
             this.pnlNationalNo.TabIndex = 26;
@@ -493,7 +494,7 @@
             this.panel8.Controls.Add(this.pnlMale);
             this.panel8.ForeColor = System.Drawing.Color.Transparent;
             this.panel8.Location = new System.Drawing.Point(36, 562);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(368, 102);
             this.panel8.TabIndex = 27;
@@ -505,7 +506,7 @@
             this.rbFemale.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.rbFemale.Location = new System.Drawing.Point(204, 21);
-            this.rbFemale.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rbFemale.Margin = new System.Windows.Forms.Padding(6);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(128, 40);
             this.rbFemale.TabIndex = 9;
@@ -521,7 +522,7 @@
             this.rbMale.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.rbMale.Location = new System.Drawing.Point(6, 21);
-            this.rbMale.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rbMale.Margin = new System.Windows.Forms.Padding(6);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(102, 40);
             this.rbMale.TabIndex = 8;
@@ -534,7 +535,7 @@
             // 
             this.pnlFemale.BackColor = System.Drawing.Color.Blue;
             this.pnlFemale.Location = new System.Drawing.Point(228, 65);
-            this.pnlFemale.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlFemale.Margin = new System.Windows.Forms.Padding(6);
             this.pnlFemale.Name = "pnlFemale";
             this.pnlFemale.Size = new System.Drawing.Size(110, 4);
             this.pnlFemale.TabIndex = 27;
@@ -543,7 +544,7 @@
             // 
             this.pnlMale.BackColor = System.Drawing.Color.Blue;
             this.pnlMale.Location = new System.Drawing.Point(6, 65);
-            this.pnlMale.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlMale.Margin = new System.Windows.Forms.Padding(6);
             this.pnlMale.Name = "pnlMale";
             this.pnlMale.Size = new System.Drawing.Size(110, 4);
             this.pnlMale.TabIndex = 26;
@@ -570,7 +571,7 @@
             this.cmbCountry.Font = new System.Drawing.Font("Segoe UI", 10.25F);
             this.cmbCountry.ForeColor = System.Drawing.Color.Black;
             this.cmbCountry.Location = new System.Drawing.Point(544, 587);
-            this.cmbCountry.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbCountry.Margin = new System.Windows.Forms.Padding(6);
             this.cmbCountry.Name = "cmbCountry";
             this.cmbCountry.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.cmbCountry.Size = new System.Drawing.Size(312, 40);
@@ -609,7 +610,7 @@
             this.dtDateOfBirth.DateTimeEditingMode = Syncfusion.WinForms.Input.Enums.DateTimeEditingMode.Mask;
             this.dtDateOfBirth.DateTimeIcon = null;
             this.dtDateOfBirth.Location = new System.Drawing.Point(946, 562);
-            this.dtDateOfBirth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtDateOfBirth.Margin = new System.Windows.Forms.Padding(4);
             this.dtDateOfBirth.Name = "dtDateOfBirth";
             this.dtDateOfBirth.Size = new System.Drawing.Size(358, 77);
             this.dtDateOfBirth.Style.BorderColor = System.Drawing.Color.Transparent;
@@ -658,7 +659,7 @@
             this.gradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gradientPanel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.gradientPanel2.Location = new System.Drawing.Point(0, 85);
-            this.gradientPanel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gradientPanel2.Margin = new System.Windows.Forms.Padding(6);
             this.gradientPanel2.Name = "gradientPanel2";
             this.gradientPanel2.Size = new System.Drawing.Size(1400, 1186);
             this.gradientPanel2.TabIndex = 1;
@@ -709,7 +710,7 @@
             // 
             this.pnlDate.BackColor = System.Drawing.Color.Blue;
             this.pnlDate.Location = new System.Drawing.Point(946, 648);
-            this.pnlDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlDate.Margin = new System.Windows.Forms.Padding(6);
             this.pnlDate.Name = "pnlDate";
             this.pnlDate.Size = new System.Drawing.Size(358, 4);
             this.pnlDate.TabIndex = 35;
@@ -718,7 +719,7 @@
             // 
             this.pnlCountry.BackColor = System.Drawing.Color.Blue;
             this.pnlCountry.Location = new System.Drawing.Point(544, 638);
-            this.pnlCountry.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlCountry.Margin = new System.Windows.Forms.Padding(6);
             this.pnlCountry.Name = "pnlCountry";
             this.pnlCountry.Size = new System.Drawing.Size(312, 4);
             this.pnlCountry.TabIndex = 34;
@@ -727,7 +728,7 @@
             // 
             this.pbPersonPicture.Image = global::DVLD.Properties.Resources.Male;
             this.pbPersonPicture.Location = new System.Drawing.Point(1104, 192);
-            this.pbPersonPicture.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbPersonPicture.Margin = new System.Windows.Forms.Padding(6);
             this.pbPersonPicture.Name = "pbPersonPicture";
             this.pbPersonPicture.Size = new System.Drawing.Size(240, 231);
             this.pbPersonPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -748,7 +749,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gradientPanel2);
             this.Controls.Add(this.gradientPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "crlPersonalCard";
             this.Size = new System.Drawing.Size(1400, 1271);
             this.Load += new System.EventHandler(this.crlPersonalCard_Load);

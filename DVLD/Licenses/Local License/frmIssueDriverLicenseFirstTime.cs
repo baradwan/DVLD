@@ -15,8 +15,8 @@ namespace DVLD.Licenses.Local_License
 
     public partial class frmIssueDriverLicenseFirstTime : Form
     {
-       
-    private int _LocalDrivingLicenseApplicationID;
+        public event Action<int> LicenseIssued;
+        private int _LocalDrivingLicenseApplicationID;
     private clsLocalDrivingLicenseApplication _LDLApp;
         
         public frmIssueDriverLicenseFirstTime(int LocalDrivingLicenseApplicationID)
@@ -80,7 +80,7 @@ namespace DVLD.Licenses.Local_License
                 MessageBox.Show("License Issued Successfully with License ID = " + LicenseID.ToString(),
                     "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                
+                LicenseIssued?.Invoke(LicenseID);
             }
             else
             {

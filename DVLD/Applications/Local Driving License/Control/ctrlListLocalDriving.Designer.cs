@@ -253,7 +253,7 @@
             this.toolStripSeparator6,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsApplications.Name = "contextMenuStrip1";
-            this.cmsApplications.Size = new System.Drawing.Size(301, 302);
+            this.cmsApplications.Size = new System.Drawing.Size(301, 280);
             // 
             // showDetailsToolStripMenuItem
             // 

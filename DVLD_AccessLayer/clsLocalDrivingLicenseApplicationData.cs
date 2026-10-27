@@ -12,7 +12,7 @@ namespace DVLD_AccessLayer
 {
     public static class clsLocalDrivingLicenseApplicationData
     {
-
+      
         public static DataTable GetAllLocalDrivingLicenseApplications()
         {
 
@@ -206,7 +206,31 @@ namespace DVLD_AccessLayer
 
             return RowsAffected > 0;
         }
+        public static bool HasConflictingApplication(int PersonID, int LicenseClassID, int ApplicationID)
+        {
+            string query = @"
+                          SELECT TOP 1 1
+                          FROM Applications APP
+                          INNER JOIN LocalDrivingLicenseApplications LDL
+                              ON APP.ApplicationID = LDL.ApplicationID
+                          WHERE APP.ApplicantPersonID = @PersonID
+                            AND LDL.LicenseClassID = @LicenseClassID
+                            AND APP.ApplicationStatus IN (1, 3)
+                            AND APP.ApplicationID <> @ApplicationID;";
 
+            using (SqlConnection connection =
+                new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@PersonID", PersonID);
+                command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+                command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+                connection.Open();
+
+                return command.ExecuteScalar() != null;
+            }
+        }
         public static byte TotalTrialsPerTest(int LocalDrivingLicenseApplicationID, int TestTypeID)
 
         {

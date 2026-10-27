@@ -421,9 +421,14 @@ namespace DVLD.Applications.Local_Driving_License
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmIssueDriverLicenseFirstTime frm = new frmIssueDriverLicenseFirstTime(GetCurrentLocalDrivingLicenseApplicationID());
+            frm.LicenseIssued += OnLicenseIssued;
             frm.ShowDialog();
         }
 
+        private void OnLicenseIssued(int LicenseID)
+        {
+            RefreshList();
+        }
         //private void cmsApplications_Opening(object sender, CancelEventArgs e)
         //{
 

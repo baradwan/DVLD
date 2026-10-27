@@ -14,6 +14,12 @@ namespace DVLD_BusinessLayer
     public class clsLocalDrivingLicenseApplication
 
     {
+        public enum enSaveResult
+        {
+            Saved = 1,
+            AlreadyExists = 2,
+            Failed = 3
+        }
         enum enMode { AddNew = 0, Update = 1 }
 
         enMode _Mode = enMode.AddNew;
@@ -170,7 +176,7 @@ namespace DVLD_BusinessLayer
             if (!Driver.Save())
                 return null;
 
-            _SetComplete();
+         
             return Driver;
 
         }
@@ -191,14 +197,26 @@ namespace DVLD_BusinessLayer
             License.CreatedByUserID = this.Application.CreatedByUserID;
             if (!License.Save())
                 return null;
+            _SetComplete();
             return License;
+        }
+
+        public static bool HasConflictingApplication(int PersonID, int LicenseClassID, int ApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.HasConflictingApplication(PersonID, LicenseClassID, ApplicationID);
         }
 
         public int IssuedLicenseFirstTime(string Notes, int CurrentUserID)
         {
-
+            if (GetActiveLicenseID() != -1)
+                return -1;
             clsDriver Driver = _CreateDriver(CurrentUserID);
+            if (Driver == null)
+                return -1;
             clsLicense License = _CreateLicense(Notes, Driver.DriverID, CurrentUserID);
+            if (License == null)
+                return -1;
+
             return License != null ? License.LicenseID : -1;
         }
 
@@ -206,7 +224,18 @@ namespace DVLD_BusinessLayer
         public bool Save()
         {
 
-                    if (!Application.Save())
+            if (Application == null)
+                return false;
+
+            if (Application.PersonID <= 0 || LicenseClassID <= 0)
+                return false;
+            if (clsLocalDrivingLicenseApplicationData.HasConflictingApplication( Application.PersonID,  LicenseClassID, Application.ApplicationID))
+          
+                return false;
+           
+
+
+            if (!Application.Save())
                         return false;
 
             if (!_IsValid())
@@ -228,6 +257,9 @@ namespace DVLD_BusinessLayer
                  
 
                 case enMode.Update:
+
+                    if (Application.Status != clsApplication.enApplicationStatus.New)
+                        return false;
                     return _UpdateLocalDrivingLicenseApplication();
 
                 default:

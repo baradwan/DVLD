@@ -28,7 +28,7 @@ namespace DVLD_AccessLayer
 
             command.Parameters.AddWithValue("@PersonID", DriverDTO.PersonID);
             command.Parameters.AddWithValue("@CreatedByUserID", DriverDTO.CreatedByUserID);
-            command.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+            command.Parameters.AddWithValue("@CreatedDate", DriverDTO.CreateDate);
 
             try
             {
@@ -61,7 +61,7 @@ namespace DVLD_AccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = @"
-                SELECT DriverID, PersonID, CreatedByUserID, CreateDate
+                SELECT DriverID, PersonID, CreatedByUserID, CreatedDate
                 FROM Drivers
                 WHERE DriverID = @DriverID;";
 
@@ -82,7 +82,7 @@ namespace DVLD_AccessLayer
                         DriverID = (int)reader["DriverID"],
                         PersonID = (int)reader["PersonID"],
                         CreatedByUserID = (int)reader["CreatedByUserID"],
-                        CreateDate = (DateTime)reader["CreateDate"]
+                        CreateDate = (DateTime)reader["CreatedDate"]
                     };
                 }
 
@@ -108,7 +108,7 @@ namespace DVLD_AccessLayer
                 clsDataAccessSettings.connectionString);
 
             string query = @"
-                SELECT DriverID, PersonID, CreatedByUserID, CreateDate
+                SELECT DriverID, PersonID, CreatedByUserID, CreatedDate
                 FROM Drivers
                 WHERE PersonID = @PersonID;";
 
@@ -129,7 +129,7 @@ namespace DVLD_AccessLayer
                         DriverID = (int)reader["DriverID"],
                         PersonID = (int)reader["PersonID"],
                         CreatedByUserID = (int)reader["CreatedByUserID"],
-                        CreateDate = (DateTime)reader["CreateDate"]
+                        CreateDate = (DateTime)reader["CreatedDate"]
                     };
                 }
 
@@ -193,7 +193,7 @@ namespace DVLD_AccessLayer
                 clsDataAccessSettings.connectionString);
 
             string query = @"
-                SELECT DriverID, PersonID, CreatedByUserID, CreateDate
+                SELECT DriverID, PersonID, CreatedByUserID, CreatedDate
                 from Drivers_View
                 ORDER BY DriverID DESC;"; 
 

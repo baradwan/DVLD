@@ -76,10 +76,21 @@ namespace DVLD.Applications.Local_Driving_License
         }
         private bool _toEnableSaveButton()
         {
-            return tcApplicationInfo.SelectedTab == tcApplicationInfo.TabPages["tpApplicationInfo"]
-            && _LDLApplication.Application != null
-            && _LDLApplication.Application.PersonID > 0
-            && cmbLicenseClass.SelectedValue != null;
+            if (tcApplicationInfo.SelectedTab !=
+     tcApplicationInfo.TabPages["tpApplicationInfo"]
+     || _LDLApplication?.Application == null
+     || _LDLApplication.Application.PersonID <= 0
+     || cmbLicenseClass.SelectedValue == null)
+            {
+                return false;
+            }
+
+            if (_Mode == enMode.AddNew)
+                return true;
+
+            return _LDLApplication.Application.Status ==
+                   clsApplication.enApplicationStatus.New
+                   && !IsHasSameLicenseClass();
         }
         private void _RefreshBtnSave()
         {
@@ -178,10 +189,16 @@ namespace DVLD.Applications.Local_Driving_License
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-            
-          
+            if(IsHasSameLicenseClass())
+            {
+                MessageBox.Show("The License Class is the same as the previous one. No changes to save.", "No Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int OldLicenseClassID = _LDLApplication.LicenseClassID;
             _LDLApplication.LicenseClassID = _GetSelectedLicenseClassID();
 
+           
             if (_LDLApplication.Save())
             {
 
@@ -195,13 +212,13 @@ namespace DVLD.Applications.Local_Driving_License
                     clsLDLApplicationEvents.NotifyLocalDrivingLicenseApplicationUpdated(_LDLApplication.LocalDrivingLicenseApplicationID);
 
                 _Mode =enMode.Update;
-
-
+                _LDLApplication.LicenseClassID = OldLicenseClassID;
+                _RefreshBtnSave();
             }
             else
             {
                 MessageBox.Show("An error occurred while saving the Local Driving License Application. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                _RefreshBtnSave();
             }
         }
 
@@ -230,7 +247,28 @@ namespace DVLD.Applications.Local_Driving_License
 
         private void cmbLicenseClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // _LDLApplication.LicenseClassID = _GetSelectedLicenseClassID();
+
+            if (_Mode == enMode.AddNew)
+                return;
+            
+                if (_LDLApplication.Application.Status == clsApplication.enApplicationStatus.Completed ||
+                _LDLApplication.Application.Status == clsApplication.enApplicationStatus.Cancelled)
+                {
+                    tcApplicationInfo.Enabled = false;
+                    string Message = _LDLApplication.Application.Status ==
+                      clsApplication.enApplicationStatus.Completed
+         ? "This application has already been completed and cannot be modified."
+         : "This application has been cancelled and cannot be modified.";
+
+                    MessageBox.Show(
+                        Message,
+                        "Modification Not Allowed",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+           
+            
+                _RefreshBtnSave();
         }
 
         private void btnNext_Click_1(object sender, EventArgs e)

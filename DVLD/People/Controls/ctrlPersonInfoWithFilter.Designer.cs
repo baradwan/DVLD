@@ -194,6 +194,7 @@
             // 
             // crlShowPersonInformation1
             // 
+            this.crlShowPersonInformation1.AutoSize = true;
             this.crlShowPersonInformation1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.crlShowPersonInformation1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crlShowPersonInformation1.Location = new System.Drawing.Point(0, 0);
@@ -221,6 +222,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
             this.pnlContent.ResumeLayout(false);
+            this.pnlContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 

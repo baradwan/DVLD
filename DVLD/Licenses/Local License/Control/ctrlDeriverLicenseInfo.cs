@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Properties;
+using DVLD_BusinessLayer;
 using DVLD_Global;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace DVLD.Licenses.Local_License.Control
     {
   
         clsLicense _License;
+        clsPerson _Person;
         public ctrlDeriverLicenseInfo()
         {
             InitializeComponent();
@@ -26,49 +28,28 @@ namespace DVLD.Licenses.Local_License.Control
 
 
         }
-
-        private bool _ImageHandler()
+        public clsLicense SelectedLicense { get { return _License; } }
+        private void _LoadPersonImage()
         {
-            if (_Person.ImagePath == Path.GetFileName(pbPersonPicture.ImageLocation))
-            {
-                return true;
-            }
 
-            string fullPathOfCurrentImage = Path.GetFullPath(Path.Combine(clsProjectFolderSetting.ProjectFolderPath, _Person.ImagePath));
-            if (_Person.ImagePath != pbPersonPicture.ImageLocation)
-            {
-                if (_Person.ImagePath != "")
-                {
-                    try
-                    {
-                        File.Delete(fullPathOfCurrentImage);
-                    }
-                    catch (Exception ex)
-                    {
+            if (_Person.ImagePath == null)
+                return;
+            if (_Person.Gendor == 0)
+                pbPersonalProfile.Image = Resources.Male;
+            else
+                pbPersonalProfile.Image = Resources.Female;
 
-                    }
-                }
-
-                if (pbPersonPicture.ImageLocation != null)
-                {
-                    string Source = pbPersonPicture.ImageLocation.ToString();
-                    if (clsUtil.CopyImageToProjectFolderPathHandler(ref Source, clsProjectFolderSetting.ProjectFolderPath))
-                    {
-                        pbPersonPicture.ImageLocation = Source;
-                        return true;
-                    }
-
-                }
-
-            }
+            string ImagePath = Path.Combine(clsProjectFolderSetting.ProjectFolderPath, _Person.ImagePath);
+            if (ImagePath != "")
+                if (File.Exists(ImagePath))
+                    pbPersonalProfile.ImageLocation = ImagePath;
 
 
-            return true;
         }
 
         private void _LoadPersonInfo() {
 
-            lblName.Text = _License.DriverInfo.PersonInfo.FullName;
+            lblName.Text = _Person.FullName;
             lblNationalNo.Text = _License.DriverInfo.PersonInfo.NationalNo;
             lblDateOfBirth.Text= _License.DriverInfo.PersonInfo.DateOfBirth.ToString("dd/MM/yyyy");
             lblGender.Text = _License.DriverInfo.PersonInfo.Gendor==0 ? "Male" : "Female";
@@ -78,7 +59,7 @@ namespace DVLD.Licenses.Local_License.Control
         private void _LoadLicenseInfo() {
 
            
-            lblClass.Text = clsLicenseClass.Find(_License.LicenseClass).ClassName;
+            lblClass.Text =_License.LicenseClassInfo.ClassName;
             lblLicenseID.Text = _License.LicenseID.ToString();
             lblIssueDate.Text=_License.IssueDate.ToString("dd/MM/yyyy");
             lblIssueReason.Text=_License.IssueReasonText;
@@ -90,14 +71,42 @@ namespace DVLD.Licenses.Local_License.Control
             lblCreatedUser.Text = _License.CreatedByUserName;
 
         }
-        public void LoadInfo(int LicenseID) {
-            _License = clsLicense.Find(LicenseID);
-            _ImageHandler();
+        public void LoadInfo(clsLicense License) {
+            _License = License;
+            if (_License == null)
+            {             
+                MessageBox.Show("No license was found with the specified License ID. Please verify the ID and try again.","License Not Found",
+                    MessageBoxButtons.OK,MessageBoxIcon.Warning);
+
+                return;
+            }
+            _Person = _License.DriverInfo.PersonInfo;
+            _LoadPersonImage();
             _LoadPersonInfo();
             _LoadLicenseInfo();
 
         }
 
+        public void LoadInfo(int LicenseID)
+        {
+            _License = clsLicense.Find(LicenseID);
+            if (_License == null)
+            {
+                MessageBox.Show("No license was found with the specified License ID. Please verify the ID and try again.", "License Not Found",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                return;
+            }
+            _Person = _License.DriverInfo.PersonInfo;
+            _LoadPersonImage();
+            _LoadPersonInfo();
+            _LoadLicenseInfo();
+
+        }
+
+        private void lblDateOfBirth_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

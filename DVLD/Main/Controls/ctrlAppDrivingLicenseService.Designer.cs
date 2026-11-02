@@ -110,6 +110,7 @@
             this.btnRenewDrivingLicense.TabIndex = 1;
             this.btnRenewDrivingLicense.Text = "Renew Driving License ";
             this.btnRenewDrivingLicense.UseVisualStyleBackColor = false;
+            this.btnRenewDrivingLicense.Click += new System.EventHandler(this.btnRenewDrivingLicense_Click);
             // 
             // btnRetakeTest
             // 
@@ -122,6 +123,7 @@
             this.btnRetakeTest.TabIndex = 2;
             this.btnRetakeTest.Text = "Retake Test";
             this.btnRetakeTest.UseVisualStyleBackColor = false;
+            this.btnRetakeTest.Click += new System.EventHandler(this.btnRetakeTest_Click);
             // 
             // btnReleaseDetained
             // 
@@ -146,6 +148,7 @@
             this.btnReplacementLostDamage.TabIndex = 5;
             this.btnReplacementLostDamage.Text = "Replacement for losr or damage licesne";
             this.btnReplacementLostDamage.UseVisualStyleBackColor = false;
+            this.btnReplacementLostDamage.Click += new System.EventHandler(this.btnReplacementLostDamage_Click);
             // 
             // timerDropdown
             // 

@@ -1,4 +1,6 @@
 ﻿using DVLD.Applications.Local_Driving_License;
+using DVLD.Applications.Renew_Local_License;
+using DVLD.Applications.Replace_Or_Damage_License;
 using DVLD.Global;
 using System;
 using System.Collections.Generic;
@@ -73,6 +75,24 @@ namespace DVLD.Main
         private void btnLocalLicense_Click(object sender, EventArgs e)
         {
             frmAddUpdateLocalDrivingLicenseApplication frm = new frmAddUpdateLocalDrivingLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void btnRenewDrivingLicense_Click(object sender, EventArgs e)
+        {
+            frmRenewLocalLicense frm=new frmRenewLocalLicense();
+            frm.ShowDialog();
+        }
+
+        private void btnRetakeTest_Click(object sender, EventArgs e)
+        {
+            frmListDrivingLicenseApp frm = new frmListDrivingLicenseApp();
+            frm.ShowDialog();
+        }
+
+        private void btnReplacementLostDamage_Click(object sender, EventArgs e)
+        {
+            frmReplaceOrDamageLicense frm = new frmReplaceOrDamageLicense();
             frm.ShowDialog();
         }
     }

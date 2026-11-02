@@ -16,9 +16,11 @@ namespace DVLD.Applications.Local_Driving_License
         public frmListDrivingLicenseApp()
         {
             InitializeComponent();
+            ctrlListLocalDriving1.CountApplicationsChanged += _UpdateCount;
+
         }
 
-      
+
 
         private void btnClose_Click_1(object sender, EventArgs e)
         {
@@ -27,13 +29,13 @@ namespace DVLD.Applications.Local_Driving_License
 
         private void frmListDrivingLicenseApp_Load(object sender, EventArgs e)
         {
-            ctrlListLocalDriving1.CountApplicationsChanged += _UpdateCount;
             clsLDLApplicationEvents.LocalDrivingLicenseApplicationAdded += OnLocalApplicationChanged;
             clsLDLApplicationEvents.LocalDrivingLicenseApplicationUpdated += OnLocalApplicationChanged;
             clsLDLApplicationEvents.LocalDrivingLicenseApplicationDeleted += OnLocalApplicationChanged;
 
             clsPersonEvents.PersonUpdated += OnPersonUpdated;
             clsTestEvents.TestSaved += OnTestSaved;
+            
         }
 
         private void OnTestSaved(int LocalDrivingLicenseApplicationID)

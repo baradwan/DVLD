@@ -161,7 +161,49 @@ namespace DVLD_AccessLayer
                 return command.ExecuteNonQuery() > 0;
             }
         }
+        
+        
+        public static int GetIssuedLicenseIDByLDLApplicationID(int LDLApplicationID)
+        {
+            int LicenseID = -1;
 
+            SqlConnection connection = new SqlConnection(
+                clsDataAccessSettings.connectionString);
+
+            string query = @"
+        SELECT l.LicenseID
+        FROM Licenses l
+        INNER JOIN LocalDrivingLicenseApplications ldl
+            ON l.ApplicationID = ldl.ApplicationID
+        WHERE ldl.LocalDrivingLicenseApplicationID = @LDLApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue(
+                "@LDLApplicationID", LDLApplicationID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    LicenseID = Convert.ToInt32(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return LicenseID;
+        }
         public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
         {
             int LicenseID = -1;
@@ -207,6 +249,43 @@ namespace DVLD_AccessLayer
 
 
             return LicenseID;
+        }
+
+        public static bool DeactivateLicense(int LicenseID)
+        {
+
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"UPDATE Licenses
+                           SET 
+                              IsActive = 0
+                             
+                         WHERE LicenseID=@LicenseID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
         }
     }
 }

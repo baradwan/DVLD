@@ -1,4 +1,4 @@
-﻿using DVLD_BusinessLayer;
+﻿ using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,6 +60,7 @@ namespace DVLD.People.Controls
 
             _PersonID = crlShowPersonInformation1.PersonID;
             if (_PersonID != -1)
+
                 OnPersonSelected?.Invoke(_PersonID);
         }
 

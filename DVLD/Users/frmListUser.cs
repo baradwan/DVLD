@@ -19,6 +19,8 @@ namespace DVLD.Users
         public frmListUser()
         {
             InitializeComponent();
+            ctrlListUsers1.CountUsersChanged += _UpdateCountUserss;
+
 
         }
 
@@ -30,7 +32,6 @@ namespace DVLD.Users
         private void frmListUser_Load(object sender, EventArgs e)
         {
 
-            ctrlListUsers1.CountUsersChanged += _UpdateCountUserss;
             clsUserEvents.UserAdded += OnUserChanged;
             clsUserEvents.UserUpdated += OnUserChanged;
             clsUserEvents.UserDeleted += OnUserChanged;

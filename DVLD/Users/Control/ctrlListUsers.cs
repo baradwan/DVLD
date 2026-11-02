@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace DVLD.Users.Control
 {
-    public partial class ctrlListUsers : UserControl
+    public partial class ctrlListDriver : UserControl
     {
         public event Action<int> CountUsersChanged;
         public event Action<int> OnUserSelected;
@@ -26,7 +26,7 @@ namespace DVLD.Users.Control
         private enFilterOption _ModeFilter = enFilterOption.None;
 
         private DataTable _dtList;
-        public ctrlListUsers()
+        public ctrlListDriver()
         {
             InitializeComponent();
 

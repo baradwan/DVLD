@@ -8,6 +8,7 @@ namespace DVLD_BusinessLayer
 {
     public class clsLicense
     {
+        private clsLicenseClass _LicenseClassInfo;
         private clsApplication _ApplicationInfo;
         private clsDriver _DriverInfo;
         private clsUser _CreatedByUserInfo;
@@ -31,6 +32,7 @@ namespace DVLD_BusinessLayer
         public int DriverID { get; set; }
         public int LicenseClass { get; set; }
         public DateTime IssueDate { get; set; }
+        
         public DateTime ExpirationDate { get; set; }
         public string Notes { get; set; }
         public decimal PaidFees { get; set; }
@@ -140,6 +142,17 @@ namespace DVLD_BusinessLayer
             }
         }
 
+
+        public clsLicenseClass LicenseClassInfo
+        {
+            get
+            {
+                if (_LicenseClassInfo == null && LicenseClass > 0)
+                    _LicenseClassInfo = clsLicenseClass.Find(LicenseClass);
+
+                return _LicenseClassInfo;
+            }
+        }
         private string _IssueReasonDescription(enIssueReason reason )
         {
            
@@ -158,7 +171,12 @@ namespace DVLD_BusinessLayer
                 
             }
         }
+        public bool IsLicenseExpired()
+        {
 
+            return (this.ExpirationDate < DateTime.Now);
+
+        }
         public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
         {
 
@@ -166,11 +184,23 @@ namespace DVLD_BusinessLayer
 
         }
 
+        public  bool DeActivateLicense()
+        {
+           return clsLicenseData.DeactivateLicense(this.LicenseID);
+        }
+
         public static DataTable ListAllLicenses()
         {
             return clsLicenseData.GetAllLicenses();
         }
+        public static int GetIssuedLicenseIDByLDLApplicationID(int LDLApplicationID)
+        {
+            if (LDLApplicationID <= 0)
+                return -1;
 
+            return clsLicenseData.GetIssuedLicenseIDByLDLApplicationID(
+                LDLApplicationID);
+        }
         public static clsLicense Find(int licenseID)
         {
             clsLicenseDTO licenseDTO = clsLicenseData.GetLicenseByID(licenseID);
@@ -197,9 +227,95 @@ namespace DVLD_BusinessLayer
             return clsLicenseData.DeleteLicense(this.LicenseID);
         }
 
+        public clsLicense ReplaceLicense( int UserID,enIssueReason issueReason)
+        {
+            bool isActive = !DeActivateLicense();
+
+            clsApplication ReplaceApp = new clsApplication();
+           int AppTypeID = (int)(issueReason==enIssueReason.ReplacementForDamaged?clsApplication.enApplicationType.ReplaceDamagedDrivingLicense:
+                clsApplication.enApplicationType.ReplaceLostDrivingLicense);
+
+            ReplaceApp.PrepareApplication(this.DriverInfo.PersonID, AppTypeID, UserID);
+
+            if (!isActive)
+            {
+                if (!ReplaceApp.Save())
+                    return null;
+            }
+
+            clsLicense ReplaceLicense = new clsLicense();
+
+            ReplaceLicense.ApplicationID = ReplaceApp.ApplicationID;
+            ReplaceLicense.DriverID = this.DriverID;
+            ReplaceLicense.LicenseClass = this.LicenseClass;
+            ReplaceLicense.CreatedByUserID = UserID;
+            ReplaceLicense.IssueDate = DateTime.Now;
+            ReplaceLicense.ExpirationDate =this.ExpirationDate;
+            ReplaceLicense.Notes = this.Notes;
+            ReplaceLicense.PaidFees = 0;
+            ReplaceLicense.IsActive = true;
+            ReplaceLicense.IssueReason = issueReason;
+
+
+
+            if (!isActive)
+            {
+                if (!ReplaceLicense.Save())
+                    return null;
+            }
+
+
+
+
+            return ReplaceLicense;
+        }
+        public clsLicense RewnewLIcense(string Notes,int UserID) {
+        
+            bool isActive = !DeActivateLicense();
+
+            clsApplication RenewApp=new clsApplication();
+
+            RenewApp.PrepareApplication(this.DriverInfo.PersonID, (int)clsApplication.enApplicationType.RenewDrivingLicense,  UserID);
+
+
+            if (!isActive)
+            {
+                if (!RenewApp.Save())
+                    return null;
+            }
+
+                clsLicense RenewLicense=new clsLicense();
+           
+            RenewLicense.ApplicationID = RenewApp.ApplicationID;
+            RenewLicense.DriverID = this.DriverID;
+            RenewLicense.LicenseClass = this.LicenseClass;
+            RenewLicense.CreatedByUserID = UserID;
+            RenewLicense.IssueDate = DateTime.Now;
+            RenewLicense.ExpirationDate = DateTime.Now.AddYears(this.LicenseClassInfo.DefaultValidityLength);
+            RenewLicense.Notes = Notes;
+            RenewLicense.PaidFees = this.PaidFees;
+            RenewLicense.IsActive = true;
+            RenewLicense.IssueReason = enIssueReason.Renew;
+
+
+
+            if (!isActive)
+            {
+                if (!RenewLicense.Save())
+                    return null;
+            }
+
+
+
+
+            return RenewLicense;
+
+
+        }
+
         //private bool _IsValid()
         //{
-        // return clsValidation.IsLicenseValid(this.LicenseDTO);
+        //    return clsValidation.IsLicenseValid(this.LicenseDTO);
         //}
 
         public bool Save()

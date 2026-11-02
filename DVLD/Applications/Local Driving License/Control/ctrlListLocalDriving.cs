@@ -400,7 +400,27 @@ namespace DVLD.Applications.Local_Driving_License
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         }
+
+            int LicenseID = clsLicense.GetIssuedLicenseIDByLDLApplicationID(GetCurrentLocalDrivingLicenseApplicationID());
+
+            if (LicenseID == -1)
+            {           
+                MessageBox.Show(  "No License Found!",  "No License",  MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            clsLicense License = clsLicense.Find(LicenseID);
+
+            if (License == null)
+            {
+                MessageBox.Show("Could not load license information.");
+                return;
+            }
+
+            frmShowLicenseInfo frm = new frmShowLicenseInfo(License);
+            frm.ShowDialog();
+        }
 
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {

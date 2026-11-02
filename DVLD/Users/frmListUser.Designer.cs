@@ -274,7 +274,7 @@
         private Syncfusion.WinForms.Controls.SfButton btnClose;
         private System.Windows.Forms.Label lblRecordValue;
         private System.Windows.Forms.Label label3;
-        private Control.ctrlListUsers ctrlListUsers1;
+        private Control.ctrlListDriver ctrlListUsers1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem addNewPersonToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;

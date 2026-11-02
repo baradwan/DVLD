@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Users.Control
 {
-    partial class ctrlListUsers
+    partial class ctrlListDriver
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlListUsers));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlListDriver));
             this.cmbFilter = new Syncfusion.WinForms.ListView.SfComboBox();
             this.lblFilterTitle = new System.Windows.Forms.Label();
             this.lblSearchTitle = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@
             this.cbIsActiveFilter = new Syncfusion.WinForms.ListView.SfComboBox();
             this.txtSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlContainer = new System.Windows.Forms.Panel();
             this.dvgList = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.cmsUsers = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbIsActiveFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgList)).BeginInit();
             this.cmsUsers.SuspendLayout();
             this.SuspendLayout();
@@ -209,14 +209,14 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // panel1
+            // pnlContainer
             // 
-            this.panel1.Controls.Add(this.dvgList);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 43);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1247, 597);
-            this.panel1.TabIndex = 4;
+            this.pnlContainer.Controls.Add(this.dvgList);
+            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContainer.Location = new System.Drawing.Point(0, 43);
+            this.pnlContainer.Name = "pnlContainer";
+            this.pnlContainer.Size = new System.Drawing.Size(1247, 597);
+            this.pnlContainer.TabIndex = 4;
             // 
             // dvgList
             // 
@@ -395,13 +395,13 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(297, 42);
             this.toolStripMenuItem3.Text = " ";
             // 
-            // ctrlListUsers
+            // ctrlListDriver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlHeader);
-            this.Name = "ctrlListUsers";
+            this.Name = "ctrlListDriver";
             this.Size = new System.Drawing.Size(1247, 640);
             this.Load += new System.EventHandler(this.crtlListUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();
@@ -410,7 +410,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbIsActiveFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.pnlContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvgList)).EndInit();
             this.cmsUsers.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -426,7 +426,7 @@
         private System.Windows.Forms.Panel pnlHeader;
         private Syncfusion.WinForms.ListView.SfComboBox cbIsActiveFilter;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlContainer;
         private Syncfusion.WinForms.DataGrid.SfDataGrid dvgList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;

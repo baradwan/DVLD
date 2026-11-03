@@ -14,12 +14,7 @@ namespace DVLD_BusinessLayer
     public class clsLocalDrivingLicenseApplication
 
     {
-        public enum enSaveResult
-        {
-            Saved = 1,
-            AlreadyExists = 2,
-            Failed = 3
-        }
+   
         enum enMode { AddNew = 0, Update = 1 }
 
         enMode _Mode = enMode.AddNew;

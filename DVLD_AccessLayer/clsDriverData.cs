@@ -53,7 +53,7 @@ namespace DVLD_AccessLayer
 
             return DriverID;
         }
-
+        
         public static clsDriverDTO GetDriverInfoByID(int DriverID)
         {
             clsDriverDTO DriverDTO = null;
@@ -193,7 +193,7 @@ namespace DVLD_AccessLayer
                 clsDataAccessSettings.connectionString);
 
             string query = @"
-                SELECT DriverID, PersonID, CreatedByUserID, CreatedDate
+                SELECT *
                 from Drivers_View
                 ORDER BY DriverID DESC;"; 
 

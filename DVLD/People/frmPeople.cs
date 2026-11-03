@@ -120,18 +120,17 @@ namespace DVLD
             lblRecordValue.Text = _dtPeople.Rows.Count.ToString();
         }
 
-        private void _SearchPeopleWithFilter()
+        private string _GetBuilderFilterString()
         {
-            //DataView dvPeople = _dtPeople.DefaultView;
             ModeFilter = (enFilterOption)cmbFilter.SelectedIndex;
             string FilterColumn = "";
 
-            if (ModeFilter == enFilterOption.None || string.IsNullOrWhiteSpace(txtSearch.Text))
+            if (ModeFilter == enFilterOption.None ||
+                string.IsNullOrWhiteSpace(txtSearch.Text))
             {
-                _dtPeople.DefaultView.RowFilter = "";
-                // _RefreshPeopleList();
-                return;
+                return "";
             }
+
             switch (ModeFilter)
             {
                 case enFilterOption.PersonID: FilterColumn = "PersonID"; break;
@@ -140,33 +139,29 @@ namespace DVLD
                 case enFilterOption.SecondName: FilterColumn = "SecondName"; break;
                 case enFilterOption.ThirdName: FilterColumn = "ThirdName"; break;
                 case enFilterOption.LastName: FilterColumn = "LastName"; break;
-                case enFilterOption.Nationality: FilterColumn = "CountryName"; break;
-                case enFilterOption.Gender: FilterColumn = "Gender"; break;
                 case enFilterOption.Phone: FilterColumn = "Phone"; break;
                 case enFilterOption.Email: FilterColumn = "Email"; break;
-                default: FilterColumn = "None"; break;
             }
+
+            string SearchText = txtSearch.Text.Trim();
+
             if (ModeFilter == enFilterOption.PersonID)
             {
-
-
-
-                _dtPeople.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtSearch.Text.Trim());
-
-
-
-
-
+                return $"[{FilterColumn}] = {SearchText}";
             }
-            else
-            {
 
-                _dtPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtSearch.Text.Trim());
-            }
-            dvgListPeople.DataSource = _dtPeople.DefaultView;
-            
+            return $"[{FilterColumn}] LIKE '%{SearchText.Replace("'", "''")}%'";
         }
 
+        private void _ApplyFilter()
+        {
+            if (_dtPeople == null)
+                return;
+
+            _dtPeople.DefaultView.RowFilter = _GetBuilderFilterString();
+
+          lblRecordValue.Text = _dtPeople.DefaultView.Count.ToString();
+        }
         public frmPeople()
         {
 
@@ -204,7 +199,7 @@ namespace DVLD
     
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            _SearchPeopleWithFilter();
+            _ApplyFilter();
         }
 
        

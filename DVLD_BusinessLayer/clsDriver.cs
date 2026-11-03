@@ -92,6 +92,16 @@ namespace DVLD_BusinessLayer
             return clsDriverData.GetAllDrivers();
         }
 
+        public  DataTable GetDriverLicenses()
+        {
+            return clsLicenseData.GetDriverLicenses(this.DriverID);
+        }
+
+        public static  DataTable GetDriverLicenses(int DriverID)
+        {
+            return clsLicenseData.GetDriverLicenses(DriverID);
+        }
+
         public bool Delete()
         {
             return clsDriverData.DeleteDriver(this.DriverID);

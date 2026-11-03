@@ -187,6 +187,7 @@
             this.btnDriver.TabIndex = 3;
             this.btnDriver.Text = "Driver";
             this.btnDriver.UseVisualStyleBackColor = false;
+            this.btnDriver.Click += new System.EventHandler(this.btnDriver_Click);
             // 
             // btnPeople
             // 

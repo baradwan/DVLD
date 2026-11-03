@@ -85,6 +85,7 @@
             this.btnInternationalLicense.TabIndex = 3;
             this.btnInternationalLicense.Text = "International License";
             this.btnInternationalLicense.UseVisualStyleBackColor = false;
+            this.btnInternationalLicense.Click += new System.EventHandler(this.btnInternationalLicense_Click);
             // 
             // btnLocalLicense
             // 

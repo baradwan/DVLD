@@ -269,6 +269,17 @@ namespace DVLD_BusinessLayer
 
             return ReplaceLicense;
         }
+
+        public static  DataTable GetDriverLicenses(int DriverID)
+        {
+            return clsLicenseData.GetDriverLicenses(DriverID);
+        }
+        public bool IsEligibleForInternationalLicense()
+        {
+            return IsActive
+                && ExpirationDate.Date >= DateTime.Today
+                && LicenseClass == 3;
+        }
         public clsLicense RewnewLIcense(string Notes,int UserID) {
         
             bool isActive = !DeActivateLicense();

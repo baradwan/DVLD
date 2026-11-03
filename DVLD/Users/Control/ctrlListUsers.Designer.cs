@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Users.Control
 {
-    partial class ctrlListDriver
+    partial class ctrlListUsers
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlListDriver));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlListUsers));
             this.cmbFilter = new Syncfusion.WinForms.ListView.SfComboBox();
             this.lblFilterTitle = new System.Windows.Forms.Label();
             this.lblSearchTitle = new System.Windows.Forms.Label();
@@ -50,17 +50,15 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbIsActiveFilter)).BeginInit();
@@ -253,13 +251,11 @@
             this.ChangePasswordtoolstripitem1,
             this.toolStripSeparator2,
             this.sendEmailToolStripMenuItem,
-            this.phoneCallToolStripMenuItem,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem9});
+            this.phoneCallToolStripMenuItem});
             this.cmsUsers.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(236)))), ((int)(((byte)(249)))));
             this.cmsUsers.Name = "contextMenuStripEx1";
             this.cmsUsers.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.cmsUsers.Size = new System.Drawing.Size(214, 358);
+            this.cmsUsers.Size = new System.Drawing.Size(214, 282);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -325,22 +321,21 @@
             this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(213, 38);
             this.phoneCallToolStripMenuItem.Text = "Phone Call";
             // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(213, 38);
-            this.toolStripMenuItem4.Text = " ";
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(213, 38);
-            this.toolStripMenuItem9.Text = " ";
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(294, 6);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(294, 6);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(297, 42);
+            this.toolStripMenuItem3.Text = " ";
             // 
             // toolStripMenuItem5
             // 
@@ -355,11 +350,6 @@
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(297, 42);
             this.toolStripMenuItem6.Text = "Delete";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(294, 6);
             // 
             // toolStripMenuItem7
             // 
@@ -389,19 +379,13 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(297, 42);
             this.toolStripMenuItem2.Text = "Show Details";
             // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(297, 42);
-            this.toolStripMenuItem3.Text = " ";
-            // 
-            // ctrlListDriver
+            // ctrlListUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlHeader);
-            this.Name = "ctrlListDriver";
+            this.Name = "ctrlListUsers";
             this.Size = new System.Drawing.Size(1247, 640);
             this.Load += new System.EventHandler(this.crtlListUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();
@@ -448,7 +432,5 @@
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phoneCallToolStripMenuItem;
         private Syncfusion.Windows.Forms.Tools.toolstripitem ChangePasswordtoolstripitem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
     }
 }

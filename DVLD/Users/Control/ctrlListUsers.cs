@@ -14,19 +14,20 @@ using System.Windows.Forms;
 
 namespace DVLD.Users.Control
 {
-    public partial class ctrlListDriver : UserControl
+    public partial class ctrlListUsers : UserControl
     {
         public event Action<int> CountUsersChanged;
         public event Action<int> OnUserSelected;
 
 
         //private int _CountUsers = 0;
+       
         public int CountUsers { get; private set; }
 
         private enFilterOption _ModeFilter = enFilterOption.None;
 
         private DataTable _dtList;
-        public ctrlListDriver()
+        public ctrlListUsers()
         {
             InitializeComponent();
 
@@ -52,7 +53,7 @@ namespace DVLD.Users.Control
         }
 
 
-
+        
         private void _setupDataGridUI()
         {
 

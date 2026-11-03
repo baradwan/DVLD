@@ -22,6 +22,14 @@ namespace DVLD.Licenses.Local_License
 
         }
 
+        public frmShowLicenseInfo(int LicenseID)
+        {
+            InitializeComponent();
+
+            _License = clsLicense.Find(LicenseID);
+
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

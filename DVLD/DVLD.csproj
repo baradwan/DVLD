@@ -120,6 +120,12 @@
     <Compile Include="Applications\Contol\ctrlAppBasicInfo.Designer.cs">
       <DependentUpon>ctrlAppBasicInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\International License\frmAddNewInternationalLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\International License\frmAddNewInternationalLicense.Designer.cs">
+      <DependentUpon>frmAddNewInternationalLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\Local Driving License\Control\ctrlDrivingLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,6 +181,18 @@
       <DependentUpon>frmListDriver.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\clsCurrentUser.cs" />
+    <Compile Include="Licenses\Control\ctrlDriverLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Licenses\Control\ctrlDriverLicense.Designer.cs">
+      <DependentUpon>ctrlDriverLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\frmShowPersonLicenseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\frmShowPersonLicenseHistory.Designer.cs">
+      <DependentUpon>frmShowPersonLicenseHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Licenses\Local License\Control\ctrlDeriverLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -355,6 +373,9 @@
     <EmbeddedResource Include="Applications\Contol\ctrlAppBasicInfo.resx">
       <DependentUpon>ctrlAppBasicInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\International License\frmAddNewInternationalLicense.resx">
+      <DependentUpon>frmAddNewInternationalLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\Control\ctrlDrivingLicenseInfo.resx">
       <DependentUpon>ctrlDrivingLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -378,6 +399,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Driver\Control\ctrlListDriver.resx">
       <DependentUpon>ctrlListDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Driver\frmListDriver.resx">
+      <DependentUpon>frmListDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Control\ctrlDriverLicense.resx">
+      <DependentUpon>ctrlDriverLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\frmShowPersonLicenseHistory.resx">
+      <DependentUpon>frmShowPersonLicenseHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Local License\Control\ctrlDeriverLicenseInfo.resx">
       <DependentUpon>ctrlDeriverLicenseInfo.cs</DependentUpon>

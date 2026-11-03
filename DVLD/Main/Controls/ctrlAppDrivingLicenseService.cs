@@ -1,4 +1,5 @@
-﻿using DVLD.Applications.Local_Driving_License;
+﻿using DVLD.Applications.International_License;
+using DVLD.Applications.Local_Driving_License;
 using DVLD.Applications.Renew_Local_License;
 using DVLD.Applications.Replace_Or_Damage_License;
 using DVLD.Global;
@@ -93,6 +94,12 @@ namespace DVLD.Main
         private void btnReplacementLostDamage_Click(object sender, EventArgs e)
         {
             frmReplaceOrDamageLicense frm = new frmReplaceOrDamageLicense();
+            frm.ShowDialog();
+        }
+
+        private void btnInternationalLicense_Click(object sender, EventArgs e)
+        {
+            frmAddNewInternationalLicense frm = new frmAddNewInternationalLicense();
             frm.ShowDialog();
         }
     }

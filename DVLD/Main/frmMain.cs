@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.Local_Driving_License;
+using DVLD.Driver;
 using DVLD.Global;
 using DVLD.Login;
 using DVLD.Main;
@@ -265,6 +266,12 @@ namespace DVLD
         private void btnManageAppTypes_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnDriver_Click(object sender, EventArgs e)
+        {
+            frmListDriver frm = new frmListDriver();
+            frm.ShowDialog();
         }
     }
 }

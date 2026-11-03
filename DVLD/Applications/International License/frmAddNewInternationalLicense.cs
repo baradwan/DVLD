@@ -47,7 +47,7 @@ namespace DVLD.Applications.International_License
             {
                 MessageBox.Show("Driver already has an active international license.", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _LoadNewAPPLicense();
-                
+                   
 
                 return false;
             }

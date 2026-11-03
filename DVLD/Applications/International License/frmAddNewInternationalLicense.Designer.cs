@@ -82,7 +82,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(953, 31);
+            this.panel1.Size = new System.Drawing.Size(950, 31);
             this.panel1.TabIndex = 298;
             // 
             // lblTitle
@@ -123,7 +123,7 @@
             this.lblCreatedBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCreatedBy.AutoSize = true;
             this.lblCreatedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedBy.Location = new System.Drawing.Point(675, 231);
+            this.lblCreatedBy.Location = new System.Drawing.Point(672, 231);
             this.lblCreatedBy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCreatedBy.Name = "lblCreatedBy";
             this.lblCreatedBy.Size = new System.Drawing.Size(33, 20);
@@ -135,7 +135,7 @@
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(469, 231);
+            this.label15.Location = new System.Drawing.Point(466, 231);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(111, 20);
@@ -169,7 +169,7 @@
             this.lblExpirationDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblExpirationDate.AutoSize = true;
             this.lblExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpirationDate.Location = new System.Drawing.Point(674, 126);
+            this.lblExpirationDate.Location = new System.Drawing.Point(671, 126);
             this.lblExpirationDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExpirationDate.Name = "lblExpirationDate";
             this.lblExpirationDate.Size = new System.Drawing.Size(114, 20);
@@ -181,7 +181,7 @@
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(469, 126);
+            this.label21.Location = new System.Drawing.Point(466, 126);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(148, 20);
@@ -219,14 +219,14 @@
             this.pnlInternationalApp.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlInternationalApp.Location = new System.Drawing.Point(0, 375);
             this.pnlInternationalApp.Name = "pnlInternationalApp";
-            this.pnlInternationalApp.Size = new System.Drawing.Size(953, 276);
+            this.pnlInternationalApp.Size = new System.Drawing.Size(950, 276);
             this.pnlInternationalApp.TabIndex = 297;
             // 
             // pictureBox13
             // 
             this.pictureBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(650, 54);
+            this.pictureBox13.Location = new System.Drawing.Point(647, 54);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(31, 26);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -247,7 +247,7 @@
             // 
             this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(636, 225);
+            this.pictureBox11.Location = new System.Drawing.Point(633, 225);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(31, 26);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -268,7 +268,7 @@
             // 
             this.pictureBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
-            this.pictureBox16.Location = new System.Drawing.Point(636, 126);
+            this.pictureBox16.Location = new System.Drawing.Point(633, 126);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(31, 26);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -311,7 +311,7 @@
             // 
             this.pictureBox20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
-            this.pictureBox20.Location = new System.Drawing.Point(636, 183);
+            this.pictureBox20.Location = new System.Drawing.Point(633, 183);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(31, 26);
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -323,7 +323,7 @@
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(469, 183);
+            this.label26.Location = new System.Drawing.Point(466, 183);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(163, 20);
@@ -335,7 +335,7 @@
             this.lblLocalLicenseID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLocalLicenseID.AutoSize = true;
             this.lblLocalLicenseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocalLicenseID.Location = new System.Drawing.Point(675, 183);
+            this.lblLocalLicenseID.Location = new System.Drawing.Point(672, 183);
             this.lblLocalLicenseID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLocalLicenseID.Name = "lblLocalLicenseID";
             this.lblLocalLicenseID.Size = new System.Drawing.Size(27, 20);
@@ -357,7 +357,7 @@
             this.lblInternationalLicenseID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblInternationalLicenseID.AutoSize = true;
             this.lblInternationalLicenseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInternationalLicenseID.Location = new System.Drawing.Point(688, 60);
+            this.lblInternationalLicenseID.Location = new System.Drawing.Point(685, 60);
             this.lblInternationalLicenseID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInternationalLicenseID.Name = "lblInternationalLicenseID";
             this.lblInternationalLicenseID.Size = new System.Drawing.Size(33, 20);
@@ -368,7 +368,7 @@
             // 
             this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(471, 52);
+            this.label31.Location = new System.Drawing.Point(468, 52);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(161, 52);
@@ -402,7 +402,7 @@
             this.ctrlDriverInfoWithFilter1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ctrlDriverInfoWithFilter1.Location = new System.Drawing.Point(0, 0);
             this.ctrlDriverInfoWithFilter1.Name = "ctrlDriverInfoWithFilter1";
-            this.ctrlDriverInfoWithFilter1.Size = new System.Drawing.Size(953, 375);
+            this.ctrlDriverInfoWithFilter1.Size = new System.Drawing.Size(950, 375);
             this.ctrlDriverInfoWithFilter1.TabIndex = 295;
             // 
             // pnlFooter
@@ -414,7 +414,7 @@
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlFooter.Location = new System.Drawing.Point(0, 651);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(953, 63);
+            this.pnlFooter.Size = new System.Drawing.Size(950, 63);
             this.pnlFooter.TabIndex = 296;
             // 
             // llShowLicenseInfo
@@ -449,7 +449,7 @@
             this.btnClose.BackColor = System.Drawing.Color.LightGray;
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(669, 9);
+            this.btnClose.Location = new System.Drawing.Point(666, 9);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(126, 42);
             this.btnClose.Style.BackColor = System.Drawing.Color.LightGray;
@@ -464,7 +464,7 @@
             this.btnIssue.BackColor = System.Drawing.Color.LightGray;
             this.btnIssue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIssue.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssue.Location = new System.Drawing.Point(810, 9);
+            this.btnIssue.Location = new System.Drawing.Point(807, 9);
             this.btnIssue.Name = "btnIssue";
             this.btnIssue.Size = new System.Drawing.Size(126, 42);
             this.btnIssue.Style.BackColor = System.Drawing.Color.LightGray;
@@ -477,7 +477,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 714);
+            this.ClientSize = new System.Drawing.Size(950, 714);
             this.Controls.Add(this.pnlInternationalApp);
             this.Controls.Add(this.ctrlDriverInfoWithFilter1);
             this.Controls.Add(this.pnlFooter);

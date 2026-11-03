@@ -27,6 +27,7 @@ namespace DVLD.Users.Control
         private enFilterOption _ModeFilter = enFilterOption.None;
 
         private DataTable _dtList;
+        
         public ctrlListUsers()
         {
             InitializeComponent();

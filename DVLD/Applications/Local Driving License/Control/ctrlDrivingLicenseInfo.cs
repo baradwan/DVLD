@@ -1,4 +1,6 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD.Licenses.Local_License;
+using DVLD_BusinessLayer;
+using Syncfusion.Windows.Forms.Tools.MultiColumnTreeView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +20,7 @@ namespace DVLD.Applications.Local_Driving_License.Control
     
         clsLocalDrivingLicenseApplication _LDLApp=null;
       
-
+       
         public ctrlDrivingLicenseInfo()
         {
             InitializeComponent();
@@ -66,6 +68,13 @@ namespace DVLD.Applications.Local_Driving_License.Control
             lblLocalDrivingLicenseApplicationID.Text = "--";
             lblAppliedFor.Text = "---";
 
+        }
+
+        private void llShowLicenceInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            int LicenseID = _LDLApp.GetActiveLicenseID();
+            frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+            frm.ShowDialog();
         }
     }
 }

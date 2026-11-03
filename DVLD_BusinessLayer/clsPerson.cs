@@ -162,7 +162,7 @@ namespace DVLD_BusinessLayer
 
 
 
-            if (clsPersonData.GetPersonByID(ref PersonDTO))
+            if (clsPersonData.GetPersonByID( PersonDTO))
                 return new clsPerson(PersonDTO);
             return null;
 

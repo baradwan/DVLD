@@ -49,7 +49,6 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlListUsers1 = new DVLD.Users.Control.ctrlListUsers();
-
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.pnlContent.SuspendLayout();

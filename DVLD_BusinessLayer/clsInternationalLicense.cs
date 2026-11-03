@@ -19,6 +19,7 @@ namespace DVLD_BusinessLayer
         public int InternationalLicenseID { get; set; }
         public clsApplication Application { get; set; }
         public clsDriver DriverInfo { get; set; }
+        private clsUser _CreatedByUserInfo { get; set; }
         public int IssuedUsingLocalLicenseID { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
@@ -71,6 +72,25 @@ namespace DVLD_BusinessLayer
             _Mode = enMode.Update;
         }
 
+
+        public clsUser CreatedByUserInfo
+        {
+            get
+            {
+                if (_CreatedByUserInfo == null && CreatedByUserID > 0)
+                    _CreatedByUserInfo = clsUser.Find(CreatedByUserID);
+
+                return _CreatedByUserInfo;
+            }
+        }
+
+        public string CreatedByUserName
+        {
+            get
+            {
+                return CreatedByUserInfo.UserName;
+            }
+        }
 
         private bool _AddNewInternationalLicense()
         {

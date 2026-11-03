@@ -1,4 +1,5 @@
-﻿using DVLD.Licenses.Local_License;
+﻿using DVLD.Licenses.International_License;
+using DVLD.Licenses.Local_License;
 using DVLD_BusinessLayer;
 using Syncfusion.Collections;
 using System;
@@ -60,7 +61,7 @@ namespace DVLD.Licenses.Control
         private void _LoadInternationalLicenseInfo()
         {
 
-           // _dtDriverInternationalLicensesHistory = clsDriver.GetInternationalLicenses(_DriverID);
+           _dtDriverInternationalLicensesHistory = clsInternationalLicense.GetDriverInternationalLicenses(_DriverID);
 
 
             dgvInternationalLicensesHistory.DataSource = _dtDriverInternationalLicensesHistory;
@@ -117,7 +118,7 @@ namespace DVLD.Licenses.Control
             }
             _DriverID = _Driver.DriverID;
             _LoadLocalLicenseInfo();
-           // _LoadInternationalLicenseInfo();
+           _LoadInternationalLicenseInfo();
         }
         public void Clear()
         {
@@ -131,6 +132,13 @@ namespace DVLD.Licenses.Control
         {
             int LicenseID = Convert.ToInt32(dvgLocalLicensesHistory.CurrentRow.Cells["LicenseID"].Value);
             frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+            frm.ShowDialog();
+        }
+
+        private void InternationalLicenseHistorytoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowInternationalLicense frm =
+                new frmShowInternationalLicense(Convert.ToInt32(dgvInternationalLicensesHistory.CurrentRow.Cells["InternationalLicenseID"].Value));
             frm.ShowDialog();
         }
     }

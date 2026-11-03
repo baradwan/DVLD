@@ -52,7 +52,11 @@ namespace DVLD_BusinessLayer
             _Mode = enMode.Update;
         }
 
+        public bool Cancel()
 
+        {
+            return clsApplicationData.UpdateStatus(this.LocalDrivingLicenseApplicationID, 2);
+        }
         public static DataTable ListAllLocalDrivingLicenseApplications()
         {
             return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplications();
@@ -200,7 +204,10 @@ namespace DVLD_BusinessLayer
         {
             return clsLocalDrivingLicenseApplicationData.HasConflictingApplication(PersonID, LicenseClassID, ApplicationID);
         }
-
+        public bool IsLicenseIssued()
+        {
+            return (GetActiveLicenseID() != -1);
+        }
         public int IssuedLicenseFirstTime(string Notes, int CurrentUserID)
         {
             if (GetActiveLicenseID() != -1)

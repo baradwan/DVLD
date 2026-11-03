@@ -23,5 +23,12 @@ namespace DVLD_AccessLayer
             return value != DBNull.Value ? value.ToString() :string.Empty;
     
         }
+
+        public static T? FillReaderAllowNull<T>(SqlDataReader reader, string ColumnName) where T : struct
+        {
+            object value = reader[ColumnName];
+
+            return value != DBNull.Value? (T)Convert.ChangeType(value, typeof(T))  : (T?)null;
+        }
     }
 }

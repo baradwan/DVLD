@@ -1,4 +1,5 @@
-﻿using DVLD.Applications.Local_Driving_License;
+﻿using DVLD.Applications.International_License;
+using DVLD.Applications.Local_Driving_License;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,12 @@ namespace DVLD.Main.Controls
         private void btnLDLApllication_Click(object sender, EventArgs e)
         {
             frmListDrivingLicenseApp frm =new frmListDrivingLicenseApp();
+            frm.ShowDialog();
+        }
+
+        private void btnIDLApplication_Click(object sender, EventArgs e)
+        {
+            frmListInternationalApp frm = new frmListInternationalApp();
             frm.ShowDialog();
         }
     }

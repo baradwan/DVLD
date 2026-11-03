@@ -120,11 +120,23 @@
     <Compile Include="Applications\Contol\ctrlAppBasicInfo.Designer.cs">
       <DependentUpon>ctrlAppBasicInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\International License\control\ctrlListInternationalLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\International License\control\ctrlListInternationalLicense.Designer.cs">
+      <DependentUpon>ctrlListInternationalLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\International License\frmAddNewInternationalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Applications\International License\frmAddNewInternationalLicense.Designer.cs">
       <DependentUpon>frmAddNewInternationalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\International License\frmListInternationalApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\International License\frmListInternationalApp.Designer.cs">
+      <DependentUpon>frmListInternationalApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Local Driving License\Control\ctrlDrivingLicenseInfo.cs">
       <SubType>UserControl</SubType>
@@ -192,6 +204,18 @@
     </Compile>
     <Compile Include="Licenses\frmShowPersonLicenseHistory.Designer.cs">
       <DependentUpon>frmShowPersonLicenseHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\International License\Control\ctrlInternationalLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Licenses\International License\Control\ctrlInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\International License\frmShowInternationalLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\International License\frmShowInternationalLicense.Designer.cs">
+      <DependentUpon>frmShowInternationalLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\Local License\Control\ctrlDeriverLicenseInfo.cs">
       <SubType>UserControl</SubType>
@@ -373,8 +397,14 @@
     <EmbeddedResource Include="Applications\Contol\ctrlAppBasicInfo.resx">
       <DependentUpon>ctrlAppBasicInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\International License\control\ctrlListInternationalLicense.resx">
+      <DependentUpon>ctrlListInternationalLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\International License\frmAddNewInternationalLicense.resx">
       <DependentUpon>frmAddNewInternationalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\International License\frmListInternationalApp.resx">
+      <DependentUpon>frmListInternationalApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\Control\ctrlDrivingLicenseInfo.resx">
       <DependentUpon>ctrlDrivingLicenseInfo.cs</DependentUpon>
@@ -408,6 +438,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\frmShowPersonLicenseHistory.resx">
       <DependentUpon>frmShowPersonLicenseHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\International License\Control\ctrlInternationalLicenseInfo.resx">
+      <DependentUpon>ctrlInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\International License\frmShowInternationalLicense.resx">
+      <DependentUpon>frmShowInternationalLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Local License\Control\ctrlDeriverLicenseInfo.resx">
       <DependentUpon>ctrlDeriverLicenseInfo.cs</DependentUpon>

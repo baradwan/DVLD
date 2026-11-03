@@ -57,6 +57,7 @@
             this.btnIDLApplication.Tag = " ";
             this.btnIDLApplication.Text = "International License Applications";
             this.btnIDLApplication.UseVisualStyleBackColor = false;
+            this.btnIDLApplication.Click += new System.EventHandler(this.btnIDLApplication_Click);
             // 
             // ctrlManageApplication
             // 

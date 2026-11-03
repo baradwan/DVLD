@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using Syncfusion.WinForms.DataGrid.Events;
 
 using DVLD.Licenses.Local_License;
+using DVLD.Licenses;
 
 namespace DVLD.Applications.Local_Driving_License
 {
@@ -84,6 +85,34 @@ namespace DVLD.Applications.Local_Driving_License
             cmbFilter.DataSource = FilterText;
             cmbFilter.SelectedIndex = 0;
         }
+        private void _UpdateContextMenuState(
+    clsLocalDrivingLicenseApplication application)
+        {
+            bool isNew = application.Application.Status ==
+                clsApplication.enApplicationStatus.New;
+
+            bool licenseExists = application.IsLicenseIssued();
+
+            editToolStripMenuItem.Enabled = isNew && !licenseExists;
+
+            DeleteApplicationToolStripMenuItem.Enabled = isNew;
+
+            CancelApplicaitonToolStripMenuItem.Enabled = isNew;
+
+            showLicenseToolStripMenuItem.Enabled = licenseExists;
+
+            //issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled =
+            //    isNew &&
+            //    !licenseExists &&
+            //    application.DoesPassAllTests();
+
+            if (issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled)
+            {
+
+            }
+
+            _UpdateScheduleTestMenuState(application);
+        }
         private void dvgList_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
         {
             ////////////////////
@@ -114,7 +143,7 @@ namespace DVLD.Applications.Local_Driving_License
                 return;
             }
 
-            _UpdateScheduleTestMenuState(application);
+            _UpdateContextMenuState(application);
         }
         private void _LoadStatusFilterOptions()
         {
@@ -204,14 +233,11 @@ namespace DVLD.Applications.Local_Driving_License
 
                 if (selectedRow != null)
                 {
-                    //return Convert.ToInt32(
-                    //    selectedRow["LocalDrivingLicenseApplicationID"]);
-
+                  
                     int id = Convert.ToInt32(
             selectedRow["LocalDrivingLicenseApplicationID"]);
 
-                    System.Diagnostics.Debug.WriteLine(
-                        $"Current Application from GET ID: {id}");
+                    
 
                     return id;
                 }
@@ -219,6 +245,8 @@ namespace DVLD.Applications.Local_Driving_License
 
             return -1;
         }
+        
+       
         public void RefreshList()   
         {
             _dtList = clsLocalDrivingLicenseApplication.ListAllLocalDrivingLicenseApplications();
@@ -263,11 +291,12 @@ namespace DVLD.Applications.Local_Driving_License
 
             bool canScheduleStreet =
                 isActiveApplication && passedVision && passedWritten && !passedStreet;
-            
+
+            bool IsPassedAllTests = isActiveApplication && passedVision && passedWritten && passedStreet;
             ScheduleTestsMenue.Enabled =
                 canScheduleVision || canScheduleWritten || canScheduleStreet;
 
-
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = isActiveApplication && IsPassedAllTests && !LocalDrivingLicenseApplication.IsLicenseIssued();
             if (ScheduleTestsMenue.Enabled)
             {
                 // Update menu items.
@@ -395,14 +424,35 @@ namespace DVLD.Applications.Local_Driving_License
 
         private void CancelApplicaitonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Are you sure do want to cancel this application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
 
+            int LocalDrivingLicenseApplicationID =GetCurrentLocalDrivingLicenseApplicationID();
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplication.Find(LocalDrivingLicenseApplicationID);
+
+            if (LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Cancel())
+                {
+                    MessageBox.Show("Application Cancelled Successfully.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //refresh the form again.
+
+                    clsLDLApplicationEvents.NotifyLocalDrivingLicenseApplicationUpdated(LocalDrivingLicenseApplicationID);
+
+                }
+                else
+                {
+                    MessageBox.Show("Could not cancel applicatoin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            int LicenseID = clsLicense.GetIssuedLicenseIDByLDLApplicationID(GetCurrentLocalDrivingLicenseApplicationID());
-
+           int LicenseID = clsLocalDrivingLicenseApplication.Find(GetCurrentLocalDrivingLicenseApplicationID()).GetActiveLicenseID();
+           
             if (LicenseID == -1)
             {           
                 MessageBox.Show(  "No License Found!",  "No License",  MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -449,37 +499,45 @@ namespace DVLD.Applications.Local_Driving_License
         {
             RefreshList();
         }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication =
+                    clsLocalDrivingLicenseApplication.Find(GetCurrentLocalDrivingLicenseApplicationID());
+
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(LocalDrivingLicenseApplication.Application.PersonID);
+            frm.ShowDialog();
+        }
+
         //private void cmsApplications_Opening(object sender, CancelEventArgs e)
         //{
 
-        //    //clsLocalDrivingLicenseApplication LDLApp = clsLocalDrivingLicenseApplication.Find(GetCurrentLocalDrivingLicenseApplicationID());
-        //    //            _UpdateScheduleTestMenuState(LDLApp);
 
+        //    int LocalDrivingLicenseApplicationID = GetCurrentLocalDrivingLicenseApplicationID();
+        //    clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication =
+        //            clsLocalDrivingLicenseApplication.Find(LocalDrivingLicenseApplicationID);
 
-        //    var row = SelectionHelper.GetRecordAtRowIndex(
-        // dvgList, e.RowIndex) as DataRowView;
+        //    int TotalPassedTests = GetCurrentTotalTestPassed();
 
-        //    if (row == null)
-        //    {
-        //        e.Cancel = true;
-        //        return;
-        //    }
+        //    bool LicenseExists = LocalDrivingLicenseApplication.IsLicenseIssued();
 
-        //    dvgList.CurrentItem = row;
+        //    //Enabled only if person passed all tests and Does not have license. 
+        //    issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExists;
 
-        //    int id = Convert.ToInt32(
-        //        row["LocalDrivingLicenseApplicationID"]);
+        //    showLicenseToolStripMenuItem.Enabled = LicenseExists;
+        //    editToolStripMenuItem.Enabled = !LicenseExists && (LocalDrivingLicenseApplication.Application.Status == clsApplication.enApplicationStatus.New);
+        //    ScheduleTestsMenue.Enabled = !LicenseExists;
 
-        //    var application =
-        //        clsLocalDrivingLicenseApplication.Find(id);
+        //    //Enable/Disable Cancel Menue Item
+        //    //We only canel the applications with status=new.
+        //    CancelApplicaitonToolStripMenuItem.Enabled = (LocalDrivingLicenseApplication.Application.Status == clsApplication.enApplicationStatus.New);
 
-        //    if (application == null)
-        //    {
-        //        e.Cancel = true;
-        //        return;
-        //    }
+        //    //Enable/Disable Delete Menue Item
+        //    //We only allow delete incase the application status is new not complete or Cancelled.
+        //    DeleteApplicationToolStripMenuItem.Enabled =
+        //        (LocalDrivingLicenseApplication.Application.Status == clsApplication.enApplicationStatus.New);
 
-        //    _UpdateScheduleTestMenuState(application);
+        //    //  _UpdateScheduleTestMenuState(application);
         //}
     }
 }

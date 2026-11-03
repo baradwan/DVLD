@@ -56,7 +56,7 @@ namespace DVLD_AccessLayer
 
         }
 
-        public static bool GetPersonByID(ref clsPersonDTO personDTO)
+        public static bool GetPersonByID( clsPersonDTO personDTO)
         {
 
             bool isFound = false;

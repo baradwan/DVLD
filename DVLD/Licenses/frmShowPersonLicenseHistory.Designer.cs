@@ -33,6 +33,7 @@
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.ctrlDriverLicense1 = new DVLD.Licenses.Control.ctrlDriverLicense();
             this.ctrlPersonInfoWithFilter1 = new DVLD.People.Controls.ctrlPersonInfoWithFilter();
+            this.btnClose = new Syncfusion.WinForms.Controls.SfButton();
             this.pnlHistoryTitle.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             // pnlContainer
             // 
+            this.pnlContainer.Controls.Add(this.btnClose);
             this.pnlContainer.Controls.Add(this.ctrlDriverLicense1);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 518);
@@ -86,6 +88,20 @@
             this.ctrlPersonInfoWithFilter1.TabIndex = 0;
             this.ctrlPersonInfoWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonInfoWithFilter1_OnPersonSelected);
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.btnClose.Location = new System.Drawing.Point(895, 284);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(112, 37);
+            this.btnClose.Style.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmShowPersonLicenseHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,5 +127,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlContainer;
         private Control.ctrlDriverLicense ctrlDriverLicense1;
+        private Syncfusion.WinForms.Controls.SfButton btnClose;
     }
 }

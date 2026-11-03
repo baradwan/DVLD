@@ -36,21 +36,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.dvgList = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pnlContainer = new System.Windows.Forms.Panel();
             this.cmsDrivers = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgList)).BeginInit();
+            this.cmsDrivers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.pnlContainer.SuspendLayout();
-            this.cmsDrivers.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -168,19 +168,6 @@
             this.dvgList.TabIndex = 7;
             this.dvgList.Text = " ";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // pnlContainer
-            // 
-            this.pnlContainer.Controls.Add(this.dvgList);
-            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer.Location = new System.Drawing.Point(0, 48);
-            this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(1081, 567);
-            this.pnlContainer.TabIndex = 8;
-            // 
             // cmsDrivers
             // 
             this.cmsDrivers.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -193,7 +180,7 @@
             this.cmsDrivers.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(236)))), ((int)(((byte)(249)))));
             this.cmsDrivers.Name = "contextMenuStripEx1";
             this.cmsDrivers.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.cmsDrivers.Size = new System.Drawing.Size(281, 152);
+            this.cmsDrivers.Size = new System.Drawing.Size(281, 130);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -228,6 +215,19 @@
             this.sendEmailToolStripMenuItem.Text = "Show Person License History";
             this.sendEmailToolStripMenuItem.Click += new System.EventHandler(this.sendEmailToolStripMenuItem_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // pnlContainer
+            // 
+            this.pnlContainer.Controls.Add(this.dvgList);
+            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContainer.Location = new System.Drawing.Point(0, 48);
+            this.pnlContainer.Name = "pnlContainer";
+            this.pnlContainer.Size = new System.Drawing.Size(1081, 567);
+            this.pnlContainer.TabIndex = 8;
+            // 
             // ctrlListDriver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,9 +242,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgList)).EndInit();
+            this.cmsDrivers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.pnlContainer.ResumeLayout(false);
-            this.cmsDrivers.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

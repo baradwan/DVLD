@@ -78,6 +78,43 @@ namespace DVLD_AccessLayer
 
         }
 
+        public static bool ReleaseDetainedLicense(int DetainID, int ReleasedByUserID, int ReleaseApplicationID)
+        {
+
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"UPDATE dbo.DetainedLicenses
+                              SET IsReleased = 1, 
+                              ReleaseDate = @ReleaseDate, 
+                              ReleaseApplicationID = @ReleaseApplicationID   
+                              WHERE DetainID=@DetainID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@DetainID", DetainID);
+            command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
+            command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+            command.Parameters.AddWithValue("@ReleaseDate", DateTime.Now);
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
 
         public static clsDetainedLicenseDTO GetDetainedLicenseByID(int DetainID)
         {
@@ -89,6 +126,56 @@ namespace DVLD_AccessLayer
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@DetainID", DetainID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    dto = new clsDetainedLicenseDTO();
+
+                    dto.DetainID = (int)reader["DetainID"];
+                    dto.LicenseID = (int)reader["LicenseID"];
+                    dto.DetainDate = Convert.ToDateTime(reader["DetainDate"]);
+                    dto.FineFees = Convert.ToDecimal(reader["FineFees"]);
+                    dto.CreatedByUserID = (int)reader["CreatedByUserID"];
+                    dto.IsReleased = (bool)reader["IsReleased"];
+
+                    dto.ReleaseDate =
+                        clsSqlHelper.FillReaderAllowNull<DateTime>(reader, "ReleaseDate");
+
+                    dto.ReleasedByUserID =
+                        clsSqlHelper.FillReaderAllowNull<int>(reader, "ReleasedByUserID");
+
+                    dto.ReleaseApplicationID =
+                        clsSqlHelper.FillReaderAllowNull<int>(reader, "ReleaseApplicationID");
+
+                }
+
+                reader.Close();
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dto;
+        }
+
+        
+        public static clsDetainedLicenseDTO GetDetainedLicenseByLicenseID(int LicenseID)
+        {
+            clsDetainedLicenseDTO dto = null;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "SELECT * FROM DetainedLicenses WHERE LicenseID = @LicenseID and IsReleased = 0;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
 
             try
             {

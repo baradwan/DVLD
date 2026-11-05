@@ -71,7 +71,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblIsDetained = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -559,16 +559,16 @@
             this.pictureBox4.TabIndex = 217;
             this.pictureBox4.TabStop = false;
             // 
-            // label6
+            // lblIsDetained
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(206, 274);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 20);
-            this.label6.TabIndex = 256;
-            this.label6.Text = "----";
+            this.lblIsDetained.AutoSize = true;
+            this.lblIsDetained.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsDetained.Location = new System.Drawing.Point(206, 274);
+            this.lblIsDetained.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIsDetained.Name = "lblIsDetained";
+            this.lblIsDetained.Size = new System.Drawing.Size(33, 20);
+            this.lblIsDetained.TabIndex = 256;
+            this.lblIsDetained.Text = "----";
             // 
             // label9
             // 
@@ -597,7 +597,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.Controls.Add(this.pictureBox14);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblIsDetained);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pbPersonalProfile);
             this.Controls.Add(this.lblExpirationDate);
@@ -708,7 +708,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblCreatedUser;
         private System.Windows.Forms.PictureBox pbPersonalProfile;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblIsDetained;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox14;
     }

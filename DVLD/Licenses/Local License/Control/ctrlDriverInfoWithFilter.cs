@@ -20,7 +20,14 @@ namespace DVLD.Licenses.Local_License.Control
             InitializeComponent();
         }
 
-
+        public void LoadInfo(int LicenseID)
+        {
+           
+            if (LicenseID == -1)
+                return;
+            _FindLicense(LicenseID);
+            pnlSearch.Visible = false;
+        }
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -48,14 +55,15 @@ namespace DVLD.Licenses.Local_License.Control
             }
         }
 
-        private bool _FindLicense()
+        
+        private bool _FindLicense(int LicenseID)
         {
 
-            string value = txtSearch.Text.Trim();
+            
 
 
 
-             if (!int.TryParse(value, out int licenseID) || licenseID <= 0)
+             if (LicenseID <= 0)
             {
                 errorProvider1.SetError(txtSearch, "Invalid License ID.");
                 return false;
@@ -64,7 +72,7 @@ namespace DVLD.Licenses.Local_License.Control
             else
             {
                 errorProvider1.SetError(txtSearch, string.Empty);
-                ctrlDeriverLicenseInfo1.LoadInfo(licenseID);
+                ctrlDeriverLicenseInfo1.LoadInfo(LicenseID);
 
              
             }
@@ -81,7 +89,16 @@ namespace DVLD.Licenses.Local_License.Control
             {
                 errorProvider1.SetError(txtSearch, "Please enter a value to search."); return;
             }
-            _FindLicense();
+
+            if (!int.TryParse(txtSearch.Text.Trim(), out int LicenseID))
+            {
+                errorProvider1.SetError(
+                    txtSearch,
+                    "Please enter a valid License ID.");
+
+                return;
+            }
+            _FindLicense(LicenseID);
           
         }
 

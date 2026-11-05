@@ -156,7 +156,7 @@
             this.cmsLocalLicenseHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showLicenseInfoToolStripMenuItem});
             this.cmsLocalLicenseHistory.Name = "cmsLocalLicenseHistory";
-            this.cmsLocalLicenseHistory.Size = new System.Drawing.Size(205, 34);
+            this.cmsLocalLicenseHistory.Size = new System.Drawing.Size(205, 56);
             // 
             // showLicenseInfoToolStripMenuItem
             // 

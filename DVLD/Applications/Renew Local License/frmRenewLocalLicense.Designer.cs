@@ -123,6 +123,7 @@
             this.llShowLicenseHistory.TabIndex = 183;
             this.llShowLicenseHistory.TabStop = true;
             this.llShowLicenseHistory.Text = "Show Licenses History";
+            this.llShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseHistory_LinkClicked);
             // 
             // btnClose
             // 
@@ -586,6 +587,7 @@
             this.ctrlDriverInfoWithFilter1.Name = "ctrlDriverInfoWithFilter1";
             this.ctrlDriverInfoWithFilter1.Size = new System.Drawing.Size(949, 375);
             this.ctrlDriverInfoWithFilter1.TabIndex = 0;
+            this.ctrlDriverInfoWithFilter1.Load += new System.EventHandler(this.ctrlDriverInfoWithFilter1_Load);
             // 
             // frmRenewLocalLicense
             // 

@@ -15,17 +15,26 @@ namespace DVLD.People
     {
 
      
-        public frmShowPerson()
-        {
+        //public frmShowPerson()
+        //{
 
-            InitializeComponent();
-        }
+        //    InitializeComponent();
+        //}
        private int _PersonID = -1;
+        private string _NationalNo = string.Empty;
         public frmShowPerson(int PersonID)
         {
 
             InitializeComponent();
             _PersonID=PersonID;
+        }
+        public frmShowPerson(string NationalNo  )
+        {
+
+            InitializeComponent();
+            _NationalNo = NationalNo;
+
+
         }
         
       
@@ -51,8 +60,17 @@ namespace DVLD.People
 
         private void frmShowPerson_Load(object sender, EventArgs e)
         {
-            if (_PersonID>-1)
-            crlShowPersonInformation1.LoadPersonInformation(_PersonID);
+            if (_PersonID > 0)
+            {
+                crlShowPersonInformation1.LoadPersonInformation(_PersonID);
+            }
+            else if (!string.IsNullOrWhiteSpace(_NationalNo))
+            {
+                crlShowPersonInformation1.LoadPersonInformation(_NationalNo);
+                _PersonID = crlShowPersonInformation1.PersonID;
+
+                btnEdit.Enabled = _PersonID > 0;
+            }
         }
 
         private void crlShowPersonInformation1_Load(object sender, EventArgs e)

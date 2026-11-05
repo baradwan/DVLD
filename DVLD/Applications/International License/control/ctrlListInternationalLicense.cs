@@ -37,6 +37,13 @@ namespace DVLD.Applications.International_License.control
         {
             InitializeComponent();
         }
+        private void ctrlListInternationalLicense_Load(object sender, EventArgs e)
+        {
+             _LoadFiltersOptions();
+            _SetupDataGridUI();
+            RefreshInternationalLicensesList();
+
+        }
 
 
         private void _SetupDataGridUI()
@@ -285,12 +292,5 @@ namespace DVLD.Applications.International_License.control
             frm.ShowDialog();
         }
 
-        private void ctrlListInternationalLicense_Load(object sender, EventArgs e)
-        {
-            _LoadFiltersOptions();
-            _SetupDataGridUI();
-            RefreshInternationalLicensesList();
-
-        }
     }
 }

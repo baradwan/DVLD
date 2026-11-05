@@ -102,5 +102,10 @@ namespace DVLD.Main
             frmAddNewInternationalLicense frm = new frmAddNewInternationalLicense();
             frm.ShowDialog();
         }
+
+        private void btnReleaseDetained_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

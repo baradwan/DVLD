@@ -69,6 +69,7 @@ namespace DVLD.Licenses.Local_License.Control
             lblDriverID.Text = _License.DriverID.ToString();
             lblNotes.Text= _License.Notes;
             lblCreatedUser.Text = _License.CreatedByUserName;
+            lblIsDetained.Text= _License.IsDetained ()? "Yes" : "No";
 
         }
         public void LoadInfo(clsLicense License) {

@@ -62,23 +62,23 @@
             this.dvgRecentApplication = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.tlpContainerRecentValues = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblApplications = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblDetained = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblActiveLicense = new System.Windows.Forms.Label();
+            this.lbl2Card = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblNumOfFirstCard = new System.Windows.Forms.Label();
+            this.lblDrivers = new System.Windows.Forms.Label();
             this.lblTitleOfFirstCard = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.btnAddPerson = new Syncfusion.WinForms.Controls.SfButton();
+            this.btnRefresh = new Syncfusion.WinForms.Controls.SfButton();
             this.lblheaderTitle = new System.Windows.Forms.Label();
             this.timerDropdown = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
@@ -142,7 +142,7 @@
             this.btnAccountSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccountSetting.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnAccountSetting.ForeColor = System.Drawing.Color.White;
-            this.btnAccountSetting.Location = new System.Drawing.Point(0, 448);
+            this.btnAccountSetting.Location = new System.Drawing.Point(0, 202);
             this.btnAccountSetting.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccountSetting.Name = "btnAccountSetting";
             this.btnAccountSetting.Size = new System.Drawing.Size(126, 52);
@@ -160,7 +160,7 @@
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUser.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnUser.ForeColor = System.Drawing.Color.White;
-            this.btnUser.Location = new System.Drawing.Point(0, 398);
+            this.btnUser.Location = new System.Drawing.Point(0, 152);
             this.btnUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(126, 50);
@@ -178,7 +178,7 @@
             this.btnDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDriver.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnDriver.ForeColor = System.Drawing.Color.White;
-            this.btnDriver.Location = new System.Drawing.Point(0, 348);
+            this.btnDriver.Location = new System.Drawing.Point(0, 102);
             this.btnDriver.Margin = new System.Windows.Forms.Padding(2);
             this.btnDriver.Name = "btnDriver";
             this.btnDriver.Size = new System.Drawing.Size(126, 50);
@@ -196,7 +196,7 @@
             this.btnPeople.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPeople.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnPeople.ForeColor = System.Drawing.Color.White;
-            this.btnPeople.Location = new System.Drawing.Point(0, 298);
+            this.btnPeople.Location = new System.Drawing.Point(0, 52);
             this.btnPeople.Margin = new System.Windows.Forms.Padding(2);
             this.btnPeople.Name = "btnPeople";
             this.btnPeople.Size = new System.Drawing.Size(126, 50);
@@ -219,7 +219,7 @@
             this.pnlAppContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAppContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlAppContainer.Name = "pnlAppContainer";
-            this.pnlAppContainer.Size = new System.Drawing.Size(126, 298);
+            this.pnlAppContainer.Size = new System.Drawing.Size(126, 52);
             this.pnlAppContainer.TabIndex = 1;
             // 
             // btnManageTestTypes
@@ -238,6 +238,7 @@
             this.btnManageTestTypes.TabIndex = 6;
             this.btnManageTestTypes.Text = "Manage Test Types";
             this.btnManageTestTypes.UseVisualStyleBackColor = false;
+            this.btnManageTestTypes.Click += new System.EventHandler(this.btnManageTestTypes_Click);
             // 
             // btnManageAppTypes
             // 
@@ -273,6 +274,7 @@
             this.btnDetainLicenses.TabIndex = 8;
             this.btnDetainLicenses.Text = "Detain Licenses";
             this.btnDetainLicenses.UseVisualStyleBackColor = false;
+            this.btnDetainLicenses.Click += new System.EventHandler(this.btnDetainLicenses_Click);
             // 
             // btnManageApp
             // 
@@ -317,7 +319,7 @@
             this.pnlSperator.ForeColor = System.Drawing.Color.DimGray;
             this.pnlSperator.Location = new System.Drawing.Point(0, 52);
             this.pnlSperator.Name = "pnlSperator";
-            this.pnlSperator.Size = new System.Drawing.Size(10, 246);
+            this.pnlSperator.Size = new System.Drawing.Size(10, 0);
             this.pnlSperator.TabIndex = 3;
             // 
             // btnApplication
@@ -390,6 +392,7 @@
             // 
             // pnlMainViewContent
             // 
+            this.pnlMainViewContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMainViewContent.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlMainViewContent.Location = new System.Drawing.Point(0, 378);
             this.pnlMainViewContent.Name = "pnlMainViewContent";
@@ -524,8 +527,8 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.label5);
-            this.panel10.Controls.Add(this.label6);
+            this.panel10.Controls.Add(this.label4);
+            this.panel10.Controls.Add(this.lblApplications);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(695, 10);
@@ -534,29 +537,29 @@
             this.panel10.Size = new System.Drawing.Size(220, 80);
             this.panel10.TabIndex = 3;
             // 
-            // label5
+            // label4
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label5.Location = new System.Drawing.Point(89, 29);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 45);
-            this.label5.TabIndex = 2;
-            this.label5.Tag = "0";
-            this.label5.Text = "0";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(40, 9);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 25);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Applications";
             // 
-            // label6
+            // lblApplications
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(66, 9);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 19);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Total drivers";
+            this.lblApplications.AutoSize = true;
+            this.lblApplications.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lblApplications.Location = new System.Drawing.Point(89, 29);
+            this.lblApplications.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblApplications.Name = "lblApplications";
+            this.lblApplications.Size = new System.Drawing.Size(38, 45);
+            this.lblApplications.TabIndex = 2;
+            this.lblApplications.Tag = "0";
+            this.lblApplications.Text = "0";
             // 
             // panel11
             // 
@@ -570,8 +573,8 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.label3);
-            this.panel8.Controls.Add(this.label4);
+            this.panel8.Controls.Add(this.label2);
+            this.panel8.Controls.Add(this.lblDetained);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(465, 10);
@@ -580,29 +583,29 @@
             this.panel8.Size = new System.Drawing.Size(220, 80);
             this.panel8.TabIndex = 2;
             // 
-            // label3
+            // label2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label3.Location = new System.Drawing.Point(89, 29);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 45);
-            this.label3.TabIndex = 2;
-            this.label3.Tag = "0";
-            this.label3.Text = "0";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(58, 9);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 25);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Detained";
             // 
-            // label4
+            // lblDetained
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(66, 9);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 19);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Total drivers";
+            this.lblDetained.AutoSize = true;
+            this.lblDetained.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lblDetained.Location = new System.Drawing.Point(89, 29);
+            this.lblDetained.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDetained.Name = "lblDetained";
+            this.lblDetained.Size = new System.Drawing.Size(38, 45);
+            this.lblDetained.TabIndex = 2;
+            this.lblDetained.Tag = "0";
+            this.lblDetained.Text = "0";
             // 
             // panel9
             // 
@@ -616,8 +619,8 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.lblActiveLicense);
+            this.panel6.Controls.Add(this.lbl2Card);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(235, 10);
@@ -626,29 +629,29 @@
             this.panel6.Size = new System.Drawing.Size(220, 80);
             this.panel6.TabIndex = 1;
             // 
-            // label1
+            // lblActiveLicense
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.Location = new System.Drawing.Point(89, 29);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 45);
-            this.label1.TabIndex = 2;
-            this.label1.Tag = "0";
-            this.label1.Text = "0";
+            this.lblActiveLicense.AutoSize = true;
+            this.lblActiveLicense.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lblActiveLicense.Location = new System.Drawing.Point(89, 29);
+            this.lblActiveLicense.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblActiveLicense.Name = "lblActiveLicense";
+            this.lblActiveLicense.Size = new System.Drawing.Size(38, 45);
+            this.lblActiveLicense.TabIndex = 2;
+            this.lblActiveLicense.Tag = "0";
+            this.lblActiveLicense.Text = "0";
             // 
-            // label2
+            // lbl2Card
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(66, 9);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Total drivers";
+            this.lbl2Card.AutoSize = true;
+            this.lbl2Card.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Card.ForeColor = System.Drawing.Color.DimGray;
+            this.lbl2Card.Location = new System.Drawing.Point(39, 9);
+            this.lbl2Card.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl2Card.Name = "lbl2Card";
+            this.lbl2Card.Size = new System.Drawing.Size(135, 25);
+            this.lbl2Card.TabIndex = 1;
+            this.lbl2Card.Text = "Active License";
             // 
             // panel7
             // 
@@ -662,7 +665,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.lblNumOfFirstCard);
+            this.panel4.Controls.Add(this.lblDrivers);
             this.panel4.Controls.Add(this.lblTitleOfFirstCard);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -672,29 +675,29 @@
             this.panel4.Size = new System.Drawing.Size(220, 80);
             this.panel4.TabIndex = 0;
             // 
-            // lblNumOfFirstCard
+            // lblDrivers
             // 
-            this.lblNumOfFirstCard.AutoSize = true;
-            this.lblNumOfFirstCard.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblNumOfFirstCard.Location = new System.Drawing.Point(89, 29);
-            this.lblNumOfFirstCard.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNumOfFirstCard.Name = "lblNumOfFirstCard";
-            this.lblNumOfFirstCard.Size = new System.Drawing.Size(38, 45);
-            this.lblNumOfFirstCard.TabIndex = 2;
-            this.lblNumOfFirstCard.Tag = "0";
-            this.lblNumOfFirstCard.Text = "0";
+            this.lblDrivers.AutoSize = true;
+            this.lblDrivers.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lblDrivers.Location = new System.Drawing.Point(89, 29);
+            this.lblDrivers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDrivers.Name = "lblDrivers";
+            this.lblDrivers.Size = new System.Drawing.Size(38, 45);
+            this.lblDrivers.TabIndex = 2;
+            this.lblDrivers.Tag = "0";
+            this.lblDrivers.Text = "0";
             // 
             // lblTitleOfFirstCard
             // 
             this.lblTitleOfFirstCard.AutoSize = true;
-            this.lblTitleOfFirstCard.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleOfFirstCard.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitleOfFirstCard.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTitleOfFirstCard.Location = new System.Drawing.Point(66, 9);
+            this.lblTitleOfFirstCard.Location = new System.Drawing.Point(72, 9);
             this.lblTitleOfFirstCard.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitleOfFirstCard.Name = "lblTitleOfFirstCard";
-            this.lblTitleOfFirstCard.Size = new System.Drawing.Size(83, 19);
+            this.lblTitleOfFirstCard.Size = new System.Drawing.Size(75, 25);
             this.lblTitleOfFirstCard.TabIndex = 1;
-            this.lblTitleOfFirstCard.Text = "Total drivers";
+            this.lblTitleOfFirstCard.Text = "Drivers";
             // 
             // panel5
             // 
@@ -708,7 +711,7 @@
             // 
             // pnlHeader
             // 
-            this.pnlHeader.Controls.Add(this.btnAddPerson);
+            this.pnlHeader.Controls.Add(this.btnRefresh);
             this.pnlHeader.Controls.Add(this.lblheaderTitle);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
@@ -717,20 +720,21 @@
             this.pnlHeader.Size = new System.Drawing.Size(920, 52);
             this.pnlHeader.TabIndex = 1;
             // 
-            // btnAddPerson
+            // btnRefresh
             // 
-            this.btnAddPerson.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAddPerson.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnAddPerson.ForeColor = System.Drawing.Color.White;
-            this.btnAddPerson.Location = new System.Drawing.Point(766, 12);
-            this.btnAddPerson.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.Size = new System.Drawing.Size(144, 30);
-            this.btnAddPerson.Style.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAddPerson.Style.ForeColor = System.Drawing.Color.White;
-            this.btnAddPerson.TabIndex = 3;
-            this.btnAddPerson.Text = "sfButton1";
-            this.btnAddPerson.UseVisualStyleBackColor = false;
+            this.btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(766, 12);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(144, 30);
+            this.btnRefresh.Style.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRefresh.Style.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblheaderTitle
             // 
@@ -797,23 +801,21 @@
         private System.Windows.Forms.TableLayoutPanel tlpContainerRecentValues;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label lblNumOfFirstCard;
+        private System.Windows.Forms.Label lblDrivers;
         private System.Windows.Forms.Label lblTitleOfFirstCard;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblApplications;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDetained;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblActiveLicense;
+        private System.Windows.Forms.Label lbl2Card;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblheaderTitle;
-        private Syncfusion.WinForms.Controls.SfButton btnAddPerson;
+        private Syncfusion.WinForms.Controls.SfButton btnRefresh;
         private System.Windows.Forms.Panel pnlList;
         private Syncfusion.WinForms.DataGrid.SfDataGrid dvgRecentApplication;
         private Syncfusion.WinForms.Controls.SfButton btnManageTestTypes;
@@ -838,5 +840,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel pnlMainViewContent;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
     }
 }

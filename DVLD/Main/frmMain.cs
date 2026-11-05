@@ -1,4 +1,6 @@
-﻿using DVLD.Applications.Local_Driving_License;
+﻿using DVLD.Applications.ApplicationTypes;
+using DVLD.Applications.Local_Driving_License;
+using DVLD.Applications.Manage_Test_Types;
 using DVLD.Driver;
 using DVLD.Global;
 using DVLD.Login;
@@ -164,6 +166,10 @@ namespace DVLD
 
             return _ctrlManageApplications;
         }
+        private ctrlManageDetainedLicense _GetManageDetainedLicense()
+        {
+            return new ctrlManageDetainedLicense();
+        }
 
         private ctrlAppDrivingLicenseService _GetDrivingLicenseServiceControl()
         {
@@ -174,11 +180,43 @@ namespace DVLD
 
             return _ctrlDrivingLicenseService;
         }
+
+
+        private void _LoadDashboardStats()
+        {
+            try
+            {
+                var Stats = clsDashboard.GetStatistics();
+
+                lblDrivers.Text =
+                    Stats.TotalDrivers.ToString("N0");
+
+                lblActiveLicense.Text =
+                    Stats.ActiveLicenses.ToString("N0");
+
+                lblDetained.Text =
+                    Stats.DetainedLicenses.ToString("N0");
+
+                lblApplications.Text =
+                    Stats.TotalApplications.ToString("N0");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Failed to load dashboard statistics.\n" + ex.Message,
+                    "Dashboard Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
         // EVENTS ////
         /////////////
         private void frmMain_Load(object sender, EventArgs e)
         {
-           
 
             Color primaryBlue = Color.FromArgb(2, 132, 199);
             Color hoverBlue = Color.FromArgb(3, 105, 161);
@@ -187,6 +225,7 @@ namespace DVLD
             fullHeight = clsUICustomization.GetFullHeightOfControls(pnlAppContainer);
             NormalSize = pnlAppContainer.Height;
 
+            _LoadDashboardStats();
             //OptimizeSidebarButtons();
             //EnableDoubleBuffering();
         }
@@ -239,6 +278,12 @@ namespace DVLD
             //ctrlAppDrivingLicenseService.Visible = true;
 
         }
+        private void btnDetainLicenses_Click(object sender, EventArgs e)
+        {
+            _HideAllSubMenus();
+
+            _LoadView(_GetManageDetainedLicense(), "Detained Licenses", GetIcon("driving-license.png"));
+        }
 
         private void btnManageApp_Click(object sender, EventArgs e)
         {
@@ -265,13 +310,25 @@ namespace DVLD
 
         private void btnManageAppTypes_Click(object sender, EventArgs e)
         {
-            
+            frmListApplicationTypes frm = new frmListApplicationTypes();
+            frm.ShowDialog();
         }
 
         private void btnDriver_Click(object sender, EventArgs e)
         {
             frmListDriver frm = new frmListDriver();
             frm.ShowDialog();
+        }
+
+        private void btnManageTestTypes_Click(object sender, EventArgs e)
+        {
+            frmListManageTestTypes frm = new frmListManageTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            _LoadDashboardStats();
         }
     }
 }

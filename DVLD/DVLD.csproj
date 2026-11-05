@@ -168,6 +168,18 @@
     <Compile Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationInfo.Designer.cs">
       <DependentUpon>frmLocalDrivingLicenseApplicationInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\ReleaseAndDetained License\Control\ctrlListDetainedLIcense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\ReleaseAndDetained License\Control\ctrlListDetainedLIcense.Designer.cs">
+      <DependentUpon>ctrlListDetainedLIcense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\ReleaseAndDetained License\frmListDetainedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ReleaseAndDetained License\frmListDetainedLicense.Designer.cs">
+      <DependentUpon>frmListDetainedLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\Renew Local License\frmRenewLocalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +210,18 @@
     </Compile>
     <Compile Include="Licenses\Control\ctrlDriverLicense.Designer.cs">
       <DependentUpon>ctrlDriverLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\Detain License\frmDetainLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Detain License\frmDetainLicenseApplication.Designer.cs">
+      <DependentUpon>frmDetainLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\Detain License\frmReleaseDetainedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Detain License\frmReleaseDetainedLicense.Designer.cs">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\frmShowPersonLicenseHistory.cs">
       <SubType>Form</SubType>
@@ -264,6 +288,12 @@
     </Compile>
     <Compile Include="Main\Controls\ctrlManageApplication.Designer.cs">
       <DependentUpon>ctrlManageApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Controls\ctrlManageDetainedLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Controls\ctrlManageDetainedLicense.Designer.cs">
+      <DependentUpon>ctrlManageDetainedLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Tests\Control\ctrlSchedule.cs">
       <SubType>UserControl</SubType>
@@ -421,6 +451,12 @@
     <EmbeddedResource Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationInfo.resx">
       <DependentUpon>frmLocalDrivingLicenseApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ReleaseAndDetained License\Control\ctrlListDetainedLIcense.resx">
+      <DependentUpon>ctrlListDetainedLIcense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ReleaseAndDetained License\frmListDetainedLicense.resx">
+      <DependentUpon>frmListDetainedLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\Renew Local License\frmRenewLocalLicense.resx">
       <DependentUpon>frmRenewLocalLicense.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +471,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Control\ctrlDriverLicense.resx">
       <DependentUpon>ctrlDriverLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Detain License\frmDetainLicenseApplication.resx">
+      <DependentUpon>frmDetainLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Detain License\frmReleaseDetainedLicense.resx">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\frmShowPersonLicenseHistory.resx">
       <DependentUpon>frmShowPersonLicenseHistory.cs</DependentUpon>
@@ -468,6 +510,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Controls\ctrlManageApplication.resx">
       <DependentUpon>ctrlManageApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Controls\ctrlManageDetainedLicense.resx">
+      <DependentUpon>ctrlManageDetainedLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\crlPersonalCard.resx">
       <DependentUpon>crlPersonalCard.cs</DependentUpon>

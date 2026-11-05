@@ -11,6 +11,7 @@ namespace DVLD_BusinessLayer
         private clsLicenseClass _LicenseClassInfo;
         private clsApplication _ApplicationInfo;
         private clsDriver _DriverInfo;
+        private clsDetainedLicense _DetainedInfo;
         private clsUser _CreatedByUserInfo;
 
         private enum enMode { AddNew = 0, Update = 1 }
@@ -120,6 +121,16 @@ namespace DVLD_BusinessLayer
                     _DriverInfo = clsDriver.Find(DriverID);
 
                 return _DriverInfo;
+            }
+        }
+        public clsDetainedLicense Detained
+        {
+            get
+            {
+                if (_DetainedInfo == null && DriverID > 0)
+                    _DetainedInfo = clsDetainedLicense.FindByLicenseID(this.LicenseID);
+
+                return _DetainedInfo;
             }
         }
 
@@ -280,7 +291,7 @@ namespace DVLD_BusinessLayer
                 && ExpirationDate.Date >= DateTime.Today
                 && LicenseClass == 3;
         }
-        public clsLicense RewnewLIcense(string Notes,int UserID) {
+        public clsLicense RenewLIcense(string Notes,int UserID) {
         
             bool isActive = !DeActivateLicense();
 
@@ -323,7 +334,53 @@ namespace DVLD_BusinessLayer
 
 
         }
+        public int ReleaseLicense(int UserID) {
+        
+            
 
+            clsApplication RenewApp=new clsApplication();
+
+            RenewApp.PrepareApplication(this.DriverInfo.PersonID, (int)clsApplication.enApplicationType.ReleaseDetainedDrivingLicsense,  UserID);
+
+
+           
+                if (!RenewApp.Save())
+                    return -1;
+            
+
+
+            if(!this.Detained.ReleaseDetainedLicense(UserID, RenewApp.ApplicationID))
+            {
+                return -1;
+            }
+
+            return RenewApp.ApplicationID;
+
+
+        }
+
+        public int Detain(Decimal FineFees, int CreatedByUserID)
+        {
+            clsDetainedLicense detainedLicense = new clsDetainedLicense();
+            detainedLicense.LicenseID = this.LicenseID;
+            detainedLicense.DetainDate = DateTime.Now;
+            detainedLicense.FineFees = FineFees;
+            detainedLicense.CreatedByUserID = CreatedByUserID;
+
+            if (!detainedLicense.Save())
+            {
+
+                return -1;
+            }
+
+            return detainedLicense.DetainID;
+
+        }
+
+        public bool IsDetained()
+        {
+            return clsDetainedLicense.IsLicenseDetained(this.LicenseID);
+        }
         //private bool _IsValid()
         //{
         //    return clsValidation.IsLicenseValid(this.LicenseDTO);

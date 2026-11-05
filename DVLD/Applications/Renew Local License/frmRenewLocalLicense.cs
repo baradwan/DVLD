@@ -1,4 +1,6 @@
-﻿using DVLD.Licenses.Local_License;
+﻿using DVLD.Licenses;
+using DVLD.Licenses.Local_License;
+using DVLD.Licenses.Local_License.Control;
 using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -18,7 +20,9 @@ namespace DVLD.Applications.Renew_Local_License
         clsLicense _SelectedLicese;
         public frmRenewLocalLicense()
         {
+
             InitializeComponent();
+           
             ctrlDriverInfoWithFilter1.OnLicenseSelected += ctrlDriverInfoWithFilter1_OnLicenseSelected;
             btnRenew.Enabled = false;
             llShowLicenseInfo.Visible = false;
@@ -75,6 +79,8 @@ namespace DVLD.Applications.Renew_Local_License
         {
 
             _SelectedLicese = License;
+            if (_SelectedLicese == null)
+                return;
             _LoadNewAPPLicense();
 
             if (!_LicenseValidaty())
@@ -90,7 +96,7 @@ namespace DVLD.Applications.Renew_Local_License
                 return;
             }
 
-            clsLicense RenewLicense = _SelectedLicese.RewnewLIcense(txtNote.Text.Trim(), clsCurrentUser.User.userID);
+            clsLicense RenewLicense = _SelectedLicese.RenewLIcense(txtNote.Text.Trim(), clsCurrentUser.User.userID);
 
             if (RenewLicense == null)
             {
@@ -115,6 +121,17 @@ namespace DVLD.Applications.Renew_Local_License
         private void llShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmShowLicenseInfo frm=new frmShowLicenseInfo(_SelectedLicese);
+            frm.ShowDialog();
+        }
+
+        private void ctrlDriverInfoWithFilter1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(_SelectedLicese.DriverInfo.PersonID);
             frm.ShowDialog();
         }
     }

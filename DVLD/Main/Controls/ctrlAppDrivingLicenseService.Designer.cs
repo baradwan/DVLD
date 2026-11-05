@@ -137,6 +137,7 @@
             this.btnReleaseDetained.TabIndex = 4;
             this.btnReleaseDetained.Text = "Release Detained Driving Licesnse";
             this.btnReleaseDetained.UseVisualStyleBackColor = false;
+            this.btnReleaseDetained.Click += new System.EventHandler(this.btnReleaseDetained_Click);
             // 
             // btnReplacementLostDamage
             // 
